@@ -1,0 +1,708 @@
+<title>Рост Пронтосана и Браунодина</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: одна колонка ~1040px, липкая навигация по 7 блокам; бирюза = Пронтосан (солевой раствор), йодный янтарь = Браунодин */
+:root {
+  --bg: #f3f6f6;
+  --surface: #ffffff;
+  --surface-2: #e9eff0;
+  --ink: #13232a;
+  --muted: #586a71;
+  --line: #d6e0e2;
+  --saline: #0a7680;
+  --saline-soft: #d7eef0;
+  --iodine: #9c4f17;
+  --iodine-soft: #f5e6d8;
+  --weak: #bf3b27;
+  --weak-soft: #f8e1dc;
+  --warn: #9a6a10;
+  --warn-soft: #f6ecd4;
+  --ok: #2b7449;
+  --ok-soft: #dcefe3;
+  --f-display: "Unbounded", "Onest", system-ui, sans-serif;
+  --f-body: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1518; --surface: #142025; --surface-2: #1b2a30; --ink: #e4edef; --muted: #91a4ab; --line: #26383e;
+    --saline: #4cc2cb; --saline-soft: #133238; --iodine: #e39b5e; --iodine-soft: #3a2616;
+    --weak: #ff7d68; --weak-soft: #3c1d18; --warn: #e6b65a; --warn-soft: #362a12; --ok: #6cc690; --ok-soft: #15301f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1518; --surface: #142025; --surface-2: #1b2a30; --ink: #e4edef; --muted: #91a4ab; --line: #26383e;
+  --saline: #4cc2cb; --saline-soft: #133238; --iodine: #e39b5e; --iodine-soft: #3a2616;
+  --weak: #ff7d68; --weak-soft: #3c1d18; --warn: #e6b65a; --warn-soft: #362a12; --ok: #6cc690; --ok-soft: #15301f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: 16px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+h2 { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.25rem, 1rem + 1.2vw, 1.6rem); letter-spacing: -0.01em; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+p { margin: 0; }
+a { color: var(--saline); }
+.muted { color: var(--muted); }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); font-weight: 600; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--saline); outline-offset: 2px; border-radius: 4px; }
+
+/* Навигация */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 12px; padding-block: 10px; }
+.nav-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { white-space: nowrap; text-decoration: none; color: var(--muted); font-size: 0.86rem; padding: 6px 10px; border-radius: 999px; }
+.nav-links a:hover { color: var(--ink); background: var(--surface-2); }
+.theme-btn { flex: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 12px; font-size: 0.82rem; }
+
+/* Секции */
+section { padding-block: 44px; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+.sec-head { display: grid; gap: 6px; margin-bottom: 22px; max-width: 68ch; }
+.sec-head p { color: var(--muted); }
+
+/* Теги факт/гипотеза */
+.tag { display: inline-block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 7px; border-radius: 5px; vertical-align: 1px; white-space: nowrap; }
+.t-fact { background: var(--saline-soft); color: var(--saline); }
+.t-est { background: var(--warn-soft); color: var(--warn); }
+.t-hyp { background: var(--iodine-soft); color: var(--iodine); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.85rem; color: var(--muted); }
+
+/* Hero */
+.hero { padding-block: 40px 36px; }
+.hero h1 { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.6rem, 1.1rem + 2.6vw, 2.6rem); line-height: 1.12; letter-spacing: -0.02em; max-width: 22ch; }
+.hero h1 .p { color: var(--saline); }
+.hero h1 .b { color: var(--iodine); }
+.thesis { margin-top: 20px; display: grid; gap: 10px; max-width: 70ch; font-size: 1.08rem; }
+.thesis p:first-child { font-weight: 600; }
+.datanote { margin-top: 18px; font-size: 0.86rem; color: var(--muted); max-width: 70ch; }
+.levers { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.lever { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.lever .n { font-family: var(--f-display); font-size: 0.8rem; color: var(--muted); }
+.lever .mech { font-size: 0.9rem; color: var(--muted); }
+.lever .meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.78rem; }
+.pill { border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; background: var(--surface-2); }
+.facts { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.fact { background: var(--surface); padding: 12px 14px; display: grid; gap: 2px; min-width: 0; }
+.fact b { font-family: var(--f-mono); font-size: 1.25rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.fact span { font-size: 0.8rem; color: var(--muted); }
+
+/* Цепочка */
+.chain { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; counter-reset: link; }
+.link { position: relative; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 10px 10px; display: grid; gap: 8px; align-content: start; min-height: 108px; transition: border-color .15s, background .15s; }
+.link:hover { border-color: var(--muted); }
+.link[aria-pressed="true"] { border-color: var(--ink); background: var(--surface-2); }
+.link .num { font-family: var(--f-mono); font-size: 0.72rem; color: var(--muted); }
+.link .nm { font-size: 0.86rem; font-weight: 600; line-height: 1.25; }
+.link .st { justify-self: start; font-size: 0.66rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 6px; border-radius: 4px; }
+.link.weak { border-color: var(--weak); }
+.link.weak::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; border-radius: 10px 10px 0 0; background: var(--weak); }
+.st-weak { background: var(--weak-soft); color: var(--weak); }
+.st-risk { background: var(--warn-soft); color: var(--warn); }
+.st-blind { background: var(--surface-2); color: var(--muted); border: 1px dashed var(--line); }
+.detail { margin-top: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.detail .dh { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+.detail .dh h3 { font-family: var(--f-display); font-weight: 500; font-size: 1.1rem; }
+.detail .col { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.detail ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.93rem; }
+.detail .note { grid-column: 1 / -1; font-size: 0.86rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
+
+/* Калькулятор */
+.calc { display: grid; grid-template-columns: 1.05fr 1fr; gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; min-width: 0; }
+.presets { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.presets button { border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px; padding: 6px 12px; font-size: 0.85rem; }
+.presets button.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.ctl { display: grid; gap: 6px; padding-block: 12px; border-top: 1px solid var(--line); }
+.ctl:first-of-type { border-top: 0; padding-top: 0; }
+.ctl-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.ctl label { font-weight: 600; font-size: 0.95rem; }
+.ctl output { font-family: var(--f-mono); font-size: 1rem; color: var(--saline); white-space: nowrap; }
+.ctl small { color: var(--muted); font-size: 0.8rem; }
+input[type="range"] { width: 100%; accent-color: var(--saline); height: 28px; margin: 0; }
+.result { display: grid; gap: 16px; align-content: start; }
+.big { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.big b { font-family: var(--f-mono); font-weight: 500; font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.delta { font-family: var(--f-mono); font-size: 1rem; padding: 3px 9px; border-radius: 6px; }
+.delta.up { background: var(--ok-soft); color: var(--ok); }
+.delta.flat { background: var(--surface-2); color: var(--muted); }
+.bars { display: grid; gap: 10px; }
+.barrow { display: grid; grid-template-columns: 92px 1fr 64px; gap: 10px; align-items: center; font-size: 0.85rem; }
+.barrow .lbl { color: var(--muted); }
+.barrow .val { font-family: var(--f-mono); text-align: right; font-variant-numeric: tabular-nums; }
+.track { height: 22px; background: var(--surface-2); border-radius: 5px; overflow: hidden; display: flex; }
+.seg { height: 100%; transition: width .25s ease; }
+.seg-core { background: color-mix(in srgb, var(--saline) 55%, var(--surface-2)); }
+.seg-tail { background: color-mix(in srgb, var(--muted) 45%, var(--surface-2)); }
+.seg-new { background: var(--saline); }
+.seg-doc { background: var(--iodine); }
+.seg-fact { background: color-mix(in srgb, var(--ink) 35%, var(--surface-2)); }
+.keys { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--muted); }
+.keys i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+.readout { font-size: 0.93rem; }
+.disclaimer { border: 1px dashed var(--warn); background: var(--warn-soft); color: var(--ink); border-radius: 10px; padding: 12px 14px; font-size: 0.88rem; display: grid; gap: 4px; }
+.disclaimer b { color: var(--warn); }
+.assume { font-size: 0.82rem; color: var(--muted); display: grid; gap: 4px; }
+
+/* План */
+.phases { display: grid; gap: 22px; }
+.phase-h { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; margin-bottom: 8px; }
+.phase-h h3 { font-family: var(--f-display); font-weight: 500; }
+.weeks { display: grid; gap: 8px; }
+.week { display: grid; grid-template-columns: 110px 1fr 1fr; gap: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.week.done { opacity: 0.6; }
+.wk { display: grid; gap: 4px; align-content: start; }
+.wk .w { font-family: var(--f-display); font-size: 0.95rem; font-weight: 500; }
+.wk .d { font-size: 0.78rem; color: var(--muted); }
+.wk label { display: flex; gap: 6px; align-items: center; font-size: 0.78rem; color: var(--muted); cursor: pointer; margin-top: 4px; }
+.wk input { accent-color: var(--ok); width: 16px; height: 16px; }
+.wcol { min-width: 0; display: grid; gap: 6px; align-content: start; }
+.wcol .eyebrow { display: flex; gap: 6px; align-items: center; }
+.wcol .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--saline); }
+.wcol.cc .eyebrow::before { background: var(--ink); border-radius: 50%; }
+.wcol ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 0.92rem; }
+.milestone { justify-self: start; font-size: 0.7rem; font-weight: 600; padding: 2px 7px; border-radius: 4px; background: var(--ok-soft); color: var(--ok); }
+
+/* Инструменты */
+.start { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; margin-bottom: 16px; display: grid; gap: 10px; }
+.start ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 0.93rem; }
+.start code, .tool code { font-family: var(--f-mono); font-size: 0.85em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.tool { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; grid-template-rows: auto auto 1fr auto; gap: 12px; min-width: 0; }
+.tool-h { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+.tool-h h3 { font-size: 1.05rem; }
+.tool-h .no { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); display: block; margin-bottom: 2px; }
+.prio { flex: none; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 5px; letter-spacing: 0.04em; }
+.prio.p1 { background: var(--ink); color: var(--bg); }
+.prio.p2 { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
+.prio.p3 { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
+.meta-row { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.8rem; color: var(--muted); align-items: center; }
+.dots { display: inline-flex; gap: 3px; margin-right: 5px; vertical-align: 0; }
+.dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.dots i.on { background: var(--saline); }
+.tool dl { margin: 0; display: grid; gap: 8px; font-size: 0.92rem; }
+.tool dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; }
+.tool dd { margin: 0; }
+.tool-actions { display: grid; gap: 8px; }
+.copy { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; background: var(--saline); color: var(--bg); font-weight: 600; border-radius: 9px; padding: 10px 14px; font-size: 0.92rem; }
+.copy:hover { filter: brightness(1.08); }
+.copy.ok { background: var(--ok); }
+details.pv summary { cursor: pointer; font-size: 0.85rem; color: var(--muted); list-style: none; }
+details.pv summary::-webkit-details-marker { display: none; }
+details.pv summary::before { content: "▸ "; }
+details.pv[open] summary::before { content: "▾ "; }
+pre.prompt { margin: 8px 0 0; white-space: pre-wrap; word-break: break-word; font-family: var(--f-mono); font-size: 0.78rem; line-height: 1.5; background: var(--surface-2); border-radius: 8px; padding: 12px; max-height: 340px; overflow: auto; }
+
+/* Метрики */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 0.9rem; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 600; background: var(--surface-2); }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .grp { font-size: 0.7rem; color: var(--iodine); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; }
+.rule { margin-top: 14px; font-size: 0.9rem; display: grid; gap: 6px; max-width: 75ch; }
+
+/* Ошибки */
+.mistakes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.mk { background: var(--surface); padding: 16px 18px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.mk b { font-size: 0.97rem; }
+.mk p { font-size: 0.9rem; color: var(--muted); }
+.mk.law b::after { content: "ст. 74 323-ФЗ"; margin-left: 8px; font-size: 0.66rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: var(--weak-soft); color: var(--weak); vertical-align: 2px; white-space: nowrap; }
+footer { padding-block: 28px 48px; font-size: 0.82rem; color: var(--muted); display: grid; gap: 6px; }
+
+@media (max-width: 880px) {
+  .chain { grid-template-columns: 1fr; gap: 0; }
+  .link { min-height: 0; grid-template-columns: 26px 1fr auto; align-items: center; border-radius: 0; border-top-width: 0; padding: 12px; }
+  .link:first-child { border-top-width: 1px; border-radius: 10px 10px 0 0; }
+  .link:last-child { border-radius: 0 0 10px 10px; }
+  .link.weak::before { inset: 0 auto 0 0; width: 3px; height: auto; border-radius: 0; }
+  .link.weak { border-color: var(--line); }
+  .detail { grid-template-columns: 1fr; }
+  .calc { grid-template-columns: 1fr; }
+  .levers { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: repeat(2, 1fr); }
+  .week { grid-template-columns: 1fr; gap: 10px; }
+  .wk { grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; }
+  .tools, .mistakes { grid-template-columns: 1fr; }
+}
+</style>
+
+<nav class="nav" aria-label="Разделы">
+  <div class="wrap">
+    <div class="nav-links">
+      <a href="#vyvod">Вывод</a>
+      <a href="#chain">Цепочка</a>
+      <a href="#calc">Сценарии</a>
+      <a href="#plan">90 дней</a>
+      <a href="#tools">Claude Code</a>
+      <a href="#metrics">Метрики</a>
+      <a href="#mistakes">Ошибки</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Переключить тему">Тема</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<header class="hero" id="vyvod">
+  <p class="eyebrow">Новосибирская область · план на Q4 2026 · 12 октября — 10 января</p>
+  <h1 style="margin-top:10px">Система роста <span class="p">Пронтосана</span> и <span class="b">Браунодина</span></h1>
+  <div class="thesis">
+    <p>Рост лежит не в новых аптеках, а в 177 точках, которые уже купили Пронтосан и не вернулись.</p>
+    <p>Товар продаётся, но не стоит на полке постоянно: из 250 аптек каждый месяц закупают только 100–125.</p>
+    <p>Первые 90 дней — минимальный остаток геля 30 мл в ядре и лучших точках «одной пачки», а врачей подключать только там, где товар уже есть.</p>
+    <p>Браунодин вырастет только после листинга в Протеке и Пульсе: это задача для руководителя и KAM, а не для визитов.</p>
+  </div>
+
+  <div class="levers">
+    <article class="lever">
+      <span class="n">Рычаг 1 · главный</span>
+      <h3>Постоянная полка в ядре и в «одной пачке»</h3>
+      <p class="mech">Минимальный остаток → товар есть, когда приходит пациент → аптека продаёт и дозаказывает.</p>
+      <div class="meta"><span class="pill">Эффект: 1–2 мес</span><span class="pill">Усилия: низкие</span></div>
+    </article>
+    <article class="lever">
+      <span class="n">Рычаг 2 · быстрый, но не ваш</span>
+      <h3>Листинг Браунодина у Протека и Пульса</h3>
+      <p class="mech">Нет листинга → аптеки этих дистрибьюторов не могут заказать → полевая работа не конвертируется.</p>
+      <div class="meta"><span class="pill">Эффект: 1–3 мес</span><span class="pill">Усилия: эскалация</span></div>
+    </article>
+    <article class="lever">
+      <span class="n">Рычаг 3 · медленный</span>
+      <h3>Врачи рядом с полкой</h3>
+      <p class="mech">Рекомендация хирурга или травмпункта → спрос в соседней аптеке, где товар уже стоит. <span class="tag t-hyp">Гипотеза</span></p>
+      <div class="meta"><span class="pill">Эффект: 2–4 мес</span><span class="pill">Усилия: высокие</span></div>
+    </article>
+  </div>
+
+  <div class="facts" aria-label="Факты Q3 2026">
+    <div class="fact"><b>≈4 300</b><span>шт Пронтосана за Q3</span></div>
+    <div class="fact"><b>177 / 250</b><span>аптек взяли 1–2 уп за квартал</span></div>
+    <div class="fact"><b>773</b><span>гель 30 мл, сентябрь, шт</span></div>
+    <div class="fact"><b>89</b><span>шт Браунодина, только Катрен</span></div>
+  </div>
+
+  <div class="datanote legend" style="margin-top:16px">
+    <span><span class="tag t-fact">Факт</span> из вашей сводки по выгрузке Q3</span>
+    <span><span class="tag t-est">Оценка</span> расчёт из фактов, уточнит скрипт</span>
+    <span><span class="tag t-hyp">Гипотеза</span> проверить на данных</span>
+  </div>
+  <p class="datanote">Цифры взяты из вашей сводки по Q3 2026. Это sell-in: отгрузки дистрибьюторов в аптеки, а не продажи покупателям. После первого прогона инструмента 1 замените оценки фактами.</p>
+</header>
+
+<section id="chain">
+  <div class="sec-head">
+    <p class="eyebrow">Блок 2</p>
+    <h2>Причинная цепочка продажи</h2>
+    <p>Нажмите на звено: что его ломает, как это видно в выгрузке и что делать. Цепь рвётся в самом слабом месте, сейчас это полка.</p>
+  </div>
+  <div class="chain" id="chainList" role="group" aria-label="Звенья цепочки"></div>
+  <div class="detail" id="chainDetail" aria-live="polite"></div>
+</section>
+
+<section id="calc">
+  <div class="sec-head">
+    <p class="eyebrow">Блок 3 · Пронтосан</p>
+    <h2>Калькулятор сценариев роста</h2>
+    <p>Двигайте рычаги и смотрите, какой из них даёт больше штук за квартал по сравнению с фактом Q3.</p>
+  </div>
+  <div class="calc">
+    <div class="panel">
+      <div class="presets" id="presets">
+        <button type="button" data-p="careful">Осторожный</button>
+        <button type="button" data-p="work">Рабочий</button>
+        <button type="button" data-p="boom">Взрывной</button>
+      </div>
+      <div class="ctl">
+        <div class="ctl-top"><label for="sN">Аптек с регулярной закупкой</label><output id="oN"></output></div>
+        <input type="range" id="sN" min="73" max="250" step="1" value="113">
+        <small>Сейчас ≈73 <span class="tag t-est">Оценка</span> = 250 покупавших − 177 «одна пачка». Прирост идёт из «одной пачки».</small>
+      </div>
+      <div class="ctl">
+        <div class="ctl-top"><label for="sP">Упаковок на новую регулярную точку в месяц</label><output id="oP"></output></div>
+        <input type="range" id="sP" min="1" max="8" step="0.5" value="3">
+        <small>Задаётся договорённостью о минимальном остатке: 2–3 уп геля 30 мл на полке.</small>
+      </div>
+      <div class="ctl">
+        <div class="ctl-top"><label for="sR">Доля точек с дозаказом каждый месяц</label><output id="oR"></output></div>
+        <input type="range" id="sR" min="30" max="100" step="5" value="70">
+        <small>Сколько новых регулярных точек реально заказывает в среднем месяце.</small>
+      </div>
+      <div class="ctl">
+        <div class="ctl-top"><label for="sD">Эффект врачебной работы</label><output id="oD"></output></div>
+        <input type="range" id="sD" min="0" max="25" step="1" value="5">
+        <small><span class="tag t-hyp">Гипотеза</span> Прирост к спросу во всех точках. Проверяйте инструментом 6, до проверки держите 0–5%.</small>
+      </div>
+    </div>
+
+    <div class="panel result">
+      <div>
+        <p class="eyebrow">Сценарий, шт за квартал</p>
+        <div class="big" style="margin-top:6px"><b id="rTotal">0</b><span class="delta up" id="rDelta">+0%</span></div>
+        <p class="muted" style="margin-top:6px;font-size:0.9rem" id="rMonth"></p>
+      </div>
+      <div class="bars">
+        <div class="barrow"><span class="lbl">Факт Q3</span><div class="track"><div class="seg seg-fact" id="bFact"></div></div><span class="val">4 300</span></div>
+        <div class="barrow"><span class="lbl">Сценарий</span><div class="track"><div class="seg seg-core" id="bCore"></div><div class="seg seg-tail" id="bTail"></div><div class="seg seg-new" id="bNew"></div><div class="seg seg-doc" id="bDoc"></div></div><span class="val" id="vTotal"></span></div>
+        <div class="keys">
+          <span><i class="seg-core"></i>Ядро <span class="mono" id="kCore"></span></span>
+          <span><i class="seg-tail"></i>Хвост <span class="mono" id="kTail"></span></span>
+          <span><i class="seg-new"></i>Новые регулярные <span class="mono" id="kNew"></span></span>
+          <span><i class="seg-doc"></i>Врачи <span class="mono" id="kDoc"></span></span>
+        </div>
+      </div>
+      <p class="readout" id="rRead"></p>
+      <div class="disclaimer">
+        <b>Это модель для сравнения сценариев, а не прогноз.</b>
+        <span>Она показывает, какой рычаг сильнее. Она не учитывает сезонность, выпадение текущего ядра, акции сетей и запасы на складах.</span>
+      </div>
+      <div class="assume">
+        <span>Формула: (ядро 4 035 + хвост 1,5 уп × оставшиеся точки + новые точки × 3 мес × упаковки × доля дозаказа) × (1 + эффект врачей).</span>
+        <span>Ядро 4 035 и хвост 1,5 уп/точку <span class="tag t-est">Оценка</span> подобраны, чтобы сойтись с фактом 4 300.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="sec-head">
+    <p class="eyebrow">Блок 4</p>
+    <h2>План на 90 дней по неделям</h2>
+    <p>Слева полевая работа, справа задача для Claude Code на ту же неделю. Отмечайте закрытые недели: отметки хранятся в этом браузере.</p>
+  </div>
+  <div class="phases" id="phases"></div>
+</section>
+
+<section id="tools">
+  <div class="sec-head">
+    <p class="eyebrow">Блок 5</p>
+    <h2>Инструменты Claude Code</h2>
+    <p>Порядок важен: P1 даёт эффект в первый месяц. Каждый следующий инструмент опирается на файлы предыдущего.</p>
+  </div>
+  <div class="start">
+    <h3>Старт за один вечер</h3>
+    <ol>
+      <li>Сначала узнайте у руководителя или IT, можно ли обрабатывать выгрузки дистрибьюторов в Claude Code. Данные уходят во внешний сервис.</li>
+      <li>Создайте папку <code>pharma/</code> и внутри <code>data/</code>. Положите туда Фарма.csv и каждую новую выгрузку.</li>
+      <li>Откройте терминал в <code>pharma/</code>, запустите <code>claude</code> и вставьте промпт инструмента 1.</li>
+      <li>Сверьте три цифры вручную: всего штук Пронтосана, число аптек, число «одна пачка». Совпало — доверяйте скрипту.</li>
+      <li>Попросите Claude Code завести <code>git</code> в папке: так ни одна версия скрипта не потеряется.</li>
+    </ol>
+  </div>
+  <div class="tools" id="toolList"></div>
+</section>
+
+<section id="metrics">
+  <div class="sec-head">
+    <p class="eyebrow">Блок 6</p>
+    <h2>Метрики для ежемесячной проверки</h2>
+    <p>Инструмент 1 считает их автоматически. Целевые значения — ориентиры для этого плана, а не рыночная норма.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Метрика</th><th>Как считать в выгрузке</th><th>База Q3</th><th>Прогресс к январю</th></tr></thead>
+      <tbody>
+        <tr><td><span class="grp">Полка</span>Покупающие точки Пронтосана в месяц</td><td>Уникальные аптеки с qty&nbsp;&gt;&nbsp;0 за месяц</td><td class="num">100–125 <span class="tag t-fact">Факт</span></td><td class="num">140+</td></tr>
+        <tr><td><span class="grp">Полка</span>Регулярные точки</td><td>Закупка в 2 из 3 последних месяцев</td><td class="num">≈73 <span class="tag t-est">Оценка</span></td><td class="num">+10 в месяц</td></tr>
+        <tr><td><span class="grp">Полка</span>Доля «одна пачка»</td><td>Точки с 1–2 уп за 3 мес / все покупавшие</td><td class="num">71% <span class="tag t-fact">Факт</span></td><td class="num">ниже 55%</td></tr>
+        <tr><td><span class="grp">Полка</span>Выпавшие точки</td><td>Была закупка, затем 45+ дней без закупки</td><td class="num">посчитать</td><td>Меньше, чем новых регулярных</td></tr>
+        <tr><td><span class="grp">Объём</span>Пронтосан, шт в месяц</td><td>Сумма qty по бренду</td><td class="num">≈1 430 <span class="tag t-est">Оценка</span></td><td>Рост по скользящим 3 мес</td></tr>
+        <tr><td><span class="grp">Объём</span>Гель 30 мл, шт в месяц</td><td>Сумма qty по SKU</td><td class="num">773 в сент. <span class="tag t-fact">Факт</span></td><td class="num">≥ 800 стабильно</td></tr>
+        <tr><td><span class="grp">Объём</span>Гель 250 г, шт в месяц</td><td>Сумма qty по SKU, отдельно в точках у ЛПУ</td><td class="num">≈100 <span class="tag t-fact">Факт</span></td><td>Рост в точках у паллиатива и хирургии</td></tr>
+        <tr><td><span class="grp">Сети</span>Уп на точку сети в месяц</td><td>qty сети / покупавшие точки сети</td><td>Мелздрав, Обьфарма и др.: «одна пачка»</td><td class="num">≥ 2 уп там, где согласован остаток</td></tr>
+        <tr><td><span class="grp">Браунодин</span>Дистрибьюторы с отгрузкой</td><td>Уникальные дистрибьюторы по бренду</td><td class="num">1 (Катрен) <span class="tag t-fact">Факт</span></td><td class="num">3</td></tr>
+        <tr><td><span class="grp">Браунодин</span>Штук за квартал</td><td>Сумма qty по бренду</td><td class="num">89 <span class="tag t-fact">Факт</span></td><td>Рост после листинга, раньше не ждать</td></tr>
+        <tr><td><span class="grp">Врачи</span>Аптеки у целевых ЛПУ</td><td>Закупки в радиусе 1 км до/после, против контрольной группы</td><td>посчитать</td><td>Рост выше контрольной группы</td></tr>
+        <tr><td><span class="grp">Дисциплина</span>Выполненные договорённости</td><td>Трекер визитов: выполнено / всего</td><td>—</td><td class="num">≥ 60%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="rule">
+    <p><b>Правило чтения.</b> Сети закупают партиями, поэтому один месяц sell-in шумный. Решения принимайте по скользящим трём месяцам.</p>
+    <p><b>Чего нет в выгрузке.</b> Остатков на полке и продаж покупателям в ней нет. Остаток проверяйте на визите. Данные о продажах сетей (sell-out) запросите через KAM, если у компании есть такой обмен.</p>
+  </div>
+</section>
+
+<section id="mistakes">
+  <div class="sec-head">
+    <p class="eyebrow">Блок 7</p>
+    <h2>Ошибки, которых стоит избежать</h2>
+  </div>
+  <div class="mistakes">
+    <div class="mk"><b>Гнаться за охватом</b><p>Ещё 50 аптек по одной пачке ничего не дают. Одна точка с регулярным остатком приносит больше, чем пять разовых.</p></div>
+    <div class="mk"><b>Звать врачей туда, где нет товара</b><p>Рекомендация без полки уходит к аналогу. Сначала наличие в соседних аптеках, потом мероприятие.</p></div>
+    <div class="mk"><b>Путать sell-in с продажами</b><p>Отгрузка в аптеку — это запас, а не покупка. Рост отгрузки без дозаказа значит, что товар лежит.</p></div>
+    <div class="mk"><b>Судить по одному месяцу</b><p>Партия сети легко даёт «+40%», а следующий месяц «−30%». Смотрите на тренд трёх месяцев.</p></div>
+    <div class="mk"><b>Распыляться на слабые аудитории</b><p>Гинекологи и широкие дерматологические мероприятия не создают спроса на ваши формы. Держитесь хирургии, травмпунктов, диабетической стопы и паллиатива.</p></div>
+    <div class="mk"><b>Обещать сетям то, что не согласовано</b><p>Скидки, бонусы и маркетинговые условия даёт компания. Сначала согласование с руководителем, потом разговор с закупщиком.</p></div>
+    <div class="mk law"><b>Подарки и «договорённости» с фармацевтом</b><p>Фармацевт не вправе принимать подарки и заключать соглашения о предложении определённых товаров. Он обязан сообщать об аналогах. Ваш рычаг — наличие и знание продукта.</p></div>
+    <div class="mk law"><b>Визиты к врачам вне порядка ЛПУ</b><p>Встречи с медработниками возможны только в порядке, который установила администрация медорганизации. Никаких образцов для раздачи пациентам и развлечений за счёт компании.</p></div>
+    <div class="mk"><b>Не записывать договорённости</b><p>Через месяц не вспомнить, кто обещал остаток. Без трекера нельзя проверить, что сработало.</p></div>
+    <div class="mk"><b>Строить сложное раньше простого</b><p>Карта и дашборд бесполезны, пока не работает скрипт разбора выгрузки. Начинайте с инструмента 1.</p></div>
+    <div class="mk"><b>Верить скрипту без сверки</b><p>Claude Code может неверно распознать колонку или сеть. Сверяйте 2–3 итоговые цифры вручную после каждого изменения кода.</p></div>
+    <div class="mk"><b>Загружать данные без разрешения</b><p>Выгрузки дистрибьюторов — коммерческие данные. Проверьте политику компании до первого запуска.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p>Источник цифр: ваша сводка по выгрузке Фарма.csv за июль–сентябрь 2026. Рыночная статистика не использовалась.</p>
+  <p>Ограничения: ст. 74 323-ФЗ, правила рекламы ЛП и медизделий, внутренние правила компании. Все материалы для врачей и фармацевтов согласуйте с медотделом и комплаенсом.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var store = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
+  };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+  var fmt = function (n) { return Math.round(n).toLocaleString("ru-RU"); };
+
+  /* Тема */
+  var root = document.documentElement;
+  var saved = store.get("pg-theme");
+  if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  $("themeBtn").addEventListener("click", function () {
+    var cur = root.getAttribute("data-theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    store.set("pg-theme", next);
+  });
+
+  /* Цепочка */
+  var ST = { weak: ["st-weak", "Слабое звено"], risk: ["st-risk", "Риск"], blind: ["st-blind", "Не видно в данных"] };
+  var chain = [
+    { n: "Врач рекомендует", s: "risk",
+      br: ["Врач советует «промывать раны» без названия и формы.", "Работа идёт с аудиториями без спроса на ваши формы: гинекологи, широкая дерматология.", "Встречи возможны только в порядке, установленном администрацией ЛПУ."],
+      dt: ["Напрямую не видно.", "Косвенно: рост закупок аптек в 1 км от ЛПУ после мероприятия против контрольной группы (инструмент 6)."],
+      td: ["Фокус: хирурги поликлиник, травмпункты, кабинеты диабетической стопы, паллиатив и патронаж.", "Формат: мероприятия, согласованные с администрацией; информация строго по инструкции.", "Идти к врачам только когда в соседних аптеках есть товар (инструмент 5)."],
+      note: "Ст. 74 323-ФЗ: никаких подарков, развлечений и образцов для раздачи пациентам." },
+    { n: "Пациент идёт в аптеку", s: "blind",
+      br: ["Пациент забыл название или форму.", "Покупает у дома, а не у поликлиники."],
+      dt: ["В sell-in не видно.", "Косвенно: спрос «размазан» по разовым точкам без связи с ЛПУ."],
+      td: ["Наличие в аптеках по пути от ЛПУ и в крупных точках спальных районов.", "Паллиатив и патронаж: ухаживающие родственники покупают регулярно, вероятно гель 250 г и раствор 350 мл. <span class=\"tag t-hyp\">Гипотеза</span>"],
+      note: "Проверка гипотезы: закупки геля 250 г и раствора в точках рядом с паллиативными службами (инструмент 5 + 1)." },
+    { n: "Товар на полке", s: "weak",
+      br: ["Аптека взяла 1 пачку, продала и не вернулась.", "Товара нет в матрице сети или в автозаказе.", "Сети ставят «одну пачку на точку»: Мелздрав, Обьфарма, Альфа Живика, Эркафарм/Ригла, Магнит Аптека, Витекс."],
+      dt: ["177 из 250 аптек взяли 1–2 уп за квартал. <span class=\"tag t-fact\">Факт</span>", "Ежемесячно покупают лишь 100–125 точек. <span class=\"tag t-fact\">Факт</span>", "Точка с одной закупкой и затем 45+ дней тишины."],
+      td: ["Отдельные аптеки: договориться с заведующей о минимальном остатке 2–3 уп геля 30 мл.", "Сети: ввод в матрицу и автозаказ через категорийного менеджера, с цифрами из выгрузки (инструмент 3).", "На визите: фото полки и остаток в трекер (инструмент 4)."],
+      note: "Это звено даёт самый быстрый эффект при самых низких усилиях. С него начинаются первые четыре недели плана." },
+    { n: "Первостольник знает продукт", s: "risk",
+      br: ["Фармацевт не знает, когда уместен гель, а когда раствор.", "Товара нет — фармацевт законно предлагает доступный аналог."],
+      dt: ["В выгрузке не видно.", "Косвенно: точка с товаром на полке, но без дозаказа."],
+      td: ["Короткое обучение по инструкции: формы, показания, способ применения (инструмент 7).", "Главный рычаг здесь тоже наличие: фармацевту нужно что показать."],
+      note: "Ст. 74 323-ФЗ запрещает фармацевту соглашения о предложении определённых товаров и обязывает сообщать об аналогах. Не просите «не предлагать замену»." },
+    { n: "Покупка", s: "blind",
+      br: ["Цена на полке выше ожиданий покупателя.", "Нужной формы нет: есть раствор, а нужен гель."],
+      dt: ["Sell-in не показывает продажи покупателям.", "Где взять: данные сетей (sell-out) через KAM; на визите спросить, сколько ушло за месяц."],
+      td: ["Держать на полке главный SKU — гель 30 мл. Остальные формы — в точки у профильных ЛПУ.", "Фиксировать в трекере ответ аптеки «сколько продали» — это ваш sell-out вручную."],
+      note: "" },
+    { n: "Аптека дозаказывает", s: "risk",
+      br: ["Автозаказ не видит спроса при продаже 1 уп в месяц.", "Закупщик не заказывает SKU вне матрицы."],
+      dt: ["Интервал между закупками точки.", "Доля точек, купивших в 2 из 3 месяцев.", "Список выпавших: 45+ дней без закупки."],
+      td: ["Договорённость о минимальном остатке превращает разовую закупку в регулярную.", "Список «пора дозаказать» каждую неделю попадает в план визитов (инструмент 2)."],
+      note: "" },
+    { n: "Отгрузка дистрибьютора", s: "weak",
+      br: ["Браунодин отгружает только Катрен.", "Протек и Пульс его не отгружают: их аптеки не могут заказать."],
+      dt: ["Браунодин: 89 шт за квартал, один дистрибьютор. <span class=\"tag t-fact\">Факт</span>", "Пустые ячейки в таблице «дистрибьютор × SKU»."],
+      td: ["Эскалировать руководителю и KAM запрос на листинг у Протека и Пульса.", "Аргумент: сколько аптек берут Пронтосан у Протека и Пульса — это готовые точки для Браунодина (посчитает инструмент 1).", "Проверить, все ли SKU Пронтосана есть у всех трёх дистрибьюторов."],
+      note: "Для Браунодина это звено слабее полки: без него полевая работа не даст продаж." }
+  ];
+  var cl = $("chainList"), cd = $("chainDetail");
+  var li = function (arr) { return "<ul>" + arr.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>"; };
+  function showLink(i) {
+    var c = chain[i];
+    Array.prototype.forEach.call(cl.children, function (b, j) { b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    cd.innerHTML =
+      '<div class="dh"><span class="mono muted">Звено ' + (i + 1) + ' из 7</span><h3>' + esc(c.n) + '</h3><span class="st ' + ST[c.s][0] + '" style="font-size:0.7rem;font-weight:600;padding:2px 7px;border-radius:4px;text-transform:uppercase">' + ST[c.s][1] + '</span></div>' +
+      '<div class="col"><p class="eyebrow">Что ломает</p>' + li(c.br) + '</div>' +
+      '<div class="col"><p class="eyebrow">Как видно в данных</p>' + li(c.dt) + '</div>' +
+      '<div class="col"><p class="eyebrow">Что делать</p>' + li(c.td) + '</div>' +
+      (c.note ? '<p class="note">' + c.note + '</p>' : '');
+  }
+  chain.forEach(function (c, i) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "link" + (c.s === "weak" ? " weak" : "");
+    b.innerHTML = '<span class="num">' + String(i + 1).padStart(2, "0") + '</span><span class="nm">' + esc(c.n) + '</span><span class="st ' + ST[c.s][0] + '">' + ST[c.s][1] + '</span>';
+    b.addEventListener("click", function () { showLink(i); });
+    cl.appendChild(b);
+  });
+  showLink(2);
+
+  /* Калькулятор */
+  var BASE = 4300, CORE = 4035, CORE_N = 73, TAIL_N = 177, TAIL_U = 1.5;
+  var sN = $("sN"), sP = $("sP"), sR = $("sR"), sD = $("sD");
+  var PRE = { careful: [95, 2, 70, 0], work: [113, 3, 70, 5], boom: [220, 5, 85, 15] };
+  function calc() {
+    var N = +sN.value, p = +sP.value, r = +sR.value / 100, d = +sD.value / 100;
+    var conv = N - CORE_N;
+    var tail = Math.max(0, TAIL_N - conv) * TAIL_U;
+    var neu = conv * 3 * p * r;
+    var sub = CORE + tail + neu;
+    var doc = sub * d;
+    var total = sub + doc;
+    var pct = (total / BASE - 1) * 100;
+    $("oN").textContent = N + " (+" + conv + ")";
+    $("oP").textContent = String(p).replace(".", ",") + " уп";
+    $("oR").textContent = Math.round(r * 100) + "%";
+    $("oD").textContent = "+" + Math.round(d * 100) + "%";
+    $("rTotal").textContent = fmt(Math.round(total / 10) * 10);
+    var dl = $("rDelta");
+    dl.textContent = (pct >= 0 ? "+" : "") + pct.toFixed(0) + "% к Q3";
+    dl.className = "delta " + (pct >= 3 ? "up" : "flat");
+    $("rMonth").textContent = "≈" + fmt(total / 3) + " шт в месяц против ≈1 433 в Q3";
+    var max = Math.max(total, BASE) * 1.04;
+    var w = function (v) { return (v / max * 100) + "%"; };
+    $("bFact").style.width = w(BASE);
+    $("bCore").style.width = w(CORE); $("bTail").style.width = w(tail); $("bNew").style.width = w(neu); $("bDoc").style.width = w(doc);
+    $("vTotal").textContent = fmt(Math.round(total / 10) * 10);
+    $("kCore").textContent = fmt(CORE); $("kTail").textContent = fmt(tail); $("kNew").textContent = "+" + fmt(neu); $("kDoc").textContent = "+" + fmt(doc);
+    var lost = (TAIL_N - Math.max(0, TAIL_N - conv)) * TAIL_U;
+    var gainNew = neu - lost;
+    var msg;
+    if (conv === 0 && d === 0) msg = "Без новых регулярных точек и врачей объём остаётся на уровне Q3.";
+    else if (gainNew >= doc) msg = "Главный вклад даёт перевод " + conv + " точек из «одной пачки» в регулярные: +" + fmt(gainNew) + " шт. Врачи добавляют +" + fmt(doc) + " шт поверх.";
+    else msg = "В этом сценарии больше даёт врачебная работа (+" + fmt(doc) + " шт), но это гипотеза. Проверьте её инструментом 6, прежде чем на неё опираться.";
+    $("rRead").textContent = msg;
+    var key = null;
+    Object.keys(PRE).forEach(function (k) { var v = PRE[k]; if (v[0] === N && v[1] === p && v[2] === Math.round(r * 100) && v[3] === Math.round(d * 100)) key = k; });
+    Array.prototype.forEach.call($("presets").children, function (b) { b.classList.toggle("on", b.getAttribute("data-p") === key); });
+  }
+  [sN, sP, sR, sD].forEach(function (s) { s.addEventListener("input", calc); });
+  $("presets").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    var v = PRE[b.getAttribute("data-p")];
+    sN.value = v[0]; sP.value = v[1]; sR.value = v[2]; sD.value = v[3]; calc();
+  });
+  calc();
+
+  /* План */
+  var phases = [
+    { t: "Месяц 1 · Полка в ядре", s: "Недели 1–4. Цель: минимальный остаток в 40 лучших точках, запрос на листинг Браунодина подан.", w: [
+      { d: "12–18 окт", f: ["Обсудить с руководителем листинг Браунодина в Протеке и Пульсе, попросить подключить KAM.", "Узнать политику компании по обработке выгрузок в Claude Code."], c: ["Инструмент 1: разбор Q3. Сверить 4 300 шт, 250 аптек, 177 «одна пачка».", "Посчитать аптеки Протека и Пульса с Пронтосаном — аргумент для листинга."] },
+      { d: "19–25 окт", f: ["15–20 визитов: ядро и «одна пачка с потенциалом».", "Договорённость о минимальном остатке геля 30 мл: 2–3 уп.", "Фото полки и остаток после каждого визита."], c: ["Инструмент 2: первый список целей на неделю.", "Инструмент 4: трекер визитов на телефоне."] },
+      { d: "26 окт – 1 ноя", f: ["Категорийные менеджеры Мелздрав и Обьфарма: гель 30 мл в матрицу всех точек, минимальный остаток.", "Условия заранее согласовать с руководителем."], c: ["Инструмент 3: записка для каждой сети на цифрах её точек."] },
+      { d: "2–8 ноя", f: ["Список целевых ЛПУ: хирургия поликлиник, травмпункты, диабетическая стопа, паллиатив.", "Узнать у администраций порядок взаимодействия.", "Повторные визиты в точки недели 2: выполнен ли остаток."], c: ["Инструмент 5: пары «ЛПУ — аптека» и список «дыр»."] }
+    ]},
+    { t: "Месяц 2 · Врачи рядом с полкой", s: "Недели 5–9. Цель: закрыть «дыры» у ЛПУ и провести первые согласованные мероприятия.", w: [
+      { d: "9–15 ноя", m: "Проверка №1", f: ["Закрыть «дыры»: аптеки у целевых ЛПУ без товара — визит и минимальный остаток."], c: ["Разбор октябрьской выгрузки: метрики блока 6.", "Инструмент 6: эффект круглого стола с дерматологами."] },
+      { d: "16–22 ноя", f: ["Мероприятие для хирургов или травмпункта в порядке, согласованном с администрацией.", "Только там, где в соседних аптеках товар уже есть."], c: ["Инструмент 7: черновик памятки → в медотдел и комплаенс."] },
+      { d: "23–29 ноя", f: ["Кабинеты диабетической стопы: образовательное событие через администрацию.", "Альфа Живика, Эркафарм/Ригла, Магнит Аптека, Витекс — через KAM: матрицы федеральных сетей решаются не в регионе."], c: ["Инструмент 3 для федеральных сетей: их точки в НСО и «одна пачка»."] },
+      { d: "30 ноя – 6 дек", f: ["Паллиатив и патронаж: выездные службы, хосписы. Фокус на гель 250 г и раствор 350 мл.", "Узнать статус листинга Браунодина."], c: ["Инструмент 2: обновить сегменты с учётом пар и визитов."] },
+      { d: "7–13 дек", m: "Проверка №2", f: ["Повторный обход ядра: наличие во всех точках после мероприятий."], c: ["Разбор ноября и инструмент 6 по мероприятиям ноября.", "Инструмент 8: дашборд, первая версия."] }
+    ]},
+    { t: "Месяц 3 · Закрепление", s: "Недели 10–13. Цель: показать результат на цифрах и масштабировать то, что сработало.", w: [
+      { d: "14–20 дек", f: ["Показать руководителю дашборд: что сработало, что нет. Запросить ресурсы под то, что работает.", "Если Браунодин в листинге — запуск в точки у хирургов и травмпунктов."], c: ["Дашборд для руководителя: одна ссылка, пять метрик."] },
+      { d: "21–27 дек", f: ["Договориться о запасе на январские праздники в ядре.", "Проверить на прошлых данных, растёт ли спрос зимой. <span class=\"tag t-hyp\">Гипотеза</span>"], c: ["Список «пора дозаказать»: точки без закупки 30+ дней."] },
+      { d: "28 дек – 3 янв", f: ["Праздники: минимум поля.", "Разобрать трекер: какие договорённости не выполнены и почему."], c: ["README и одна команда на ежемесячный прогон всех скриптов."] },
+      { d: "4–10 янв", m: "Проверка №3", f: ["Итоги 90 дней. План на Q1 на основе того, что сработало."], c: ["Разбор декабря, Q4 против Q3.", "Инструмент 6 по всем мероприятиям квартала."] }
+    ]}
+  ];
+  var ph = $("phases"), wn = 0;
+  var doneSet = {};
+  try { doneSet = JSON.parse(store.get("pg-done") || "{}") || {}; } catch (e) { doneSet = {}; }
+  phases.forEach(function (p) {
+    var box = document.createElement("div");
+    var html = '<div class="phase-h"><h3>' + esc(p.t) + '</h3><span class="muted" style="font-size:0.9rem">' + esc(p.s) + '</span></div><div class="weeks">';
+    p.w.forEach(function (w) {
+      wn++;
+      var id = "wk" + wn;
+      html += '<article class="week' + (doneSet[id] ? " done" : "") + '" id="row-' + id + '">' +
+        '<div class="wk"><span class="w">Неделя ' + wn + '</span><span class="d">' + esc(w.d) + '</span>' +
+        (w.m ? '<span class="milestone">' + esc(w.m) + '</span>' : '') +
+        '<label for="' + id + '"><input type="checkbox" id="' + id + '"' + (doneSet[id] ? " checked" : "") + '>Готово</label></div>' +
+        '<div class="wcol"><p class="eyebrow">Поле</p>' + li(w.f) + '</div>' +
+        '<div class="wcol cc"><p class="eyebrow">Claude Code</p>' + li(w.c) + '</div></article>';
+    });
+    box.innerHTML = html + "</div>";
+    ph.appendChild(box);
+  });
+  ph.addEventListener("change", function (e) {
+    var t = e.target; if (!t.id || t.type !== "checkbox") return;
+    doneSet[t.id] = t.checked;
+    $("row-" + t.id).classList.toggle("done", t.checked);
+    store.set("pg-done", JSON.stringify(doneSet));
+  });
+
+  /* Инструменты */
+  var FMT = "Формат выгрузки: без заголовков, разделитель «;», кодировка UTF-8 с BOM.\nКолонки по порядку: date; distributor_code; distributor; region; sku_code; sku_name; client; qty (штуки).\nЭто sell-in: отгрузки дистрибьюторов в аптеки, не продажи покупателям.";
+  var tools = [
+    { t: "Ежемесячный разбор выгрузки", p: 1, lvl: 1, lv: "Легко", time: "1 вечер",
+      pr: "Каждый месяц вручную не видно, какие точки пришли, ушли и застряли на одной пачке.",
+      ef: "Показывает, где рвётся полка, за 5 минут. Это вход для всех остальных инструментов.",
+      q: "Ты — аналитик продаж. В папке data/ лежат CSV-выгрузки отгрузок дистрибьюторов в аптеки Новосибирской области.\n" + FMT + "\n\nСделай скрипт на Python (pandas) analyze.py, который:\n1. Читает все CSV из data/, задаёт имена колонок, приводит дату к месяцу, qty к числу. Отрицательные qty (возвраты) считает отдельно.\n2. Определяет бренд по наименованию: Пронтосан или Браунодин. Нормализует SKU в короткие названия: Пронтосан р-р 350 мл, гель 30 мл, гель 250 г; Браунодин р-р 100 мл, р-р 1000 мл, мазь 20 г, мазь 100 г. Нераспознанные строки выводит списком.\n3. Нормализует названия аптек (регистр, кавычки, пробелы) и определяет сеть по словарю chains.csv (создай его с сетями: Мелздрав, Обьфарма, Альфа Живика, Эркафарм, Ригла, Магнит Аптека, Витекс, Озон; я буду его дополнять).\n4. По последнему месяцу считает:\n   — новые точки (не покупали 3 предыдущих месяца);\n   — выпавшие точки (была закупка, затем 45+ дней без закупки);\n   — точки «одна пачка» (1–2 уп за 3 месяца);\n   — регулярные точки (закупка в 2 из 3 последних месяцев);\n   — штуки по бренду, SKU, дистрибьютору и сети с динамикой к прошлому месяцу и к скользящим 3 месяцам;\n   — таблицу «дистрибьютор × SKU» и число аптек Протека и Пульса, которые берут Пронтосан.\n5. Сохраняет report_ГГГГ-ММ.xlsx с листами: Сводка, SKU, Сети, Дистрибьюторы, Новые, Выпавшие, Одна_пачка, Регулярные.\n6. Печатает в консоль 5 главных изменений месяца простыми словами.\n\nПеред расчётом покажи первые 10 строк после чтения и спроси, верно ли распознаны колонки. В конце проверь: сумма qty в отчёте совпадает с суммой в исходных файлах." },
+    { t: "Сегменты и цели на неделю", p: 1, lvl: 2, lv: "Средне", time: "1–2 вечера",
+      pr: "Визиты распределяются по привычке, а не по потенциалу. Время уходит на точки, где роста нет.",
+      ef: "Каждый визит идёт в точку, где минимальный остаток реально добавит штук.",
+      q: "Используй analyze.py и его отчёты. Напиши targets.py, который делит аптеки, покупающие Пронтосан, на сегменты:\nA «Ядро» — регулярная закупка, ≥ 3 уп в месяц. Задача: удержать, добавить гель 250 г и раствор 350 мл.\nB «Растущие» — регулярная закупка, < 3 уп в месяц. Задача: поднять минимальный остаток.\nC «Одна пачка с потенциалом» — 1–2 уп за квартал, но аптека в сети, где другие точки берут больше, или рядом с целевым ЛПУ (файл pairs.csv, если он есть).\nD «Выпавшие» — была закупка, затем 45+ дней без закупки.\nE «Хвост» — остальные.\n\nДля каждой аптеки посчитай балл приоритета: потенциал (медиана закупок похожих точек той же сети минус факт) × бонус за близость к ЛПУ × давность последнего визита из visits.csv (если файл есть).\n\nСформируй week_plan.xlsx: 15–20 аптек на неделю с колонками: аптека, сеть, сегмент, последняя закупка, штук за 3 мес, цель визита одной фразой, что проверить на полке.\nИсключи аптеки, где визит был за последние 14 дней. Сгруппируй по адресу или району, если адрес есть.\nНа первом листе объясни логику балла простым текстом." },
+    { t: "Аргументы для закупщика сети", p: 1, lvl: 1, lv: "Легко", time: "1 вечер",
+      pr: "Сети держат «одну пачку на точку». Закупщика не убеждают общие слова о продукте.",
+      ef: "Цифры по его же точкам открывают разговор о матрице и автозаказе — это сразу десятки точек.",
+      q: "Возьми отчёты report_*.xlsx за последние 3 месяца. Для сети, которую я назову (например, Мелздрав), подготовь одностраничную записку для категорийного менеджера в Markdown и DOCX.\n\n1. Факты из выгрузки: сколько точек сети покупали Пронтосан; сколько взяли 1–2 уп за квартал; сколько закупают регулярно; штуки по SKU; средняя закупка на точку сети против среднего по другим сетям региона (другие сети не называй).\n2. Вывод: в каких точках сеть, вероятно, теряет продажи — купили и не дозаказали.\n3. Предложение: гель 30 мл в матрицу всех точек с минимальным остатком N уп; раствор 350 мл и гель 250 г — в точки рядом с травмпунктами и хирургией. Список точек — приложением.\n4. Поля «Что я прошу» и «Что компания даёт взамен» оставь пустыми: условия согласую с руководителем.\n\nПравила: только цифры из файлов, никаких рыночных оценок. Предположения помечай словом «гипотеза». Тон деловой, без превосходных степеней." },
+    { t: "Трекер визитов и договорённостей", p: 2, lvl: 1, lv: "Легко", time: "1 вечер",
+      pr: "Договорённости о минимальном остатке забываются, их выполнение никто не проверяет.",
+      ef: "Связывает визит с закупкой следующего месяца: видно, какие договорённости дали штуки.",
+      q: "Сделай трекер визитов без сервера: один файл tracker.html, данные в localStorage, экспорт и импорт CSV (visits.csv).\n\nПоля: дата; тип (аптека / офис сети / ЛПУ / мероприятие); объект; контакт (должность, без личных телефонов); договорённость; срок; статус (обещано / выполнено / не выполнено); остаток на полке; фото-заметка текстом; следующий шаг.\n\nЭкраны:\n— «Сегодня»: просроченные договорённости и аптеки из week_plan (импорт CSV);\n— «Сети»: по каждой сети история договорённостей и статус (матрица, минимальный остаток);\n— «Новый визит»: ввод за 30 секунд с телефона, крупные кнопки.\n\nЗатем добавь в analyze.py проверку: для каждой договорённости «минимальный остаток» сравни закупки этой аптеки за месяц до и месяц после." },
+    { t: "Пары «ЛПУ — аптека»", p: 2, lvl: 3, lv: "Сложнее", time: "2–3 вечера",
+      pr: "Врачебная работа не связана с полкой. Рекомендации уходят в аптеки без товара.",
+      ef: "Показывает «дыры»: профильное ЛПУ без регулярной аптеки рядом. Это первые цели для визитов.",
+      q: "Задача: найти аптеки рядом с ЛПУ, где работают мои целевые врачи: хирурги поликлиник, травмпункты, кабинеты диабетической стопы, паллиативные отделения и выездные службы.\n\nВходные данные:\n— lpu.csv: название; тип; адрес (составлю сам по открытым источникам: сайты медорганизаций, Минздрав НСО);\n— pharmacies.csv: аптека из выгрузки; адрес (возьму у дистрибьютора или вручную).\n\nСделай pairs.py:\n1. Геокодирует адреса через Nominatim (OpenStreetMap): пауза 1 секунда между запросами, кэш в geocache.csv. Нераспознанные адреса выводит списком для ручной правки.\n2. Для каждого ЛПУ находит аптеки в радиусе 500 м и 1 км.\n3. Сохраняет pairs.csv: ЛПУ; тип; аптека; расстояние; штук Пронтосана за 3 мес; сегмент аптеки (из targets.py).\n4. Создаёт map.html на Leaflet: ЛПУ и аптеки на карте, цвет аптеки = сегмент.\n\nОтдельно выведи «дыры»: ЛПУ, рядом с которыми нет ни одной аптеки с регулярной закупкой." },
+    { t: "Проверка эффекта мероприятий", p: 2, lvl: 2, lv: "Средне", time: "1–2 вечера",
+      pr: "Неясно, дал ли круглый стол продажи. Ресурсы уходят в форматы, которые не работают.",
+      ef: "Деньги и время идут только в аудитории, после которых растут закупки соседних аптек.",
+      q: "Мне нужно честно оценить, дало ли мероприятие эффект на закупки аптек.\nВходные данные: events.csv (дата; тип; ЛПУ; аудитория; число участников), pairs.csv, все выгрузки из data/.\n\nСделай effect.py:\n1. Группа воздействия — аптеки в радиусе 1 км от ЛПУ мероприятия. Контрольная группа — похожие аптеки (та же сеть или похожий объём до события) без мероприятий рядом.\n2. Сравни закупки Пронтосана за 2 месяца до и 2 месяца после в обеих группах: разница разниц, в штуках и в числе покупающих точек.\n3. Если в группе меньше 10 аптек или после события прошло меньше 2 месяцев, пиши «данных недостаточно» вместо вывода.\n4. Итог — один абзац без преувеличений. Учти, что это sell-in и эффект может запаздывать на месяц.\n\nПервым прогоном проверь мой круглый стол с дерматологами." },
+    { t: "Памятка для первостольника", p: 2, lvl: 1, lv: "Легко", time: "1 вечер + согласование",
+      pr: "Фармацевт не знает, когда уместен гель, а когда раствор, и не может грамотно ответить покупателю.",
+      ef: "Верная консультация по инструкции повышает шанс покупки, когда товар на полке.",
+      q: "Подготовь черновик одностраничной обучающей памятки для фармацевтов про Пронтосан и Браунодин.\n\nИсточник фактов — только официальные инструкции и регистрационные документы, которые я положу в папку docs/. Не добавляй ничего, чего нет в документах. У каждого утверждения поставь ссылку на раздел документа.\n\nСтруктура: назначение каждого продукта; формы выпуска и когда какая уместна (Пронтосан: раствор 350 мл, гель 30 мл, гель 250 г; Браунодин: раствор 100 и 1000 мл, мазь 20 и 100 г); способ применения; противопоказания и ограничения; частые вопросы покупателей.\n\nОграничения: никаких призывов предлагать продукт вместо аналогов, никаких сравнений с конкурентами, никаких обещаний эффекта. Текст должен соответствовать ст. 74 323-ФЗ и требованиям к рекламе ЛП и медизделий.\n\nВ конце строка: «Черновик. Перед использованием — согласование с медицинским отделом и комплаенсом компании».\nФормат: A4, HTML для печати и DOCX." },
+    { t: "Дашборд для меня и руководителя", p: 3, lvl: 2, lv: "Средне", time: "1–2 вечера",
+      pr: "Руководитель видит только итоговые штуки и не видит, что вы строите систему.",
+      ef: "Показывает механизм роста на цифрах. Это аргумент за листинг, бюджет и ресурсы.",
+      q: "На основе analyze.py сделай dashboard.py, который генерирует один самодостаточный файл dashboard.html (без сервера, графики через Chart.js с CDN).\n\nБлоки:\n1. Пять метрик месяца с изменением к прошлому: покупающие точки Пронтосана; регулярные точки; доля «одна пачка»; штук Пронтосана; дистрибьюторы с отгрузкой Браунодина.\n2. Тренд штук по месяцам по SKU.\n3. Сети: точки с закупкой и штук на точку.\n4. Поток точек: новые → разовые → регулярные → выпавшие.\n5. Договорённости из visits.csv: выполнено / в работе / просрочено.\n6. «Что изменилось»: 3–5 фраз, собранных из цифр.\n\nВнизу подпись: «Sell-in: отгрузки дистрибьюторов в аптеки, не продажи покупателям».\nСветлая и тёмная тема, читается на телефоне. Запуск одной командой: python dashboard.py data/" }
+  ];
+  var tl = $("toolList");
+  tools.forEach(function (t, i) {
+    var dots = ""; for (var k = 1; k <= 3; k++) dots += '<i class="' + (k <= t.lvl ? "on" : "") + '"></i>';
+    var el = document.createElement("article");
+    el.className = "tool";
+    el.innerHTML =
+      '<div class="tool-h"><div><span class="no">Инструмент ' + (i + 1) + '</span><h3>' + esc(t.t) + '</h3></div><span class="prio p' + t.p + '">P' + t.p + '</span></div>' +
+      '<div class="meta-row"><span><span class="dots" aria-hidden="true">' + dots + '</span>' + t.lv + ' для новичка</span><span>Время: ' + esc(t.time) + '</span></div>' +
+      '<dl><div><dt>Проблема</dt><dd>' + esc(t.pr) + '</dd></div><div><dt>Эффект на продажи</dt><dd>' + esc(t.ef) + '</dd></div></dl>' +
+      '<div class="tool-actions"><button type="button" class="copy" data-i="' + i + '">Скопировать промпт</button>' +
+      '<details class="pv"><summary>Показать промпт</summary><pre class="prompt" id="pr' + i + '">' + esc(t.q) + '</pre></details></div>';
+    tl.appendChild(el);
+  });
+  tl.addEventListener("click", function (e) {
+    var b = e.target.closest(".copy"); if (!b) return;
+    var i = +b.getAttribute("data-i");
+    var done = function () { b.textContent = "Скопировано"; b.classList.add("ok"); setTimeout(function () { b.textContent = "Скопировать промпт"; b.classList.remove("ok"); }, 1800); };
+    var fallback = function () {
+      var det = b.parentNode.querySelector("details"); det.open = true;
+      var pre = $("pr" + i); var range = document.createRange(); range.selectNodeContents(pre);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      b.textContent = "Текст выделен — нажмите Копировать";
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(tools[i].q).then(done, fallback);
+      else fallback();
+    } catch (err) { fallback(); }
+  });
+})();
+</script>
