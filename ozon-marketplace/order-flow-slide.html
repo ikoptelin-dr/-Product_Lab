@@ -2,49 +2,41 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
 <style>
-/* Layout: один экран-слайд; лента из шести этапов заказа слева направо, под ней две панели — деньги с заказа и сбои. Цвет роли = кто делает шаг; янтарь «складской этикетки» выделяет критическое место. */
+/* Layout: слайд в духе презентаций Apple — крупный заголовок, много воздуха, шесть карточек-этапов, ключевое звено инвертировано; снизу «полоса хранилища» с деньгами и короткий список сбоев. */
 :root {
-  --bg: #f3f4f1;
-  --surface: #ffffff;
-  --ink: #1d2226;
-  --muted: #5d666c;
-  --line: #d9ddd8;
-  --label: #e8a317;
-  --label-soft: #fdf1d6;
-  --label-ink: #6b4500;
-  --sys: #2f6f8f;
-  --sys-soft: #dcebf2;
-  --sup: #b4541f;
-  --sup-soft: #f6e2d6;
-  --ozon: #4b5bb8;
-  --ozon-soft: #e2e5f6;
-  --buyer: #4f7d4a;
-  --buyer-soft: #e1eedd;
-  --people: #7a5a8c;
-  --people-soft: #ece2f1;
-  --profit: #2e7d4f;
-  --f-display: "Unbounded", "Onest", system-ui, sans-serif;
-  --f-body: "Onest", "Segoe UI", system-ui, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --hair: #d2d2d7;
+  --inv-bg: #1d1d1f;
+  --inv-ink: #f5f5f7;
+  --inv-muted: #a1a1a6;
+  --blue: #0071e3;
+  --orange: #ff9500;
+  --indigo: #5e5ce6;
+  --green: #34c759;
+  --gray: #8e8e93;
+  --teal: #30b0c7;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.05);
+  --f: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #15191b; --surface: #1d2326; --ink: #e8ebe9; --muted: #9aa4a8; --line: #2e373b;
-    --label: #f0b43a; --label-soft: #3a2c10; --label-ink: #f6d48c;
-    --sys: #6fb3d4; --sys-soft: #183140; --sup: #e98a55; --sup-soft: #3d2416;
-    --ozon: #8f9cf0; --ozon-soft: #232a4d; --buyer: #8cc184; --buyer-soft: #1f3420;
-    --people: #c49ad8; --people-soft: #33253b; --profit: #6fd096;
+    --bg: #000000; --card: #1c1c1e; --ink: #f5f5f7; --muted: #a1a1a6; --hair: #38383a;
+    --inv-bg: #f5f5f7; --inv-ink: #1d1d1f; --inv-muted: #6e6e73;
+    --blue: #0a84ff; --orange: #ff9f0a; --indigo: #7d7aff; --green: #30d158; --gray: #98989d; --teal: #40c8e0;
+    --shadow: none;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #15191b; --surface: #1d2326; --ink: #e8ebe9; --muted: #9aa4a8; --line: #2e373b;
-  --label: #f0b43a; --label-soft: #3a2c10; --label-ink: #f6d48c;
-  --sys: #6fb3d4; --sys-soft: #183140; --sup: #e98a55; --sup-soft: #3d2416;
-  --ozon: #8f9cf0; --ozon-soft: #232a4d; --buyer: #8cc184; --buyer-soft: #1f3420;
-  --people: #c49ad8; --people-soft: #33253b; --profit: #6fd096;
+  --bg: #000000; --card: #1c1c1e; --ink: #f5f5f7; --muted: #a1a1a6; --hair: #38383a;
+  --inv-bg: #f5f5f7; --inv-ink: #1d1d1f; --inv-muted: #6e6e73;
+  --blue: #0a84ff; --orange: #ff9f0a; --indigo: #7d7aff; --green: #30d158; --gray: #98989d; --teal: #40c8e0;
+  --shadow: none;
   color-scheme: dark;
 }
 
@@ -52,276 +44,252 @@
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--f-body);
+  font-family: var(--f);
   font-size: 15px;
-  line-height: 1.4;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
 }
 .slide {
-  max-width: 1360px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding-block: 28px 32px;
+  padding-block: 56px 64px;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   display: grid;
-  gap: 22px;
+  gap: 48px;
 }
 
-header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; }
+/* Заголовок */
+.hero { display: grid; gap: 14px; justify-items: center; text-align: center; }
+.eyebrow { font-size: 14px; font-weight: 600; color: var(--orange); letter-spacing: 0.01em; margin: 0; }
 h1 {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(24px, 3vw, 36px);
-  letter-spacing: -0.01em;
   margin: 0;
+  font-weight: 800;
+  font-size: clamp(34px, 5.2vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
-.example { color: var(--muted); margin: 6px 0 0; max-width: 62ch; }
-.legend { display: flex; flex-wrap: wrap; gap: 6px; }
-
-.chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
-  padding: 3px 9px; border-radius: 999px;
-  white-space: nowrap;
+.sub {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
-.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.r-sys { color: var(--sys); background: var(--sys-soft); }
-.r-sup { color: var(--sup); background: var(--sup-soft); }
-.r-ozon { color: var(--ozon); background: var(--ozon-soft); }
-.r-buyer { color: var(--buyer); background: var(--buyer-soft); }
-.r-people { color: var(--people); background: var(--people-soft); }
+.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
 
-/* Лента этапов */
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+.c-sys { background: var(--blue); }
+.c-sup { background: var(--orange); }
+.c-ozon { background: var(--indigo); }
+.c-buyer { background: var(--green); }
+.c-us { background: var(--gray); }
+
+/* Этапы */
 .flow {
   list-style: none; margin: 0; padding: 0;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 28px;
+  gap: 14px;
 }
 .step {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 14px 14px 16px;
-  display: flex; flex-direction: column; gap: 8px;
+  background: var(--card);
+  border-radius: 22px;
+  padding: 22px 20px 20px;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 10px;
   min-width: 0;
 }
-.step:not(:last-child)::after {
-  content: "→";
-  position: absolute;
-  right: -22px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-  font-size: 18px;
-}
-.when {
-  font-family: var(--f-mono);
-  font-size: 12px;
-  color: var(--muted);
+.num {
+  font-size: 13px; font-weight: 600; color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
+.time {
+  font-size: 22px; font-weight: 300; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
 .step h2 {
-  font-family: var(--f-display);
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 1.25;
   margin: 0;
+  font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;
   text-wrap: balance;
 }
-.step ul { margin: 0; padding-left: 16px; display: grid; gap: 4px; font-size: 13.5px; color: var(--ink); }
-.step li::marker { color: var(--muted); }
-.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 4px; }
+.step p { margin: 0; font-size: 13.5px; color: var(--muted); font-weight: 500; }
+.who { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: auto; padding-top: 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.who span { display: inline-flex; align-items: center; gap: 6px; }
 
-/* Критическое место — как складская этикетка */
-.step.critical {
-  background: var(--label-soft);
-  border: 2px dashed var(--label);
+.step.key {
+  background: var(--inv-bg);
+  color: var(--inv-ink);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
 }
-.flag {
+.step.key p, .step.key .num, .step.key .who { color: var(--inv-muted); }
+.badge {
   align-self: flex-start;
-  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--label-ink);
-  background: var(--surface);
-  border: 1px solid var(--label);
-  border-radius: 4px;
-  padding: 2px 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--orange);
 }
 
-/* Нижние панели */
+/* Нижний ряд */
 .bottom {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 14px;
 }
 .panel {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 16px 18px 18px;
-  display: grid; gap: 12px;
+  background: var(--card);
+  border-radius: 22px;
+  padding: 28px 28px 26px;
+  box-shadow: var(--shadow);
+  display: grid; gap: 18px;
+  align-content: start;
   min-width: 0;
 }
-.panel h3 {
-  font-family: var(--f-display); font-weight: 500; font-size: 15px; margin: 0;
-}
-.panel h3 span { font-family: var(--f-mono); color: var(--muted); font-size: 13px; font-weight: 500; margin-left: 6px; }
+.panel h3 { margin: 0; font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.01em; }
 
-.bar {
-  display: flex; height: 34px; border-radius: 6px; overflow: hidden;
-  font-family: var(--f-mono); font-size: 12px; font-variant-numeric: tabular-nums;
+.money-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
+.big {
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(90deg, var(--green), var(--teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.bar div { display: flex; align-items: center; justify-content: center; color: #fff; min-width: 0; overflow: hidden; white-space: nowrap; }
-.b-sup { background: var(--sup); flex: 1000; }
-.b-ozon { background: var(--ozon); flex: 620; }
-.b-tax { background: var(--muted); flex: 250; }
-.b-pack { background: var(--people); flex: 250; }
-.b-profit { background: var(--profit); flex: 240; font-weight: 600; }
-:root[data-theme="dark"] .bar div { color: #111; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .bar div { color: #111; } }
+.big-cap { font-size: 16px; font-weight: 500; color: var(--muted); max-width: 26ch; }
+.big-cap b { color: var(--ink); font-weight: 700; }
 
-.split {
+.bar { display: flex; gap: 3px; height: 14px; }
+.bar div { border-radius: 4px; }
+.bar div:first-child { border-radius: 7px 4px 4px 7px; }
+.bar div:last-child { border-radius: 4px 7px 7px 4px; }
+.s-sup { background: var(--orange); flex: 1000; }
+.s-ozon { background: var(--indigo); flex: 620; }
+.s-tax { background: var(--gray); flex: 250; }
+.s-pack { background: var(--blue); flex: 250; }
+.s-profit { background: linear-gradient(90deg, var(--green), var(--teal)); flex: 240; }
+
+.keys {
   list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px;
-  font-size: 12.5px; color: var(--muted);
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;
+  font-size: 12.5px; font-weight: 500; color: var(--muted);
 }
-.split b { display: block; font-family: var(--f-mono); font-weight: 500; color: var(--ink); font-size: 14px; font-variant-numeric: tabular-nums; }
-.split .win b { color: var(--profit); }
-.note { margin: 0; font-size: 13px; color: var(--muted); }
+.keys li { display: grid; gap: 2px; }
+.keys b { display: flex; align-items: center; gap: 7px; color: var(--ink); font-size: 16px; font-weight: 700; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.note { margin: 0; font-size: 12.5px; color: var(--muted); font-weight: 500; }
 
-.fails { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 13.5px; }
-.fails li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-.fails li:last-child { border-bottom: 0; padding-bottom: 0; }
-.fails .what { color: var(--muted); }
+.fails { list-style: none; margin: 0; padding: 0; display: grid; }
+.fails li { display: grid; gap: 3px; padding-block: 13px; border-top: 1px solid var(--hair); }
+.fails li:first-child { border-top: 0; padding-top: 0; }
+.fails li:last-child { padding-bottom: 0; }
+.fails strong { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+.fails span { font-size: 13.5px; color: var(--muted); font-weight: 500; }
 
-/* Узкие экраны: лента вертикально */
 @media (max-width: 1100px) {
   .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .step:nth-child(3n)::after { content: none; }
   .bottom { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
-  .flow { grid-template-columns: minmax(0, 1fr); gap: 26px; }
-  .step::after, .step:nth-child(3n)::after {
-    content: "↓"; right: auto; left: 50%; top: auto; bottom: -24px; transform: translateX(-50%);
-  }
-  .step:last-child::after { content: none; }
-  .split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .fails li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .slide { padding-block: 36px 44px; gap: 32px; }
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .keys { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .panel { padding: 22px 20px; }
 }
 </style>
 
 <main class="slide">
-  <header>
-    <div>
-      <h1>Путь одного заказа</h1>
-      <p class="example">Пример: покупатель в Казани заказал колодки на Haval Jolion за 2 360 ₽. Деталь лежит на складе поставщика в Москве, у нас склада нет.</p>
-    </div>
+  <section class="hero">
+    <p class="eyebrow">Автозапчасти на Озоне без своего склада</p>
+    <h1>Путь одного заказа.</h1>
+    <p class="sub">Колодки на Haval Jolion за 2 360 ₽. Покупатель в Казани, деталь на складе поставщика в Москве.</p>
     <div class="legend" aria-label="Кто делает шаг">
-      <span class="chip r-sys">Система</span>
-      <span class="chip r-sup">Поставщик</span>
-      <span class="chip r-ozon">Озон</span>
-      <span class="chip r-buyer">Покупатель</span>
-      <span class="chip r-people">Мы</span>
+      <span><i class="dot c-sys"></i>Система</span>
+      <span><i class="dot c-sup"></i>Поставщик</span>
+      <span><i class="dot c-ozon"></i>Озон</span>
+      <span><i class="dot c-buyer"></i>Покупатель</span>
+      <span><i class="dot c-us"></i>Мы</span>
     </div>
-  </header>
+  </section>
 
   <ol class="flow">
     <li class="step">
-      <span class="when">круглосуточно</span>
-      <h2>Цена и остаток на Озоне</h2>
-      <ul>
-        <li>Забираем прайс поставщика каждые 15–60 мин</li>
-        <li>Считаем цену с прибылью после всех удержаний</li>
-        <li>Показываем 1–2 шт., а не весь склад</li>
-        <li>Нет товара или прайс устарел: снимаем с продажи</li>
-      </ul>
-      <div class="chips"><span class="chip r-sys">Система</span></div>
+      <span class="num">01</span>
+      <span class="time">24/7</span>
+      <h2>Цена и остаток</h2>
+      <p>Каждые 15–60 минут берём прайс поставщика, считаем цену с прибылью и показываем 1–2 штуки. Нет товара — снимаем с продажи.</p>
+      <div class="who"><span><i class="dot c-sys"></i>Система</span></div>
     </li>
-
     <li class="step">
-      <span class="when">пн 14:05</span>
-      <h2>Покупатель купил</h2>
-      <ul>
-        <li>Оплатил картой, деньги пока у Озона</li>
-        <li>У нас заказ со сроком: сдать до вт 18:00</li>
-      </ul>
-      <div class="chips"><span class="chip r-buyer">Покупатель</span><span class="chip r-ozon">Озон</span></div>
+      <span class="num">02</span>
+      <span class="time">Пн 14:05</span>
+      <h2>Покупка</h2>
+      <p>Покупатель оплатил. Деньги пока у Озона, у нас заказ со сроком сдачи до вторника, 18:00.</p>
+      <div class="who"><span><i class="dot c-buyer"></i>Покупатель</span><span><i class="dot c-ozon"></i>Озон</span></div>
     </li>
-
     <li class="step">
-      <span class="when">пн 14:06–14:08</span>
+      <span class="num">03</span>
+      <span class="time">14:06</span>
       <h2>Заявка поставщику</h2>
-      <ul>
-        <li>Проверяем: деталь есть, цена та же, успеваем к сроку</li>
-        <li>Отправляем заявку, поставщик резервирует деталь</li>
-        <li>Нет ответа: выясняем, не шлём повторно</li>
-      </ul>
-      <div class="chips"><span class="chip r-sys">Система</span><span class="chip r-sup">Поставщик</span></div>
+      <p>Проверяем наличие, цену и срок. Отправляем заявку, поставщик резервирует деталь за нами.</p>
+      <div class="who"><span><i class="dot c-sys"></i>Система</span><span><i class="dot c-sup"></i>Поставщик</span></div>
     </li>
-
-    <li class="step critical">
-      <span class="flag">Критическое место</span>
-      <span class="when">пн 14:10–18:00</span>
-      <h2>Сборка, этикетка, сдача</h2>
-      <ul>
-        <li>Сборщик видит задание на своей странице</li>
-        <li>Сканирует деталь, печатает этикетку Озона</li>
-        <li>Водитель отвозит в пункт приёма</li>
-        <li>Не успевает: тревога нам в Telegram</li>
-      </ul>
-      <div class="chips"><span class="chip r-sup">Поставщик</span><span class="chip r-sys">Система</span></div>
+    <li class="step key">
+      <span class="badge">Ключевое звено</span>
+      <span class="time">14:10–18:00</span>
+      <h2>Сборка и сдача</h2>
+      <p>Сборщик сканирует деталь, печатает этикетку Озона и отвозит в пункт приёма. Не успевает — нам приходит тревога.</p>
+      <div class="who"><span><i class="dot c-sup"></i>Поставщик</span><span><i class="dot c-sys"></i>Система</span></div>
     </li>
-
     <li class="step">
-      <span class="when">вт → пт</span>
-      <h2>Доставка покупателю</h2>
-      <ul>
-        <li>Озон принял посылку и везёт в Казань</li>
-        <li>Покупатель забирает в ПВЗ</li>
-      </ul>
-      <div class="chips"><span class="chip r-ozon">Озон</span><span class="chip r-buyer">Покупатель</span></div>
+      <span class="num">05</span>
+      <span class="time">Вт–Пт</span>
+      <h2>Доставка</h2>
+      <p>Озон принимает посылку и везёт в Казань. Покупатель забирает в пункте выдачи.</p>
+      <div class="who"><span><i class="dot c-ozon"></i>Озон</span><span><i class="dot c-buyer"></i>Покупатель</span></div>
     </li>
-
     <li class="step">
-      <span class="when">выплата и конец месяца</span>
+      <span class="num">06</span>
+      <span class="time">Выплата</span>
       <h2>Деньги и сверка</h2>
-      <ul>
-        <li>Озон платит нам, мы платим поставщику</li>
-        <li>Система сводит отчёт Озона, документ поставщика и банк</li>
-        <li>Бухгалтер получает готовый реестр</li>
-      </ul>
-      <div class="chips"><span class="chip r-sys">Система</span><span class="chip r-people">Мы</span></div>
+      <p>Озон платит нам, мы — поставщику. Система сводит отчёт Озона, документы и банк в готовый реестр.</p>
+      <div class="who"><span><i class="dot c-sys"></i>Система</span><span><i class="dot c-us"></i>Мы</span></div>
     </li>
   </ol>
 
   <section class="bottom">
     <div class="panel">
-      <h3>Куда уходят деньги с заказа <span>2 360 ₽</span></h3>
-      <div class="bar" role="img" aria-label="Из 2 360 рублей: поставщику 1 000, Озону 620, налоги 250, упаковка и возвраты 250, прибыль 240">
-        <div class="b-sup">1 000</div>
-        <div class="b-ozon">620</div>
-        <div class="b-tax">250</div>
-        <div class="b-pack">250</div>
-        <div class="b-profit">240</div>
+      <h3>Деньги с одного заказа</h3>
+      <div class="money-head">
+        <span class="big">240 ₽</span>
+        <span class="big-cap">прибыль из <b>2 360 ₽</b>. Около 10% с каждого заказа.</span>
       </div>
-      <ul class="split">
-        <li><b>1 000 ₽</b>поставщику за деталь</li>
-        <li><b>620 ₽</b>Озону: комиссия, логистика, реклама</li>
-        <li><b>250 ₽</b>налоги</li>
-        <li><b>250 ₽</b>упаковка, доставка в пункт, возвраты</li>
-        <li class="win"><b>240 ₽</b>прибыль, ~10%</li>
+      <div class="bar" role="img" aria-label="Из 2 360 рублей: поставщику 1 000, Озону 620, налоги 250, упаковка и возвраты 250, прибыль 240">
+        <div class="s-sup"></div><div class="s-ozon"></div><div class="s-tax"></div><div class="s-pack"></div><div class="s-profit"></div>
+      </div>
+      <ul class="keys">
+        <li><b><i class="dot c-sup"></i>1 000 ₽</b>Поставщику</li>
+        <li><b><i class="dot c-ozon"></i>620 ₽</b>Озону</li>
+        <li><b><i class="dot c-us"></i>250 ₽</b>Налоги</li>
+        <li><b><i class="dot c-sys"></i>250 ₽</b>Упаковка и возвраты</li>
+        <li><b><i class="dot c-buyer"></i>240 ₽</b>Прибыль</li>
       </ul>
-      <p class="note">Цифры условные. Прибыль делает объём: 5 000 заказов в месяц ≈ 1 млн ₽.</p>
+      <p class="note">Цифры условные. 5 000 заказов в месяц ≈ 1 млн ₽ прибыли.</p>
     </div>
 
     <div class="panel">
       <h3>Если что-то пошло не так</h3>
       <ul class="fails">
-        <li><span>Деталь кончилась у поставщика</span><span class="what">Ищем у второго поставщика, иначе отмена</span></li>
-        <li><span>Поставщик не ответил на заявку</span><span class="what">Не покупаем дважды: сначала выясняем, создалась ли первая</span></li>
-        <li><span>До срока сдачи 4 часа, не собрано</span><span class="what">Тревога в Telegram, оператор звонит поставщику</span></li>
-        <li><span>Возврат «не подошло»</span><span class="what">Система находит исходную закупку, оператор решает: поставщику, перепродать или списать</span></li>
+        <li><strong>Деталь закончилась</strong><span>Берём у второго поставщика или отменяем заказ.</span></li>
+        <li><strong>Поставщик не ответил</strong><span>Не покупаем дважды: сначала проверяем первую заявку.</span></li>
+        <li><strong>До сдачи 4 часа, не собрано</strong><span>Тревога в Telegram, оператор звонит поставщику.</span></li>
+        <li><strong>Возврат «не подошло»</strong><span>Находим закупку и решаем: вернуть, перепродать или списать.</span></li>
       </ul>
     </div>
   </section>
