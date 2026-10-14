@@ -1,0 +1,553 @@
+<title>Маршрут медпреда НСО</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: белый лист, слева аптеки района (что добрать до 3–5 уп/мес), справа ЛПУ того же района и как к ним заходить */
+:root {
+  --bg: #ffffff; --surface: #ffffff; --surface-2: #f2f5f5; --ink: #13232a; --muted: #586a71; --line: #dde4e5;
+  --saline: #0a7680; --saline-soft: #d7eef0; --iodine: #9c4f17; --iodine-soft: #f5e6d8;
+  --weak: #bf3b27; --weak-soft: #f8e1dc; --warn: #9a6a10; --warn-soft: #f6ecd4; --ok: #2b7449; --ok-soft: #dcefe3;
+  --f-body: "Alegreya", "PT Serif", Georgia, "Times New Roman", serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --r: 12px;
+}
+:root[data-theme="dark"] {
+  --bg: #0d1518; --surface: #142025; --surface-2: #1b2a30; --ink: #e4edef; --muted: #91a4ab; --line: #26383e;
+  --saline: #4cc2cb; --saline-soft: #133238; --iodine: #e39b5e; --iodine-soft: #3a2616;
+  --weak: #ff7d68; --weak-soft: #3c1d18; --warn: #e6b65a; --warn-soft: #362a12; --ok: #6cc690; --ok-soft: #15301f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 18px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 16px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+button, select, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--saline); outline-offset: 2px; border-radius: 4px; }
+.num { font-variant-numeric: lining-nums tabular-nums; }
+.muted { color: var(--muted); }
+.eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); font-weight: 700; }
+.tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; padding: 1px 7px; border-radius: 5px; white-space: nowrap; vertical-align: 1px; }
+
+header.top { padding-block: 32px 20px; display: grid; gap: 12px; }
+header.top h1 { font-weight: 800; font-size: clamp(2rem, 1.5rem + 2.4vw, 3rem); line-height: 1.05; }
+header.top h1 span { color: var(--saline); }
+.lead { max-width: 64ch; font-size: 1.08rem; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-size: 0.95rem; }
+.btn.main { background: var(--saline); color: var(--bg); border-color: var(--saline); font-weight: 700; }
+.btn.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.drop { border: 2px dashed var(--line); border-radius: var(--r); padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; background: var(--surface-2); }
+.drop.over { border-color: var(--saline); background: var(--saline-soft); }
+.drop p { font-size: 0.95rem; flex: 1 1 260px; min-width: 0; }
+#fileIn { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.demo { border: 1px solid var(--warn); background: var(--warn-soft); border-radius: 10px; padding: 10px 14px; font-size: 0.95rem; }
+.demo b { color: var(--warn); }
+.info { border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; padding: 10px 14px; font-size: 0.95rem; }
+.err { border: 1px solid var(--weak); background: var(--weak-soft); border-radius: 10px; padding: 10px 14px; font-size: 0.95rem; }
+
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.kpi { background: var(--surface); padding: 12px 14px; display: grid; gap: 2px; min-width: 0; }
+.kpi b { font-size: 1.7rem; font-weight: 800; line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; }
+.kpi span { font-size: 0.85rem; color: var(--muted); }
+
+.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); margin-top: 22px; }
+.tabs .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+.tabs .wrap::-webkit-scrollbar { display: none; }
+.tab { white-space: nowrap; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-size: 0.92rem; }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tab small { font-variant-numeric: lining-nums tabular-nums; opacity: 0.75; margin-left: 4px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.88rem; color: var(--muted); padding-top: 14px; }
+.s1 { background: var(--saline-soft); color: var(--saline); }
+.s2 { background: var(--warn-soft); color: var(--warn); }
+.s3 { background: var(--iodine-soft); color: var(--iodine); }
+.s0 { background: var(--ok-soft); color: var(--ok); }
+.lpu-t { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
+
+.district { padding-block: 26px; border-bottom: 1px solid var(--line); }
+.d-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; align-items: baseline; margin-bottom: 14px; }
+.d-head h2 { font-weight: 800; font-size: clamp(1.5rem, 1.25rem + 1vw, 1.9rem); }
+.d-head .sum { font-size: 0.95rem; color: var(--muted); }
+.cols { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; align-items: start; }
+.col { min-width: 0; display: grid; gap: 8px; }
+.col > .eyebrow { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.ph { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; display: grid; gap: 6px; }
+.ph-top { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+.ph-name { font-weight: 700; font-size: 1.02rem; line-height: 1.25; min-width: 0; overflow-wrap: anywhere; }
+.ph-meta { font-size: 0.88rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.ph-goal { font-size: 0.93rem; }
+.ph-goal b { color: var(--saline); }
+.mbar { display: inline-flex; gap: 3px; vertical-align: middle; }
+.mbar i { width: 22px; height: 16px; border-radius: 3px; background: var(--surface-2); border: 1px solid var(--line); font-style: normal; font-size: 0.68rem; line-height: 14px; text-align: center; font-family: var(--f-mono); color: var(--muted); }
+.mbar i.b { background: var(--saline); border-color: var(--saline); color: var(--bg); }
+.ph select { font-size: 0.82rem; border: 1px solid var(--line); background: var(--surface-2); border-radius: 6px; padding: 2px 4px; max-width: 100%; }
+.ph-foot { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; justify-content: space-between; }
+.chk { display: inline-flex; gap: 6px; align-items: center; font-size: 0.85rem; color: var(--muted); cursor: pointer; }
+.chk input { accent-color: var(--ok); width: 16px; height: 16px; }
+.ph.done { opacity: 0.55; }
+.more { justify-self: start; border: 0; background: none; color: var(--saline); padding: 2px 0; font-size: 0.92rem; text-decoration: underline; text-underline-offset: 3px; }
+
+.lpu { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; display: grid; gap: 5px; }
+.lpu h3 { font-size: 1rem; font-weight: 700; line-height: 1.25; }
+.lpu .addr { font-size: 0.92rem; }
+.lpu .who, .lpu .how { font-size: 0.88rem; color: var(--muted); }
+.lpu .how b { color: var(--ink); font-weight: 700; }
+.lpu .src { font-size: 0.78rem; color: var(--muted); }
+.lpu .src a { color: var(--muted); }
+.empty { font-size: 0.92rem; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; padding: 12px 14px; }
+
+.guide { padding-block: 34px; display: grid; gap: 16px; }
+.guide h2 { font-weight: 800; font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem); }
+.gcards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.gcard { border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.gcard h3 { font-size: 1.1rem; font-weight: 800; }
+.gcard dl { margin: 0; display: grid; gap: 6px; font-size: 0.93rem; }
+.gcard dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 700; }
+.gcard dd { margin: 0; }
+.law { border: 1px solid var(--weak); background: var(--weak-soft); border-radius: var(--r); padding: 14px 18px; display: grid; gap: 6px; font-size: 0.95rem; }
+.law b { color: var(--weak); }
+.law ul, .steps { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+footer { padding-block: 24px 48px; font-size: 0.85rem; color: var(--muted); display: grid; gap: 6px; }
+footer a { color: var(--muted); }
+
+@media (max-width: 860px) {
+  .cols, .gcards { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<main>
+<header class="top wrap">
+  <p class="eyebrow">Пронтосан · Новосибирская область · маршрут на ближайшие недели</p>
+  <h1>Аптеки и врачи <span>по районам</span></h1>
+  <p class="lead">Слева в каждом районе — аптеки, которые нужно довести до 3–5 упаковок в месяц, чтобы сработал автозаказ. Справа — ЛПУ того же района: к кому идти и как зайти по правилам.</p>
+  <div class="drop" id="drop">
+    <p>Сейчас показана выгрузка 2026.csv. Новую выгрузку перетащите сюда или выберите файл: он читается только в браузере и никуда не отправляется.</p>
+    <label class="btn main" for="fileIn">Выбрать файл</label>
+    <input type="file" id="fileIn" accept=".csv,text/csv,text/plain">
+  </div>
+  <div id="status"></div>
+  <div class="err" id="katren" hidden></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="bar">
+    <span class="eyebrow" style="margin-right:4px">Показать</span>
+    <button class="btn on" type="button" data-f="todo">Кого довести до 3–5</button>
+    <button class="btn" type="button" data-f="all">Все аптеки</button>
+    <button class="btn" type="button" id="themeBtn" style="margin-left:auto">Тема</button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Районы"><div class="wrap" id="tabs" role="tablist"></div></nav>
+
+<div class="wrap">
+  <div class="legend">
+    <span><span class="tag s1">Добрать</span> берёт регулярно, но меньше 3 уп/мес — самый быстрый рост</span>
+    <span><span class="tag s2">Выпала</span> брала в начале года, за 3 последних месяца — ничего</span>
+    <span><span class="tag s3">Разовая</span> одна закупка за 3 месяца</span>
+    <span><span class="tag s0">На цели</span> уже ≥3 уп/мес — удерживать</span>
+  </div>
+  <div id="districts"></div>
+</div>
+
+<section class="guide wrap" id="guide">
+  <p class="eyebrow">Как заходить к врачам</p>
+  <h2>Пять аудиторий и как к каждой подъехать</h2>
+  <div class="law">
+    <b>Правила, которые нельзя нарушать (ст. 74 323-ФЗ)</b>
+    <ul>
+      <li>К врачу — только в порядке, который установила администрация ЛПУ. Первый звонок — заведующему отделением или заместителю главного врача по медицинской части.</li>
+      <li>Никаких подарков, оплаты, развлечений и образцов для раздачи пациентам.</li>
+      <li>Не просите выписывать или рекомендовать именно ваш продукт. Ваша задача — информация по инструкции: формы, показания, способ применения.</li>
+      <li>Фармацевту нельзя предлагать договорённость «советовать наш продукт». Договаривайтесь об ассортименте и остатке с заведующей и закупщиком.</li>
+    </ul>
+  </div>
+  <div class="gcards" id="gcards"></div>
+  <div class="gcard">
+    <h3>Порядок на каждую пару «ЛПУ — аптека»</h3>
+    <ol class="steps">
+      <li>Найдите 1–3 аптеки в 300–500 м от входа в ЛПУ (2ГИС). Отметьте их в списке района слева.</li>
+      <li>Сначала аптека: гель 30 мл и раствор 350 мл на полке, минимальный остаток 2–3 уп, автозаказ включён.</li>
+      <li>Потом ЛПУ: звонок заведующему, согласованный формат, 10–15 минут информации по инструкции.</li>
+      <li>Через 4–6 недель сравните закупки этих аптек в новой выгрузке. Рост есть — повторяйте формат в соседнем районе.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>Аптеки и цифры — из загруженной выгрузки (sell-in: отгрузки дистрибьюторов в аптеки). Район определяется по адресу в названии клиента автоматически: проверьте и поправьте вручную, правки сохраняются в этом браузере.</p>
+  <p>Адреса ЛПУ собраны из открытых справочников и сайтов; часть данных несколько лет назад. Перед поездкой проверьте адрес и режим работы в 2ГИС или на сайте учреждения. Источники:
+    <a href="https://2gis.ru/novosibirsk/search/%D0%A2%D1%80%D0%B0%D0%B2%D0%BC%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D1%8B%20%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D0%B5">2ГИС: травмпункты</a>,
+    <a href="https://ngs.ru/text/health/2019/10/24/66282139/">НГС, 2019</a>,
+    <a href="https://novosib.spravker.ru/travmpunkty/">Справкер</a>,
+    <a href="https://zdrav.nso.ru/page/2821">Минздрав НСО: паллиативная помощь</a>,
+    <a href="https://2gis.ru/novosibirsk/firm/70000001080094273">2ГИС: ГП №2, паллиатив</a>,
+    <a href="https://nrb1.mznso.ru/novye-otdeleniya/">НКРБ №1</a>,
+    <a href="https://www.niikel.ru/centers/tsentr-diabeticheskoy-stopyi/">НИИКЭЛ: центр диабетической стопы</a>,
+    <a href="https://kabinet-diabeticheskoj-stopy-i-podologii.ru/services/">Кабинет диабетической стопы, Вокзальная магистраль</a>.
+  </p>
+</footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var store = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
+  };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+
+  /* Тема: по умолчанию белый лист */
+  var root = document.documentElement;
+  if (store.get("pg-theme") === "dark") root.setAttribute("data-theme", "dark");
+  $("themeBtn").addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next); store.set("pg-theme", next);
+  });
+
+  /* Районы */
+  var CITY = ["Центральный", "Железнодорожный", "Заельцовский", "Калининский", "Дзержинский", "Октябрьский", "Первомайский", "Ленинский", "Кировский", "Советский"];
+  var TOWNS = [["берд", "Бердск"], ["искитим", "Искитим"], ["обь", "Обь"], ["кольцово", "Кольцово"], ["краснообск", "Краснообск"], ["куйбышев", "Куйбышев"], ["барабинск", "Барабинск"], ["татарск", "Татарск"], ["карасук", "Карасук"], ["купино", "Купино"], ["тогучин", "Тогучин"], ["черепанов", "Черепаново"], ["коченев", "Коченёво"], ["прокудск", "Коченёво"], ["мошков", "Мошково"], ["колыван", "Колывань"], ["чулым", "Чулым"], ["каргат", "Каргат"], ["болотн", "Болотное"], ["сузун", "Сузун"], ["ордынск", "Ордынское"], ["маслянин", "Маслянино"], ["линев", "Линёво"], ["кочки", "Кочки"], ["доволен", "Довольное"], ["здвинск", "Здвинск"], ["венгеров", "Венгерово"], ["убинск", "Убинское"], ["чаны", "Чаны"], ["баган", "Баган"], ["краснозер", "Краснозёрское"], ["барышев", "Барышево"], ["криводан", "Криводановка"], ["мочище", "Мочище"], ["кудряш", "Кудряшовский"], ["верх-тул", "Верх-Тула"], ["толмачев", "Толмачёво"]];
+  var UNK = "Район уточнить", NOADDR = "Без адреса: юрлица и сети", WH = "Склад и интернет";
+  var GROUPS_TAIL = [UNK, NOADDR, WH];
+  /* Улица → район. Только улицы, в районе которых уверены; остальное уходит в «Район уточнить». */
+  var STREETS = [
+    ["Ленинский", ["гвардейской дивизии", "станислав", "пархоменко", "блюхера", "титова", "котовского", "плахотного", "троллейная", "связистов", "маркса", "горский", /широкая/, "забалуева", "геодезическ", /новосибирская,? ?\d/, /новосибирская \d/]],
+    ["Центральный", ["мичур", "крылова", "орджоник", /советская/, "каменская", "серебренниковск", "щетинкина", "свердлова", "депутатская", "чаплыгина", "некрасова", "писарева", "достоевского", "горького", "коммунистическ", "ленина"]],
+    ["Железнодорожный", ["вокзальная", "челюскинцев", "шамшурина", "урицкого", "нарымская", "на цирке"]],
+    ["Заельцовский", ["ковальч", "сухарная", "дачная", "кубовая", "овражная", "донского", "залесского", "жуковского", "кропот", "галущака"]],
+    ["Калининский", ["хмель", "богданахмель", "учительск", "курчатова", "объединения", "рассветная", "земнух", "новоуральск", "гребенщикова", "кочубея", "столетова", "тюленина", "танковая", "народная", "родники"]],
+    ["Дзержинский", ["королева", "кошурникова", "трикотажная", "есенина", "холодильная", /40 ?лет комс/, "дзержинского", "ползунова", "авиастроителей", "золотой ниве"]],
+    ["Октябрьский", ["добролюбова", "лескова", "гурьевск", "выборная", "никитина", "кирова", "высоцкого", "берггольц", "сызранск", "большев", "тургенева", "чехова", "восход"]],
+    ["Первомайский", ["первомайская", "героев рев", "гер. рев", "мухачева"]],
+    ["Кировский", ["зорге", "гвард", "петухова", "громова"]],
+    ["Советский", ["ильича", "морской", "иванова", "кутателадзе", "инженерная", "терешковой", "николаева", "героев труда", "русская", "пирогова", "лаврентьева", "золотодолинск"]]
+  ];
+  var norm = function (s) { return String(s).toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " "); };
+  var L = /[а-яa-z]/;
+  function has(t, key) {
+    if (key instanceof RegExp) return key.test(t);
+    var i = t.indexOf(key);
+    while (i >= 0) {
+      var left = i === 0 ? " " : t[i - 1], right = t[i + key.length] || " ";
+      var okL = !L.test(left), okR = key.length > 4 || !L.test(right);
+      if (okL && okR) return true;
+      i = t.indexOf(key, i + 1);
+    }
+    return false;
+  }
+  var EXACT = ["обь", "чаны", "кочки"];
+  function townHas(t, key) {
+    var i = t.indexOf(key);
+    while (i >= 0) {
+      var left = i === 0 ? " " : t[i - 1], right = t[i + key.length] || " ";
+      if (!L.test(left) && (EXACT.indexOf(key) < 0 || !L.test(right))) return true;
+      i = t.indexOf(key, i + 1);
+    }
+    return false;
+  }
+  var numAfter = function (t, re) { var m = t.match(re); return m ? +m[1] : null; };
+  var isLegal = function (t) { return /общество с ограниченной|акционерное общество|индивидуальный предприниматель/.test(t); };
+  function detectDistrict(name) {
+    var t = norm(name);
+    if (!t.trim()) return NOADDR;
+    if (/интернет|склад|торги/.test(t)) return WH;
+    if (/тандер/.test(t)) return NOADDR;
+    for (var i = 0; i < TOWNS.length; i++) if (townHas(t, TOWNS[i][0])) return "Область: " + TOWNS[i][1];
+    if (/красн(ый|\.|о?\s?пр|,| п)|крас пр/.test(t) && !/красная ?сибирь|красный яр|красных зорь/.test(t)) {
+      var n = numAfter(t, /крас[^\d]{0,16}(\d+)/);
+      if (n) return n <= 100 ? "Центральный" : "Заельцовский";
+    }
+    if (/гоголя/.test(t)) { var g = numAfter(t, /гоголя[^\d]{0,4}(\d+)/); if (g) return g <= 60 ? "Центральный" : "Дзержинский"; }
+    if (/фрунзе/.test(t)) { var f = numAfter(t, /фрунзе[^\d]{0,4}(\d+)/); if (f) return f <= 30 ? "Центральный" : "Дзержинский"; }
+    if (/красная сибирь|краснаясибирь/.test(t)) return "Область: Бердск";
+    if (isLegal(t)) return NOADDR;
+    for (var d = 0; d < STREETS.length; d++) for (var j = 0; j < STREETS[d][1].length; j++) if (has(t, STREETS[d][1][j])) return STREETS[d][0];
+    if (isLegal(t)) return NOADDR;
+    if (/\d|ул[ .]|пр-кт|просп/.test(t.replace(/п-?\s?\d{2}/g, " "))) return UNK;
+    return NOADDR;
+  }
+
+  /* ЛПУ: открытые источники, проверить перед визитом */
+  var LPU = [
+    { d: "Заельцовский", t: "Травмпункт", n: "Травмпункт при ГКБ №1", a: "ул. Залесского, 6, корп. 6", m: "круглосуточно", aud: "trauma", s: "2ГИС / НГС" },
+    { d: "Заельцовский", t: "Хирургия, стационар", n: "ГКБ №1: хирургические отделения, гнойная хирургия", a: "ул. Залесского, 6", aud: "surgery", s: "проверить на сайте больницы" },
+    { d: "Первомайский", t: "Травмпункт", n: "Травмпункт при ГКБ №19", a: "ул. Героев Революции, 5", m: "круглосуточно", aud: "trauma", s: "НГС, 2019" },
+    { d: "Первомайский", t: "Травмпункт", n: "Травмпункт", a: "ул. Мухачёва, 5/4", m: "круглосуточно", aud: "trauma", s: "НГС, 2019" },
+    { d: "Октябрьский", t: "Травмпункт", n: "Травмпункт ГКБ скорой медицинской помощи №2", a: "ул. Тургенева, 155", m: "круглосуточно", aud: "trauma", s: "НГС, 2019" },
+    { d: "Октябрьский", t: "Хирургия, стационар", n: "ГКБ СМП №2: хирургия", a: "ул. Тургенева, 155", aud: "surgery", s: "проверить на сайте больницы" },
+    { d: "Октябрьский", t: "Паллиатив", n: "Городская поликлиника №2, отделение паллиативной помощи", a: "ул. Чехова, 76", m: "пн–пт 8–20, сб 9–15", aud: "pall", s: "2ГИС" },
+    { d: "Ленинский", t: "Травмпункт", n: "Травмпункт городской поликлиники №16", a: "1-й пер. Пархоменко, 32", m: "пн–пт 8–20", aud: "trauma", s: "НГС, 2019" },
+    { d: "Кировский", t: "Травмпункт", n: "Травмпункт городской поликлиники №22", a: "ул. Зорге, 47/1", m: "круглосуточно", aud: "trauma", s: "НГС, 2019" },
+    { d: "Кировский", t: "Травмпункт", n: "Травмпункт", a: "ул. Немировича-Данченко, 130 к6", aud: "trauma", s: "справочник; район проверить" },
+    { d: "Кировский", t: "Хирургия, стационар", n: "ГНОКБ (областная больница): гнойная хирургия, сосудистая хирургия", a: "ул. Немировича-Данченко, 130", aud: "surgery", s: "проверить на сайте больницы" },
+    { d: "Советский", t: "Травмпункт", n: "Травмпункт, Академгородок", a: "ул. Пирогова, 25/3", m: "круглосуточно", aud: "trauma", s: "НГС, 2019" },
+    { d: "Центральный", t: "Травмпункт", n: "Травмпункт городской поликлиники №1", a: "ул. Щетинкина, 45", m: "круглосуточно", aud: "trauma", s: "справочник" },
+    { d: "Дзержинский", t: "Травмпункт", n: "Травмпункт", a: "пр. Дзержинского, 44", aud: "trauma", s: "справочник" },
+    { d: "Дзержинский", t: "Хирургия, стационар", n: "ГКБ №2: хирургия", a: "ул. Ползунова, 21", aud: "surgery", s: "проверить на сайте больницы" },
+    { d: "Калининский", t: "Травмпункт", n: "Травмпункт", a: "ул. Новоуральская, 27/1", aud: "trauma", s: "справочник" },
+    { d: "Калининский", t: "Паллиатив", n: "Городская больница №4, отделение паллиативной медицинской помощи", a: "ул. Новоуральская, 27/1", aud: "pall", s: "2ГИС" },
+    { d: "Железнодорожный", t: "Диабетическая стопа", n: "Кабинет диабетической стопы и подологии (частный)", a: "Вокзальная магистраль, 1, офис 504", m: "ежедневно 10–22, по записи", aud: "foot", s: "сайт кабинета" },
+    { d: "Весь город", t: "Диабетическая стопа", n: "НИИКЭЛ, научно-практический центр диабетической стопы", a: "адрес уточнить на niikel.ru", aud: "foot", s: "niikel.ru" },
+    { d: "Весь город", t: "Паллиатив", n: "Выездная патронажная служба паллиативной помощи (взрослые онкопациенты), диспетчер при НКРБ №1", a: "тел. диспетчера 8 (383) 293-60-07 — проверить", aud: "pall", s: "Минздрав НСО, 2016" },
+    { d: "Область: Барышево", t: "Паллиатив", n: "Барышевская участковая больница (НКРБ №1), отделение паллиативной помощи", a: "с. Барышево, ул. Ленина, 245а", aud: "pall", s: "2ГИС" }
+  ];
+  var AUD = {
+    trauma: { t: "Травмпункт", who: "Травматологи-ортопеды, заведующий травмпунктом, процедурные и перевязочные медсёстры.", why: "Ссадины, рваные и ушибленные раны: пациент уходит с рекомендацией и сразу идёт в ближайшую аптеку.", how: "Звонок заведующему травмпунктом или заместителю главврача поликлиники по медчасти. Формат: 10–15 минут на планёрке или пересменке, по согласованию.", sku: "Гель 30 мл и раствор 350 мл в аптеках в 300 м от входа.", when: "Неделя 4–6 плана, после того как аптеки рядом закрыты остатком." },
+    surgery: { t: "Хирургия: поликлиника и стационар", who: "Хирурги поликлиник, заведующие хирургическими отделениями, гнойная хирургия.", why: "Перевязки после выписки и хирургической обработки идут дома: рекомендация в выписке ведёт в аптеку у дома.", how: "Через заведующего отделением и администрацию: выступление на внутренней конференции или клиническом разборе в согласованном порядке.", sku: "Раствор 350 мл, гель 30 мл; гель 250 г — при длительных перевязках.", when: "Неделя 5–7 плана." },
+    foot: { t: "Диабетическая стопа", who: "Хирурги и эндокринологи кабинетов диабетической стопы, подологи.", why: "Хронические раны лечатся месяцами: это регулярная потребность и повторные покупки.", how: "Через руководителя кабинета или центра. Формат: короткое обучение по инструкции для врачей и медсестёр кабинета.", sku: "Гель 250 г и раствор 350 мл — в аптеках рядом и по пути пациентов.", when: "Неделя 7 плана." },
+    pall: { t: "Паллиатив и патронаж", who: "Врачи и медсёстры паллиативных отделений и выездных служб.", why: "Уход за пролежнями и хроническими ранами ведут родственники: покупают регулярно и большими формами. Гипотеза — проверить по закупкам аптек рядом.", how: "Через заведующего отделением или диспетчерскую службу. Формат: обучающая встреча для медсестёр по согласованию.", sku: "Гель 250 г, раствор 350 мл.", when: "Неделя 8 плана." },
+    pharm: { t: "Аптека: путь к автозаказу", who: "Заведующая аптекой; в сети — категорийный менеджер или закупщик.", why: "Автозаказ обычно считается от продаж и минимального остатка. Одна пачка в месяц для системы — не спрос. Уточните, как настроено в конкретной сети.", how: "Договоритесь о минимальном остатке геля 30 мл 2–3 уп и о вводе в матрицу. В сети — через закупщика, с цифрами по её точкам. Проверьте результат в следующей выгрузке.", sku: "Гель 30 мл — всегда; раствор 350 мл и гель 250 г — у профильных ЛПУ.", when: "Недели 1–4 плана: сначала полка, потом врачи." }
+  };
+  var gc = $("gcards");
+  ["pharm", "trauma", "surgery", "foot", "pall"].forEach(function (k) {
+    var a = AUD[k];
+    var el = document.createElement("article"); el.className = "gcard";
+    el.innerHTML = "<h3>" + esc(a.t) + "</h3><dl>" +
+      "<div><dt>К кому</dt><dd>" + esc(a.who) + "</dd></div>" +
+      "<div><dt>Почему даёт продажи</dt><dd>" + esc(a.why) + "</dd></div>" +
+      "<div><dt>Как зайти</dt><dd>" + esc(a.how) + "</dd></div>" +
+      "<div><dt>Что должно стоять на полке рядом</dt><dd>" + esc(a.sku) + "</dd></div>" +
+      "<div><dt>Когда</dt><dd>" + esc(a.when) + "</dd></div></dl>";
+    gc.appendChild(el);
+  });
+
+  /* Разбор CSV */
+  function splitLine(line) {
+    var out = [], cur = "", q = false;
+    for (var i = 0; i < line.length; i++) {
+      var c = line[i];
+      if (c === '"') { if (q && line[i + 1] === '"') { cur += '"'; i++; } else q = !q; }
+      else if (c === ";" && !q) { out.push(cur); cur = ""; }
+      else cur += c;
+    }
+    out.push(cur); return out;
+  }
+  function parseDate(s) {
+    s = String(s).trim();
+    var m = s.match(/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{2,4})/);
+    if (m) { var y = +m[3]; if (y < 100) y += 2000; return y + "-" + String(+m[2]).padStart(2, "0") + "-" + String(+m[1]).padStart(2, "0"); }
+    m = s.match(/^(\d{4})[.\/-](\d{1,2})[.\/-](\d{1,2})/);
+    if (m) return m[1] + "-" + String(+m[2]).padStart(2, "0") + "-" + String(+m[3]).padStart(2, "0");
+    return null;
+  }
+  function sku(name) {
+    var t = norm(name);
+    if (/gel|гел/.test(t) && /250/.test(t)) return "гель 250 г";
+    if (/gel|гел/.test(t)) return "гель 30 мл";
+    if (/solution|р-р|раств|350/.test(t)) return "р-р 350 мл";
+    return "другое";
+  }
+  var distName = function (d) { return /katren|катрен/i.test(d) ? "Катрен" : /protek|протек/i.test(d) ? "Протек" : /puls|пульс/i.test(d) ? "Пульс" : d.replace(/"/g, "").trim(); };
+  function parse(text) {
+    text = text.replace(/^﻿/, "");
+    var lines = text.split(/\r?\n/).filter(function (l) { return l.trim(); });
+    var rows = [], skipped = 0;
+    lines.forEach(function (l) {
+      var c = splitLine(l);
+      if (c.length < 8) { skipped++; return; }
+      var date = parseDate(c[0]);
+      var qty = parseFloat(String(c[7]).replace(/\s/g, "").replace(",", "."));
+      if (!date || isNaN(qty)) { skipped++; return; }
+      rows.push({ date: date, dist: distName(c[2]), sku: c[5].trim(), client: c[6].trim(), qty: qty });
+    });
+    return { rows: rows, skipped: skipped };
+  }
+  /* Один адрес — одна аптека: склеиваем варианты написания */
+  var keyOf = function (name) { return norm(name).replace(/п-?\s?\d{2}\)?/g, " ").replace(/\b(ооо|ао|ип)\b/g, " ").replace(/[^а-яa-z0-9]+/g, " ").replace(/\s+/g, " ").trim(); };
+
+  /* Модель аптек */
+  var state = { pharm: [], months: [], filter: "todo", open: {}, info: {} };
+  var overrides = {}, done = {};
+  try { overrides = JSON.parse(store.get("rt-dist") || "{}") || {}; } catch (e) {}
+  try { done = JSON.parse(store.get("rt-done") || "{}") || {}; } catch (e) {}
+
+  function build(rows) {
+    var pr = rows.filter(function (r) { return /пронтосан|prontosan/i.test(r.sku); });
+    var monthsSet = {};
+    pr.forEach(function (r) { monthsSet[r.date.slice(0, 7)] = 1; });
+    var months = Object.keys(monthsSet).sort();
+    var last3 = months.slice(-3), lastM = months[months.length - 1];
+    var by = {}, noClient = { units: 0, q3: 0, dists: {} };
+    pr.forEach(function (r) {
+      if (!r.client) { noClient.units += r.qty; if (last3.indexOf(r.date.slice(0, 7)) >= 0) noClient.q3 += r.qty; noClient.dists[r.dist] = 1; return; }
+      var k = keyOf(r.client);
+      var p = by[k] || (by[k] = { id: k, name: r.client, total: 0, m: {}, last: "", skus: {}, dists: {} });
+      if (r.client.length > p.name.length) p.name = r.client;
+      p.total += r.qty;
+      var mk = r.date.slice(0, 7);
+      p.m[mk] = (p.m[mk] || 0) + r.qty;
+      if (r.qty > 0 && r.date > p.last) p.last = r.date;
+      var s = sku(r.sku); p.skus[s] = (p.skus[s] || 0) + r.qty;
+      p.dists[r.dist] = 1;
+    });
+    var list = Object.keys(by).map(function (k) {
+      var p = by[k];
+      p.s3 = last3.reduce(function (s, mm) { return s + Math.max(0, p.m[mm] || 0); }, 0);
+      p.a3 = last3.filter(function (mm) { return (p.m[mm] || 0) > 0; }).length;
+      p.a9 = months.filter(function (mm) { return (p.m[mm] || 0) > 0; }).length;
+      p.avg = p.s3 / Math.max(1, last3.length);
+      if (p.avg >= 3 && p.a3 >= 2) p.seg = 0;
+      else if (p.a3 >= 2 || (p.a3 >= 1 && p.a9 >= 3)) p.seg = 1;
+      else if (p.a3 === 0) p.seg = 2;
+      else p.seg = 3;
+      p.gap = Math.max(0, Math.ceil(3 * last3.length - p.s3));
+      p.autoD = detectDistrict(p.name);
+      return p;
+    }).filter(function (p) { return p.total > 0; });
+    var order = { 1: 0, 2: 1, 3: 2, 0: 3 };
+    list.sort(function (a, b) { return order[a.seg] - order[b.seg] || b.s3 - a.s3 || b.total - a.total; });
+    var tot = pr.reduce(function (s, r) { return s + r.qty; }, 0);
+    var q3 = pr.filter(function (r) { return last3.indexOf(r.date.slice(0, 7)) >= 0; }).reduce(function (s, r) { return s + r.qty; }, 0);
+    state.pharm = list; state.months = months; state.last3 = last3;
+    state.info = { total: tot, q3: q3, noClient: noClient };
+  }
+  var dOf = function (p) { return overrides[p.id] || p.autoD; };
+  var SEG = { 1: ["s1", "Добрать"], 2: ["s2", "Выпала"], 3: ["s3", "Разовая"], 0: ["s0", "На цели"] };
+  var MN = ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"];
+  var mName = function (mm) { return MN[+mm.slice(5) - 1]; };
+  var fmtN = function (n) { return (Math.round(n * 10) / 10).toLocaleString("ru-RU"); };
+
+  function goal(p, d) {
+    var g = p.skus["гель 30 мл"] ? "" : " Геля 30 мл не было — начать с него.";
+    if (d === NOADDR) {
+      if (p.seg === 0) return "Юрлицо или сеть без адреса точки. Держать объём; через закупщика узнать, в какие точки уходит товар.";
+      return "Юрлицо или сеть без адреса точки: найти владельца или закупщика, узнать адреса точек (2ГИС) и договориться о <b>2–3 уп на точку</b> и автозаказе.";
+    }
+    if (d === WH) return "Склад или интернет-магазин: визит не нужен. Учитывайте как канал.";
+    if (p.seg === 0) return "Удержать: остаток не ниже 3 уп; добавить гель 250 г или раствор 350 мл, если их нет.";
+    if (p.seg === 1) return "Поднять минимальный остаток до <b>3 уп геля 30 мл</b> и включить автозаказ. До 3 уп/мес за последние 3 месяца не хватило " + p.gap + " уп." + g;
+    if (p.seg === 2) return "Брала раньше, в последние 3 месяца — ничего. Узнать причину, вернуть на полку <b>2–3 уп</b>." + g;
+    return "Разовая закупка. Если пачку продали — минимальный остаток <b>2 уп</b> и автозаказ." + g;
+  }
+
+  function districtsOrder() {
+    var counts = {};
+    state.pharm.forEach(function (p) { if (state.filter === "all" || p.seg !== 0) { var d = dOf(p); counts[d] = (counts[d] || 0) + 1; } });
+    LPU.forEach(function (l) { if (!(l.d in counts)) counts[l.d] = 0; });
+    var city = CITY.filter(function (d) { return d in counts; });
+    var obl = Object.keys(counts).filter(function (d) { return d.indexOf("Область: ") === 0; }).sort(function (a, b) { return counts[b] - counts[a]; });
+    var tail = ["Весь город"].concat(GROUPS_TAIL).filter(function (d) { return d in counts; });
+    return { list: city.concat(obl, tail), counts: counts };
+  }
+
+  function render() {
+    var I = state.info, l3 = state.last3 || [];
+    var todo = state.pharm.filter(function (p) { return p.seg !== 0 && dOf(p) !== WH; });
+    var onT = state.pharm.filter(function (p) { return p.seg === 0; }).length;
+    var s1 = state.pharm.filter(function (p) { return p.seg === 1 && dOf(p) !== NOADDR && dOf(p) !== WH; }).length;
+    var period = l3.length ? mName(l3[0]) + "–" + mName(l3[l3.length - 1]) : "";
+    $("kpis").innerHTML =
+      '<div class="kpi"><b>' + fmtN(I.q3 || 0) + '</b><span>уп Пронтосана за ' + period + '</span></div>' +
+      '<div class="kpi"><b>' + state.pharm.length + '</b><span>аптек и юрлиц с адресом или названием</span></div>' +
+      '<div class="kpi"><b>' + s1 + '</b><span>«Добрать» с адресом — первые визиты</span></div>' +
+      '<div class="kpi"><b>' + onT + '</b><span>уже ≥3 уп/мес</span></div>';
+    var nc = I.noClient || { units: 0 };
+    $("katren").innerHTML = nc.units > 0 ? "<b>" + esc(Object.keys(nc.dists).join(", ")) + "</b> не указывает аптеку: " + fmtN(nc.q3) + " уп за " + period + " (" + Math.round(nc.q3 / Math.max(1, I.q3) * 100) + "% объёма) не разложить по точкам. Попросите у дистрибьютора выгрузку с клиентами — через руководителя или KAM." : "";
+    $("katren").hidden = !(nc.units > 0);
+
+    var od = districtsOrder();
+    var tabs = $("tabs"); tabs.innerHTML = "";
+    od.list.forEach(function (d, i) {
+      var b = document.createElement("button");
+      b.className = "tab"; b.type = "button"; b.setAttribute("role", "tab");
+      b.innerHTML = esc(d.replace("Область: ", "")) + "<small>" + od.counts[d] + "</small>";
+      b.addEventListener("click", function () { var el = $("d-" + i); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); });
+      tabs.appendChild(b);
+    });
+
+    var seen = {}, allD = [];
+    CITY.concat(TOWNS.map(function (t) { return "Область: " + t[1]; }), GROUPS_TAIL).forEach(function (x) { if (!seen[x]) { seen[x] = 1; allD.push(x); } });
+    var box = $("districts"); box.innerHTML = "";
+    od.list.forEach(function (d, i) {
+      var ph = state.pharm.filter(function (p) { return dOf(p) === d && (state.filter === "all" || p.seg !== 0); });
+      var lp = LPU.filter(function (l) { return l.d === d; });
+      var sec = document.createElement("section");
+      sec.className = "district"; sec.id = "d-" + i; sec.style.scrollMarginTop = "64px";
+      var gapSum = ph.reduce(function (s, p) { return s + (p.seg === 0 ? 0 : p.gap); }, 0);
+      var LIM = 12, showAll = state.open[d];
+      var shown = showAll ? ph : ph.slice(0, LIM);
+      var phHtml = shown.map(function (p, j) {
+        var mb = state.months.map(function (mm) { var v = p.m[mm] || 0; return '<i class="' + (v > 0 ? "b" : "") + '" title="' + mName(mm) + ": " + v + ' уп">' + (v > 0 ? Math.round(v) : "–") + "</i>"; }).join("");
+        var opts = allD.map(function (x) { return '<option' + (x === d ? " selected" : "") + ">" + esc(x) + "</option>"; }).join("");
+        var cid = "c" + i + "-" + j;
+        return '<article class="ph' + (done[p.id] ? " done" : "") + '">' +
+          '<div class="ph-top"><span class="ph-name">' + esc(p.name) + '</span><span class="tag ' + SEG[p.seg][0] + '">' + SEG[p.seg][1] + "</span></div>" +
+          '<div class="ph-meta"><span class="num">' + fmtN(p.s3) + " уп за " + esc(period) + " · " + fmtN(p.avg) + " в мес</span><span>" + esc(Object.keys(p.dists).join(", ")) + "</span>" + (p.last ? "<span>последняя: " + esc(p.last.split("-").reverse().join(".")) + "</span>" : "") + "</div>" +
+          '<div class="ph-meta"><span class="mbar" aria-label="упаковки по месяцам">' + mb + "</span></div>" +
+          '<p class="ph-goal">' + goal(p, d) + "</p>" +
+          '<div class="ph-foot"><label class="chk" for="' + cid + '"><input type="checkbox" id="' + cid + '" data-done="' + esc(p.id) + '"' + (done[p.id] ? " checked" : "") + '>Визит сделан, остаток согласован</label>' +
+          '<select aria-label="Район аптеки" data-move="' + esc(p.id) + '">' + opts + "</select></div></article>";
+      }).join("");
+      var moreBtn = ph.length > LIM ? '<button type="button" class="more" data-more="' + esc(d) + '">' + (showAll ? "Свернуть" : "Показать все " + ph.length) + "</button>" : "";
+      var lpHtml = lp.length ? lp.map(function (l) {
+        var a = AUD[l.aud];
+        return '<article class="lpu"><span class="tag lpu-t" style="justify-self:start">' + esc(l.t) + "</span><h3>" + esc(l.n) + '</h3><p class="addr">' + esc(l.a) + (l.m ? " · " + esc(l.m) : "") + "</p>" +
+          '<p class="who">' + esc(a.who) + "</p>" +
+          '<p class="how"><b>Как зайти:</b> ' + esc(a.how) + "</p>" +
+          '<p class="how"><b>Рядом на полке:</b> ' + esc(a.sku) + "</p>" +
+          '<p class="src">Источник: ' + esc(l.s) + ". Проверьте адрес перед поездкой.</p></article>";
+      }).join("") : (GROUPS_TAIL.indexOf(d) >= 0 ? '<p class="empty">' + (d === UNK ? "Адрес есть, но района нет в словаре. Выберите район в списке у аптеки — выбор запомнится." : d === NOADDR ? "Здесь юрлица и сети без адресов точек. Работа — через закупщика или владельца: узнать точки и договориться об остатке." : "Визиты не нужны.") + "</p>" : '<p class="empty">В открытых источниках профильных ЛПУ для этого района не нашлось. Поищите в 2ГИС «хирург поликлиника», «травмпункт», «паллиативная помощь» рядом с аптеками слева.</p>');
+      sec.innerHTML = '<div class="d-head"><h2>' + esc(d) + '</h2><span class="sum num">' + ph.length + " в списке" + (gapSum && GROUPS_TAIL.indexOf(d) < 0 ? " · добрать ≈" + gapSum + " уп за 3 мес" : "") + "</span></div>" +
+        '<div class="cols"><div class="col"><p class="eyebrow"><span>Аптеки: кого довести до 3–5 уп/мес</span></p>' + (phHtml || '<p class="empty">Аптек с такими условиями здесь нет.</p>') + moreBtn + "</div>" +
+        '<div class="col"><p class="eyebrow"><span>' + (GROUPS_TAIL.indexOf(d) >= 0 ? "Что делать" : "Врачи района: куда ехать") + "</span></p>" + lpHtml + "</div></div>";
+      box.appendChild(sec);
+    });
+  }
+
+  $("districts").addEventListener("change", function (e) {
+    var t = e.target;
+    if (t.dataset.move) {
+      var p = state.pharm.find(function (x) { return x.id === t.dataset.move; });
+      if (p && t.value === p.autoD) delete overrides[p.id]; else overrides[t.dataset.move] = t.value;
+      store.set("rt-dist", JSON.stringify(overrides)); render();
+    } else if (t.dataset.done) {
+      done[t.dataset.done] = t.checked; store.set("rt-done", JSON.stringify(done));
+      t.closest(".ph").classList.toggle("done", t.checked);
+    }
+  });
+  $("districts").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-more]"); if (!b) return;
+    state.open[b.dataset.more] = !state.open[b.dataset.more]; render();
+  });
+  document.querySelectorAll("[data-f]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      state.filter = b.dataset.f;
+      document.querySelectorAll("[data-f]").forEach(function (x) { x.classList.toggle("on", x === b); });
+      render();
+    });
+  });
+
+  function status(html, cls) { $("status").innerHTML = html ? '<div class="' + cls + '">' + html + "</div>" : ""; }
+  function load(text, fname) {
+    var res = parse(text);
+    var pr = res.rows.filter(function (r) { return /пронтосан|prontosan/i.test(r.sku); });
+    if (!pr.length) { status("В файле не нашлось строк с Пронтосаном. Проверьте формат: «;» как разделитель, 8 колонок, наименование в 6-й колонке.", "err"); return false; }
+    build(res.rows);
+    var M = state.months.map(mName);
+    status("<b>" + esc(fname) + "</b>: " + pr.length + " строк Пронтосана, месяцы: " + esc(M.join(", ")) + " " + esc(state.months[state.months.length - 1].slice(0, 4)) + (res.skipped ? ". Пропущено строк: " + res.skipped : "") + ". Статус аптеки считается по последним 3 месяцам. Районы определены по адресу в названии — проверьте.", "info");
+    render();
+    return true;
+  }
+  function readFile(f) {
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { load(String(r.result), f.name); };
+    r.onerror = function () { status("Не удалось прочитать файл. Попробуйте выбрать его ещё раз.", "err"); };
+    r.readAsText(f, "utf-8");
+  }
+  $("fileIn").addEventListener("change", function (e) { readFile(e.target.files[0]); });
+  var drop = $("drop");
+  ["dragenter", "dragover"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("over"); }); });
+  ["dragleave", "drop"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove("over"); }); });
+  drop.addEventListener("drop", function (e) { readFile(e.dataTransfer.files[0]); });
+
+  /* Встроенная выгрузка: строки Пронтосана из 2026.csv */
+  var EMBED = /*DATA*/"";
+  if (!(EMBED && load(EMBED, "2026.csv, январь–сентябрь"))) { build([]); render(); status("Загрузите выгрузку дистрибьюторов, чтобы увидеть аптеки по районам.", "demo"); }
+})();
+</script>
