@@ -2,295 +2,345 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap">
 <style>
-/* Layout: слайд в духе презентаций Apple — крупный заголовок, много воздуха, шесть карточек-этапов, ключевое звено инвертировано; снизу «полоса хранилища» с деньгами и короткий список сбоев. */
+/* Layout: холст 1920×1080, вписывается в окно целиком (как слайд Keynote). Три зоны: вывод → таймлайн из 6 шагов с выноской риска → деньги и сбои. Два насыщенных цвета: риск и прибыль; расходы — шкала серых. */
 :root {
   --bg: #f5f5f7;
   --card: #ffffff;
   --ink: #1d1d1f;
   --muted: #6e6e73;
   --hair: #d2d2d7;
-  --inv-bg: #1d1d1f;
-  --inv-ink: #f5f5f7;
-  --inv-muted: #a1a1a6;
-  --blue: #0071e3;
-  --orange: #ff9500;
-  --indigo: #5e5ce6;
-  --green: #34c759;
-  --gray: #8e8e93;
-  --teal: #30b0c7;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.05);
+  --risk: #c93400;
+  --risk-soft: rgba(201, 52, 0, 0.08);
+  --profit: #248a3d;
+  --g1: #3a3a3c;
+  --g2: #636366;
+  --g3: #8e8e93;
+  --g4: #c7c7cc;
+  --on-risk: #ffffff;
   --f: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #000000; --card: #1c1c1e; --ink: #f5f5f7; --muted: #a1a1a6; --hair: #38383a;
-    --inv-bg: #f5f5f7; --inv-ink: #1d1d1f; --inv-muted: #6e6e73;
-    --blue: #0a84ff; --orange: #ff9f0a; --indigo: #7d7aff; --green: #30d158; --gray: #98989d; --teal: #40c8e0;
-    --shadow: none;
+    --risk: #ff9f0a; --risk-soft: rgba(255, 159, 10, 0.14); --profit: #30d158;
+    --g1: #e5e5ea; --g2: #aeaeb2; --g3: #8e8e93; --g4: #48484a; --on-risk: #1d1d1f;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #000000; --card: #1c1c1e; --ink: #f5f5f7; --muted: #a1a1a6; --hair: #38383a;
-  --inv-bg: #f5f5f7; --inv-ink: #1d1d1f; --inv-muted: #6e6e73;
-  --blue: #0a84ff; --orange: #ff9f0a; --indigo: #7d7aff; --green: #30d158; --gray: #98989d; --teal: #40c8e0;
-  --shadow: none;
+  --risk: #ff9f0a; --risk-soft: rgba(255, 159, 10, 0.14); --profit: #30d158;
+  --g1: #e5e5ea; --g2: #aeaeb2; --g3: #8e8e93; --g4: #48484a; --on-risk: #1d1d1f;
   color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
+  margin: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--f);
-  font-size: 15px;
-  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
+
+/* Сцена: холст масштабируется под окно, без прокрутки */
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
 .slide {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding-block: 56px 64px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  display: grid;
-  gap: 48px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--k, 0.5));
+  padding: 72px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-/* Заголовок */
-.hero { display: grid; gap: 14px; justify-items: center; text-align: center; }
-.eyebrow { font-size: 14px; font-weight: 600; color: var(--orange); letter-spacing: 0.01em; margin: 0; }
+/* Зона 1 — вывод */
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; }
+.eyebrow { margin: 0 0 12px; font-size: 20px; font-weight: 600; color: var(--muted); }
 h1 {
   margin: 0;
-  font-weight: 800;
-  font-size: clamp(34px, 5.2vw, 64px);
-  line-height: 1.04;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
-.sub {
-  margin: 0;
-  max-width: 46ch;
-  font-size: clamp(16px, 1.6vw, 20px);
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: -0.01em;
-  text-wrap: balance;
-}
-.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 6px; font-size: 13px; font-weight: 500; color: var(--muted); }
-.legend span { display: inline-flex; align-items: center; gap: 7px; }
+h1 em { font-style: normal; color: var(--profit); }
+.context { margin: 0; text-align: right; font-size: 20px; line-height: 1.4; font-weight: 500; color: var(--muted); white-space: nowrap; }
 
-.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
-.c-sys { background: var(--blue); }
-.c-sup { background: var(--orange); }
-.c-ozon { background: var(--indigo); }
-.c-buyer { background: var(--green); }
-.c-us { background: var(--gray); }
-
-/* Этапы */
+/* Зона 2 — таймлайн */
 .flow {
-  list-style: none; margin: 0; padding: 0;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
-}
-.step {
-  background: var(--card);
-  border-radius: 22px;
-  padding: 22px 20px 20px;
-  box-shadow: var(--shadow);
-  display: flex; flex-direction: column; gap: 10px;
-  min-width: 0;
-}
-.num {
-  font-size: 13px; font-weight: 600; color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-.time {
-  font-size: 22px; font-weight: 300; letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.15;
-}
-.step h2 {
+  position: relative;
+  list-style: none;
   margin: 0;
-  font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;
-  text-wrap: balance;
-}
-.step p { margin: 0; font-size: 13.5px; color: var(--muted); font-weight: 500; }
-.who { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: auto; padding-top: 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
-.who span { display: inline-flex; align-items: center; gap: 6px; }
-
-.step.key {
-  background: var(--inv-bg);
-  color: var(--inv-ink);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-}
-.step.key p, .step.key .num, .step.key .who { color: var(--inv-muted); }
-.badge {
-  align-self: flex-start;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
-  color: var(--orange);
-}
-
-/* Нижний ряд */
-.bottom {
+  padding: 0 0 110px;
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(6, 268px);
+  column-gap: 24px;
 }
-.panel {
-  background: var(--card);
-  border-radius: 22px;
-  padding: 28px 28px 26px;
-  box-shadow: var(--shadow);
-  display: grid; gap: 18px;
-  align-content: start;
-  min-width: 0;
+.flow::before {
+  content: "";
+  position: absolute;
+  top: 19px; left: 134px; right: 134px;
+  height: 2px;
+  background: var(--hair);
 }
-.panel h3 { margin: 0; font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.01em; }
-
-.money-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
-.big {
-  font-size: clamp(48px, 6vw, 76px);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1;
+.flow::after {
+  content: "";
+  position: absolute;
+  top: 18px; left: 718px; width: 584px;
+  height: 4px; border-radius: 2px;
+  background: var(--risk);
+}
+.step { position: relative; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.node {
+  position: relative; z-index: 1;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 2px solid var(--ink);
+  background: var(--bg);
+  font-size: 20px; font-weight: 700;
   font-variant-numeric: tabular-nums;
-  background: linear-gradient(90deg, var(--green), var(--teal));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
-.big-cap { font-size: 16px; font-weight: 500; color: var(--muted); max-width: 26ch; }
+.card {
+  width: 100%;
+  height: 250px;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 22px 22px 20px;
+  display: grid;
+  grid-template-rows: auto 66px 1fr auto;
+  row-gap: 8px;
+}
+.time { font-size: 20px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.card h2 { margin: 0; font-size: 26px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; align-self: start; }
+.desc { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 500; color: var(--muted); }
+.who { font-size: 20px; font-weight: 600; color: var(--ink); }
+
+.step.key .node { background: var(--risk); border-color: var(--risk); color: var(--on-risk); }
+.step.key .card { box-shadow: inset 0 0 0 3px var(--risk); }
+.step.key .time { color: var(--risk); }
+
+.risk {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  width: 540px;
+  height: 96px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--risk-soft);
+  display: grid;
+  align-content: center;
+  gap: 4px;
+}
+.risk::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: 122px;
+  border: 12px solid transparent;
+  border-top: 0;
+  border-bottom-color: var(--risk-soft);
+}
+.risk b { font-size: 22px; font-weight: 700; color: var(--risk); }
+.risk span { font-size: 20px; font-weight: 500; color: var(--ink); }
+
+/* Зона 3 — деньги и сбои */
+.bottom { flex: 1; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 72px; min-height: 0; }
+.label { margin: 0; font-size: 20px; font-weight: 600; color: var(--muted); }
+.money { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.money-head { display: flex; align-items: baseline; gap: 24px; }
+.big { font-size: 104px; line-height: 1; font-weight: 700; letter-spacing: -0.04em; color: var(--profit); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.big-cap { font-size: 22px; font-weight: 500; color: var(--muted); }
 .big-cap b { color: var(--ink); font-weight: 700; }
 
-.bar { display: flex; gap: 3px; height: 14px; }
-.bar div { border-radius: 4px; }
-.bar div:first-child { border-radius: 7px 4px 4px 7px; }
-.bar div:last-child { border-radius: 4px 7px 7px 4px; }
-.s-sup { background: var(--orange); flex: 1000; }
-.s-ozon { background: var(--indigo); flex: 620; }
-.s-tax { background: var(--gray); flex: 250; }
-.s-pack { background: var(--blue); flex: 250; }
-.s-profit { background: linear-gradient(90deg, var(--green), var(--teal)); flex: 240; }
+.bar, .parts { display: flex; gap: 4px; }
+.bar div { height: 24px; border-radius: 4px; }
+.bar div:first-child { border-radius: 12px 4px 4px 12px; }
+.bar div:last-child { border-radius: 4px 12px 12px 4px; }
+.p1 { flex: 1000; } .p2 { flex: 620; } .p3 { flex: 250; } .p4 { flex: 250; } .p5 { flex: 240; }
+.bar .p1 { background: var(--g1); } .bar .p2 { background: var(--g2); } .bar .p3 { background: var(--g3); }
+.bar .p4 { background: var(--g4); } .bar .p5 { background: var(--profit); }
+.parts { list-style: none; margin: 0; padding: 0; }
+.parts li { min-width: 0; display: grid; gap: 2px; align-content: start; }
+.parts b { font-size: 22px; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.parts span { font-size: 20px; font-weight: 500; color: var(--muted); line-height: 1.25; }
+.parts .p5 b, .parts .p5 span { color: var(--profit); }
+.note { margin: 0; font-size: 20px; font-weight: 500; color: var(--muted); }
 
-.keys {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px;
-  font-size: 12.5px; font-weight: 500; color: var(--muted);
-}
-.keys li { display: grid; gap: 2px; }
-.keys b { display: flex; align-items: center; gap: 7px; color: var(--ink); font-size: 16px; font-weight: 700; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
-.note { margin: 0; font-size: 12.5px; color: var(--muted); font-weight: 500; }
+.fails { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.fails ul { list-style: none; margin: 0; padding: 0; }
+.fails li { font-size: 22px; font-weight: 600; padding-block: 16px; border-top: 1px solid var(--hair); }
+.fails li:first-child { border-top: 0; padding-top: 4px; }
+.fails li span { color: var(--muted); font-weight: 500; }
 
-.fails { list-style: none; margin: 0; padding: 0; display: grid; }
-.fails li { display: grid; gap: 3px; padding-block: 13px; border-top: 1px solid var(--hair); }
-.fails li:first-child { border-top: 0; padding-top: 0; }
-.fails li:last-child { padding-bottom: 0; }
-.fails strong { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
-.fails span { font-size: 13.5px; color: var(--muted); font-weight: 500; }
-
-@media (max-width: 1100px) {
-  .flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .bottom { grid-template-columns: minmax(0, 1fr); }
-}
+/* Телефон: обычная страница с вертикальным таймлайном */
 @media (max-width: 640px) {
-  .slide { padding-block: 36px 44px; gap: 32px; }
-  .flow { grid-template-columns: minmax(0, 1fr); }
-  .keys { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .panel { padding: 22px 20px; }
+  html, body { height: auto; }
+  .stage { position: static; overflow: visible; }
+  .slide {
+    position: static; transform: none; width: auto; height: auto;
+    padding-block: 28px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    gap: 32px;
+  }
+  .head { height: auto; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .eyebrow { font-size: 14px; margin-bottom: 8px; }
+  h1 { font-size: 32px; }
+  .context { text-align: left; font-size: 14px; white-space: normal; }
+
+  .flow { grid-template-columns: minmax(0, 1fr); row-gap: 12px; padding: 0; }
+  .flow::before { top: 14px; bottom: 14px; left: 13px; right: auto; width: 2px; height: auto; }
+  .flow::after { content: none; }
+  .step { flex-direction: row; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+  .node { width: 28px; height: 28px; font-size: 14px; flex: none; }
+  .card { flex: 1; width: auto; height: auto; min-width: 0; padding: 14px 16px; border-radius: 16px; grid-template-rows: auto; row-gap: 2px; }
+  .time, .who { font-size: 14px; }
+  .card h2 { font-size: 20px; }
+  .desc { display: none; }
+  .risk { position: relative; top: auto; left: auto; width: auto; height: auto; flex-basis: 100%; margin-left: 42px; padding: 12px 14px; border-radius: 12px; }
+  .risk::before { left: 24px; }
+  .risk b { font-size: 16px; }
+  .risk span { font-size: 14px; }
+
+  .bottom { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .label, .note { font-size: 14px; }
+  .money-head { flex-direction: column; gap: 4px; }
+  .big { font-size: 64px; }
+  .big-cap { font-size: 16px; }
+  .bar div { height: 16px; }
+  .parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .parts b { font-size: 18px; }
+  .parts span { font-size: 14px; }
+  .fails li { font-size: 16px; padding-block: 12px; }
 }
 </style>
 
-<main class="slide">
-  <section class="hero">
-    <p class="eyebrow">Автозапчасти на Озоне без своего склада</p>
-    <h1>Путь одного заказа.</h1>
-    <p class="sub">Колодки на Haval Jolion за 2 360 ₽. Покупатель в Казани, деталь на складе поставщика в Москве.</p>
-    <div class="legend" aria-label="Кто делает шаг">
-      <span><i class="dot c-sys"></i>Система</span>
-      <span><i class="dot c-sup"></i>Поставщик</span>
-      <span><i class="dot c-ozon"></i>Озон</span>
-      <span><i class="dot c-buyer"></i>Покупатель</span>
-      <span><i class="dot c-us"></i>Мы</span>
-    </div>
-  </section>
-
-  <ol class="flow">
-    <li class="step">
-      <span class="num">01</span>
-      <span class="time">24/7</span>
-      <h2>Цена и остаток</h2>
-      <p>Каждые 15–60 минут берём прайс поставщика, считаем цену с прибылью и показываем 1–2 штуки. Нет товара — снимаем с продажи.</p>
-      <div class="who"><span><i class="dot c-sys"></i>Система</span></div>
-    </li>
-    <li class="step">
-      <span class="num">02</span>
-      <span class="time">Пн 14:05</span>
-      <h2>Покупка</h2>
-      <p>Покупатель оплатил. Деньги пока у Озона, у нас заказ со сроком сдачи до вторника, 18:00.</p>
-      <div class="who"><span><i class="dot c-buyer"></i>Покупатель</span><span><i class="dot c-ozon"></i>Озон</span></div>
-    </li>
-    <li class="step">
-      <span class="num">03</span>
-      <span class="time">14:06</span>
-      <h2>Заявка поставщику</h2>
-      <p>Проверяем наличие, цену и срок. Отправляем заявку, поставщик резервирует деталь за нами.</p>
-      <div class="who"><span><i class="dot c-sys"></i>Система</span><span><i class="dot c-sup"></i>Поставщик</span></div>
-    </li>
-    <li class="step key">
-      <span class="badge">Ключевое звено</span>
-      <span class="time">14:10–18:00</span>
-      <h2>Сборка и сдача</h2>
-      <p>Сборщик сканирует деталь, печатает этикетку Озона и отвозит в пункт приёма. Не успевает — нам приходит тревога.</p>
-      <div class="who"><span><i class="dot c-sup"></i>Поставщик</span><span><i class="dot c-sys"></i>Система</span></div>
-    </li>
-    <li class="step">
-      <span class="num">05</span>
-      <span class="time">Вт–Пт</span>
-      <h2>Доставка</h2>
-      <p>Озон принимает посылку и везёт в Казань. Покупатель забирает в пункте выдачи.</p>
-      <div class="who"><span><i class="dot c-ozon"></i>Озон</span><span><i class="dot c-buyer"></i>Покупатель</span></div>
-    </li>
-    <li class="step">
-      <span class="num">06</span>
-      <span class="time">Выплата</span>
-      <h2>Деньги и сверка</h2>
-      <p>Озон платит нам, мы — поставщику. Система сводит отчёт Озона, документы и банк в готовый реестр.</p>
-      <div class="who"><span><i class="dot c-sys"></i>Система</span><span><i class="dot c-us"></i>Мы</span></div>
-    </li>
-  </ol>
-
-  <section class="bottom">
-    <div class="panel">
-      <h3>Деньги с одного заказа</h3>
-      <div class="money-head">
-        <span class="big">240 ₽</span>
-        <span class="big-cap">прибыль из <b>2 360 ₽</b>. Около 10% с каждого заказа.</span>
+<div class="stage">
+  <main class="slide" id="slide">
+    <header class="head">
+      <div>
+        <p class="eyebrow">Автозапчасти на Озоне · без своего склада</p>
+        <h1>Один заказ: от покупки до <em>240&nbsp;₽</em> прибыли</h1>
       </div>
-      <div class="bar" role="img" aria-label="Из 2 360 рублей: поставщику 1 000, Озону 620, налоги 250, упаковка и возвраты 250, прибыль 240">
-        <div class="s-sup"></div><div class="s-ozon"></div><div class="s-tax"></div><div class="s-pack"></div><div class="s-profit"></div>
-      </div>
-      <ul class="keys">
-        <li><b><i class="dot c-sup"></i>1 000 ₽</b>Поставщику</li>
-        <li><b><i class="dot c-ozon"></i>620 ₽</b>Озону</li>
-        <li><b><i class="dot c-us"></i>250 ₽</b>Налоги</li>
-        <li><b><i class="dot c-sys"></i>250 ₽</b>Упаковка и возвраты</li>
-        <li><b><i class="dot c-buyer"></i>240 ₽</b>Прибыль</li>
-      </ul>
-      <p class="note">Цифры условные. 5 000 заказов в месяц ≈ 1 млн ₽ прибыли.</p>
-    </div>
+      <p class="context">Колодки Haval Jolion · 2&nbsp;360&nbsp;₽<br>Склад поставщика в Москве → покупатель в Казани</p>
+    </header>
 
-    <div class="panel">
-      <h3>Если что-то пошло не так</h3>
-      <ul class="fails">
-        <li><strong>Деталь закончилась</strong><span>Берём у второго поставщика или отменяем заказ.</span></li>
-        <li><strong>Поставщик не ответил</strong><span>Не покупаем дважды: сначала проверяем первую заявку.</span></li>
-        <li><strong>До сдачи 4 часа, не собрано</strong><span>Тревога в Telegram, оператор звонит поставщику.</span></li>
-        <li><strong>Возврат «не подошло»</strong><span>Находим закупку и решаем: вернуть, перепродать или списать.</span></li>
-      </ul>
-    </div>
-  </section>
-</main>
+    <ol class="flow">
+      <li class="step" aria-label="Шаг 1 из 6: цена и остаток">
+        <span class="node" aria-hidden="true">1</span>
+        <div class="card">
+          <span class="time">24/7</span>
+          <h2>Цена и остаток</h2>
+          <p class="desc">Прайс поставщика → цена на&nbsp;Озоне</p>
+          <span class="who">Система</span>
+        </div>
+      </li>
+      <li class="step" aria-label="Шаг 2 из 6: покупка">
+        <span class="node" aria-hidden="true">2</span>
+        <div class="card">
+          <span class="time">Пн 14:05</span>
+          <h2>Покупка</h2>
+          <p class="desc">Оплачено, деньги пока у&nbsp;Озона</p>
+          <span class="who">Покупатель · Озон</span>
+        </div>
+      </li>
+      <li class="step" aria-label="Шаг 3 из 6: заказ поставщику">
+        <span class="node" aria-hidden="true">3</span>
+        <div class="card">
+          <span class="time">Пн 14:06</span>
+          <h2>Заказ поставщику</h2>
+          <p class="desc">Деталь в&nbsp;резерве за&nbsp;нами</p>
+          <span class="who">Система</span>
+        </div>
+      </li>
+      <li class="step key" aria-label="Шаг 4 из 6: сборка и сдача, главный риск">
+        <span class="node" aria-hidden="true">4</span>
+        <div class="card">
+          <span class="time">Пн 14:10 → Вт 18:00</span>
+          <h2>Сборка и&nbsp;сдача</h2>
+          <p class="desc">Этикетка, сдача Озону</p>
+          <span class="who">Поставщик</span>
+        </div>
+        <div class="risk">
+          <b>Главный риск: не сдали вовремя</b>
+          <span>Отмена и штраф. За 4&nbsp;ч до срока — тревога</span>
+        </div>
+      </li>
+      <li class="step" aria-label="Шаг 5 из 6: доставка">
+        <span class="node" aria-hidden="true">5</span>
+        <div class="card">
+          <span class="time">Вт–Пт</span>
+          <h2>Доставка</h2>
+          <p class="desc">Москва → Казань, выдача в&nbsp;ПВЗ</p>
+          <span class="who">Озон</span>
+        </div>
+      </li>
+      <li class="step" aria-label="Шаг 6 из 6: деньги и сверка">
+        <span class="node" aria-hidden="true">6</span>
+        <div class="card">
+          <span class="time">После выдачи</span>
+          <h2>Деньги и&nbsp;сверка</h2>
+          <p class="desc">Озон → нам → поставщику</p>
+          <span class="who">Система</span>
+        </div>
+      </li>
+    </ol>
+
+    <section class="bottom">
+      <div class="money">
+        <p class="label">Деньги с одного заказа</p>
+        <div class="money-head">
+          <span class="big">240&nbsp;₽</span>
+          <span class="big-cap">прибыль из <b>2&nbsp;360&nbsp;₽</b> · около 10%</span>
+        </div>
+        <div class="bar" role="img" aria-label="Из 2 360 рублей: поставщику 1 000, Озону 620, налоги 250, упаковка и возвраты 250, прибыль 240">
+          <div class="p1"></div><div class="p2"></div><div class="p3"></div><div class="p4"></div><div class="p5"></div>
+        </div>
+        <ul class="parts">
+          <li class="p1"><b>1&nbsp;000&nbsp;₽</b><span>Поставщику</span></li>
+          <li class="p2"><b>620&nbsp;₽</b><span>Озону</span></li>
+          <li class="p3"><b>250&nbsp;₽</b><span>Налоги</span></li>
+          <li class="p4"><b>250&nbsp;₽</b><span>Упаковка, возвраты</span></li>
+          <li class="p5"><b>240&nbsp;₽</b><span>Прибыль</span></li>
+        </ul>
+        <p class="note">Цифры условные · 5&nbsp;000 заказов в месяц ≈ 1,2&nbsp;млн&nbsp;₽</p>
+      </div>
+
+      <div class="fails">
+        <p class="label">Если что-то не так</p>
+        <ul>
+          <li>Нет детали <span>→ второй поставщик</span></li>
+          <li>Поставщик молчит <span>→ не дублируем заказ</span></li>
+          <li>Возврат <span>→ вернуть, перепродать, списать</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var mobile = window.matchMedia("(max-width: 640px)");
+  function fit() {
+    if (mobile.matches) return;
+    var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    root.style.setProperty("--k", String(k));
+  }
+  window.addEventListener("resize", fit);
+  fit();
+})();
+</script>
