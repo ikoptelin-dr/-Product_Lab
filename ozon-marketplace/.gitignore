@@ -1,0 +1,5 @@
+04-development/partner-data/
+*.env
+.env*
+__pycache__/
+.venv/
