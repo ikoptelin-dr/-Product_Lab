@@ -1,0 +1,5 @@
+# Замените домен. Caddy сам выпустит и продлит HTTPS-сертификат.
+proba-lab.example {
+  encode zstd gzip
+  reverse_proxy web:3000
+}
