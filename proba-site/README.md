@@ -99,3 +99,7 @@ docker compose up -d --build       # сборка со STRICT_PLACEHOLDERS=true,
 - без каналов production-сервер отвечает 503.
 
 См. также [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) и [MISSING_DATA.md](MISSING_DATA.md).
+
+## Превью на claude.ai
+
+Статическая копия в одном файле: `npm run build && node scripts/preview/build-preview.mjs` → `preview/proba-lab-preview.html`. React заменён лёгким скриптом (`scripts/preview/preview-entry.ts`); форма в превью проверяет поля, но заявки не отправляет.

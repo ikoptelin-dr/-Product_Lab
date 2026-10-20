@@ -72,6 +72,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <button
             type="button"
+            data-topic={hero.primary.topic}
             onClick={() => chooseTopic(hero.primary.topic)}
             className="hidden min-h-11 border border-gold/70 px-5 text-[0.78rem] tracking-[0.14em] text-gold-pale uppercase transition-colors hover:bg-gold hover:text-ink sm:inline-flex sm:items-center"
           >

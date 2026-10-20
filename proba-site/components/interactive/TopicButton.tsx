@@ -18,6 +18,7 @@ export function TopicButton({
   return (
     <button
       type="button"
+      data-topic={topic}
       className={className}
       onClick={() => {
         if (goal) reachGoal(goal);

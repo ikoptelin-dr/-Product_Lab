@@ -38,6 +38,7 @@ function Flacon({ active, onPick }: { active: LayerId; onPick: (id: LayerId) => 
           return (
             <rect
               key={id}
+              data-layer={id}
               x="40"
               y={b.y}
               width="180"
