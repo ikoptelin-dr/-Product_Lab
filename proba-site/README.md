@@ -1,4 +1,6 @@
-# Proba Lab — сайт
+# Proba Lab — сайт (v1, устарел)
+
+> Дизайн и тексты v1 (парфюмерная концепция) отменены. Актуальная версия — `../proba-site-v2/`. Из этого проекта переиспользуется серверная часть формы заявок (`app/api/lead`, `lib/`), её нужно перенести под v2.
 
 Лендинг бюро доказательной коммерциализации health-продуктов. Концепция — «Проба» как премиальный парфюмерный дом: композиция нот, мюйетка, коллекция-этикетки, клейма. Подробнее — [DESIGN_RESEARCH.md](DESIGN_RESEARCH.md).
 
@@ -100,6 +102,3 @@ docker compose up -d --build       # сборка со STRICT_PLACEHOLDERS=true,
 
 См. также [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) и [MISSING_DATA.md](MISSING_DATA.md).
 
-## Превью на claude.ai
-
-Статическая копия в одном файле: `npm run build && node scripts/preview/build-preview.mjs` → `preview/proba-lab-preview.html`. React заменён лёгким скриптом (`scripts/preview/preview-entry.ts`); форма в превью проверяет поля, но заявки не отправляет.
