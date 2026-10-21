@@ -1,0 +1,55 @@
+<title>Proba Lab — пролёт</title>
+<meta name="description" content="3D-пролёт над лендингом Proba Lab, 14,5 с">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@500&family=PT+Serif:ital@1&display=swap">
+<style>
+  :root { --bg: #eef0f3; --ink: #16171c; --muted: #6b6f78; --line: rgba(22,23,28,.14); --accent: #0B5C66; color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0f1112; --ink: #eceef0; --muted: #9aa0a6; --line: rgba(236,238,240,.16); --accent: #4FB3B5; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #0f1112; --ink: #eceef0; --muted: #9aa0a6; --line: rgba(236,238,240,.16); --accent: #4FB3B5; color-scheme: dark; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.4 "Geist", system-ui, sans-serif; }
+  .stage { max-width: 1440px; margin: 0 auto; padding: 16px; box-sizing: border-box; }
+  .film { position: relative; width: 100%; aspect-ratio: 1440 / 1152; border-radius: 6px; overflow: hidden; background: #f5f7f8; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 18px 40px -20px rgba(0,0,0,.25); }
+  .film canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .controls { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+  .controls button { flex: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+  .controls input { flex: 1; min-width: 0; accent-color: var(--accent); }
+  .controls output { flex: none; min-width: 7.5ch; text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .err { padding: 24px; color: #b42318; }
+</style>
+<div class="stage">
+  <div class="film" id="film"><canvas class="film-gl" aria-label="3D-пролёт над лендингом Proba Lab"></canvas><canvas class="film-2d" aria-hidden="true"></canvas></div>
+  <div class="controls">
+    <button type="button" id="play" aria-label="Пауза"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path id="play-icon" d="M4 2h3v12H4zM9 2h3v12H9z" fill="currentColor"/></svg></button>
+    <input id="scrub" type="range" min="0" max="14.5" step="0.001" value="0" aria-label="Время">
+    <output id="time">0,00 с</output>
+  </div>
+</div>
+<script type="application/json" id="film-assets">{{ASSETS}}</script>
+<script type="module">
+{{FILM_JS}}
+// --- плеер: requestAnimationFrame → seek(t), цикл 14,5 с, пауза и перемотка ---
+const root = document.getElementById("film");
+const assets = JSON.parse(document.getElementById("film-assets").textContent);
+const renderMode = location.hash === "#render";
+window.FILM = { seek, probe, DURATION, ready: null };
+window.FILM.ready = init(root, assets).then(() => {
+  if (renderMode) return;
+  const btn = document.getElementById("play"), icon = document.getElementById("play-icon");
+  const scrub = document.getElementById("scrub"), out = document.getElementById("time");
+  let playing = true, t = 0, last = performance.now();
+  const paint = () => { scrub.value = t; out.textContent = t.toFixed(2).replace(".", ",") + " с"; };
+  const frame = (now) => {
+    if (playing) { t = (t + (now - last) / 1000) % DURATION; seek(t, { taps: 12 }); paint(); }
+    last = now;
+    requestAnimationFrame(frame);
+  };
+  btn.addEventListener("click", () => {
+    playing = !playing;
+    btn.setAttribute("aria-label", playing ? "Пауза" : "Смотреть");
+    icon.setAttribute("d", playing ? "M4 2h3v12H4zM9 2h3v12H9z" : "M4 2l10 6-10 6z");
+  });
+  scrub.addEventListener("input", () => { t = +scrub.value; seek(t, { taps: 12 }); paint(); });
+  requestAnimationFrame(frame);
+}).catch((e) => { root.insertAdjacentHTML("afterend", `<p class="err">Не удалось запустить WebGL2: ${e.message}</p>`); throw e; });
+</script>

@@ -1,0 +1,5 @@
+out/render.html
+out/*.log
+out/frames/
+out/seg-*
+capture/
