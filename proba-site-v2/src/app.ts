@@ -120,7 +120,7 @@ function leadForm() {
     const checks: [string, (v: string) => boolean, string][] = [
       ["lead-name", (v) => v.trim().length >= 2, "Укажите имя"],
       ["lead-company", (v) => v.trim().length >= 2, "Укажите компанию"],
-      ["lead-email", (v) => /^\S+@\S+\.\S+$/.test(v), "Проверьте email"],
+      ["lead-email", (v) => /^\S+@\S+\.\S+$/.test(v) || v.replace(/\D/g, "").length >= 10, "Укажите email или телефон"],
       ["lead-url", (v) => !v || /^https?:\/\/\S+\.\S+/.test(v), "Нужна ссылка вида https://…"],
     ];
     let first: HTMLElement | null = null;
@@ -149,6 +149,17 @@ function leadForm() {
   });
 }
 
+function stickyCta() {
+  const bar = $(".sticky-cta");
+  const hero = $(".hero");
+  const contact = $("#contact");
+  if (!bar || !hero || !contact) return;
+  let pastHero = false, atContact = false;
+  const paint = () => (bar.hidden = !pastHero || atContact || $(".site-header")!.classList.contains("is-open"));
+  new IntersectionObserver(([e]) => { pastHero = !e!.isIntersecting; paint(); }).observe(hero);
+  new IntersectionObserver(([e]) => { atContact = e!.isIntersecting; paint(); }, { rootMargin: "0px 0px -20% 0px" }).observe(contact);
+}
+
 function anchors() {
   document.addEventListener("click", (e) => {
     const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
@@ -167,5 +178,6 @@ function init() {
   topics();
   leadForm();
   anchors();
+  stickyCta();
 }
 document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", init) : init();
