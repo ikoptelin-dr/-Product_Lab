@@ -14,6 +14,16 @@ const js = await build({
 });
 
 const ph = (t) => `<span class="placeholder">${t}</span>`;
+
+// «10 из ~190»: сетка 19 × 10 точек, первая колонка — 10 крупнейших рекламодателей.
+// Финальное состояние нарисовано в разметке; скрипт только проигрывает к нему анимацию.
+const dots = () => {
+  let c = "";
+  for (let col = 0; col < 19; col++)
+    for (let row = 0; row < 10; row++)
+      c += `<circle class="${col ? "d" : "d d-top"}" cx="${5 + col * 10}" cy="${5 + row * 10}" r="2.3" style="--c:${col};--r:${row}"/>`;
+  return `<svg class="dots" viewBox="0 0 190 100" aria-hidden="true" focusable="false"><rect class="dots-pool" x="0.5" y="0.5" width="9" height="99" rx="1.5"/>${c}</svg>`;
+};
 let body = read("src/body.html")
   .replace(/(\d) (\d{3})/g, "$1\u00a0$2")
   .replace(/ ₽/g, "\u00a0₽")
@@ -22,11 +32,13 @@ let body = read("src/body.html")
   .replace("{{HERO_ART}}", read("assets/hero.svg"))
   .replace("{{CTA_ART}}", read("assets/cta.svg"))
   .replace("{{PRICING_NOTE}}", "Налоговый режим и НДС указываются в договоре.")
-  .replace("{{FOUNDER_NAME}}", ph("Имя Фамилия"))
+  .replace("{{DOTS_190}}", dots())
+  .replaceAll("{{FOUNDER_NAME}}", ph("Имя Фамилия"))
+  .replace("{{SCIENCE_PROFILE}}", ph("ссылка на профиль eLibrary / ORCID"))
   .replace("{{LEGAL_LINE}}", `© 2026 Proba Lab. ${ph("ИП / ООО, ИНН, ОГРН — заполнить")}`);
 
 const page = `<title>Proba Lab</title>
-<meta name="description" content="Аудит доказательной базы и формулировок для производителей БАД, космецевтики и медизделий">
+<meta name="description" content="Proba Lab — доказательная коммерциализация health-продуктов. Проверка состава по исследованиям под критерии ПП № 398, безопасные формулировки и материалы для маркетплейса, аптеки и врача.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

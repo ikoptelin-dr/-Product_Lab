@@ -22,7 +22,7 @@ Image.fromarray(ink.astype(np.uint8), "RGBA").save(assets / "emblem-ink.png")
 src.save(assets / "emblem-light.png")
 
 # --- Пейзаж ---
-def ridge(y, amp, seed, waves=3, w=1600, h=900):
+def ridge(y, amp, seed, waves=3, w=1600, h=900):  # h — нижний край заливки
     rnd = random.Random(seed)
     pts = []
     n = waves * 2 + 1
@@ -58,31 +58,38 @@ def landscape(id_, calm=False, flowers=True):
     out.append(f'<filter id="{id_}soft"><feGaussianBlur stdDeviation="1.4"/></filter>')
     out.append(f'<filter id="{id_}grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .35  0 0 0 0 .3  0 0 0 .55 0"/></filter>')
     out.append('</defs>')
-    out.append(f'<rect width="1600" height="900" fill="url(#{id_}sky)"/>')
-    out.append(f'<circle class="sun-glow" cx="1060" cy="548" r="230" fill="url(#{id_}glow)"/>')
-    out.append(f'<circle cx="1060" cy="548" r="26" fill="#EDB458"/>')
+    # Слои для параллакса: каждый <g class="pl"> сдвигается скриптом на scrollY × data-depth.
+    # Дальние слои двигаются сильнее (отстают от прокрутки), ближние — почти стоят. Небо выше
+    # viewBox, чтобы при сдвиге вниз не открывался фон.
+    pl = lambda d: f'<g class="pl" data-depth="{d}">' if not calm else '<g>'
+    out.append(f'<rect y="-420" width="1600" height="1320" fill="url(#{id_}sky)"/>')
+    out.append(pl(.42) + f'<circle class="sun-glow" cx="1060" cy="548" r="230" fill="url(#{id_}glow)"/><circle class="sun" cx="1060" cy="548" r="26" fill="#EDB458"/></g>')
     if not calm:
-        out.append(f'<g class="clouds" filter="url(#{id_}cloud)" opacity=".85">' + "".join(
-            f'<ellipse cx="{1180+rnd.random()*420:.0f}" cy="{430+rnd.random()*120:.0f}" rx="{90+rnd.random()*120:.0f}" ry="{40+rnd.random()*40:.0f}" fill="#F1E6D2" opacity="{.4+rnd.random()*.2:.2f}"/>' for _ in range(7)) + '</g>')
+        out.append(pl(.36) + f'<g class="clouds" filter="url(#{id_}cloud)" opacity=".85">' + "".join(
+            f'<ellipse cx="{1180+rnd.random()*420:.0f}" cy="{430+rnd.random()*120:.0f}" rx="{90+rnd.random()*120:.0f}" ry="{40+rnd.random()*40:.0f}" fill="#F1E6D2" opacity="{.4+rnd.random()*.2:.2f}"/>' for _ in range(7)) + '</g></g>')
+    depths = (.32, .26, .19, .12, .05)
     for i, (y, amp, t, b, bl, s, wv) in enumerate(R):
         if calm and i < 2: continue
         f = f' filter="url(#{id_}b{i})"' if bl else ""
-        out.append(f'<path d="{ridge(y, amp, s, wv)}" fill="url(#{id_}r{i})"{f}/>')
+        out.append(pl(depths[i]))
+        out.append(f'<path d="{ridge(y, amp, s, wv, h=1300)}" fill="url(#{id_}r{i})"{f}/>')
         if i == 2:
-            out.append(f'<rect width="1600" height="900" fill="url(#{id_}haze)"/>')
+            out.append(f'<rect y="-200" width="1600" height="1100" fill="url(#{id_}haze)"/>')
         if i >= 2:
             out.append(f'<path d="{ridge(y, amp, s, wv)}" fill="#E8D6B0" opacity=".14" transform="translate(-18,-6)" clip-path="inset(0 0 {max(0,900-y-40)}px 0)"/>')
+        out.append('</g>')
     if flowers and not calm:
+        # Передний план: меньше «боке», чем в v3, — фон не должен читаться как lifestyle.
         dots = []
-        for (x0, x1) in ((0, 520), (1120, 1600)):
-            for _ in range(320):
+        for (x0, x1) in ((0, 420), (1220, 1600)):
+            for _ in range(140):
                 x = x0 + rnd.random() * (x1 - x0)
-                yy = 900 - (rnd.random() ** 1.6) * 170
-                r = 1.4 + rnd.random() * 3.6
-                c = rnd.choice(["#E0A54A", "#C98A1B", "#F3E7CF", "#E0A54A", "#7FB0AC"])
+                yy = 900 - (rnd.random() ** 1.8) * 120
+                r = 1.2 + rnd.random() * 2.6
+                c = rnd.choice(["#E0A54A", "#C98A1B", "#F3E7CF", "#7FB0AC", "#7FB0AC"])
                 dots.append(f'<circle cx="{x:.0f}" cy="{yy:.0f}" r="{r:.1f}" fill="{c}"/>')
-        out.append(f'<rect x="0" y="860" width="1600" height="40" fill="#0E3439" opacity=".6"/>')
-        out.append(f'<g filter="url(#{id_}soft)">' + "".join(dots) + '</g>')
+        out.append(f'<rect x="0" y="860" width="1600" height="440" fill="#0E3439" opacity=".6"/>')
+        out.append(f'<g filter="url(#{id_}soft)" opacity=".8">' + "".join(dots) + '</g>')
     out.append(f'<rect width="1600" height="900" filter="url(#{id_}grain)" opacity=".09" style="mix-blend-mode:overlay"/>')
     out.append('</svg>')
     return "".join(out)

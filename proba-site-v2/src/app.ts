@@ -1,6 +1,7 @@
-// Интерактивность лендинга Proba Lab v2: шапка, мобильное меню, вкладки примера отчёта,
-// проверка формулировок, выбор тарифа в форме, демо-отправка формы.
+// Интерактивность лендинга Proba Lab v2: шапка, мобильное меню, вкладки (отчёт, «было — стало»),
+// проверка формулировок, выбор задачи в форме, демо-отправка формы. Движение — в motion.ts.
 import { checkClaim, type LitmusResult } from "../../proba-site/lib/litmus";
+import { animateCheck, initMotion, prepCheck } from "./motion";
 
 const $ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => r.querySelector<T>(s);
 const $$ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => Array.from(r.querySelectorAll<T>(s));
@@ -44,7 +45,14 @@ function tabs() {
         t.setAttribute("aria-selected", String(on));
         t.tabIndex = on ? 0 : -1;
         const panel = document.getElementById(t.getAttribute("aria-controls")!)!;
+        const was = panel.hidden;
         panel.hidden = !on;
+        if (on && was) {
+          // смена вкладки: сдвиг 12 px + проявление, строки таблиц собираются заново
+          panel.classList.remove("tab-in");
+          void panel.offsetWidth;
+          panel.classList.add("tab-in");
+        }
         if (on && focus) t.focus();
       });
     ts.forEach((t, i) => {
@@ -86,18 +94,23 @@ function checker() {
   const input = $<HTMLTextAreaElement>("#check-input");
   const out = $("#check-result");
   if (!form || !input || !out) return;
-  const run = () => input.value.trim() && renderCheck(out, checkClaim(input.value));
+  const bridge = $(".check-bridge");
+  const run = (animate: boolean) => {
+    if (!input.value.trim()) return;
+    renderCheck(out, checkClaim(input.value));
+    animate ? animateCheck(out, bridge) : prepCheck(out);
+  };
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    run();
+    run(true);
   });
   $$<HTMLButtonElement>("[data-sample]").forEach((b) =>
     b.addEventListener("click", () => {
       input.value = b.dataset.sample!;
-      run();
+      run(true);
     }),
   );
-  run(); // страница открывается с заполненным примером
+  run(false); // страница открывается с заполненным примером; анимация — при входе во вьюпорт
 }
 
 function topics() {
@@ -172,6 +185,7 @@ function anchors() {
 }
 
 function init() {
+  initMotion();
   header();
   tabs();
   checker();
