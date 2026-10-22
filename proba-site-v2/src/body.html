@@ -86,7 +86,7 @@
 
   <!-- Бесплатный разбор -->
   <section id="review" class="section review" aria-labelledby="review-title">
-    <div class="container two-col">
+    <div class="container review-grid">
       <div class="review-copy">
         <p class="eyebrow">Бесплатно</p>
         <h2 id="review-title">Ваш продукт глазами покупателя</h2>
@@ -122,6 +122,10 @@
         <button class="btn btn-primary btn-lg btn-block" type="submit">Получить бесплатный разбор</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
+      <figure class="photo review-photo reveal">
+        <img class="" src="img/review-compare-1100.webp" srcset="img/review-compare-640.webp 640w, img/review-compare-1100.webp 1100w" sizes="(max-width: 900px) 92vw, 540px" width="1100" height="825" loading="lazy" decoding="async" alt="Иллюстрация: три упаковки продуктов разложены рядом для сравнения">
+        <figcaption>Иллюстрация процесса</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -134,6 +138,7 @@
       </div>
       <div class="task-grid">
         <article class="task-card reveal">
+          <img class="task-img" src="img/task-promo-800.webp" srcset="img/task-promo-480.webp 480w, img/task-promo-800.webp 800w" sizes="(max-width: 960px) 92vw, 360px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <p class="task-kicker">Продвижение</p>
           <h3>Подготовить продукт к продвижению</h3>
           <p class="task-result">Покупатель понимает, зачем ему продукт и чем он отличается.</p>
@@ -141,6 +146,7 @@
           <button class="btn btn-primary task-btn" type="button" data-task="promo">Обсудить продвижение</button>
         </article>
         <article class="task-card reveal">
+          <img class="task-img" src="img/task-partners-800.webp" srcset="img/task-partners-480.webp 480w, img/task-partners-800.webp 800w" sizes="(max-width: 960px) 92vw, 360px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <p class="task-kicker">Партнёры</p>
           <h3>Подготовить материалы для партнёров</h3>
           <p class="task-result">Дистрибьютор или торговый партнёр понимает продукт, условия и следующий шаг.</p>
@@ -148,6 +154,7 @@
           <button class="btn btn-primary task-btn" type="button" data-task="partners">Обсудить материалы</button>
         </article>
         <article class="task-card reveal">
+          <img class="task-img" src="img/task-automation-800.webp" srcset="img/task-automation-480.webp 480w, img/task-automation-800.webp 800w" sizes="(max-width: 960px) 92vw, 360px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <p class="task-kicker">Автоматизация</p>
           <h3>Упростить заявки и работу команды</h3>
           <p class="task-result">Убираем повторный ввод данных, связываем системы и делаем процессы понятнее.</p>
@@ -223,7 +230,13 @@
   <!-- Команда -->
   <section class="section team" aria-labelledby="team-title">
     <div class="container two-col">
-      <h2 id="team-title" class="reveal">Кто работает над вашей задачей</h2>
+      <div class="team-head">
+        <h2 id="team-title" class="reveal">Кто работает над вашей задачей</h2>
+        <figure class="photo team-photo reveal">
+          <img class="" src="img/team-sources-1100.webp" srcset="img/team-sources-640.webp 640w, img/team-sources-1100.webp 1100w" sizes="(max-width: 900px) 92vw, 540px" width="1100" height="733" loading="lazy" decoding="async" alt="Иллюстрация: разбор отчётов и графиков за рабочим столом">
+          <figcaption>Иллюстрация процесса</figcaption>
+        </figure>
+      </div>
       <div class="team-text">
         <p><b>Основатель — врач</b> с опытом научных исследований и B2B-продаж медицинской продукции. Разбирается, на что опираются заявления о продукте и где у них границы: исследования ингредиента ещё не доказывают эффективность готового продукта.</p>
         <p><b>Дизайнеры и разработчики</b> превращают выводы в карточки, сайты и презентации, а также связывают сайт и формы с системами, в которых работает ваша команда, — включая интеграции и AI-инструменты там, где они оправданы.</p>
@@ -331,6 +344,10 @@
   <section class="section auto-cases" aria-labelledby="auto-cases-title">
     <div class="container">
       <h2 id="auto-cases-title" class="section-head">Узнаёте ситуацию?</h2>
+      <figure class="photo auto-banner">
+        <img class="" src="img/auto-integrations-1400.webp" srcset="img/auto-integrations-800.webp 800w, img/auto-integrations-1400.webp 1400w" sizes="(max-width: 1240px) 92vw, 1160px" width="1400" height="600" loading="lazy" decoding="async" alt="Иллюстрация: связанные между собой модули рядом с ноутбуком">
+        <figcaption>Иллюстрация процесса</figcaption>
+      </figure>
       <div class="case-list">
         <article class="case">
           <h3>Данные переносят вручную</h3>
@@ -341,6 +358,7 @@
           <dl><div><dt>Задача</dt><dd>Формы, почта и мессенджеры — неясно, кто ответил</dd></div><div><dt>Пример решения</dt><dd>Все обращения попадают в одну рабочую систему с ответственным и статусом</dd></div><div><dt>Как проверить</dt><dd>Тестовое обращение из каждого канала доходит со статусом</dd></div></dl>
         </article>
         <article class="case">
+          <img class="case-img" src="img/auto-documents-800.webp" srcset="img/auto-documents-480.webp 480w, img/auto-documents-800.webp 800w" sizes="(max-width: 860px) 92vw, 560px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <h3>Ответы ищут по папкам</h3>
           <dl><div><dt>Задача</dt><dd>Менеджеры ищут сведения о составе, документах и условиях</dd></div><div><dt>Пример решения</dt><dd>Поиск по вашим документам: ответ с цитатой и ссылкой на файл. Ответ клиенту отправляет сотрудник</dd></div><div><dt>Как проверить</dt><dd>Набор реальных вопросов: находит ли поиск верный источник, сколько времени уходит до и после</dd></div></dl>
         </article>

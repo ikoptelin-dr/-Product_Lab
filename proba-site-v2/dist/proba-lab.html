@@ -255,11 +255,36 @@ fieldset[aria-invalid="true"] .choice span { border-color: var(--danger); }
 .form-status.is-filled { background: var(--amber-soft); color: var(--ink); }
 .pf-package-note { padding: 12px 14px; border-radius: var(--radius-sm); background: var(--petrol-soft); color: var(--ink); font-size: var(--fs-small); }
 
+/* Иллюстрации: размеры заданы заранее (aspect-ratio + width/height) — без скачков верстки */
+.photo { display: grid; gap: 8px; }
+.photo img { display: block; width: 100%; height: auto; border-radius: var(--radius); background: var(--bg-alt); object-fit: cover; }
+.photo figcaption { font-size: var(--fs-caption); color: var(--muted); }
+.review-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "copy form" "photo form"; gap: 28px clamp(32px, 5vw, 80px); align-items: start; }
+.review-copy { grid-area: copy; }
+.review-grid .form-card { grid-area: form; }
+.review-photo { grid-area: photo; }
+.review-photo img { aspect-ratio: 4 / 3; }
+@media (max-width: 900px) {
+  .review-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "form" "photo"; }
+  .review-photo img { aspect-ratio: 16 / 9; object-position: 50% 40%; }
+}
+.team-head { display: grid; gap: 28px; align-content: start; }
+.team-photo img { aspect-ratio: 3 / 2; }
+@media (max-width: 900px) { .team-head { gap: 20px; } .team-photo img { aspect-ratio: 16 / 9; } }
+.task-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: calc(var(--radius) - 4px); background: var(--bg-alt); margin-bottom: 6px; }
+.auto-banner { margin-bottom: 24px; }
+.auto-banner img { aspect-ratio: 21 / 9; }
+@media (max-width: 700px) { .auto-banner img { aspect-ratio: 16 / 9; object-position: 50% 60%; } }
+.case-img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 2; object-position: 50% 45%; object-fit: cover; border-radius: calc(var(--radius) - 4px); background: var(--bg-alt); }
+
 /* Задачи */
 .tasks { background: var(--bg-alt); }
 .task-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
 @media (max-width: 960px) { .task-grid { grid-template-columns: minmax(0, 1fr); } }
-.task-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 10px; height: 100%; grid-template-rows: auto auto 1fr auto auto; }
+.task-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 14px 22px; display: flex; flex-direction: column; gap: 10px; height: 100%; }
+.task-card > :not(.task-img) { margin-inline: 10px; }
+.task-card .task-btn { margin-top: auto; align-self: stretch; }
+.task-card details { margin-top: 2px; }
 .task-kicker { font-size: var(--fs-caption); font-weight: 600; color: var(--amber-text); }
 .task-result { color: var(--ink-2); }
 .task-card details { border-top: 1px solid var(--line); }
@@ -354,7 +379,7 @@ details > summary::-webkit-details-marker { display: none; }
 .auto-cases { background: var(--bg-alt); }
 .case-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
 @media (max-width: 860px) { .case-list { grid-template-columns: minmax(0, 1fr); } }
-.case { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 14px; }
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 14px; align-content: start; }
 .case dl { display: grid; gap: 10px; }
 .case dl div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
 @media (max-width: 520px) { .case dl div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
@@ -461,7 +486,7 @@ details > summary::-webkit-details-marker { display: none; }
 
   <!-- Бесплатный разбор -->
   <section id="review" class="section review" aria-labelledby="review-title">
-    <div class="container two-col">
+    <div class="container review-grid">
       <div class="review-copy">
         <p class="eyebrow">Бесплатно</p>
         <h2 id="review-title">Ваш продукт глазами покупателя</h2>
@@ -497,6 +522,10 @@ details > summary::-webkit-details-marker { display: none; }
         <button class="btn btn-primary btn-lg btn-block" type="submit">Получить бесплатный разбор</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
+      <figure class="photo review-photo reveal">
+        <img class="" src="img/review-compare-1100.webp" srcset="img/review-compare-640.webp 640w, img/review-compare-1100.webp 1100w" sizes="(max-width: 900px) 92vw, 540px" width="1100" height="825" loading="lazy" decoding="async" alt="Иллюстрация: три упаковки продуктов разложены рядом для сравнения">
+        <figcaption>Иллюстрация процесса</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -509,6 +538,7 @@ details > summary::-webkit-details-marker { display: none; }
       </div>
       <div class="task-grid">
         <article class="task-card reveal">
+          <img class="task-img" src="img/task-promo-800.webp" srcset="img/task-promo-480.webp 480w, img/task-promo-800.webp 800w" sizes="(max-width: 960px) 92vw, 360px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <p class="task-kicker">Продвижение</p>
           <h3>Подготовить продукт к продвижению</h3>
           <p class="task-result">Покупатель понимает, зачем ему продукт и чем он отличается.</p>
@@ -516,6 +546,7 @@ details > summary::-webkit-details-marker { display: none; }
           <button class="btn btn-primary task-btn" type="button" data-task="promo">Обсудить продвижение</button>
         </article>
         <article class="task-card reveal">
+          <img class="task-img" src="img/task-partners-800.webp" srcset="img/task-partners-480.webp 480w, img/task-partners-800.webp 800w" sizes="(max-width: 960px) 92vw, 360px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <p class="task-kicker">Партнёры</p>
           <h3>Подготовить материалы для партнёров</h3>
           <p class="task-result">Дистрибьютор или торговый партнёр понимает продукт, условия и следующий шаг.</p>
@@ -523,6 +554,7 @@ details > summary::-webkit-details-marker { display: none; }
           <button class="btn btn-primary task-btn" type="button" data-task="partners">Обсудить материалы</button>
         </article>
         <article class="task-card reveal">
+          <img class="task-img" src="img/task-automation-800.webp" srcset="img/task-automation-480.webp 480w, img/task-automation-800.webp 800w" sizes="(max-width: 960px) 92vw, 360px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <p class="task-kicker">Автоматизация</p>
           <h3>Упростить заявки и работу команды</h3>
           <p class="task-result">Убираем повторный ввод данных, связываем системы и делаем процессы понятнее.</p>
@@ -598,7 +630,13 @@ details > summary::-webkit-details-marker { display: none; }
   <!-- Команда -->
   <section class="section team" aria-labelledby="team-title">
     <div class="container two-col">
-      <h2 id="team-title" class="reveal">Кто работает над вашей задачей</h2>
+      <div class="team-head">
+        <h2 id="team-title" class="reveal">Кто работает над вашей задачей</h2>
+        <figure class="photo team-photo reveal">
+          <img class="" src="img/team-sources-1100.webp" srcset="img/team-sources-640.webp 640w, img/team-sources-1100.webp 1100w" sizes="(max-width: 900px) 92vw, 540px" width="1100" height="733" loading="lazy" decoding="async" alt="Иллюстрация: разбор отчётов и графиков за рабочим столом">
+          <figcaption>Иллюстрация процесса</figcaption>
+        </figure>
+      </div>
       <div class="team-text">
         <p><b>Основатель — врач</b> с опытом научных исследований и B2B-продаж медицинской продукции. Разбирается, на что опираются заявления о продукте и где у них границы: исследования ингредиента ещё не доказывают эффективность готового продукта.</p>
         <p><b>Дизайнеры и разработчики</b> превращают выводы в карточки, сайты и презентации, а также связывают сайт и формы с системами, в которых работает ваша команда, — включая интеграции и AI-инструменты там, где они оправданы.</p>
@@ -706,6 +744,10 @@ details > summary::-webkit-details-marker { display: none; }
   <section class="section auto-cases" aria-labelledby="auto-cases-title">
     <div class="container">
       <h2 id="auto-cases-title" class="section-head">Узнаёте ситуацию?</h2>
+      <figure class="photo auto-banner">
+        <img class="" src="img/auto-integrations-1400.webp" srcset="img/auto-integrations-800.webp 800w, img/auto-integrations-1400.webp 1400w" sizes="(max-width: 1240px) 92vw, 1160px" width="1400" height="600" loading="lazy" decoding="async" alt="Иллюстрация: связанные между собой модули рядом с ноутбуком">
+        <figcaption>Иллюстрация процесса</figcaption>
+      </figure>
       <div class="case-list">
         <article class="case">
           <h3>Данные переносят вручную</h3>
@@ -716,6 +758,7 @@ details > summary::-webkit-details-marker { display: none; }
           <dl><div><dt>Задача</dt><dd>Формы, почта и мессенджеры — неясно, кто ответил</dd></div><div><dt>Пример решения</dt><dd>Все обращения попадают в одну рабочую систему с ответственным и статусом</dd></div><div><dt>Как проверить</dt><dd>Тестовое обращение из каждого канала доходит со статусом</dd></div></dl>
         </article>
         <article class="case">
+          <img class="case-img" src="img/auto-documents-800.webp" srcset="img/auto-documents-480.webp 480w, img/auto-documents-800.webp 800w" sizes="(max-width: 860px) 92vw, 560px" width="800" height="500" loading="lazy" decoding="async" alt="">
           <h3>Ответы ищут по папкам</h3>
           <dl><div><dt>Задача</dt><dd>Менеджеры ищут сведения о составе, документах и условиях</dd></div><div><dt>Пример решения</dt><dd>Поиск по вашим документам: ответ с цитатой и ссылкой на файл. Ответ клиенту отправляет сотрудник</dd></div><div><dt>Как проверить</dt><dd>Набор реальных вопросов: находит ли поиск верный источник, сколько времени уходит до и после</dd></div></dl>
         </article>

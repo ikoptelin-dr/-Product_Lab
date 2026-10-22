@@ -2,7 +2,7 @@
 // Цены, варианты задач формы и отзывы берутся из src/data.ts, поэтому страница полна и без скрипта.
 // Шрифты Manrope (600, 700) и Golos Text (400, 500, 600) — Google Fonts. Запуск: node scripts/build.mjs
 import { build } from "../../proba-site/node_modules/esbuild/lib/main.js";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { cpSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -51,4 +51,6 @@ ${body}
 `;
 mkdirSync(join(root, "dist"), { recursive: true });
 writeFileSync(join(root, "dist/proba-lab.html"), page);
+// Иллюстрации — отдельными файлами рядом со страницей (img/…), загружаются лениво
+cpSync(join(root, "assets/img"), join(root, "dist/img"), { recursive: true });
 console.log(`✓ dist/proba-lab.html — ${(page.length / 1024).toFixed(0)} КБ`);
