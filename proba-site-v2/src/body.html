@@ -2,330 +2,409 @@
 
 <header class="site-header">
   <div class="container header-row">
-    <a class="brand" href="#top" aria-label="Proba Lab — в начало страницы">
-      <img class="brand-mark" src="{{EMBLEM_INK}}" alt="" width="30" height="29">
+    <a class="brand" href="#top" aria-label="Proba Lab — на главную">
+      <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">Proba Lab</span>
     </a>
     <nav class="main-nav" aria-label="Основная навигация">
       <a href="#review">Бесплатный разбор</a>
-      <a href="#start">Первый заказ</a>
-      <a href="#builder">Собрать проект</a>
-      <a href="#faq">Вопросы</a>
+      <a href="#tasks">Задачи</a>
+      <a href="#package">Пакет 29&nbsp;000&nbsp;₽</a>
+      <a href="#automation" data-nav="automation">Автоматизация</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm header-cta" href="#review">Получить разбор продукта</a>
+      <a class="btn btn-primary btn-sm header-cta" href="#review">Получить бесплатный разбор</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
     </div>
   </div>
   <div id="mobile-menu" class="mobile-menu" hidden>
     <nav aria-label="Мобильная навигация" class="container">
       <a href="#review">Бесплатный разбор</a>
-      <a href="#start">Первый заказ</a>
-      <a href="#builder">Собрать проект</a>
-      <a href="#faq">Вопросы</a>
-      <a class="btn btn-primary" href="#review">Получить разбор продукта</a>
+      <a href="#tasks">Задачи</a>
+      <a href="#package">Пакет 29&nbsp;000&nbsp;₽</a>
+      <a href="#automation">Автоматизация</a>
+      <a class="btn btn-primary" href="#review">Получить бесплатный разбор</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <!-- 1. Первый экран -->
+<div data-view="home">
+
+  <!-- Первый экран -->
   <section id="top" class="hero" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Маркетинг и дизайн для БАД и косметики</p>
-        <h1 id="hero-title">Почему покупателю стоит выбрать именно ваш продукт?</h1>
-        <p class="hero-lead">Посмотрим на ваш продукт рядом с двумя конкурентами. Покажем, какие преимущества заметны, что остаётся непонятным и что стоит изменить первым.</p>
+        <p class="eyebrow">Для производителей и брендов БАД и косметики</p>
+        <h1 id="hero-title">Поможем объяснить, почему стоит выбрать ваш продукт</h1>
+        <p class="hero-lead">Разбираемся в преимуществах и их основаниях. Превращаем выводы в понятные сайты, карточки и материалы для продаж.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#review">Получить бесплатный разбор</a>
-          <a class="link-arrow" href="#builder">Собрать проект <span aria-hidden="true">→</span></a>
+          <a class="btn btn-outline btn-lg" href="#tasks">Выбрать задачу</a>
         </div>
-        <p class="hero-note">Одна страница с выводами и конкретным примером улучшения. Без доступа к кабинету продавца.</p>
+        <p class="hero-note">Сравним ваш продукт с двумя аналогами и предложим одно конкретное улучшение.</p>
       </div>
 
-      <figure class="sample" aria-label="Образец разбора: сравнение трёх предложений и одна правка">
+      <figure class="sample" aria-labelledby="sample-title">
         <div class="sample-head">
-          <span class="sample-title">Разбор · витамин D3 для взрослых</span>
+          <span class="sample-title" id="sample-title">Разбор · витамин D3 для взрослых</span>
           <span class="tag">Демонстрационный пример</span>
         </div>
-        <table class="compare">
-          <thead>
-            <tr><th scope="col">Вопрос покупателя</th><th scope="col" class="is-you">Ваш продукт</th><th scope="col">Аналог А</th><th scope="col">Аналог Б</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Зачем мне это?</th><td class="is-you"><span class="mark mark-ok" aria-label="понятно">Понятно</span></td><td><span class="mark mark-ok" aria-label="понятно">Понятно</span></td><td><span class="mark mark-ok" aria-label="понятно">Понятно</span></td></tr>
-            <tr><th scope="row">Чем отличается?</th><td class="is-you"><span class="mark mark-q" aria-label="не объяснено">Не видно</span></td><td><span class="mark mark-ok">Дозировка</span></td><td><span class="mark mark-q">Не видно</span></td></tr>
-            <tr><th scope="row">Почему такая цена?</th><td class="is-you"><span class="mark mark-q">Не объяснено</span></td><td><span class="mark mark-q">Не объяснено</span></td><td><span class="mark mark-ok">Курс 6 мес.</span></td></tr>
-          </tbody>
-        </table>
+        <div class="table-scroll">
+          <table class="compare">
+            <thead>
+              <tr><th scope="col">Вопрос покупателя</th><th scope="col" class="is-you">Ваш продукт</th><th scope="col">Аналог А</th><th scope="col">Аналог Б</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Зачем мне это?</th><td class="is-you"><span class="mark mark-ok">Понятно</span></td><td><span class="mark mark-ok">Понятно</span></td><td><span class="mark mark-ok">Понятно</span></td></tr>
+              <tr><th scope="row">Чем отличается?</th><td class="is-you"><span class="mark mark-q">Не видно</span></td><td><span class="mark mark-ok">Доза 2000&nbsp;МЕ</span></td><td><span class="mark mark-q">Не видно</span></td></tr>
+              <tr><th scope="row">Почему такая цена?</th><td class="is-you"><span class="mark mark-q">Неясно</span></td><td><span class="mark mark-q">Неясно</span></td><td><span class="mark mark-ok">Курс на 6&nbsp;мес.</span></td></tr>
+            </tbody>
+          </table>
+        </div>
         <div class="edit" data-edit>
-          <p class="edit-label">Правка заголовка карточки</p>
+          <p class="edit-label">Предлагаемая правка заголовка карточки</p>
           <p class="edit-before"><s>Витамин D3 Premium — лучшая формула для здоровья</s></p>
-          <p class="edit-after">Витамин D3 2000 МЕ — капсула в день, упаковка на 4 месяца</p>
-          <p class="edit-why">Почему: покупатель сразу видит дозировку, удобство и срок, которых нет у аналогов на первом экране.</p>
+          <p class="edit-after">Витамин D3 2000&nbsp;МЕ — капсула в день, упаковки хватает на 4&nbsp;месяца</p>
+          <p class="edit-why">Почему: дозировку уже показывает аналог А, срок курса — аналог Б. Ваш заголовок отвечает на оба вопроса и объясняет цену через длительность курса.</p>
           <button class="edit-replay" type="button" data-edit-replay>Показать правку ещё раз</button>
         </div>
       </figure>
     </div>
   </section>
 
-  <!-- 2. Узнавание проблемы -->
+  <!-- Проблема -->
   <section class="section problem" aria-labelledby="problem-title">
     <div class="container problem-grid">
-      <h2 id="problem-title" class="reveal">Вы знаете свой продукт. Покупатель знакомится с&nbsp;ним за&nbsp;несколько экранов.</h2>
-      <div class="problem-text reveal">
-        <p>Состав, технология, особенности производства — всё это может быть важно. Но покупатель сначала хочет понять: зачем ему продукт, чем он отличается и почему стоит своей цены.</p>
-        <p class="problem-accent">Если отличия не объяснены, сравнивать проще по цене, отзывам и знакомому названию. Перед новой переделкой дизайна или рекламным запуском стоит проверить само предложение.</p>
+      <h2 id="problem-title" class="reveal">Вы знаете свой продукт. Покупатель видит его несколько секунд.</h2>
+      <div class="problem-text">
+        <p>Состав, технология и производство могут быть важны. Но сначала покупатель хочет понять, зачем ему продукт, чем он отличается и почему стоит своей цены.</p>
+        <p class="problem-accent">Если отличия не объяснены, выбирают по цене, отзывам и знакомому названию. Перед новым дизайном или рекламой стоит проверить само предложение.</p>
       </div>
     </div>
   </section>
 
-  <!-- 3. Лид-магнит -->
+  <!-- Бесплатный разбор -->
   <section id="review" class="section review" aria-labelledby="review-title">
-    <div class="container review-grid">
-      <div class="review-copy reveal">
+    <div class="container two-col">
+      <div class="review-copy">
         <p class="eyebrow">Бесплатно</p>
         <h2 id="review-title">Ваш продукт глазами покупателя</h2>
-        <p class="lead">Персональный разбор на одной странице:</p>
         <ol class="steps-list">
           <li><b>Ваше предложение рядом с двумя сопоставимыми аналогами</b></li>
-          <li><b>Один важный вопрос покупателя,</b> на который материалы пока не отвечают</li>
-          <li><b>Одно предлагаемое улучшение</b> — заголовок или структура первого экрана с пояснением</li>
+          <li><b>Вопрос покупателя,</b> на который материалы пока не отвечают</li>
+          <li><b>Вариант заголовка или схема первого экрана</b> с пояснением</li>
         </ol>
-        <p class="muted">Используйте выводы самостоятельно или передайте своей команде. Если существенной проблемы не увидим — так и скажем.</p>
+        <p class="muted">Если существенной проблемы не увидим — так и скажем.</p>
+        <p class="muted">Три рабочих дня после подтверждения заявки. Результат пришлём без обязательного созвона.</p>
       </div>
 
-      <form id="review-form" class="form-card reveal" novalidate data-form="review">
-        <p class="form-title">Заявка на разбор</p>
+      <form id="review-form" class="form-card" novalidate data-form="review" aria-labelledby="review-form-title">
+        <p class="form-title" id="review-form-title">Заявка на разбор</p>
         <div class="field">
           <label for="rv-url">Ссылка на продукт</label>
-          <input id="rv-url" name="productUrl" type="url" inputmode="url" placeholder="https://" required>
-          <p class="hint">Карточка на маркетплейсе или страница сайта</p>
+          <input id="rv-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="ozon.ru/product/…" aria-describedby="rv-url-hint">
+          <p class="hint" id="rv-url-hint">Карточка на маркетплейсе или страница сайта</p>
         </div>
         <div class="field">
           <label for="rv-contact">Контакт для ответа</label>
-          <input id="rv-contact" name="contact" autocomplete="email" placeholder="Email, телефон или Telegram" required>
+          <input id="rv-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
         </div>
-        <fieldset class="field">
-          <legend>Задача</legend>
+        <fieldset class="field" data-required-group="category">
+          <legend>Категория</legend>
           <div class="choice-row">
-            <label class="choice"><input type="radio" name="task" value="Обновить материалы" checked><span>Обновить материалы</span></label>
-            <label class="choice"><input type="radio" name="task" value="Запустить продвижение"><span>Запустить продвижение</span></label>
-            <label class="choice"><input type="radio" name="task" value="Выйти к партнёрам"><span>Выйти к партнёрам</span></label>
+            <label class="choice"><input type="radio" name="category" value="БАД"><span>БАД</span></label>
+            <label class="choice"><input type="radio" name="category" value="Косметика"><span>Косметика</span></label>
+            <label class="choice"><input type="radio" name="category" value="Другое"><span>Другое</span></label>
           </div>
         </fieldset>
-        <label class="consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
+        <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Получить бесплатный разбор</button>
-        <p class="form-meta">Три рабочих дня после подтверждения заявки. Результат пришлём без обязательного созвона.</p>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <!-- 4. Первый платный продукт -->
-  <section id="start" class="section start" aria-labelledby="start-title">
+  <!-- Задачи -->
+  <section id="tasks" class="section tasks" aria-labelledby="tasks-title">
     <div class="container">
-      <article class="start-card reveal">
-        <div class="start-main">
-          <p class="eyebrow">Первый заказ</p>
-          <h2 id="start-title">Предложение для одного продукта</h2>
-          <p class="start-lead">Разберёмся, что стоит сказать покупателю, чем подкрепить аргументы и как показать это в первом материале.</p>
-          <p class="price-big"><span data-price="start">{{PRICE_START}}</span></p>
-          <p class="muted">Срок фиксируем после получения материалов и согласования задачи.</p>
-          <button class="btn btn-primary btn-lg" type="button" data-add-package="start" data-go="calc">Начать с одного продукта</button>
-        </div>
-        <div class="start-side">
-          <p class="side-label">Входит</p>
-          <ul class="check-list">
-            <li>Сравнение подачи трёх прямых конкурентов</li>
-            <li>Предложение для одной выбранной аудитории</li>
-            <li>Три основных аргумента и ответы на возражения</li>
-            <li>Предварительная проверка оснований двух ключевых заявлений в согласованном объёме</li>
-            <li>Текст и дизайн трёх слайдов карточки <em>или</em> первого экрана лендинга</li>
-          </ul>
-          <p class="fine">Один формат, одна концепция, один согласованный раунд правок. Работаем с вашими фотографиями и документами. Не входят: полный научный обзор, фотосъёмка, юридическое заключение, разработка полноценного сайта и рекламные размещения.</p>
-        </div>
+      <div class="section-head reveal">
+        <h2 id="tasks-title">Какую задачу нужно решить?</h2>
+        <p class="lead">Выберите ближайшую — уточним объём и состав работ в разговоре.</p>
+      </div>
+      <div class="task-grid">
+        <article class="task-card reveal">
+          <p class="task-kicker">Продвижение</p>
+          <h3>Подготовить продукт к продвижению</h3>
+          <p class="task-result">Покупатель понимает, зачем ему продукт и чем он отличается.</p>
+          <details><summary>Что может входить</summary><div class="details-body"><ul class="tag-list"><li>Предложение и аргументы</li><li>Сайт или лендинг</li><li>Карточки товаров</li><li>Фото и видео</li><li>SEO для нового или существующего сайта</li><li>Материалы для размещений</li></ul><p class="fine">Состав подбираем под задачу — не всё сразу и не в одной минимальной цене.</p></div></details>
+          <button class="btn btn-primary task-btn" type="button" data-task="promo">Обсудить продвижение</button>
+        </article>
+        <article class="task-card reveal">
+          <p class="task-kicker">Партнёры</p>
+          <h3>Подготовить материалы для партнёров</h3>
+          <p class="task-result">Дистрибьютор или торговый партнёр понимает продукт, условия и следующий шаг.</p>
+          <details><summary>Что может входить</summary><div class="details-body"><ul class="tag-list"><li>Презентация</li><li>Коммерческое предложение</li><li>Продуктовые листы</li><li>Ответы на вопросы</li><li>Материалы для команды продаж</li></ul><p class="fine">Условия сотрудничества и коммерческие данные предоставляете вы.</p></div></details>
+          <button class="btn btn-primary task-btn" type="button" data-task="partners">Обсудить материалы</button>
+        </article>
+        <article class="task-card reveal">
+          <p class="task-kicker">Автоматизация</p>
+          <h3>Упростить заявки и работу команды</h3>
+          <p class="task-result">Убираем повторный ввод данных, связываем системы и делаем процессы понятнее.</p>
+          <details><summary>Примеры задач</summary><div class="details-body"><ul class="tag-list"><li>Обращения с сайта — в рабочую систему</li><li>Интеграции</li><li>Личные кабинеты</li><li>Обработка документов</li><li>Поиск по базе знаний</li><li>AI-помощники там, где они нужны</li></ul><p class="fine"><a href="#automation">Подробнее об автоматизации →</a></p></div></details>
+          <button class="btn btn-primary task-btn" type="button" data-task="automation">Обсудить автоматизацию</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Первый платный пакет -->
+  <section id="package" class="section package" aria-labelledby="package-title">
+    <div class="container package-grid">
+      <article class="start-card">
+        <p class="eyebrow">Первый платный шаг</p>
+        <h2 id="package-title">Предложение для одного продукта</h2>
+        <p class="price-big">{{PRICE_START}}</p>
+        <ul class="check-list">
+          <li>Сравнение подачи трёх конкурентов</li>
+          <li>Предложение для одной аудитории</li>
+          <li>Основные аргументы и ответы на возражения</li>
+          <li>Проверка оснований двух ключевых заявлений в согласованном объёме</li>
+          <li>Текст и дизайн трёх слайдов карточки или первого экрана сайта — на выбор</li>
+          <li>Один раунд правок</li>
+        </ul>
+        <p class="start-fine">Работаем с вашими фото и документами. Не входят: полный научный обзор, съёмка, юридическое заключение, сайт целиком. Материалы и срок согласуем до начала работы.</p>
+        <button class="btn btn-light btn-lg" type="button" data-task="package">Оставить заявку на пакет — {{PRICE_START}}</button>
       </article>
+
+      <figure class="slides" aria-labelledby="slides-caption">
+        <figcaption id="slides-caption"><span class="tag">Демонстрационный пример</span> Первый слайд карточки до и после работы над предложением</figcaption>
+        <div class="slide slide-before">
+          <p class="slide-tag">До</p>
+          <p class="slide-h">Коллаген Beauty Premium</p>
+          <p class="slide-s">Для красоты и молодости кожи</p>
+          <ul class="slide-badges"><li>Премиум</li><li>Натуральный</li><li>Хит</li></ul>
+        </div>
+        <div class="slide slide-after">
+          <p class="slide-tag">После</p>
+          <p class="slide-h">Коллаген + витамин C</p>
+          <p class="slide-s">Порошок без вкуса: одна ложка в напиток. Упаковка на 30 дней</p>
+          <ul class="slide-badges"><li>5&nbsp;г в порции</li><li>Без сахара</li><li>30 порций</li></ul>
+        </div>
+      </figure>
     </div>
   </section>
 
-  <!-- 5. Почему нам можно поручить работу -->
+  <!-- Крупные проекты -->
+  <section class="section bigger" aria-labelledby="bigger-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="bigger-title">Когда задача шире одной карточки</h2>
+      </div>
+      <div class="big-grid">
+        <article class="big-card reveal">
+          <h3>Подготовка продвижения</h3>
+          <p class="big-price">{{PRICE_PROMO_PREP}}</p>
+          <p>Один продукт и один приоритетный канал: аудитория, предложение и один главный материал — лендинг или комплект для партнёров, плюс план проверки спроса.</p>
+          <p class="fine">Съёмка, дополнительные карточки, презентации и контент — отдельно, по согласованию.</p>
+          <button class="btn btn-outline" type="button" data-task="promo">Обсудить проект</button>
+        </article>
+        <article class="big-card reveal">
+          <h3>Сопровождение</h3>
+          <p class="big-price">{{PRICE_PROMO_SUPPORT}}</p>
+          <p>Три материала в месяц в согласованных небольших форматах, адаптация под размещения, один раунд правок и разбор обратной связи.</p>
+          <p class="fine">Рекламный бюджет, ведение кампаний и поиск дистрибьюторов — отдельные работы.</p>
+          <button class="btn btn-outline" type="button" data-task="support">Обсудить сопровождение</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Команда -->
   <section class="section team" aria-labelledby="team-title">
-    <div class="container team-grid">
-      <h2 id="team-title" class="reveal">В свойствах продукта разбирается врач. Подачу собирает дизайнер.</h2>
-      <div class="team-people">
-        <div class="person reveal">
-          <span class="person-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 3v6l-5 9a2 2 0 0 0 1.7 3h12.6a2 2 0 0 0 1.7-3l-5-9V3M8 3h8M7 14h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <p class="person-role">Основатель</p>
-          <p>Врач по образованию, несколько лет научных исследований и опыт B2B-продаж медицинской продукции. Читает исследования и документы, чтобы определить, на что опираются заявления о продукте и где у них границы. Исследования ингредиента — не доказательство эффективности готового продукта, и мы так и пишем.</p>
-        </div>
-        <div class="person reveal">
-          <span class="person-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <p class="person-role">Дизайнер-разработчик</p>
-          <p>Превращает аргументы в карточки, страницы и презентации и сам доводит их до работающего сайта.</p>
-        </div>
-        <p class="team-note reveal">Фото, видео, SEO и интеграции под проект выполняют привлечённые профильные специалисты — мы ставим задачу и отвечаем за результат.</p>
+    <div class="container two-col">
+      <h2 id="team-title" class="reveal">Кто работает над вашей задачей</h2>
+      <div class="team-text">
+        <p><b>Основатель — врач</b> с опытом научных исследований и B2B-продаж медицинской продукции. Разбирается, на что опираются заявления о продукте и где у них границы: исследования ингредиента ещё не доказывают эффективность готового продукта.</p>
+        <p><b>Дизайнеры и разработчики</b> превращают выводы в карточки, сайты и презентации, а также связывают сайт и формы с системами, в которых работает ваша команда, — включая интеграции и AI-инструменты там, где они оправданы.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. Конструктор -->
-  <section id="builder" class="section builder" aria-labelledby="builder-title">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 id="builder-title">Соберите проект под свою задачу</h2>
-        <p class="lead">Выберите нужные результаты. Мы уточним объём, проверим состав работ и подготовим расчёт.</p>
+  <!-- Форма задачи -->
+  <section id="project-form" class="section project-form" aria-labelledby="pf-title">
+    <div class="container two-col">
+      <div>
+        <h2 id="pf-title" data-pf-title>Обсудить задачу</h2>
+        <p class="lead" data-pf-lead>Расскажите, что нужно сделать. Уточним объём и предложим состав работ.</p>
       </div>
-      <div class="builder-grid">
-        <div class="builder-main">
-          {{CONSTRUCTOR}}
-
-          <div class="big-grid" id="big">
-            <article class="big-card reveal">
-              <p class="big-price" data-price="promoPrep">{{PRICE_PROMO_PREP}}</p>
-              <h3>Подготовка продвижения</h3>
-              <p>Один продукт и один приоритетный канал: аудитория, предложение, лендинг <em>или</em> комплект партнёрских материалов, план проверки спроса.</p>
-              <p class="fine">Сайт, все карточки, презентации и контент автоматически в минимальную цену не входят.</p>
-              <button class="btn btn-outline add-btn" type="button" data-add-package="promo-prep" aria-pressed="false"><span class="add-label">Добавить в проект</span></button>
-            </article>
-            <article class="big-card reveal">
-              <p class="big-price" data-price="promoSupport">{{PRICE_PROMO_SUPPORT}}</p>
-              <h3>Поддержка продвижения</h3>
-              <p>Три материала в заранее согласованных небольших форматах, адаптация под выбранные размещения, один раунд правок и ежемесячный разбор обратной связи.</p>
-              <p class="fine">Большой научный обзор — не обычная единица контента. Рекламный бюджет, управление кампаниями и поиск дистрибьюторов — отдельные работы.</p>
-              <button class="btn btn-outline add-btn" type="button" data-add-package="promo-support" aria-pressed="false"><span class="add-label">Добавить в проект</span></button>
-            </article>
+      <form id="pf-form" class="form-card" novalidate data-form="project" aria-labelledby="pf-title">
+        <fieldset class="field" data-required-group="task">
+          <legend>Задача</legend>
+          <div class="choice-col">{{TASK_OPTIONS}}</div>
+        </fieldset>
+        <fieldset class="field" data-show-for="promo" hidden>
+          <legend>Что может понадобиться <span class="opt">необязательно</span></legend>
+          <div class="choice-row">
+            <label class="choice"><input type="checkbox" name="needs" value="Предложение и аргументы"><span>Предложение и аргументы</span></label>
+            <label class="choice"><input type="checkbox" name="needs" value="Сайт или лендинг" data-site><span>Сайт или лендинг</span></label>
+            <label class="choice"><input type="checkbox" name="needs" value="Карточки товаров"><span>Карточки товаров</span></label>
+            <label class="choice"><input type="checkbox" name="needs" value="Фото и видео"><span>Фото и видео</span></label>
+            <label class="choice"><input type="checkbox" name="needs" value="SEO" data-site><span>SEO</span></label>
+            <label class="choice"><input type="checkbox" name="needs" value="Материалы для размещений"><span>Материалы для размещений</span></label>
           </div>
-        </div>
-
-        <aside class="project" id="project" aria-labelledby="project-title">
-          <div class="project-bar">
-            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-body">
-              <span id="project-title" class="project-title">Ваш проект</span>
-              <span class="count" data-count aria-live="polite">0</span>
-              <span class="project-chevron" aria-hidden="true"></span>
-            </button>
-            <a class="btn btn-primary btn-sm project-quick" href="#calc">Получить расчёт</a>
+        </fieldset>
+        <fieldset class="field" data-has-site hidden>
+          <legend>Сайт уже есть?</legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="hasSite" value="Есть"><span>Есть</span></label>
+            <label class="choice"><input type="radio" name="hasSite" value="Нет"><span>Нет</span></label>
           </div>
-          <div class="project-body" id="project-body">
-            <p class="project-empty" data-empty>Пока ничего не выбрано. Добавьте нужные результаты — они появятся здесь.</p>
-            <ul class="project-list" data-list></ul>
-            <div class="seo-question" data-seo-question hidden>
-              <p>Для SEO нужен сайт. У вас уже есть сайт?</p>
-              <div class="choice-row">
-                <label class="choice"><input type="radio" name="seo-site" value="Есть сайт"><span>Есть</span></label>
-                <label class="choice"><input type="radio" name="seo-site" value="Сайта нет"><span>Нет</span></label>
-              </div>
-            </div>
-            <p class="project-note">Стоимость — после согласования объёма. Объединяющиеся работы не считаем дважды: например, анализ продукта для сайта и карточки делаем в рамках одного проекта.</p>
-            <a class="btn btn-primary btn-block" href="#calc">Получить расчёт проекта</a>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Образец работы -->
-  <section class="section showcase" aria-labelledby="showcase-title">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 id="showcase-title">Как выглядит результат</h2>
-        <p class="lead">Фрагмент первого слайда карточки до и после работы над предложением.</p>
-      </div>
-      <div class="slides reveal">
-        <figure class="slide slide-before">
-          <figcaption>До</figcaption>
-          <div class="slide-art">
-            <p class="slide-h">Коллаген Beauty Premium</p>
-            <p class="slide-s">Для красоты и молодости кожи</p>
-            <ul class="slide-badges"><li>Премиум</li><li>Натуральный</li><li>Хит</li></ul>
-          </div>
-        </figure>
-        <figure class="slide slide-after">
-          <figcaption>После</figcaption>
-          <div class="slide-art">
-            <p class="slide-h">Коллаген + витамин C</p>
-            <p class="slide-s">Порошок без вкуса: одна ложка в напиток. Упаковка на 30 дней</p>
-            <ul class="slide-badges"><li>5 г в порции</li><li>Без сахара</li><li>30 порций</li></ul>
-          </div>
-        </figure>
-      </div>
-      <p class="fine center">Демонстрационный пример. Продукт и данные условные.</p>
-    </div>
-  </section>
-
-  <!-- 8. Форма расчёта -->
-  <section id="calc" class="section calc" aria-labelledby="calc-title">
-    <div class="container calc-grid">
-      <div class="reveal">
-        <h2 id="calc-title">Получить расчёт проекта</h2>
-        <p class="lead">Уточним объём, предложим состав работ и пришлём расчёт. Готовы к большому проекту — напишите сразу, без бесплатного разбора.</p>
-      </div>
-      <form id="calc-form" class="form-card reveal" novalidate data-form="calc">
+        </fieldset>
+        <p class="pf-package-note" data-show-for="package" hidden>Материалы и срок согласуем до начала работы. Оплата — после согласования.</p>
         <div class="field">
-          <p class="label-like">Выбрано в проекте</p>
-          <ul class="calc-selected" data-calc-list></ul>
-          <p class="hint" data-calc-empty>Можно отправить и без выбора — опишите задачу ниже.</p>
+          <label for="pf-details" data-details-label>Коротко о задаче <span class="opt">необязательно</span></label>
+          <textarea id="pf-details" name="details" rows="3" data-details placeholder="Например: обновить карточки к запуску новой линейки"></textarea>
         </div>
         <div class="field-row">
           <div class="field">
-            <label for="cl-contact">Контакт для ответа</label>
-            <input id="cl-contact" name="contact" autocomplete="email" placeholder="Email, телефон или Telegram" required>
+            <label for="pf-url">Ссылка на продукт или сайт <span class="opt">необязательно</span></label>
+            <input id="pf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.com">
           </div>
-          <div class="field">
-            <label for="cl-url">Ссылка на продукт</label>
-            <input id="cl-url" name="productUrl" type="url" inputmode="url" placeholder="https://">
+          <div class="field" data-term>
+            <label for="pf-term">Желаемый срок</label>
+            <select id="pf-term" name="term"><option value="">Не важно</option><option>В течение месяца</option><option>1–3 месяца</option><option>Позже</option></select>
           </div>
         </div>
         <div class="field">
-          <label for="cl-task">Задача</label>
-          <textarea id="cl-task" name="task" rows="3" placeholder="Например: обновить карточки и сделать лендинг к запуску новой линейки"></textarea>
+          <label for="pf-contact">Контакт для ответа</label>
+          <input id="pf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
         </div>
-        <div class="field">
-          <label for="cl-term">Желаемый срок</label>
-          <select id="cl-term" name="term">
-            <option value="">Не важно</option>
-            <option>В течение месяца</option>
-            <option>1–3 месяца</option>
-            <option>Позже</option>
-          </select>
-        </div>
-        <label class="consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Получить расчёт проекта</button>
+        <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" data-pf-submit>Отправить</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <!-- 9. Вопросы -->
+  <!-- Вопросы -->
   <section id="faq" class="section faq" aria-labelledby="faq-title">
     <div class="container faq-grid">
       <h2 id="faq-title" class="reveal">Вопросы</h2>
-      <div class="faq-list reveal">
-        <details><summary>Что я получу в итоге?</summary><div class="faq-a"><p>Готовые материалы в согласованном формате — разбор, тексты, макеты или работающую страницу — и пояснения, на чём основаны ключевые аргументы.</p></div></details>
-        <details><summary>Какие материалы нужны от нас?</summary><div class="faq-a"><p>Ссылка на продукт, состав и документы, которые у вас есть, фотографии и ваши условия для партнёров, если задача их касается. Доступ к кабинету продавца не нужен.</p></div></details>
-        <details><summary>Как считается стоимость?</summary><div class="faq-a"><p>Первый заказ — фиксированная цена. Остальное считаем после согласования объёма: смотрим, какие работы пересекаются, и не берём за одну и ту же работу дважды.</p></div></details>
+      <div class="faq-list">
+        <details><summary>Что я получу в итоге?</summary><div class="details-body"><p>Материалы в согласованном формате — разбор, тексты, макеты, работающую страницу или настроенный процесс — и пояснения, на чём основаны ключевые решения.</p></div></details>
+        <details><summary>Какие материалы нужны от нас?</summary><div class="details-body"><p>Ссылка на продукт, состав и имеющиеся документы, фотографии; для партнёрских материалов — ваши условия. Доступ к кабинету продавца не нужен.</p></div></details>
+        <details><summary>Как считается стоимость?</summary><div class="details-body"><p>Пакет для одного продукта — фиксированная цена. Остальное оцениваем после разговора о задаче и называем до начала работы.</p></div></details>
       </div>
     </div>
   </section>
 
   {{REVIEWS}}
-</main>
-
-<div class="mobile-project" data-mobile-project hidden>
-  <button class="mp-toggle" type="button" aria-expanded="false" aria-controls="mp-sheet">
-    <span>Ваш проект</span><span class="count" data-count>0</span>
-  </button>
-  <a class="btn btn-primary btn-sm" href="#calc">Получить расчёт</a>
-  <div class="mp-sheet" id="mp-sheet" hidden>
-    <ul class="project-list" data-list></ul>
-    <p class="project-note">Стоимость — после согласования объёма.</p>
-  </div>
 </div>
+
+<!-- Представление «Автоматизация» -->
+<div data-view="automation" hidden>
+  <section class="section auto-hero" aria-labelledby="auto-title">
+    <div class="container">
+      <a class="back-link" href="#top">← На главную</a>
+      <div class="auto-hero-grid">
+      <div>
+      <p class="eyebrow">Автоматизация для производителей и брендов БАД и косметики</p>
+      <h1 id="auto-title" tabindex="-1">Свяжем системы и сократим ручную работу команды</h1>
+      <p class="hero-lead">Начинаем с одного процесса: разбираемся, как он устроен сейчас, и предлагаем самое простое решение, которое можно проверить.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#auto-form">Описать процесс</a>
+      </div>
+      </div>
+      <figure class="flow" aria-labelledby="flow-cap">
+        <figcaption id="flow-cap"><span class="tag">Схема-пример</span> Путь заявки после настройки</figcaption>
+        <ol class="flow-steps">
+          <li><span class="flow-dot" aria-hidden="true"></span><b>Форма на сайте, почта, мессенджер</b><span>Обращение приходит из любого канала</span></li>
+          <li><span class="flow-dot" aria-hidden="true"></span><b>Рабочая система команды</b><span>Появляется ответственный и статус</span></li>
+          <li><span class="flow-dot" aria-hidden="true"></span><b>Учётная система</b><span>Заказ передаётся без повторного ввода</span></li>
+        </ol>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section auto-cases" aria-labelledby="auto-cases-title">
+    <div class="container">
+      <h2 id="auto-cases-title" class="section-head">Узнаёте ситуацию?</h2>
+      <div class="case-list">
+        <article class="case">
+          <h3>Данные переносят вручную</h3>
+          <dl><div><dt>Задача</dt><dd>Заказы и заявки перепечатывают из одной системы в другую</dd></div><div><dt>Пример решения</dt><dd>Обмен данными между сайтом, CRM и учётной системой по описанным правилам</dd></div><div><dt>Как проверить</dt><dd>Сверка выборки записей в обеих системах и журнал ошибок обмена</dd></div></dl>
+        </article>
+        <article class="case">
+          <h3>Заявки приходят в разные места</h3>
+          <dl><div><dt>Задача</dt><dd>Формы, почта и мессенджеры — неясно, кто ответил</dd></div><div><dt>Пример решения</dt><dd>Все обращения попадают в одну рабочую систему с ответственным и статусом</dd></div><div><dt>Как проверить</dt><dd>Тестовое обращение из каждого канала доходит со статусом</dd></div></dl>
+        </article>
+        <article class="case">
+          <h3>Ответы ищут по папкам</h3>
+          <dl><div><dt>Задача</dt><dd>Менеджеры ищут сведения о составе, документах и условиях</dd></div><div><dt>Пример решения</dt><dd>Поиск по вашим документам: ответ с цитатой и ссылкой на файл. Ответ клиенту отправляет сотрудник</dd></div><div><dt>Как проверить</dt><dd>Набор реальных вопросов: находит ли поиск верный источник, сколько времени уходит до и после</dd></div></dl>
+        </article>
+        <article class="case">
+          <h3>Партнёрам неудобно повторять заказ</h3>
+          <dl><div><dt>Задача</dt><dd>Аптеки и дистрибьюторы каждый раз заказывают по телефону и в переписке</dd></div><div><dt>Пример решения</dt><dd>Кабинет партнёра: каталог с его условиями, история и повтор заказа, подтверждение менеджером</dd></div><div><dt>Как проверить</dt><dd>Доля заказов через кабинет и время до подтверждения — по сравнению с исходным замером</dd></div></dl>
+        </article>
+      </div>
+      <p class="fine">AI предлагаем только там, где правило, форма или обычная интеграция не справляются. Экономию не обещаем заранее — замеряем до и после.</p>
+    </div>
+  </section>
+
+  <section class="section auto-step" aria-labelledby="auto-step-title">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Первый шаг</p>
+        <h2 id="auto-step-title">Разбор одного процесса</h2>
+        <p class="lead">Отдельный небольшой этап с самостоятельным результатом: его можно использовать и без дальнейшей работы с нами.</p>
+      </div>
+      <div class="auto-step-list">
+        <p class="side-label">Что вы получите</p>
+        <ul class="check-list check-list-ink">
+          <li>Описание текущего процесса</li>
+          <li>Список проблем и мест, где теряются время и данные</li>
+          <li>Предложение решения: форма, правило, интеграция или AI — с обоснованием</li>
+          <li>Границы первого внедрения</li>
+          <li>Оценку работ</li>
+        </ul>
+        <p class="fine">Стоимость разбора и внедрения называем после короткого разговора о процессе — до начала работы.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="auto-form" class="section project-form" aria-labelledby="af-title">
+    <div class="container two-col">
+      <div>
+        <h2 id="af-title">Опишите процесс</h2>
+        <p class="lead">Достаточно пары предложений — уточним детали в разговоре.</p>
+      </div>
+      <form id="af-form" class="form-card" novalidate data-form="automation" aria-labelledby="af-title">
+        <div class="field">
+          <label for="af-process">Какой процесс мешает</label>
+          <textarea id="af-process" name="process" rows="3" placeholder="Например: заказы аптек приходят в мессенджер, менеджер переносит их в учётную систему"></textarea>
+        </div>
+        <div class="field">
+          <label for="af-where">Где сейчас ведёте заявки <span class="opt">необязательно</span></label>
+          <select id="af-where" name="where"><option value="">Не выбрано</option><option>CRM</option><option>Таблицы</option><option>Мессенджеры и почта</option><option>Учётная система</option><option>Другое</option></select>
+        </div>
+        <div class="field">
+          <label for="af-contact">Контакт для ответа</label>
+          <input id="af-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
+        </div>
+        <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Описать процесс</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</div>
+</main>
 
 <footer class="site-footer">
   <div class="container footer-row">
-    <span class="footer-brand"><img class="brand-mark" src="{{EMBLEM_INK}}" alt="" width="24" height="23"> Proba Lab · маркетинг и дизайн для БАД и косметики</span>
+    <span class="footer-brand"><span class="brand-mark brand-mark-sm" aria-hidden="true"></span> Proba Lab · для производителей и брендов БАД и косметики</span>
     <span>© {{YEAR}} Proba Lab</span>
   </div>
 </footer>
