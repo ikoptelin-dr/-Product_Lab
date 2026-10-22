@@ -2,710 +2,330 @@
 
 <header class="site-header">
   <div class="container header-row">
-    <a class="brand" href="#top" aria-label="Proba Lab — на главную">
-      <img class="brand-mark mark-light" src="{{EMBLEM}}" alt="" width="30" height="29"><img class="brand-mark mark-ink" src="{{EMBLEM_INK}}" alt="" width="30" height="29">
+    <a class="brand" href="#top" aria-label="Proba Lab — в начало страницы">
+      <img class="brand-mark" src="{{EMBLEM_INK}}" alt="" width="30" height="29">
       <span class="brand-name">Proba Lab</span>
     </a>
     <nav class="main-nav" aria-label="Основная навигация">
-      <a href="#changes">Что изменилось</a>
-      <a href="#example">Пример</a>
-      <a href="#method">Метод</a>
-      <a href="#pricing">Цены</a>
-      <a href="#partners">Партнёрам</a>
-      <a href="#faq">FAQ</a>
+      <a href="#review">Бесплатный разбор</a>
+      <a href="#start">Первый заказ</a>
+      <a href="#builder">Собрать проект</a>
+      <a href="#faq">Вопросы</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm header-cta" href="#contact" data-topic="Разбор 5 фраз на карточке — бесплатно">Разбор 5 фраз — бесплатно</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
-        <span></span><span></span>
-      </button>
+      <a class="btn btn-primary btn-sm header-cta" href="#review">Получить разбор продукта</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
     </div>
   </div>
   <div id="mobile-menu" class="mobile-menu" hidden>
     <nav aria-label="Мобильная навигация" class="container">
-      <a href="#changes">Что изменилось</a>
-      <a href="#example">Пример</a>
-      <a href="#method">Метод</a>
-      <a href="#pricing">Цены</a>
-      <a href="#partners">Партнёрам</a>
-      <a href="#faq">FAQ</a>
-      <a class="btn btn-primary" href="#contact" data-topic="Разбор 5 фраз на карточке — бесплатно">Разбор 5 фраз — бесплатно</a>
+      <a href="#review">Бесплатный разбор</a>
+      <a href="#start">Первый заказ</a>
+      <a href="#builder">Собрать проект</a>
+      <a href="#faq">Вопросы</a>
+      <a class="btn btn-primary" href="#review">Получить разбор продукта</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
-  <!-- 1. Hero: обещание тремя глаголами + карточка, которая переписывает себя (motion № 1) -->
+  <!-- 1. Первый экран -->
   <section id="top" class="hero" aria-labelledby="hero-title">
-    {{HERO_ART}}
-    <div class="container hero-inner">
+    <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="hero-eyebrow" data-hero="0">Proba Lab · доказательная коммерциализация health-продуктов</p>
-        <h1 id="hero-title" data-split>
-          <span class="h1-long"><span class="h1-line">Доказать, что продукт работает.</span> <span class="h1-line">Законно об этом сказать.</span> <span class="h1-line h1-soft">Продать через аптеку, врача и&nbsp;маркетплейс.</span></span>
-          <span class="h1-short"><span class="h1-line">Доказать.</span> <span class="h1-line">Законно сказать.</span> <span class="h1-line h1-soft">Продать.</span></span>
-        </h1>
-        <p class="hero-lead" data-hero="1">Для производителей БАД, спецпитания и космецевтики. За 10 рабочих дней врач-исследователь проверяет состав и дозировки по исследованиям под критерии ПП № 398, находит формулировки, которые ФАС признаёт нарушением, и отдаёт готовые тексты и аргументы для маркетплейса, аптеки и врача. Каждый вывод — со ссылкой на источник.</p>
-        <div class="hero-actions" data-hero="2">
-          <a class="btn btn-primary btn-lg btn-wrap" href="#contact" data-topic="Разбор 5 фраз на карточке — бесплатно">Найти 5 рискованных фраз на моей карточке — бесплатно</a>
-          <a class="btn btn-ghost btn-lg" href="#product">Открыть пример отчёта</a>
+        <p class="eyebrow">Маркетинг и дизайн для БАД и косметики</p>
+        <h1 id="hero-title">Почему покупателю стоит выбрать именно ваш продукт?</h1>
+        <p class="hero-lead">Посмотрим на ваш продукт рядом с двумя конкурентами. Покажем, какие преимущества заметны, что остаётся непонятным и что стоит изменить первым.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#review">Получить бесплатный разбор</a>
+          <a class="link-arrow" href="#builder">Собрать проект <span aria-hidden="true">→</span></a>
         </div>
-        <p class="hero-note" data-hero="3">Разбор карточки — бесплатно, 3 рабочих дня. Аудит линейки до 3 SKU — 59 000 ₽, фиксированно. NDA — до передачи документов.</p>
+        <p class="hero-note">Одна страница с выводами и конкретным примером улучшения. Без доступа к кабинету продавца.</p>
       </div>
 
-      <figure class="rw" data-hero="2">
-        <figcaption class="sr-only">Пример: карточка «Иммуно-комплекс „Щит“» до и после проверки. Шесть рискованных фраз заменены формулировками, у каждой есть источник.</figcaption>
-        <div class="rw-card" aria-hidden="true">
-          <div class="rw-bar">
-            <span class="rw-bar-title">Карточка товара · маркетплейс</span>
-            <span class="rw-badge"><span class="rw-badge-bg"></span><span class="rw-badge-label">Рискованных фраз:</span> <b class="rw-count">0</b></span>
-          </div>
-          <div class="rw-product">
-            <svg class="rw-pack" viewBox="0 0 48 56" width="48" height="56"><rect x="10" y="2" width="28" height="9" rx="2" fill="currentColor" opacity=".35"/><rect x="5" y="10" width="38" height="44" rx="5" fill="currentColor" opacity=".16"/><rect x="5" y="24" width="38" height="16" fill="var(--accent)" opacity=".85"/><circle cx="24" cy="32" r="4.5" fill="#fff" opacity=".9"/></svg>
-            <div>
-              <p class="rw-name">Иммуно-комплекс «Щит»</p>
-              <p class="rw-meta">Цинк · витамин D3 · экстракт эхинацеи</p>
-            </div>
-          </div>
-          <ol class="rw-lines">
-            <li class="rw-line" style="--l:0">
-              <span class="rw-was"><mark class="hit-high" style="--k:0">Лечит</mark> частые <mark class="hit-high" style="--k:1">простуды</mark> <mark class="hit-medium" style="--k:2">за 7 дней</mark></span>
-              <span class="rw-now">Цинк способствует нормальной работе иммунной системы<sup>1</sup></span>
-            </li>
-            <li class="rw-line" style="--l:1">
-              <span class="rw-was"><mark class="hit-medium" style="--k:3">Клинически доказано</mark>: иммунитет сильнее <mark class="hit-high" style="--k:4">на 100%</mark></span>
-              <span class="rw-now">Дозы — как в исследованиях: цинк 10–15 мг, D3 800–2 000 МЕ<sup>2</sup></span>
-            </li>
-            <li class="rw-line" style="--l:2">
-              <span class="rw-was"><mark class="hit-medium" style="--k:5">Без побочных эффектов</mark>, подходит всем</span>
-              <span class="rw-now">Противопоказания и способ применения — на упаковке<sup>3</sup></span>
-            </li>
-          </ol>
-          <p class="rw-foot"><span class="rw-foot-was">Проверка по 38-ФЗ, ст. 25 и практике ФАС</span><span class="rw-foot-now">У каждой фразы — источник</span></p>
-          <span class="rw-scan"></span>
+      <figure class="sample" aria-label="Образец разбора: сравнение трёх предложений и одна правка">
+        <div class="sample-head">
+          <span class="sample-title">Разбор · витамин D3 для взрослых</span>
+          <span class="tag">Демонстрационный пример</span>
         </div>
-        <p class="rw-cap">Данные условные, формат — настоящий</p>
+        <table class="compare">
+          <thead>
+            <tr><th scope="col">Вопрос покупателя</th><th scope="col" class="is-you">Ваш продукт</th><th scope="col">Аналог А</th><th scope="col">Аналог Б</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Зачем мне это?</th><td class="is-you"><span class="mark mark-ok" aria-label="понятно">Понятно</span></td><td><span class="mark mark-ok" aria-label="понятно">Понятно</span></td><td><span class="mark mark-ok" aria-label="понятно">Понятно</span></td></tr>
+            <tr><th scope="row">Чем отличается?</th><td class="is-you"><span class="mark mark-q" aria-label="не объяснено">Не видно</span></td><td><span class="mark mark-ok">Дозировка</span></td><td><span class="mark mark-q">Не видно</span></td></tr>
+            <tr><th scope="row">Почему такая цена?</th><td class="is-you"><span class="mark mark-q">Не объяснено</span></td><td><span class="mark mark-q">Не объяснено</span></td><td><span class="mark mark-ok">Курс 6 мес.</span></td></tr>
+          </tbody>
+        </table>
+        <div class="edit" data-edit>
+          <p class="edit-label">Правка заголовка карточки</p>
+          <p class="edit-before"><s>Витамин D3 Premium — лучшая формула для здоровья</s></p>
+          <p class="edit-after">Витамин D3 2000 МЕ — капсула в день, упаковка на 4 месяца</p>
+          <p class="edit-why">Почему: покупатель сразу видит дозировку, удобство и срок, которых нет у аналогов на первом экране.</p>
+          <button class="edit-replay" type="button" data-edit-replay>Показать правку ещё раз</button>
+        </div>
       </figure>
     </div>
   </section>
 
-  <!-- 2. Нормативная полоса вместо логотипов клиентов -->
-  <section class="reg-strip" aria-label="Нормы, по которым мы работаем">
-    <div class="container reg-row">
-      <p class="reg-label">Работаем по этим нормам</p>
-      <ul class="reg-list" data-stagger>
-        <li><b>ПП РФ № 398</b><span>критерии эффективности БАД</span></li>
-        <li><b>Приказ Минздрава 669н</b><span>БАД по назначению врача</span></li>
-        <li><b>150-ФЗ</b><span>оборот и дистанционная продажа</span></li>
-        <li><b>38-ФЗ «О рекламе», ст. 25</b><span>реклама БАД</span></li>
-        <li><b>Маркировка БАД</b><span>поэкземплярный учёт</span></li>
-      </ul>
+  <!-- 2. Узнавание проблемы -->
+  <section class="section problem" aria-labelledby="problem-title">
+    <div class="container problem-grid">
+      <h2 id="problem-title" class="reveal">Вы знаете свой продукт. Покупатель знакомится с&nbsp;ним за&nbsp;несколько экранов.</h2>
+      <div class="problem-text reveal">
+        <p>Состав, технология, особенности производства — всё это может быть важно. Но покупатель сначала хочет понять: зачем ему продукт, чем он отличается и почему стоит своей цены.</p>
+        <p class="problem-accent">Если отличия не объяснены, сравнивать проще по цене, отзывам и знакомому названию. Перед новой переделкой дизайна или рекламным запуском стоит проверить само предложение.</p>
+      </div>
     </div>
   </section>
 
-  <!-- 3. Что изменилось: риск + возможность, у каждого факта — источник -->
-  <section class="section" id="changes" aria-labelledby="changes-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Что изменилось в 2025–2026</p>
-        <h2 id="changes-title" data-split>2025–2026: четыре решения перестроили рынок БАД. Кто подготовится первым — заберёт канал врача и аптеки</h2>
-        <p class="section-lead">Каждый факт — парой: что изменилось и что это значит для вашей выручки. Источник и дата — под карточкой.</p>
-      </div>
-
-      <!-- Лента норм с маркером «сегодня» (motion № 2). Положение маркера и «осталось N месяцев» пересчитывает скрипт. -->
-      <div class="tl" data-scene="timeline">
-        <ol class="tl-list">
-          <li class="tl-item" data-date="2025-09-01"><span class="tl-dot"></span><b>01.09.2025</b><span>150-ФЗ и поэкземплярный учёт</span></li>
-          <li class="tl-item" data-date="2026-03-01"><span class="tl-dot"></span><b>01.03.2026</b><span>Приказ 669н: БАД по назначению врача</span></li>
-          <li class="tl-item" data-date="2026-04-13"><span class="tl-dot"></span><b>13.04.2026</b><span>ПП № 398: критерии эффективности</span></li>
-          <li class="tl-item" data-date="2026-07-01"><span class="tl-dot"></span><b>07.2026</b><span>Проект порядка включения в перечень</span></li>
-          <li class="tl-item tl-deadline" data-date="2026-08-31"><span class="tl-dot"></span><b>31.08.2026</b><span>Первый срок по немаркированным остаткам<em class="tl-past"> · прошёл</em></span></li>
-          <li class="tl-item tl-today" data-today><span class="tl-dot"></span><b>Сегодня</b><span class="tl-left">осталось <span class="tl-months">10 месяцев</span> до последнего срока</span></li>
-          <li class="tl-item tl-deadline tl-final" data-date="2027-08-31"><span class="tl-dot"></span><b>31.08.2027</b><span>Последний срок продажи немаркированных остатков</span></li>
+  <!-- 3. Лид-магнит -->
+  <section id="review" class="section review" aria-labelledby="review-title">
+    <div class="container review-grid">
+      <div class="review-copy reveal">
+        <p class="eyebrow">Бесплатно</p>
+        <h2 id="review-title">Ваш продукт глазами покупателя</h2>
+        <p class="lead">Персональный разбор на одной странице:</p>
+        <ol class="steps-list">
+          <li><b>Ваше предложение рядом с двумя сопоставимыми аналогами</b></li>
+          <li><b>Один важный вопрос покупателя,</b> на который материалы пока не отвечают</li>
+          <li><b>Одно предлагаемое улучшение</b> — заголовок или структура первого экрана с пояснением</li>
         </ol>
-        <div class="tl-track" aria-hidden="true"><span class="tl-fill"></span><span class="tl-rest"></span></div>
+        <p class="muted">Используйте выводы самостоятельно или передайте своей команде. Если существенной проблемы не увидим — так и скажем.</p>
       </div>
 
-      <div class="fact-grid">
-        <article class="fact" data-scene="fact">
-          <p class="fact-num">№&nbsp;<span data-count="398">398</span></p>
-          <h3>Эффективность БАД теперь нужно доказать</h3>
-          <p>ПП № 398. Для БАД утверждены критерии эффективности. Теперь нужно показать, на каких исследованиях держится каждый компонент в вашей дозировке.</p>
-          <p class="fact-src">ПП РФ № 398 от 13.04.2026, действует с 2026 года · GxP News, 04.2026; РБК Компании, 05.2026</p>
-        </article>
-        <article class="fact fact-chance" data-scene="fact">
-          <p class="fact-tag">Возможность</p>
-          <p class="fact-num">669н</p>
-          <h3>Открылся канал врача</h3>
-          <p>С 1 марта 2026 врач вправе назначить БАД из перечня Минздрава. Новый канал продаж, но в него войдут продукты с доказательной базой. Порядок включения — пока проект (07.2026).</p>
-          <p class="fact-src">Приказ Минздрава 669н от 17.11.2025 · GxP News, 04.2026; Фармвестник, 07.2026</p>
-        </article>
-        <article class="fact" data-scene="fact">
-          <p class="fact-num">150-ФЗ</p>
-          <h3>Блокировка без суда и претензии ФАС</h3>
-          <p>150-ФЗ: сайты, которые продают запрещённые или незарегистрированные БАД, блокируют без суда. Отдельно ФАС признаёт нарушением рекламу, которая создаёт впечатление, что БАД лечит.</p>
-          <p class="fact-src">150-ФЗ от 07.06.2025; 38-ФЗ «О рекламе», п. 1 ч. 1 ст. 25 · Фармвестник; ФАС</p>
-        </article>
-
-        <article class="fact fact-wide" data-scene="fees">
-          <div class="fact-text">
-            <p class="fact-num"><span data-count="40">40</span>–<span data-count="48">48</span>&nbsp;₽</p>
-            <h3>Из каждых 100 ₽ цены — площадкам</h3>
-            <p>Из каждых 100 ₽ цены площадки забирают 40–48 ₽: Ozon — 47,8, WB — 42,7, Яндекс Маркет — 40,1 (АПЭТ, II кв. 2026). Мы считаем, где продукт зарабатывает: маркетплейс, аптека, врач.</p>
+      <form id="review-form" class="form-card reveal" novalidate data-form="review">
+        <p class="form-title">Заявка на разбор</p>
+        <div class="field">
+          <label for="rv-url">Ссылка на продукт</label>
+          <input id="rv-url" name="productUrl" type="url" inputmode="url" placeholder="https://" required>
+          <p class="hint">Карточка на маркетплейсе или страница сайта</p>
+        </div>
+        <div class="field">
+          <label for="rv-contact">Контакт для ответа</label>
+          <input id="rv-contact" name="contact" autocomplete="email" placeholder="Email, телефон или Telegram" required>
+        </div>
+        <fieldset class="field">
+          <legend>Задача</legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="task" value="Обновить материалы" checked><span>Обновить материалы</span></label>
+            <label class="choice"><input type="radio" name="task" value="Запустить продвижение"><span>Запустить продвижение</span></label>
+            <label class="choice"><input type="radio" name="task" value="Выйти к партнёрам"><span>Выйти к партнёрам</span></label>
           </div>
-          <div class="fees" aria-label="Сборы площадок из 100 ₽ базовой цены">
-            <div class="fee" style="--fee:.478;--i:0"><span class="fee-name">Ozon</span><span class="fee-bar"><span class="fee-cut"></span></span><span class="fee-val"><span data-count="47.8">47,8</span>&nbsp;₽</span></div>
-            <div class="fee" style="--fee:.427;--i:1"><span class="fee-name">Wildberries</span><span class="fee-bar"><span class="fee-cut"></span></span><span class="fee-val"><span data-count="42.7">42,7</span>&nbsp;₽</span></div>
-            <div class="fee" style="--fee:.401;--i:2"><span class="fee-name">Яндекс Маркет</span><span class="fee-bar"><span class="fee-cut"></span></span><span class="fee-val"><span data-count="40.1">40,1</span>&nbsp;₽</span></div>
-            <p class="fees-legend"><span><i class="lg lg-keep"></i>остаётся вам до себестоимости</span> <span><i class="lg lg-cut"></i>сборы площадки</span></p>
-          </div>
-          <p class="fact-src">АПЭТ через Т—Ж; Коммерсантъ · II кв. 2026</p>
-        </article>
-        <article class="fact" data-scene="fact">
-          <p class="fact-num">31.08.2027</p>
-          <h3>Последний срок для немаркированных остатков</h3>
-          <p>31.08.2027 — последний срок продажи немаркированных остатков БАД. Упаковку всё равно обновлять: переписать формулировки в том же тираже дешевле, чем потом.</p>
-          <p class="fact-src">Маркировка БАД, поэкземплярный учёт с 01.09.2025 · markirovka.ru</p>
-        </article>
-
-        <article class="fact fact-wide" data-scene="dots">
-          <div class="fact-text">
-            <p class="fact-num"><span data-count="10">10</span> из ~<span data-count="190">190</span></p>
-            <h3>Рекламу не перекричать</h3>
-            <p>10 брендов из ~190 рекламодателей забирают больше 80% рекламы БАД. Остальным не перекричать их деньгами — отстраиваться придётся доказательностью, врачом и аптекой.</p>
-          </div>
-          <div class="dots-wrap">
-            {{DOTS_190}}
-            <p class="dots-cap"><b>&gt;<span data-count="80">80</span>%</b> рекламных вложений — у 10 брендов. Остальным нужен другой способ отстроиться</p>
-          </div>
-          <p class="fact-src">Mera / Okkam через New Retail и AdIndex, 07.2026 · реклама БАД в 2025 году ≈3,2 млрд ₽</p>
-        </article>
-        <article class="fact fact-chance" data-scene="fact">
-          <p class="fact-tag">Возможность</p>
-          <p class="fact-num">+<span data-count="25">25</span>%</p>
-          <h3>Покупатель платит за обоснование</h3>
-          <p>Рынок БАД растёт в рублях (+25% по прогнозу DSM) при −1% в упаковках. Покупатель платит больше за тот же объём — и ждёт от продукта обоснования.</p>
-          <p class="fact-src">Прогноз DSM для аптечного рынка БАД на 2025 · GxP News, 11.2025</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Было — стало (+ вкладка «Космецевтика» для СТМ-брендов) -->
-  <section class="section section-tint" id="example" aria-labelledby="example-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Пример работы</p>
-        <h2 id="example-title" data-split>Одна карточка: 6 рискованных фраз → 0, у каждой новой — источник</h2>
-        <p class="section-lead">Так выглядит наша работа на одном продукте. Данные условные, формат — настоящий.</p>
-      </div>
-
-      <div class="seg-tabs" role="tablist" aria-label="Категория продукта">
-        <button role="tab" id="tab-ba-bad" aria-controls="panel-ba-bad" aria-selected="true">БАД</button>
-        <button role="tab" id="tab-ba-cosm" aria-controls="panel-ba-cosm" aria-selected="false" tabindex="-1">Космецевтика</button>
-      </div>
-
-      <div class="ba-panel" role="tabpanel" id="panel-ba-bad" aria-labelledby="tab-ba-bad">
-        <div class="ba-grid" data-scene="ba">
-          <article class="ba-card ba-before">
-            <p class="ba-tag">Было</p>
-            <p class="ba-title">Иммуно-комплекс «Щит» с цинком и эхинацеей</p>
-            <ul class="ba-lines">
-              <li><mark class="hit-high" style="--k:0">Лечит</mark> частые <mark class="hit-high" style="--k:1">простуды</mark> у взрослых и детей</li>
-              <li><mark class="hit-medium" style="--k:2">Клинически доказано</mark>: иммунитет сильнее <mark class="hit-high" style="--k:3">на 100%</mark></li>
-              <li><mark class="hit-medium" style="--k:4">Без побочных эффектов</mark>, подходит всем</li>
-              <li><mark class="hit-medium" style="--k:5">Лучший</mark> комплекс на рынке</li>
-            </ul>
-            <p class="ba-verdict is-high"><b data-count="6">6</b> рискованных формулировок · реклама с ними — нарушение п. 1 ч. 1 ст. 25 38-ФЗ, карточку могут снять</p>
-          </article>
-          <span class="ba-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <article class="ba-card ba-after">
-            <p class="ba-tag">Стало</p>
-            <p class="ba-title">Цинк 12 мг + витамин D3 1 000 МЕ для поддержки иммунитета</p>
-            <ul class="ba-lines">
-              <li style="--k:0">Цинк способствует нормальной работе иммунной системы<sup>1</sup></li>
-              <li style="--k:1">Дозы — как в исследованиях: цинк 10–15 мг, D3 800–2 000 МЕ<sup>2</sup></li>
-              <li style="--k:2">Одна капсула в день во время еды. Противопоказания — на упаковке</li>
-              <li style="--k:3">Без сахара и красителей. Курс — 2 месяца</li>
-            </ul>
-            <p class="ba-verdict is-ok"><b>0</b> рискованных формулировок · у каждого утверждения есть источник</p>
-            <p class="ba-src"><sup>1,2</sup> Ссылки на источники приводятся в отчёте.</p>
-          </article>
-        </div>
-        <p class="fine">Экстракт эхинацеи убран из заголовка: в продукте 100 мг при изученных 300–900 мг. Это тоже находка аудита — менять дозу или не обещать эффект.</p>
-      </div>
-
-      <div class="ba-panel" role="tabpanel" id="panel-ba-cosm" aria-labelledby="tab-ba-cosm" hidden>
-        <div class="ba-grid" data-scene="ba">
-          <article class="ba-card ba-before">
-            <p class="ba-tag">Было</p>
-            <p class="ba-title">Сыворотка «Ясно» с ниацинамидом</p>
-            <ul class="ba-lines">
-              <li><mark class="hit-high" style="--k:0">Лечит акне</mark> и постакне</li>
-              <li><mark class="hit-medium" style="--k:1">Клинически доказано</mark>: кожа чистая <mark class="hit-medium" style="--k:2">за 7 дней</mark></li>
-              <li><mark class="hit-medium" style="--k:3">Без побочных эффектов</mark>, <mark class="hit-high" style="--k:4">подходит абсолютно всем</mark></li>
-              <li><mark class="hit-medium" style="--k:5">Лучшая</mark> сыворотка на маркетплейсе</li>
-            </ul>
-            <p class="ba-verdict is-high"><b>6</b> рискованных формулировок · медицинские обещания и гарантии в карточке — повод для претензии и снятия карточки</p>
-          </article>
-          <span class="ba-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <article class="ba-card ba-after">
-            <p class="ba-tag">Стало</p>
-            <p class="ba-title">Сыворотка с ниацинамидом для жирной и комбинированной кожи</p>
-            <ul class="ba-lines">
-              <li style="--k:0">Что делает активный ингредиент — описано так, как в исследованиях<sup>1</sup></li>
-              <li style="--k:1">Концентрация — в диапазоне, который изучали<sup>2</sup></li>
-              <li style="--k:2">Как наносить и как сочетать с другими средствами</li>
-              <li style="--k:3">Перед первым применением — тест на небольшом участке кожи</li>
-            </ul>
-            <p class="ba-verdict is-ok"><b>0</b> рискованных формулировок · у каждого утверждения есть источник</p>
-            <p class="ba-src"><sup>1,2</sup> Ссылки на источники приводятся в отчёте.</p>
-          </article>
-        </div>
-        <p class="fine">65% аптечной косметики на маркетплейсах продаётся через Wildberries. Карточка — ваша главная витрина, и проверять её надо так же строго, как упаковку. <span class="src-inline">Фармвестник / Sirius, 2025</span></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. Что вы получите: отчёт собирается (motion № 5) -->
-  <section class="section" id="product" aria-labelledby="product-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Что вы получите</p>
-        <h2 id="product-title" data-split>Что лежит у вас на столе через 10 рабочих дней</h2>
-        <p class="section-lead">Четыре раздела. Каждый вывод — со ссылкой на источник, каждая рекомендация — с конкретным действием и сроком.</p>
-      </div>
-
-      <div class="product-tabs" role="tablist" aria-label="Разделы отчёта">
-        <button role="tab" id="tab-evidence" aria-controls="panel-evidence" aria-selected="true">Состав</button>
-        <button role="tab" id="tab-claims" aria-controls="panel-claims" aria-selected="false" tabindex="-1">Формулировки</button>
-        <button role="tab" id="tab-position" aria-controls="panel-position" aria-selected="false" tabindex="-1">Тексты для каналов</button>
-        <button role="tab" id="tab-plan" aria-controls="panel-plan" aria-selected="false" tabindex="-1">План на 90 дней</button>
-      </div>
-
-      <div class="app-frame" data-scene="report">
-        <div class="app-bar">
-          <span class="app-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="app-title">Отчёт Proba Lab · Комплекс «Щит» · 3 SKU</span>
-          <span class="app-badge">Пример</span>
-        </div>
-
-        <div class="app-body" role="tabpanel" id="panel-evidence" aria-labelledby="tab-evidence">
-          <div class="panel-grid">
-            <div class="table-wrap">
-              <table class="data-table">
-                <caption>Работает ли каждый компонент в вашей дозировке</caption>
-                <thead><tr><th scope="col">Компонент</th><th scope="col">В продукте</th><th scope="col">В исследованиях</th><th scope="col">Насколько надёжны данные</th><th scope="col">Вывод</th></tr></thead>
-                <tbody>
-                  <tr style="--i:0"><td>Цинк</td><td class="num">12 мг</td><td class="num">10–15 мг</td><td>Систематические обзоры</td><td><span class="pill pill-ok">Подтверждено</span></td></tr>
-                  <tr style="--i:1"><td>Витамин D3</td><td class="num">1 000 МЕ</td><td class="num">800–2 000 МЕ</td><td>Клинические исследования, рекомендации</td><td><span class="pill pill-ok">Подтверждено</span></td></tr>
-                  <tr style="--i:2"><td>Экстракт эхинацеи</td><td class="num">100 мг</td><td class="num">300–900 мг</td><td>Исследования противоречивы</td><td><span class="pill pill-warn">Доза ниже</span></td></tr>
-                  <tr style="--i:3"><td>Экстракт чаги</td><td class="num">50 мг</td><td class="num">—</td><td>Только опыты на клетках и животных</td><td><span class="pill pill-risk">Не обещать эффект</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <aside class="panel-aside">
-              <p class="aside-label">Итог</p>
-              <p class="aside-big"><span data-count="2">2</span> из 4</p>
-              <p>компонентов можно уверенно упоминать в рекламе. Для двух — изменить дозу или убрать обещание.</p>
-              <p class="aside-src">В примере — <span data-count="42">42</span> источника: PubMed, Cochrane, eLibrary, клинические рекомендации</p>
-            </aside>
-          </div>
-        </div>
-
-        <div class="app-body" role="tabpanel" id="panel-claims" aria-labelledby="tab-claims" hidden>
-          <div class="table-wrap">
-            <table class="data-table">
-              <caption>Что написано сейчас и что писать вместо</caption>
-              <thead><tr><th scope="col">Сейчас</th><th scope="col">Риск</th><th scope="col">Почему</th><th scope="col">Писать вместо</th></tr></thead>
-              <tbody>
-                <tr style="--i:0"><td>«Лечит частые простуды»</td><td><span class="pill pill-risk">Высокий</span></td><td>БАД не может обещать лечение</td><td>«Цинк способствует нормальной работе иммунной системы»</td></tr>
-                <tr style="--i:1"><td>«Клинически доказано»</td><td><span class="pill pill-warn">Средний</span></td><td>Исследований этой формулы нет</td><td>Ссылка на исследования компонента в этой дозе</td></tr>
-                <tr style="--i:2"><td>«Без побочных эффектов»</td><td><span class="pill pill-warn">Средний</span></td><td>Полностью не подтверждается</td><td>Противопоказания из документации</td></tr>
-                <tr style="--i:3"><td>«Источник витамина D3»</td><td><span class="pill pill-ok">Нет</span></td><td>Описание состава</td><td>Оставить</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="app-body" role="tabpanel" id="panel-position" aria-labelledby="tab-position" hidden>
-          <div class="cards-3">
-            <div class="mini-card" style="--i:0"><p class="mini-label">Покупатель на маркетплейсе</p><p class="mini-title">Заголовок и первые 5 строк карточки</p><p>Понятная польза без запрещённых обещаний. Проверено по матрице формулировок.</p></div>
-            <div class="mini-card" style="--i:1"><p class="mini-label">Фармацевт в аптеке</p><p class="mini-title">Ответ покупателю за 20 секунд</p><p>Листовка: чем продукт отличается от соседнего на полке и кому его предложить.</p></div>
-            <div class="mini-card" style="--i:2"><p class="mini-label">Врач</p><p class="mini-title">Справка на 2–4 страницы</p><p>Состав, дозировки, исследования, противопоказания. Без рекламных слов.</p></div>
-          </div>
-        </div>
-
-        <div class="app-body" role="tabpanel" id="panel-plan" aria-labelledby="tab-plan" hidden>
-          <ol class="plan-list">
-            <li style="--i:0"><span class="plan-when">Неделя 1–2</span><span class="plan-what">Заменить 6 формулировок на карточках Ozon и Wildberries</span><span class="pill pill-risk">Срочно</span></li>
-            <li style="--i:1"><span class="plan-when">Неделя 3–6</span><span class="plan-what">Поднять дозу эхинацеи до изученной при следующем выпуске</span><span class="pill pill-warn">Производство</span></li>
-            <li style="--i:2"><span class="plan-when">Неделя 4–8</span><span class="plan-what">Справка для врача и обучение двух аптечных сетей</span><span class="pill pill-ok">Канал аптеки</span></li>
-            <li style="--i:3"><span class="plan-when">Неделя 8–12</span><span class="plan-what">Пересчитать цену с учётом сборов площадок и аптечной наценки</span><span class="pill pill-ok">Маржа</span></li>
-          </ol>
-        </div>
-      </div>
-      <p class="fine">Данные в примере условные и показывают формат отчёта.</p>
-    </div>
-  </section>
-
-  <!-- 6. Как мы проверяем: метод, уровни доказательности, чек-лист -->
-  <section class="section section-tint" id="method" aria-labelledby="method-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Метод</p>
-        <h2 id="method-title" data-split>Как мы проверяем: методика открыта, каждую ссылку можно проверить</h2>
-        <p class="section-lead">Вместо витрины кейсов — метод. Базы, протокол поиска, критерии и уровни доказательности одинаковы для каждого продукта.</p>
-      </div>
-
-      <div class="method-grid">
-        <ol class="method-list" data-stagger>
-          <li><b>Источники</b><span>PubMed, Cochrane, eLibrary, клинические рекомендации.</span></li>
-          <li><b>Протокол поиска</b><span>Базы, ключевые слова, критерии включения — в формате PRISMA-lite. Поиск можно повторить.</span></li>
-          <li><b>Сопоставление с ПП № 398</b><span>Публикации, обзор научных источников, клинические рекомендации, собственные данные производителя.</span></li>
-          <li><b>Библиотека формулировок</b><span>Допустимо, рискованно, запрещено — с основаниями, по категориям: иммунитет, ЖКТ, сон, суставы, кожа.</span></li>
-          <li><b>Двойная проверка</b><span>Ключевые выводы проверяются дважды, у каждого пункта — ссылка на источник.</span></li>
-          <li><b>AI только для черновиков</b><span>Каждую ссылку проверяет человек.</span></li>
-        </ol>
-
-        <div class="levels" data-scene="levels">
-          <p class="levels-title">Уровни доказательности — так они подписаны в отчёте</p>
-          <ol>
-            <li style="--w:1;--i:0"><span class="lv-bar"></span><span class="lv-name">Систематические обзоры</span><span class="pill pill-ok">Подтверждено</span></li>
-            <li style="--w:.78;--i:1"><span class="lv-bar"></span><span class="lv-name">Клинические исследования и рекомендации</span><span class="pill pill-ok">Подтверждено</span></li>
-            <li style="--w:.5;--i:2"><span class="lv-bar"></span><span class="lv-name">Противоречивые данные</span><span class="pill pill-warn">Осторожно</span></li>
-            <li style="--w:.24;--i:3"><span class="lv-bar"></span><span class="lv-name">Только клетки и животные</span><span class="pill pill-risk">Не обещать эффект</span></li>
-          </ol>
-          <p class="levels-note">Если по составу мало исследований, так и напишем: «доказательность низкая». Это тоже результат.</p>
-        </div>
-      </div>
-
-      <div class="checks" data-scene="checks">
-        <h3>Что мы проверяем в каждом продукте</h3>
-        <ul class="checks-list">
-          <li style="--i:0"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Состав и дозировка каждого компонента в сравнении с изученными дозами</li>
-          <li style="--i:1"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Уровень доказательности по каждому компоненту</li>
-          <li style="--i:2"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Соответствие критериям эффективности ПП № 398</li>
-          <li style="--i:3"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Слова-маркеры лечебного действия («лечит», названия болезней)</li>
-          <li style="--i:4"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Гарантии и сроки эффекта («за 7 дней», «гарантированный результат»)</li>
-          <li style="--i:5"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>«Клинически доказано» без исследования этой формулы</li>
-          <li style="--i:6"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Превосходная степень («лучший», «№ 1»)</li>
-          <li style="--i:7"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>«Без побочных эффектов», «подходит всем»</li>
-          <li style="--i:8"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Противопоказания и способ применения в тексте карточки</li>
-          <li style="--i:9"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Одинаковы ли формулировки на упаковке, карточке, сайте и в рекламе</li>
-          <li style="--i:10"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Цена и маржа по каналам с учётом сборов площадок</li>
-          <li style="--i:11"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Готовность материалов для фармацевта и врача</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Проверка фразы + мостик к заявке (motion № 6) -->
-  <section class="section" id="check" aria-labelledby="check-title">
-    <div class="container check-grid">
-      <div>
-        <p class="eyebrow">Попробуйте сами</p>
-        <h2 id="check-title" data-split>Проверьте одну фразу за 3 секунды. Целую карточку проверим мы</h2>
-        <p class="section-lead">Вставьте текст с упаковки или карточки товара — подсветим слова, которые чаще всего приводят к претензиям.</p>
-        <form id="check-form" class="check-form">
-          <label for="check-input">Фраза</label>
-          <textarea id="check-input" rows="3" maxlength="600">Лечит гастрит за 7 дней, гарантированный результат</textarea>
-          <div class="samples" aria-label="Примеры">
-            <button type="button" class="chip" data-sample="Клинически доказано: укрепляет иммунитет на 100%">«Клинически доказано…»</button>
-            <button type="button" class="chip" data-sample="Лучший комплекс для суставов, без побочных эффектов">«Лучший комплекс…»</button>
-            <button type="button" class="chip" data-sample="Источник цинка. Цинк способствует нормальной работе иммунной системы">«Источник цинка…»</button>
-          </div>
-          <button class="btn btn-dark" type="submit">Проверить</button>
-        </form>
-        <p class="fine">Это демонстрация, а не юридическое заключение. Она ищет только типовые слова-маркеры. Можно ли так писать о вашем продукте, зависит от состава и исследований — это мы и проверяем в аудите.</p>
-      </div>
-      <div class="check-side">
-        <div class="check-result" id="check-result" aria-live="polite"></div>
-        <a class="check-bridge" href="#contact" data-topic="Разбор 5 фраз на карточке — бесплатно">
-          <span>Это 1 фраза. На карточке их 15–30. Пришлите ссылку — проверим всю за 3 рабочих дня бесплатно</span>
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Цены: результат в заголовке, название услуги — подзаголовком -->
-  <section class="section section-tint" id="pricing" aria-labelledby="pricing-title">
-    <div class="container">
-      <div class="section-head section-head-center">
-        <p class="eyebrow">Цены</p>
-        <h2 id="pricing-title" data-split>Фиксированная цена за документы, которые можно проверить</h2>
-        <p class="section-lead">Цена и срок фиксируются в договоре до старта. Каждый вывод — со ссылкой на источник, каждая рекомендация — с действием и сроком. Если результат не соответствует договору — переделаем за свой счёт.</p>
-      </div>
-
-      <article class="step0" data-scene="price">
-        <div class="step0-copy">
-          <p class="step0-tag">Шаг 0 · 0 ₽</p>
-          <h3 class="price-result">Узнайте, какие 5 фраз на вашей карточке рискованные, — до того, как это сделает ФАС или покупатель в отзывах</h3>
-          <p class="price-sub">Разбор карточки · 1 страница · 3 рабочих дня · 0 ₽</p>
-          <p class="step0-text">5 формулировок с основанием и безопасной заменой + 1 идея позиционирования для канала врача. Ни к чему не обязывает.</p>
-        </div>
-        <a class="btn btn-primary btn-lg" href="#contact" data-topic="Разбор 5 фраз на карточке — бесплатно">Прислать ссылку на карточку</a>
-      </article>
-
-      <div class="price-grid">
-        <article class="price-card" data-scene="price">
-          <h3 class="price-result">Один продукт без рискованных обещаний — и с текстом, который можно публиковать</h3>
-          <p class="price-sub">Проверка продукта · 1 SKU · 5 рабочих дней</p>
-          <div class="price">
-            <span class="price-num">29 000 ₽</span><span class="price-per">фиксированно</span>
-            <span class="files" aria-hidden="true"><i class="f-pdf">PDF<em>Отчёт</em></i><i class="f-docx">DOCX<em>Текст карточки</em></i><i class="f-xlsx">XLSX<em>Формулировки</em></i></span>
-          </div>
-          <p class="price-frame">Засчитывается в аудит линейки или досье, если закажете в течение 30 дней</p>
-          <a class="btn btn-outline btn-block" href="#contact" data-topic="Снять риск с одного продукта — 29 000 ₽">Проверить продукт</a>
-          <ul class="checklist">
-            <li style="--i:0"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Знаете, какие компоненты в вашей дозировке подтверждены исследованиями, а о каких лучше молчать</li>
-            <li style="--i:1"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Каждая рискованная фраза с карточки и упаковки — с основанием и готовой заменой</li>
-            <li style="--i:2"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Новый текст карточки для одного маркетплейса — готов к публикации</li>
-            <li style="--i:3"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Ссылки на источники по каждому выводу</li>
-            <li style="--i:4"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>5 рабочих дней · NDA до передачи документов</li>
-          </ul>
-        </article>
-
-        <article class="price-card is-featured" data-scene="price">
-          <p class="price-flag">Рекомендуем начать с этого</p>
-          <h3 class="price-result">Снять риск с линейки и открыть аптеку и врача</h3>
-          <p class="price-sub">Аудит линейки · до 3 SKU · 10 рабочих дней</p>
-          <div class="price">
-            <span class="price-num">59 000 ₽</span><span class="price-per">фиксированно, до 3 SKU</span>
-            <span class="files" aria-hidden="true"><i class="f-pdf">PDF<em>Отчёт</em></i><i class="f-xlsx">XLSX<em>Матрица формулировок</em></i><i class="f-docx">DOCX<em>Тексты для каналов</em></i></span>
-          </div>
-          <p class="price-frame">Меньше месячной зарплаты одного продуктового специалиста — 150–300 тыс. ₽ по вакансиям hh.ru</p>
-          <a class="btn btn-primary btn-block" href="#contact" data-topic="Снять риск с линейки и открыть аптеку и врача — 59 000 ₽">Заказать аудит линейки</a>
-          <ul class="checklist">
-            <li style="--i:0"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Статус доказательности каждого компонента под критерии ПП № 398: «подтверждено», «доза ниже изученной», «не обещать эффект»</li>
-            <li style="--i:1"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Матрица формулировок для маркетплейсов, сайта и упаковки: что оставить, что переписать, чем заменить</li>
-            <li style="--i:2"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Справка для врача и ответ фармацевту за 20 секунд — материалы для канала, который открыл приказ 669н</li>
-            <li style="--i:3"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Расчёт, где продукт зарабатывает: маркетплейс (сборы 40–48%), аптека или врач</li>
-            <li style="--i:4"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>План на 90 дней с приоритетами и разбор с вашей командой</li>
-            <li style="--i:5"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>10 рабочих дней · промежуточный статус на 5-й день</li>
-          </ul>
-          <p class="price-trigger">Обновляете упаковку под маркировку до 31.08.2027? Перепишите формулировки в том же тираже.</p>
-        </article>
-
-        <article class="price-card" data-scene="price">
-          <h3 class="price-result">Ни один новый текст не уходит в публикацию без научной и регуляторной проверки</h3>
-          <p class="price-sub">Сопровождение · помесячно · без минимального срока</p>
-          <div class="price">
-            <span class="price-num">39 000 ₽</span><span class="price-per">в месяц, до 10 материалов</span>
-            <span class="files" aria-hidden="true"><i class="f-pdf">PDF<em>Ежемесячный отчёт</em></i><i class="f-docx">DOCX<em>Правки макетов</em></i><i class="f-xlsx">XLSX<em>Реестр проверок</em></i></span>
-          </div>
-          <p class="price-frame">Штатный специалист с таким профилем — 150–300 тыс. ₽ в месяц только зарплатой (hh.ru, 2026)</p>
-          <a class="btn btn-outline btn-block" href="#contact" data-topic="Проверять все новые материалы — сопровождение">Подключить сопровождение</a>
-          <ul class="checklist">
-            <li style="--i:0"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Каждый новый макет, карточка и пост проверены до публикации — до 10 материалов в месяц</li>
-            <li style="--i:1"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Материалы обновляются, когда меняются требования: следим за регуляторикой за вас</li>
-            <li style="--i:2"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Ответ на вопрос — в течение 2 рабочих дней</li>
-            <li style="--i:3"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Ежемесячный отчёт: что проверено, что изменилось в правилах, что сделать дальше</li>
-            <li style="--i:4"><svg class="tick" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Без минимального срока — отказаться можно в любой месяц</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="launch-grid">
-        <article class="launch-card" data-scene="price">
-          <p class="also-label">Для запуска нового продукта</p>
-          <h3 class="price-result">Доказательная база, с которой продукт можно предлагать врачу и аптеке</h3>
-          <p class="price-sub">Научное досье и материалы для врачей · 4–6 недель · от 120 000 ₽</p>
-          <p>Обзор литературы по составу и дозам с библиографией, матрица заявлений, справка для врача, листовка для фармацевта, научный блок карточки.</p>
-          <p class="launch-not">Не обещаем включения в перечень Минздрава — даём доказательную базу, без которой туда не попасть.</p>
-          <a class="link-arrow" href="#contact" data-topic="Подготовить продукт для врача и аптеки — досье">Обсудить досье</a>
-        </article>
-        <article class="launch-card" data-scene="price">
-          <p class="also-label">Для запуска нового продукта</p>
-          <h3 class="price-result">Новый продукт выходит на рынок с ценой, каналами и планом продаж на 90 дней</h3>
-          <p class="price-sub">Стратегия выхода на рынок · 5–7 недель · от 150 000 ₽</p>
-          <p>Сегменты, каналы (аптека, врач, маркетплейс, B2B), цена и юнит-экономика с учётом сборов площадок, материалы продаж, KPI.</p>
-          <a class="link-arrow" href="#contact" data-topic="Вывести новый продукт на рынок">Обсудить запуск</a>
-        </article>
-      </div>
-
-      <ul class="guarantees" data-stagger aria-label="Гарантии в договоре">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Фиксированная цена и срок в договоре</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>NDA до передачи документов</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6M20 4v4h-4"/></svg>Переделка за наш счёт, если результат не соответствует ТЗ</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M6.5 6.5l11 11"/></svg>Не работаем одновременно с прямыми конкурентами в одной узкой категории</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>Промежуточный статус на 5-й день</li>
-      </ul>
-      <p class="fine center">Платите за проверяемый объём: список проверенных компонентов и формулировок, ссылки на источники, сроки. Стоимость проверки засчитывается в следующий проект, если он заказан в течение 30 дней. {{PRICING_NOTE}}</p>
-    </div>
-  </section>
-
-  <!-- 9. Как работаем: 5 шагов, прогресс «день 0 → день 10» привязан к прокрутке (motion № 8) -->
-  <section class="section" id="workflow" aria-labelledby="workflow-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Как работаем</p>
-        <h2 id="workflow-title" data-split>От ссылки на товар до плана на 90 дней — 10 рабочих дней, срок в договоре</h2>
-      </div>
-      <div class="flow" data-scene="flow">
-        <p class="flow-day" aria-hidden="true">Срок: <b>день <span class="flow-day-n">10</span></b> из 10</p>
-        <div class="flow-track" aria-hidden="true"><span class="flow-fill"></span></div>
-        <ol class="steps">
-          <li class="step"><p class="step-when">3 рабочих дня · бесплатно</p><h3>Разбор карточки</h3><p>Присылаете ссылку на карточку или фото упаковки. Возвращаем 5 рискованных фраз с основаниями и безопасной заменой.</p></li>
-          <li class="step"><p class="step-when">30 минут</p><h3>Созвон и NDA</h3><p>Обсуждаем продукт и задачи, подписываем NDA до передачи документов. Если аудит вам не нужен — скажем прямо.</p></li>
-          <li class="step step-key"><p class="step-when">День 0</p><h3>Договор и старт</h3><p>Объём, цена и срок — в договоре. После предоплаты начинаем работу.</p></li>
-          <li class="step step-key"><p class="step-when">День 5</p><h3>Промежуточный статус</h3><p>Показываем, что уже проверено и что нашли. Вопросы по составу закрываем по ходу, а не в конце.</p></li>
-          <li class="step step-key"><p class="step-when">День 10</p><h3>Отчёт и разбор</h3><p>Отдаём отчёт, тексты и план на 90 дней. 60 минут разбираем результат с вашей командой.</p></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. Кто делает работу -->
-  <section class="section section-tint" id="team" aria-labelledby="team-title">
-    <div class="container team-grid">
-      <div>
-        <p class="eyebrow">Кто делает работу</p>
-        <h2 id="team-title" data-split>Ваш состав читает врач-исследователь, а не копирайтер</h2>
-        <p class="section-lead">Вместо витрины — открытая методика, образец отчёта и бесплатный разбор вашей карточки. Срок, объём и переделка — в договоре.</p>
-        <blockquote class="manifest">«Я читаю исследования так, как их читает врач, и считаю каналы так, как их считает коммерческий директор. В отчёте вы увидите и то и другое».</blockquote>
-      </div>
-      <div class="person" data-scene="person">
-        <div class="person-head">
-          <span class="avatar" aria-hidden="true">Фото</span>
-          <div><p class="person-name">{{FOUNDER_NAME}}</p><p class="person-role">Основатель, врач-исследователь. Выводы по составу и формулировкам делает и подписывает лично</p></div>
-        </div>
-        <ul class="facts">
-          <li style="--i:0"><span>Врач (лечебное дело, СЗГМУ им. И. И. Мечникова, 2024)</span></li>
-          <li style="--i:1"><span>Около 6 лет научно-исследовательской работы, включая экспериментальные нейрофизиологические исследования. Публикации — {{SCIENCE_PROFILE}}</span></li>
-          <li style="--i:2"><span>Полтора года в COVID-реанимации</span></li>
-          <li style="--i:3"><span>Региональное развитие рынка медпродукции: работа с медорганизациями и дистрибьюторами, образовательные программы для специалистов</span></li>
-          <li style="--i:4"><span>Продуктовая аналитика: юнит-экономика, SQL, воронки</span></li>
-        </ul>
-        <p class="person-partners">Поиск литературы ведёт медицинский автор по нашему протоколу, юридическую вычитку по запросу — партнёр-юрист по рекламе. Материалы оформляет дизайнер.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11. Для контрактных производителей -->
-  <section class="section" id="partners" aria-labelledby="partners-title">
-    <div class="container partners">
-      <div class="partners-copy">
-        <p class="eyebrow">Партнёрам</p>
-        <h2 id="partners-title" data-split>Ваш клиент выходит на рынок с готовым позиционированием — и возвращается за следующей партией</h2>
-        <p class="section-lead">К контрактному производителю приходят бренды с рецептурой, но без доказательной базы и без понятных формулировок. Мы закрываем эту часть: клиент получает проверенный продукт, вы — повторный заказ.</p>
-      </div>
-      <div class="partners-side">
-        <ul class="partner-terms" data-stagger>
-          <li><b>Клиенту</b><span>Проверенный продукт: доказательная база по составу и формулировки, с которыми можно выходить на маркетплейс, в аптеку и к врачу</span></li>
-          <li><b>Вам</b><span>10% от оплаты за каждого приведённого клиента</span></li>
-          <li><b>Без конфликта</b><span>Рецептуру обсуждаем с клиентом только по существу доказательности, ваши коммерческие условия не трогаем, NDA с обеими сторонами</span></li>
-        </ul>
-        <a class="btn btn-primary btn-lg" href="#contact" data-topic="Партнёрство для контрактного производителя">Обсудить партнёрство</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 12. Сравнение -->
-  <section class="section section-tint" id="compare" aria-labelledby="compare-title">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Сравнение</p>
-        <h2 id="compare-title" data-split>Агентство даёт охваты. Штатный специалист — часы. Мы — проверенный продукт и план</h2>
-        <p class="section-lead">Реклама приводит покупателя. Мы делаем так, чтобы продукту поверили.</p>
-      </div>
-      <div class="compare-scroll">
-        <div class="table-wrap compare-wrap" tabindex="0" aria-label="Таблица сравнения, прокручивается по горизонтали">
-          <table class="compare">
-            <thead>
-              <tr><th scope="col"><span class="sr-only">Что важно</span></th><th scope="col" class="is-us">Proba Lab</th><th scope="col">Агентство Директа и SMM</th><th scope="col">Копирайтер</th><th scope="col">Штатный специалист medical affairs</th></tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">Проверяет, работает ли состав</th><td class="is-us">Да, по исследованиям</td><td>Нет</td><td>Нет</td><td>Да, если есть профильный опыт</td></tr>
-              <tr><th scope="row">Знает ограничения рекламы БАД</th><td class="is-us">Да</td><td>Не всегда</td><td>Не всегда</td><td>Зависит от опыта</td></tr>
-              <tr><th scope="row">Пишет тексты для врачей и аптек</th><td class="is-us">Да</td><td>Нет</td><td>Без научной базы</td><td>Да</td></tr>
-              <tr><th scope="row">Что вы получаете</th><td class="is-us">Проверенный продукт, тексты, план на 90 дней</td><td>Охваты и клики</td><td>Тексты</td><td>Часы сотрудника</td></tr>
-              <tr><th scope="row">Как платите</th><td class="is-us">Фиксированная цена за согласованный объём</td><td>Бюджет и ежемесячная оплата</td><td>За текст</td><td>150–300 тыс. ₽ в месяц только зарплатой (hh.ru, 2026)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <span class="scroll-hint" aria-hidden="true">Листайте →</span>
-      </div>
-      <p class="fine">Не ведём Директ, SMM, не накручиваем отзывы, не регистрируем продукцию — передаём партнёрам. Агентства и маркетологи полезны — мы не заменяем рекламу, а делаем её безопасной и убедительной.</p>
-    </div>
-  </section>
-
-  <!-- 13. FAQ -->
-  <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="container faq-grid">
-      <div class="section-head">
-        <p class="eyebrow">FAQ</p>
-        <h2 id="faq-title" data-split>Что спрашивают собственники перед первым аудитом</h2>
-      </div>
-      <div class="faq-list">
-        <details><summary>У вас нет публичных кейсов — почему вам доверять?</summary><div class="faq-a"><p>Качество проверьте на своём продукте до оплаты: бесплатный разбор карточки — это фрагмент настоящего отчёта. Методика открыта: базы, критерии, уровни доказательности описаны выше, каждая ссылка проверяема. Срок, объём и переделка за наш счёт закреплены в договоре.</p></div></details>
-        <details><summary>Из чего складывается цена?</summary><div class="faq-a"><p>Цену определяет объём: число SKU, компонентов и формулировок, а не часы. Мы работаем по шаблонам и библиотеке формулировок, поэтому отчёт на 3 SKU занимает 10 рабочих дней, а не месяц. Цена и срок фиксируются в договоре до старта.</p></div></details>
-        <details><summary>Нас пока никто не проверял. Зачем это сейчас?</summary><div class="faq-a"><p>Требования вступили в силу в 2025–2026 годах, проверки обычно идут с задержкой. Но дело не только в рисках: без доказательной базы продукт не войдёт в канал врача (приказ 669н) и проиграет в аптеке тому, у кого обоснование есть.</p></div></details>
-        <details><summary>Работаете с космецевтикой и медизделиями?</summary><div class="faq-a"><p>С космецевтикой — да: проверяем заявления об активных ингредиентах и доказательность компонентов. С медизделиями низкого класса риска — выборочно, не во всех категориях: уточним на созвоне.</p></div></details>
-        <details><summary>Что если по составу мало исследований?</summary><div class="faq-a"><p>Так и напишем: «доказательность низкая». Это тоже результат: вы узнаете, какие обещания убрать, и сможете решить, менять ли дозу или собирать собственные данные.</p></div></details>
-        <details><summary>Кто конкретно делает работу?</summary><div class="faq-a"><p>Выводы по составу и формулировкам делает и подписывает {{FOUNDER_NAME}}, врач-исследователь. Поиск литературы ведёт медицинский автор по нашему протоколу, юридическую вычитку по запросу — партнёр-юрист по рекламе. AI-ассистенты используются только для черновиков; каждую ссылку проверяет человек.</p></div></details>
-        <details><summary>Чем вы отличаетесь от рекламного агентства?</summary><div class="faq-a"><p>Агентство приводит людей на карточку. Мы делаем саму карточку, упаковку и материалы такими, чтобы им верили и чтобы их можно было законно рекламировать. Не ведём Директ и SMM, не закупаем блогеров, не накручиваем отзывы и не обещаем «+300% продаж».</p></div></details>
-        <details><summary>Вы регистрируете БАД?</summary><div class="faq-a"><p>Нет. Регистрацией занимаются профильные организации — порекомендуем проверенных партнёров. Мы отвечаем за научную и коммерческую часть.</p></div></details>
-        <details><summary>Это юридическое заключение?</summary><div class="faq-a"><p>Нет. Мы даём научную оценку и безопасные формулировки. Юридическое заключение может подготовить наш партнёр-юрист по рекламе.</p></div></details>
-        <details><summary>Гарантируете рост продаж?</summary><div class="faq-a"><p>Нет — честно это гарантировать нельзя, и никто честный не гарантирует. Мы гарантируем объём работы, срок и качество документов, записанные в договоре.</p></div></details>
-        <details><summary>Как с конфиденциальностью?</summary><div class="faq-a"><p>Подписываем соглашение о неразглашении до того, как вы передадите документы. Не работаем одновременно с прямыми конкурентами в одной узкой категории.</p></div></details>
-        <details><summary>Сколько времени нужно от нас?</summary><div class="faq-a"><p>Около 1–2 часов: короткий бриф, состав продукта и созвон по результатам.</p></div></details>
-        <details><summary>Работаете по всей России?</summary><div class="faq-a"><p>Да, удалённо. В Новосибирске можем встретиться лично.</p></div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 14. Финальный CTA и форма -->
-  <section class="cta-band" id="contact" aria-labelledby="contact-title">
-    {{CTA_ART}}
-    <div class="container cta-grid">
-      <div class="cta-copy">
-        <h2 id="contact-title" data-split>Пришлите ссылку — через 3 рабочих дня узнаете, какие 5 фраз на карточке рискованные и что писать вместо них</h2>
-        <ul class="cta-points">
-          <li>Ответим в течение рабочего дня</li>
-          <li>NDA — до передачи документов</li>
-          <li>Ни к чему не обязывает</li>
-        </ul>
-      </div>
-      <form id="lead-form" class="lead-form" novalidate>
-        <div class="field"><label for="lead-name">Имя</label><input id="lead-name" name="name" autocomplete="name"></div>
-        <div class="field"><label for="lead-company">Компания или бренд</label><input id="lead-company" name="company" autocomplete="organization"></div>
-        <div class="field"><label for="lead-email">Email или телефон</label><input id="lead-email" name="email" autocomplete="email"></div>
-        <div class="field"><label for="lead-topic">Задача</label>
-          <select id="lead-topic" name="topic">
-            <option>Разбор 5 фраз на карточке — бесплатно</option>
-            <option>Снять риск с одного продукта — 29 000 ₽</option>
-            <option>Снять риск с линейки и открыть аптеку и врача — 59 000 ₽</option>
-            <option>Проверять все новые материалы — сопровождение</option>
-            <option>Подготовить продукт для врача и аптеки — досье</option>
-            <option>Вывести новый продукт на рынок</option>
-            <option>Партнёрство для контрактного производителя</option>
-            <option>Пока не знаю, нужна консультация</option>
-          </select>
-        </div>
-        <div class="field field-wide"><label for="lead-url">Ссылка на товар <span class="opt">необязательно</span></label><input id="lead-url" name="productUrl" type="url" inputmode="url" placeholder="https://www.ozon.ru/product/…"></div>
-        <div class="field-wide">
-          <div class="consent"><input id="lead-consent" type="checkbox"><label for="lead-consent">Согласен на обработку персональных данных по Политике конфиденциальности</label></div>
-        </div>
-        <div class="field-wide form-actions">
-          <button class="btn btn-primary btn-lg" type="submit">Отправить</button>
-          <p id="lead-status" class="form-status" role="status" aria-live="polite"></p>
-        </div>
+        </fieldset>
+        <label class="consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Получить бесплатный разбор</button>
+        <p class="form-meta">Три рабочих дня после подтверждения заявки. Результат пришлём без обязательного созвона.</p>
+        <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
+
+  <!-- 4. Первый платный продукт -->
+  <section id="start" class="section start" aria-labelledby="start-title">
+    <div class="container">
+      <article class="start-card reveal">
+        <div class="start-main">
+          <p class="eyebrow">Первый заказ</p>
+          <h2 id="start-title">Предложение для одного продукта</h2>
+          <p class="start-lead">Разберёмся, что стоит сказать покупателю, чем подкрепить аргументы и как показать это в первом материале.</p>
+          <p class="price-big"><span data-price="start">{{PRICE_START}}</span></p>
+          <p class="muted">Срок фиксируем после получения материалов и согласования задачи.</p>
+          <button class="btn btn-primary btn-lg" type="button" data-add-package="start" data-go="calc">Начать с одного продукта</button>
+        </div>
+        <div class="start-side">
+          <p class="side-label">Входит</p>
+          <ul class="check-list">
+            <li>Сравнение подачи трёх прямых конкурентов</li>
+            <li>Предложение для одной выбранной аудитории</li>
+            <li>Три основных аргумента и ответы на возражения</li>
+            <li>Предварительная проверка оснований двух ключевых заявлений в согласованном объёме</li>
+            <li>Текст и дизайн трёх слайдов карточки <em>или</em> первого экрана лендинга</li>
+          </ul>
+          <p class="fine">Один формат, одна концепция, один согласованный раунд правок. Работаем с вашими фотографиями и документами. Не входят: полный научный обзор, фотосъёмка, юридическое заключение, разработка полноценного сайта и рекламные размещения.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5. Почему нам можно поручить работу -->
+  <section class="section team" aria-labelledby="team-title">
+    <div class="container team-grid">
+      <h2 id="team-title" class="reveal">В свойствах продукта разбирается врач. Подачу собирает дизайнер.</h2>
+      <div class="team-people">
+        <div class="person reveal">
+          <span class="person-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 3v6l-5 9a2 2 0 0 0 1.7 3h12.6a2 2 0 0 0 1.7-3l-5-9V3M8 3h8M7 14h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p class="person-role">Основатель</p>
+          <p>Врач по образованию, несколько лет научных исследований и опыт B2B-продаж медицинской продукции. Читает исследования и документы, чтобы определить, на что опираются заявления о продукте и где у них границы. Исследования ингредиента — не доказательство эффективности готового продукта, и мы так и пишем.</p>
+        </div>
+        <div class="person reveal">
+          <span class="person-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <p class="person-role">Дизайнер-разработчик</p>
+          <p>Превращает аргументы в карточки, страницы и презентации и сам доводит их до работающего сайта.</p>
+        </div>
+        <p class="team-note reveal">Фото, видео, SEO и интеграции под проект выполняют привлечённые профильные специалисты — мы ставим задачу и отвечаем за результат.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Конструктор -->
+  <section id="builder" class="section builder" aria-labelledby="builder-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="builder-title">Соберите проект под свою задачу</h2>
+        <p class="lead">Выберите нужные результаты. Мы уточним объём, проверим состав работ и подготовим расчёт.</p>
+      </div>
+      <div class="builder-grid">
+        <div class="builder-main">
+          {{CONSTRUCTOR}}
+
+          <div class="big-grid" id="big">
+            <article class="big-card reveal">
+              <p class="big-price" data-price="promoPrep">{{PRICE_PROMO_PREP}}</p>
+              <h3>Подготовка продвижения</h3>
+              <p>Один продукт и один приоритетный канал: аудитория, предложение, лендинг <em>или</em> комплект партнёрских материалов, план проверки спроса.</p>
+              <p class="fine">Сайт, все карточки, презентации и контент автоматически в минимальную цену не входят.</p>
+              <button class="btn btn-outline add-btn" type="button" data-add-package="promo-prep" aria-pressed="false"><span class="add-label">Добавить в проект</span></button>
+            </article>
+            <article class="big-card reveal">
+              <p class="big-price" data-price="promoSupport">{{PRICE_PROMO_SUPPORT}}</p>
+              <h3>Поддержка продвижения</h3>
+              <p>Три материала в заранее согласованных небольших форматах, адаптация под выбранные размещения, один раунд правок и ежемесячный разбор обратной связи.</p>
+              <p class="fine">Большой научный обзор — не обычная единица контента. Рекламный бюджет, управление кампаниями и поиск дистрибьюторов — отдельные работы.</p>
+              <button class="btn btn-outline add-btn" type="button" data-add-package="promo-support" aria-pressed="false"><span class="add-label">Добавить в проект</span></button>
+            </article>
+          </div>
+        </div>
+
+        <aside class="project" id="project" aria-labelledby="project-title">
+          <div class="project-bar">
+            <button class="project-toggle" type="button" aria-expanded="false" aria-controls="project-body">
+              <span id="project-title" class="project-title">Ваш проект</span>
+              <span class="count" data-count aria-live="polite">0</span>
+              <span class="project-chevron" aria-hidden="true"></span>
+            </button>
+            <a class="btn btn-primary btn-sm project-quick" href="#calc">Получить расчёт</a>
+          </div>
+          <div class="project-body" id="project-body">
+            <p class="project-empty" data-empty>Пока ничего не выбрано. Добавьте нужные результаты — они появятся здесь.</p>
+            <ul class="project-list" data-list></ul>
+            <div class="seo-question" data-seo-question hidden>
+              <p>Для SEO нужен сайт. У вас уже есть сайт?</p>
+              <div class="choice-row">
+                <label class="choice"><input type="radio" name="seo-site" value="Есть сайт"><span>Есть</span></label>
+                <label class="choice"><input type="radio" name="seo-site" value="Сайта нет"><span>Нет</span></label>
+              </div>
+            </div>
+            <p class="project-note">Стоимость — после согласования объёма. Объединяющиеся работы не считаем дважды: например, анализ продукта для сайта и карточки делаем в рамках одного проекта.</p>
+            <a class="btn btn-primary btn-block" href="#calc">Получить расчёт проекта</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Образец работы -->
+  <section class="section showcase" aria-labelledby="showcase-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="showcase-title">Как выглядит результат</h2>
+        <p class="lead">Фрагмент первого слайда карточки до и после работы над предложением.</p>
+      </div>
+      <div class="slides reveal">
+        <figure class="slide slide-before">
+          <figcaption>До</figcaption>
+          <div class="slide-art">
+            <p class="slide-h">Коллаген Beauty Premium</p>
+            <p class="slide-s">Для красоты и молодости кожи</p>
+            <ul class="slide-badges"><li>Премиум</li><li>Натуральный</li><li>Хит</li></ul>
+          </div>
+        </figure>
+        <figure class="slide slide-after">
+          <figcaption>После</figcaption>
+          <div class="slide-art">
+            <p class="slide-h">Коллаген + витамин C</p>
+            <p class="slide-s">Порошок без вкуса: одна ложка в напиток. Упаковка на 30 дней</p>
+            <ul class="slide-badges"><li>5 г в порции</li><li>Без сахара</li><li>30 порций</li></ul>
+          </div>
+        </figure>
+      </div>
+      <p class="fine center">Демонстрационный пример. Продукт и данные условные.</p>
+    </div>
+  </section>
+
+  <!-- 8. Форма расчёта -->
+  <section id="calc" class="section calc" aria-labelledby="calc-title">
+    <div class="container calc-grid">
+      <div class="reveal">
+        <h2 id="calc-title">Получить расчёт проекта</h2>
+        <p class="lead">Уточним объём, предложим состав работ и пришлём расчёт. Готовы к большому проекту — напишите сразу, без бесплатного разбора.</p>
+      </div>
+      <form id="calc-form" class="form-card reveal" novalidate data-form="calc">
+        <div class="field">
+          <p class="label-like">Выбрано в проекте</p>
+          <ul class="calc-selected" data-calc-list></ul>
+          <p class="hint" data-calc-empty>Можно отправить и без выбора — опишите задачу ниже.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="cl-contact">Контакт для ответа</label>
+            <input id="cl-contact" name="contact" autocomplete="email" placeholder="Email, телефон или Telegram" required>
+          </div>
+          <div class="field">
+            <label for="cl-url">Ссылка на продукт</label>
+            <input id="cl-url" name="productUrl" type="url" inputmode="url" placeholder="https://">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cl-task">Задача</label>
+          <textarea id="cl-task" name="task" rows="3" placeholder="Например: обновить карточки и сделать лендинг к запуску новой линейки"></textarea>
+        </div>
+        <div class="field">
+          <label for="cl-term">Желаемый срок</label>
+          <select id="cl-term" name="term">
+            <option value="">Не важно</option>
+            <option>В течение месяца</option>
+            <option>1–3 месяца</option>
+            <option>Позже</option>
+          </select>
+        </div>
+        <label class="consent"><input type="checkbox" name="consent" required><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Получить расчёт проекта</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 9. Вопросы -->
+  <section id="faq" class="section faq" aria-labelledby="faq-title">
+    <div class="container faq-grid">
+      <h2 id="faq-title" class="reveal">Вопросы</h2>
+      <div class="faq-list reveal">
+        <details><summary>Что я получу в итоге?</summary><div class="faq-a"><p>Готовые материалы в согласованном формате — разбор, тексты, макеты или работающую страницу — и пояснения, на чём основаны ключевые аргументы.</p></div></details>
+        <details><summary>Какие материалы нужны от нас?</summary><div class="faq-a"><p>Ссылка на продукт, состав и документы, которые у вас есть, фотографии и ваши условия для партнёров, если задача их касается. Доступ к кабинету продавца не нужен.</p></div></details>
+        <details><summary>Как считается стоимость?</summary><div class="faq-a"><p>Первый заказ — фиксированная цена. Остальное считаем после согласования объёма: смотрим, какие работы пересекаются, и не берём за одну и ту же работу дважды.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  {{REVIEWS}}
 </main>
 
-<a class="sticky-cta" href="#contact" data-topic="Разбор 5 фраз на карточке — бесплатно" hidden><span>Разбор 5 фраз — бесплатно</span></a>
+<div class="mobile-project" data-mobile-project hidden>
+  <button class="mp-toggle" type="button" aria-expanded="false" aria-controls="mp-sheet">
+    <span>Ваш проект</span><span class="count" data-count>0</span>
+  </button>
+  <a class="btn btn-primary btn-sm" href="#calc">Получить расчёт</a>
+  <div class="mp-sheet" id="mp-sheet" hidden>
+    <ul class="project-list" data-list></ul>
+    <p class="project-note">Стоимость — после согласования объёма.</p>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container footer-row">
-    <div class="footer-brand">
-      <img class="brand-mark mark-light" src="{{EMBLEM}}" alt="" width="26" height="25"><img class="brand-mark mark-ink" src="{{EMBLEM_INK}}" alt="" width="26" height="25">
-      <span>Proba Lab — доказательная коммерциализация health-продуктов · Новосибирск</span>
-    </div>
-    <p class="footer-legal">{{LEGAL_LINE}}</p>
-    <p class="footer-legal">Политика конфиденциальности · Согласие на обработку персональных данных · Информация на сайте не является публичной офертой.</p>
+    <span class="footer-brand"><img class="brand-mark" src="{{EMBLEM_INK}}" alt="" width="24" height="23"> Proba Lab · маркетинг и дизайн для БАД и косметики</span>
+    <span>© {{YEAR}} Proba Lab</span>
   </div>
 </footer>
