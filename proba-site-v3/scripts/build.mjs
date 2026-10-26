@@ -24,11 +24,13 @@ if (warnings.length) {
 }
 
 // 2. Проверки текста
-const visible = (html) => html.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<[^>]+>/g, " ").replace(/ /g, " ");
+// <s>…</s> — зачёркнутый «плохой» заголовок в демо v6 (пример того, что убираем), в проверку не входит
+const visible = (html) => html.slice(html.indexOf("<body")).replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<s>[\s\S]*?<\/s>/g, " ").replace(/<[^>]+>/g, " ").replace(/ /g, " ");
 const head = (html) => html.match(/<head>[\s\S]*<\/head>/)[0].replace(/<script[\s\S]*?<\/script>/g, " ").replace(/ /g, " ");
 // Правила текстов v3 (site-v3-vision.md §3). Отрицания («Не гарантируем», «Сроки не обещаем») и название запроса «под ключ» в кавычках допустимы.
 // «лучший момент» — дословная фраза из ответа в вопросах страницы «Маркетинг» (не эпитет продукта).
-const FORBIDDEN = [/инновационн/i, /уникальн/i, /комплексн\S* подход/i, /(?<!«)под ключ(?!»)/i, /синерги/i, /эффективн\S* решени/i, /команда профессионалов/i, /лучш(?:ий|ая|ее|ие)(?! момент)/i, /(?<!не )гарантируем/i, /рост продаж в \d/i, /\p{Extended_Pictographic}/u];
+const QUERY_RULE = /(?<!«)под ключ(?!»)/i;
+const FORBIDDEN = [/инновационн/i, /уникальн/i, /комплексн\S* подход/i, QUERY_RULE, /синерги/i, /эффективн\S* решени/i, /команда профессионалов/i, /лучш(?:ий|ая|ее|ие)(?! момент)/i, /(?<!не )гарантируем/i, /рост продаж в \d/i, /(?![©®™])\p{Extended_Pictographic}/u];
 // Из v2 (раздел «Документы»): стоп-слова и стоп-лист категорий
 const REG_FORBIDDEN = [/100\s?%/, /без отказов/i, /быстрее всех/i, /лучши[ея]/i, /наша лаборатория/i, /аккредитованная компания/i, /официальный партнёр/i, /\bлечит/i, /излечива/i];
 const STOPLIST = [/антисептик/i, /раневы/i, /стомийн/i, /урологическ/i, /инфузионн/i, /хирургическ/i, /энтеральн/i, /парентеральн/i, /клиническое питание/i, /диетическ\S* лечебн/i];
@@ -37,7 +39,8 @@ for (const f of files) {
   const text = visible(f.html) + " " + head(f.html);
   if (/\{\{|⟪|⟫/.test(f.html)) throw new Error(`${f.path}: остался шаблон или метка факта`);
   const rules = [...FORBIDDEN, ...STOPLIST, ...(f.path.startsWith("dokumenty/") ? REG_FORBIDDEN : [])];
-  for (const re of rules) if (re.test(text)) throw new Error(`${f.path}: запрещённое слово ${re} — «${text.match(re)[0]}»`);
+  // «под ключ» допустим в title/description как название поискового запроса (vision §3), в тексте страницы — только в кавычках
+  for (const re of rules) if (re.test(re === QUERY_RULE ? visible(f.html) : text)) throw new Error(`${f.path}: запрещённое слово ${re} — «${text.match(re)?.[0]}»`);
   if ((f.html.match(/<h1[\s>]/g) || []).length !== 1) throw new Error(`${f.path}: должен быть ровно один h1`);
   if (titles.has(f.title)) throw new Error(`${f.path}: повтор title «${f.title}»`);
   titles.add(f.title);

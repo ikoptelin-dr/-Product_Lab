@@ -43,7 +43,7 @@ function header(base: string, active: NavKey) {
 <header class="site-header">
   <div class="container header-row">
     <a class="brand" href="${base}index.html" aria-label="Proba Lab — на главную"${active === "home" ? ' aria-current="page"' : ""}>
-      <img class="brand-mark" src="${base}assets/emblem-light.png" alt="" width="28" height="27">
+      <img class="brand-mark" src="${base}assets/emblem-ink.png" alt="" width="34" height="34">
       <span class="brand-name">Proba Lab</span>
     </a>
     <nav class="main-nav" aria-label="Основная навигация">
@@ -70,7 +70,7 @@ function footer(base: string) {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="${base}index.html"><img class="brand-mark" src="${base}assets/emblem-light.png" alt="" width="28" height="27"><span class="brand-name">Proba Lab</span></a>
+        <a class="brand" href="${base}index.html"><img class="brand-mark" src="${base}assets/emblem-ink.png" alt="" width="34" height="34"><span class="brand-name">Proba Lab</span></a>
         <p>Для производителей и брендов БАД и косметики</p>
       </div>
       <nav class="footer-nav" aria-label="Направления">

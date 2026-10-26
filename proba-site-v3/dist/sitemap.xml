@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: базовый адрес https://example.com — заглушка. Пересоберите с SITE_URL=https://домен node scripts/build.mjs -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/marketing.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/prodvizhenie.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/analitika.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/audit-prodazh.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/avtomatizaciya.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/registraciya-bad.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/kosmetika.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/deklaracii.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/tu.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/markirovka.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/haccp.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/sanpin.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/gmp.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/laboratorii.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/vyvod-na-rynok.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/dokumenty/kak-my-rabotaem.html</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://example.com/kak-my-rabotaem.html</loc><lastmod>2026-10-26</lastmod></url>
+</urlset>
