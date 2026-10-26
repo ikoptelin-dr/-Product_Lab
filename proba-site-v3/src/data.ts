@@ -40,3 +40,31 @@ export const REG_PARTNER = { name: "", inn: "", note: "" };
 /** Цены «от» за работу по услугам раздела, ключ — адрес страницы без .html
  *  (например "registraciya-bad": "от 00 000 ₽"). Пусто или null — цена не показывается. Только после утверждения владельцем. */
 export const REG_PRICES: Record<string, string | null> = {};
+
+/** Реквизиты и контакты (content/footer-pages.md, proba-legal/rekvizity.md). Подвал, «Контакты», «Оплата», JSON-LD.
+ *  Почта — как в юридических документах (I.koptelin@yandex.ru, указание владельца для оферты п. 1.4);
+ *  в footer-pages.md — ikoptelin@yandex.ru. Расхождение — в README, «Ждёт решения владельца». */
+export const COMPANY = {
+  brand: "Proba Lab",
+  legalName: "ИП Коптелин Илья Алексеевич",
+  fullName: "Индивидуальный предприниматель Коптелин Илья Алексеевич",
+  inn: "540821689171",
+  ogrnip: "326547600096728",
+  registered: "14.05.2026",
+  address: {
+    postalCode: "633203",
+    region: "Новосибирская область",
+    locality: "г. Искитим",
+    street: "мкр Индустриальный, 35, 36",
+    full: "633203, Новосибирская область, г. Искитим, мкр Индустриальный, 35, 36",
+  },
+  phone: "+7 999 466-22-79",
+  phoneHref: "tel:+79994662279",
+  email: "I.koptelin@yandex.ru",
+  bank: {
+    account: "40802810523550007066",
+    name: "ФИЛИАЛ «НОВОСИБИРСКИЙ» АО «АЛЬФА-БАНК»",
+    bik: "045004774",
+    corr: "30101810600000000774",
+  },
+} as const;

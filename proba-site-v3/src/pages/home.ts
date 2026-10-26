@@ -1,7 +1,8 @@
 // Главная. Тексты — site-v3-vision.md §4.1; блоки «Проблема», «Бесплатный разбор», демо D3, «Кто работает»,
 // «Вопросы» и форма — из v6 (proba-site-v2/src/body.html) без изменений.
 import { projectSection, reviewSection } from "../forms";
-import { faqLd, keepLast, QUIZ_HREF, type PageDoc } from "../layout";
+import { COMPANY } from "../data";
+import { companyLd, faqLd, keepLast, QUIZ_HREF, type PageDoc } from "../layout";
 
 const FAQ = [
   { q: "Что я получу в итоге?", a: "Материалы в согласованном формате — разбор, тексты, макеты, работающую страницу или настроенный процесс — и пояснения, на чём основаны ключевые решения." },
@@ -108,7 +109,7 @@ const how = `<section id="kak" class="section" aria-labelledby="kak-title">
   <div class="container">
     <div class="section-head is-split reveal">
       <h2 id="kak-title" class="h2">Как мы работаем</h2>
-      <p class="lead-link"><a class="arrow-link" href="kak-my-rabotaem.html">Подробнее о ролях и договорах<span class="arrow" aria-hidden="true"></span></a></p>
+      <p class="lead-link lead-links"><a class="arrow-link" href="kak-my-rabotaem.html">Подробнее о ролях и договорах<span class="arrow" aria-hidden="true"></span></a><a class="arrow-link" href="ceny.html">Цены<span class="arrow" aria-hidden="true"></span></a></p>
     </div>
     <ul class="principles">
       <li class="reveal"><h3>Смета до начала.</h3><p>Работа, внешние расходы и сроки — отдельными строками.</p></li>
@@ -149,7 +150,8 @@ export const home: PageDoc = {
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "Proba Lab",
+      name: COMPANY.brand,
+      ...companyLd(),
       description: DESCRIPTION,
       knowsAbout: ["Регистрация БАД", "Документы на косметику", "Маркетинг", "Продвижение", "Веб-аналитика", "Аудит продаж"],
     },

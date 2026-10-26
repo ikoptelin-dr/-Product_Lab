@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Калькулятор экономики SKU для маркетплейса — Proba Lab</title>
+<meta name="description" content="Посчитайте прибыль на единицу, маржу и цену безубыточности товара на маркетплейсе по своим цифрам. Данные никуда не отправляются и не сохраняются.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Proba Lab">
+<meta property="og:title" content="Калькулятор экономики SKU для маркетплейса — Proba Lab">
+<meta property="og:description" content="Посчитайте прибыль на единицу, маржу и цену безубыточности товара на маркетплейсе по своим цифрам. Данные никуда не отправляются и не сохраняются.">
+<link rel="icon" type="image/png" href="assets/emblem-ink.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Калькулятор SKU","item":"kalkulyator-sku.html"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="index.html" aria-label="Proba Lab — на главную">
+      <img class="brand-mark" src="assets/emblem-ink.png" alt="" width="34" height="34">
+      <span class="brand-name">Proba Lab</span>
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="dokumenty/index.html">Документы</a>
+      <a href="marketing.html">Маркетинг</a>
+      <a href="prodvizhenie.html">Продвижение</a>
+      <a href="analitika.html">Аналитика</a>
+      <a href="audit-prodazh.html">Аудит продаж</a>
+      <a href="avtomatizaciya.html">Автоматизация</a>
+      <a href="ceny.html">Цены</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm header-cta" href="dokumenty/index.html#quiz">Проверить состав</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <nav aria-label="Мобильная навигация" class="container">
+      <a href="dokumenty/index.html">Документы</a>
+      <a href="marketing.html">Маркетинг</a>
+      <a href="prodvizhenie.html">Продвижение</a>
+      <a href="analitika.html">Аналитика</a>
+      <a href="audit-prodazh.html">Аудит продаж</a>
+      <a href="avtomatizaciya.html">Автоматизация</a>
+      <a href="ceny.html">Цены</a>
+      <a href="kak-my-rabotaem.html">Как мы работаем</a>
+      <a class="btn btn-primary btn-lg" href="dokumenty/index.html#quiz">Проверить состав</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero grain" aria-labelledby="page-title">
+  <div class="container">
+    <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="index.html">Proba Lab</a></li><li><span aria-current="page">Калькулятор SKU</span></li></ol></nav>
+    <div class="page-hero-grid">
+      <div class="page-hero-copy">
+        <p class="eyebrow">Бесплатно</p>
+        <h1 id="page-title" class="h1-page">Калькулятор: сколько зарабатывает ваш товар на маркетплейсе</h1>
+        <p class="hero-lead">Прибыль на единицу, маржа, цена безубыточности и статья, которая сильнее всего съедает маржу. Пересчёт сразу, без отправки данных. Значения не сохраняются.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#calc" data-primary-cta>Посчитать</a>
+          <a class="btn btn-ghost btn-lg" href="#project-form">Разбор по всем SKU</a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>
+<div class="light">
+<section id="calc" class="section calc-section" aria-labelledby="calc-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2 id="calc-title" class="h2">Посчитайте по своим цифрам</h2>
+      <p class="lead">Калькулятор считает по вашим цифрам. Ставки площадок меняются — берите их из своего кабинета.</p>
+    </div>
+    <div class="calc-grid">
+      <form id="sku-calc" class="form-card glass-light calc-form" novalidate aria-labelledby="calc-title">
+        <div class="calc-fields">
+        <div class="field calc-field">
+          <label for="c-price">Цена продажи после скидок</label>
+          <div class="input-unit"><input id="c-price" name="price" inputmode="decimal" autocomplete="off" spellcheck="false" data-unit="₽"><span class="unit" aria-hidden="true">₽</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-cost">Себестоимость единицы</label>
+          <div class="input-unit"><input id="c-cost" name="cost" inputmode="decimal" autocomplete="off" spellcheck="false" data-unit="₽"><span class="unit" aria-hidden="true">₽</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-commission">Комиссия площадки <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-commission" name="commission" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="%"><span class="unit" aria-hidden="true">%</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-logistics">Логистика и хранение на единицу <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-logistics" name="logistics" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="₽"><span class="unit" aria-hidden="true">₽</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-returns">Доля возвратов <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-returns" name="returns" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="%"><span class="unit" aria-hidden="true">%</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-returnCost">Стоимость обратной логистики <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-returnCost" name="returnCost" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="₽"><span class="unit" aria-hidden="true">₽</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-ads">Реклама на единицу <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-ads" name="ads" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="₽"><span class="unit" aria-hidden="true">₽</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-tax">Налог <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-tax" name="tax" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="%"><span class="unit" aria-hidden="true">%</span></div>
+        </div>
+        <div class="field calc-field">
+          <label for="c-packaging">Упаковка и маркировка <span class="opt">необязательно</span></label>
+          <div class="input-unit"><input id="c-packaging" name="packaging" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="0" data-unit="₽"><span class="unit" aria-hidden="true">₽</span></div>
+        </div>
+        </div>
+        <p class="hint">Можно с запятой: 249,5. Пустое необязательное поле считается нулём.</p>
+        <button class="btn btn-outline" type="reset">Очистить</button>
+      </form>
+      <div class="calc-result glass-light" id="calc-result">
+        <p class="calc-status" data-calc-status aria-live="polite" aria-atomic="true">Введите цену и себестоимость — результат появится сразу.</p>
+        <dl class="calc-main">
+          <div class="calc-profit"><dt>Прибыль на единицу</dt><dd data-out="profit">—</dd></div>
+          <div><dt>Маржа</dt><dd data-out="margin">—</dd></div>
+          <div><dt>Цена безубыточности</dt><dd data-out="breakEven">—</dd></div>
+          <div><dt>Сильнее всего съедает маржу</dt><dd data-out="biggest">—</dd></div>
+        </dl>
+        <h3 class="calc-sub">Расходы на единицу</h3>
+        <ul class="calc-bars" data-out="bars"><li class="calc-empty">Появятся после расчёта</li></ul>
+      </div>
+    </div>
+    <div class="calc-how">
+      <h3>Как считаем</h3>
+      <p>Прибыль на единицу = цена − себестоимость − цена × комиссия − логистика − доля возвратов × обратная логистика − реклама − цена × налог − упаковка. Маржа — прибыль, делённая на цену. Цена безубыточности — цена, при которой прибыль равна нулю: расходы в рублях, делённые на долю цены, которая остаётся после комиссии и налога.</p>
+    </div>
+  </div>
+</section>
+<section id="project-form" class="section project-form" aria-labelledby="pf-title">
+  <div class="container two-col">
+    <div class="pf-copy">
+      <h2 id="pf-title" class="h2" data-pf-title>Хотите разбор по всем SKU?</h2>
+      <p class="lead" data-pf-lead>Пришлите выгрузку — посчитаем и покажем, где теряется маржа.</p>
+    </div>
+    <form id="pf-form" class="form-card glass-light" novalidate data-form="project" aria-labelledby="pf-title">
+      <fieldset class="field" data-required-group="task">
+        <legend>Задача</legend>
+        <div class="choice-col"><label class="choice"><input type="radio" name="task" value="docs"><span>Документы и регистрация</span></label><label class="choice"><input type="radio" name="task" value="promo"><span>Подготовить продукт к продвижению</span></label><label class="choice"><input type="radio" name="task" value="partners"><span>Подготовить материалы для партнёров</span></label><label class="choice"><input type="radio" name="task" value="automation"><span>Упростить заявки и работу команды</span></label><label class="choice"><input type="radio" name="task" value="analytics" checked><span>Настроить аналитику и учёт заявок</span></label><label class="choice"><input type="radio" name="task" value="audit"><span>Аудит продаж</span></label><label class="choice"><input type="radio" name="task" value="package"><span>Пакет «Предложение для одного продукта» — 29 000 ₽</span></label><label class="choice"><input type="radio" name="task" value="support"><span>Сопровождение продвижения</span></label></div>
+      </fieldset>
+      <fieldset class="field" data-show-for="promo" hidden>
+        <legend>Что может понадобиться <span class="opt">необязательно</span></legend>
+        <div class="choice-row">
+          <label class="choice"><input type="checkbox" name="needs" value="Предложение и аргументы"><span>Предложение и аргументы</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Сайт или лендинг" data-site><span>Сайт или лендинг</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Карточки товаров"><span>Карточки товаров</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Фото и видео"><span>Фото и видео</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="SEO" data-site><span>SEO</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Материалы для размещений"><span>Материалы для размещений</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="field" data-has-site hidden>
+        <legend>Сайт уже есть?</legend>
+        <div class="choice-row">
+          <label class="choice"><input type="radio" name="hasSite" value="Есть"><span>Есть</span></label>
+          <label class="choice"><input type="radio" name="hasSite" value="Нет"><span>Нет</span></label>
+        </div>
+      </fieldset>
+      <p class="pf-package-note" data-show-for="package" hidden>Материалы и срок согласуем до начала работы. Оплата — после согласования.</p>
+      <div class="field">
+        <label for="pf-details" data-details-label>Коротко о задаче <span class="opt">необязательно</span></label>
+        <textarea id="pf-details" name="details" rows="3" data-details placeholder="Например: обновить карточки к запуску новой линейки"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pf-url">Ссылка на продукт или сайт <span class="opt">необязательно</span></label>
+          <input id="pf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.com">
+        </div>
+        <div class="field" data-term>
+          <label for="pf-term">Желаемый срок</label>
+          <select id="pf-term" name="term"><option value="">Не важно</option><option value="month">В течение месяца</option><option value="1-3">1–3 месяца</option><option value="later">Позже</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pf-contact">Контакт для ответа</label>
+        <input id="pf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
+      </div>
+      <label class="consent"><input type="checkbox" name="consent"><span>Согласен на <a href="soglasie-pd.html">обработку персональных данных</a></span></label>
+      <button class="btn btn-primary btn-lg btn-block" type="submit" data-pf-submit>Отправить</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</div>
+</main>
+<footer class="site-footer grain">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><img class="brand-mark" src="assets/emblem-ink.png" alt="" width="34" height="34"><span class="brand-name">Proba Lab</span></a>
+        <p>Для производителей и брендов БАД и косметики</p>
+        <p class="footer-contacts"><a href="tel:+79994662279">+7 999 466-22-79</a><br><a href="mailto:I.koptelin@yandex.ru">I.koptelin@yandex.ru</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Направления">
+        <p class="footer-label">Направления</p>
+        <ul><li><a href="dokumenty/index.html">Документы</a></li><li><a href="marketing.html">Маркетинг</a></li><li><a href="prodvizhenie.html">Продвижение</a></li><li><a href="analitika.html">Аналитика</a></li><li><a href="audit-prodazh.html">Аудит продаж</a></li><li><a href="avtomatizaciya.html">Автоматизация</a></li></ul>
+      </nav>
+      <nav class="footer-nav" aria-label="О работе">
+        <p class="footer-label">О работе</p>
+        <ul>
+          <li><a href="kak-my-rabotaem.html">Как мы работаем</a></li>
+          <li><a href="dokumenty/index.html#quiz">Какой документ нужен</a></li>
+          <li><a href="index.html#review">Бесплатный разбор</a></li>
+          <li><a href="kalkulyator-sku.html">Калькулятор SKU</a></li>
+          <li><a href="dokumenty/karta-dokumentov.html">Карта документов</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Компания">
+        <p class="footer-label">Компания</p>
+        <ul><li><a href="o-nas.html">О нас</a></li><li><a href="kontakty.html">Контакты</a></li><li><a href="partneram.html">Партнёрам</a></li><li><a href="blagotvoritelnost.html">Благотворительность</a></li><li><a href="novosti.html">Новости</a></li><li><a href="blog/index.html">Блог</a></li></ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Клиентам">
+        <p class="footer-label">Клиентам</p>
+        <ul><li><a href="ceny.html">Цены</a></li><li><a href="oplata.html">Оплата</a></li><li><a href="oferta.html">Публичная оферта</a></li><li><a href="politika-pd.html">Политика обработки ПДн</a></li><li><a href="pravovaya-informaciya.html">Правовая информация</a></li></ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">ИП Коптелин Илья Алексеевич · ИНН 540821689171 · ОГРНИП 326547600096728</p>
+      <p class="footer-copy">© 2026 Proba Lab</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

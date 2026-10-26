@@ -2,6 +2,7 @@
 // sitemap.xml, robots.txt и REGULATORY_VERIFY.md (сверка фактов раздела «Документы» — механизм меток v2).
 // Запуск: node scripts/build.mjs
 import { build } from "/home/user/-Product_Lab/proba-site/node_modules/esbuild/lib/main.js";
+import { execFileSync } from "node:child_process";
 import { copyFileSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 
@@ -12,10 +13,23 @@ const read = (p) => readFileSync(join(root, p), "utf8");
 /** Базовый адрес сайта для sitemap.xml. TODO: домен не выбран — заменить перед публикацией (см. README). */
 const SITEMAP_BASE = process.env.SITE_URL || "https://example.com";
 
+// 0. Юридические документы: proba-legal/*.md → HTML (pandoc gfm: списки без пустой строки перед ними, таблицы; текст без изменений, без «умных» кавычек, переносы строк сохраняются)
+const LEGAL_DIR = resolve(root, "../proba-legal");
+const legal = {};
+for (const slug of ["oferta", "politika-pd", "soglasie-pd", "pravovaya-informaciya"]) {
+  let html = execFileSync("/usr/bin/pandoc", ["-f", "gfm-smart+hard_line_breaks", "-t", "html", "--wrap=none", join(LEGAL_DIR, `${slug}.md`)], { encoding: "utf8" });
+  // Якоря разделов: «## 7. …» → id="p7" (ссылка «см. оферту, раздел 7»), остальные — латиницей по порядку
+  let n = 0;
+  html = html.replace(/<h([2-6]) id="[^"]*">(\d+)?/g, (_, lv, num) => `<h${lv} id="${num ? `p${num}` : `r${++n}`}">${num ?? ""}`);
+  // Таблицы — в прокручиваемой обёртке (на 390 без горизонтального переполнения страницы)
+  html = html.replace(/<table>/g, '<div class="table-wrap" role="region" aria-label="Таблица" tabindex="0"><table>').replace(/<\/table>/g, "</table></div>").replace(/<ol type="1">/g, "<ol>");
+  legal[slug] = html;
+}
+
 // 1. Страницы: TypeScript-шаблоны → модуль в памяти
 const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent" });
 const mod = await import(`data:text/javascript;base64,${Buffer.from(pagesJs.outputFiles[0].text).toString("base64")}`);
-const { files, facts, warnings, sources } = mod.renderSite();
+const { files, facts, warnings, sources } = mod.renderSite(legal);
 
 if (warnings.length) {
   console.error("✗ Непомеченные фразы с цифрами или номерами документов (оберните в f(ключ, фраза) или перепишите):");
@@ -92,13 +106,16 @@ let md = `# Сверка фактов раздела «Документы и с�
 - Суммы госпошлины, платы за регистрацию деклараций и цены на сайте **не приводятся** — только строки сметы.
 - Сборка останавливается, если на странице есть цифра или номер документа без метки источника.
 - В v3 добавлена общая страница \`kak-my-rabotaem.html\` (вне раздела): её фразы с фактами идут отдельной группой.
+- Вне раздела помечены также регуляторные новости (\`novosti.html\`, на сайте — с пометкой «Проверяется») и статьи блога (\`blog/*.html\`). Цены Proba Lab на страницах раздела (\`proba-price\`) — из \`proba-growth/pricing/site-prices.json\`, статус «партнёр подтверждает».
 - Всего фраз: **${facts.length}** на ${byPage.size} страницах. Дата сборки: ${today}.
 
 `;
 for (const f of files) {
   const list = byPage.get(f.slug) || [];
-  if (!list.length) continue;
-  md += `## ${f.title} — \`${f.path}\`\n\n| № | Фраза на странице | Источник (URL) | Метка фактбазы | Статус |\n|---|---|---|---|---|\n`;
+  const article = f.path.startsWith("blog/") && f.path !== "blog/index.html";
+  if (!list.length && !article) continue;
+  md += `## ${f.title} — \`${f.path}\`\n\n${f.path.startsWith("blog/") ? "Автор: Илья Коптелин, врач, основатель Proba Lab. Опубликовано: 2026-10-26. **Проверено специалистом-партнёром: ожидает сверки.**\n\n" : ""}| № | Фраза на странице | Источник (URL) | Метка фактбазы | Статус |\n|---|---|---|---|---|\n`;
+  if (!list.length) md += "| — | Фраз с цифрами, датами и номерами НПА нет | — | — | — |\n";
   list.forEach((x, i) => {
     const s = sources[x.key];
     md += `| ${i + 1} | ${cell(x.sentence)} | ${cell(s.url)} | ${cell(s.label)} (\`${x.key}\`) | ${cell(s.status)} |\n`;

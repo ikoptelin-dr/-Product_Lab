@@ -1,6 +1,7 @@
 // Страницы направлений. Тексты — site-v3-vision.md §4.2–4.5 (дословно, разбиты на разметку);
 // «Автоматизация» — вид v6 (proba-site-v2/src/body.html) без изменения текстов. Цены — только из data.ts.
 import { automationSection, PRICE, projectSection } from "../forms";
+import { blockFrom, rub } from "../prices";
 import { breadcrumbLd, faqLd, faqSection, keepLast, nextSection, pageHero, section, serviceLd, type NavKey, type PageDoc } from "../layout";
 
 type QA = { q: string; a: string };
@@ -16,6 +17,10 @@ interface Svc {
   body: string;
   faq?: QA[];
 }
+
+/** Строка «Цены: от X ₽» в первом экране — минимальная цена блока из site-prices.json (блок = направление) + ссылка на ceny.html. */
+const priceLine = (block: string, id: string) =>
+  `<p class="hero-note">Цены: от ${rub(blockFrom(block))}\u00a0₽ · <a href="ceny.html#${id}">Все цены</a></p>`;
 
 function page(s: Svc): PageDoc {
   const ld: object[] = [
@@ -120,6 +125,7 @@ export const marketing = page({
       { label: "Получить бесплатный разбор", href: "index.html#review" },
       { label: `Пакет за ${PRICE.start}`, href: "#ceny" },
     ],
+    extra: priceLine("Маркетинг", "marketing"),
   },
   faq: MARKETING_FAQ,
   body: [
@@ -180,6 +186,7 @@ export const prodvizhenie = page({
       { label: "Обсудить продвижение", href: "#project-form", task: "promo" },
       { label: "Сначала разбор продукта", href: "index.html#review" },
     ],
+    extra: priceLine("Продвижение", "prodvizhenie"),
   },
   faq: PROMO_FAQ,
   body: [
@@ -258,6 +265,7 @@ export const analitika = page({
       { label: "Обсудить аналитику", href: "#project-form", task: "analytics" },
       { label: "Аудит продаж", href: "audit-prodazh.html" },
     ],
+    extra: priceLine("Аналитика", "analitika"),
   },
   faq: ANALYTICS_FAQ,
   body: [
@@ -317,6 +325,7 @@ export const audit = page({
       { label: "Заказать аудит", href: "#project-form", task: "audit" },
       { label: "Сначала бесплатный разбор продукта", href: "index.html#review" },
     ],
+    extra: priceLine("Аудит продаж", "audit-prodazh"),
   },
   faq: AUDIT_FAQ,
   body: [
@@ -399,6 +408,7 @@ export const avtomatizaciya = page({
     h1: "Свяжем системы и сократим ручную работу команды",
     lead: "Начинаем с одного процесса: разбираемся, как он устроен сейчас, и предлагаем самое простое решение, которое можно проверить.",
     ctas: [{ label: "Описать процесс", href: "#auto-form" }],
+    extra: priceLine("Автоматизация", "avtomatizaciya"),
     aside: flow,
   },
   body: [

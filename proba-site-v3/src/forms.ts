@@ -3,7 +3,11 @@
 import { PRICES, TASKS } from "./data";
 import { esc, nb } from "./layout";
 
-export const CONSENT = `<label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных для ответа на заявку</span></label>`;
+/** Согласие на всех формах: «обработку персональных данных» ведёт на soglasie-pd.html (в той же вкладке).
+ *  base — путь до корня сайта ("" или "../"). */
+export const consent = (base = "") =>
+  `<label class="consent"><input type="checkbox" name="consent"><span>Согласен на <a href="${base}soglasie-pd.html">обработку персональных данных</a></span></label>`;
+const CONSENT = consent();
 export const STATUS = `<p class="form-status" role="status" aria-live="polite"></p>`;
 
 /** Бесплатный разбор: блок и форма v6 (без демо-иллюстраций). */
@@ -52,7 +56,7 @@ export function reviewSection() {
 }
 
 /** «Обсудить задачу»: форма v6, задача выбрана заранее (preselect — id из TASKS). */
-export function projectSection(preselect = "", o: { title?: string; lead?: string } = {}) {
+export function projectSection(preselect = "", o: { title?: string; lead?: string; base?: string } = {}) {
   if (preselect && !TASKS.some((t) => t.id === preselect)) throw new Error(`Нет задачи ${preselect} в TASKS`);
   const options = TASKS.map(
     (t) => `<label class="choice"><input type="radio" name="task" value="${t.id}"${t.id === preselect ? " checked" : ""}><span>${esc(nb(t.label))}</span></label>`,
@@ -105,7 +109,7 @@ export function projectSection(preselect = "", o: { title?: string; lead?: strin
         <label for="pf-contact">Контакт для ответа</label>
         <input id="pf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
       </div>
-      ${CONSENT}
+      ${consent(o.base)}
       <button class="btn btn-primary btn-lg btn-block" type="submit" data-pf-submit>Отправить</button>
       ${STATUS}
     </form>
@@ -143,3 +147,115 @@ export function automationSection() {
 }
 
 export const PRICE = { start: nb(PRICES.start), prep: nb(PRICES.promoPrep), support: nb(PRICES.promoSupport) };
+
+/** «Предложить партнёрство» (partneram.html): компания, что делаете, сайт, контакт, согласие. */
+export function partnerSection() {
+  return `<section id="partner-form" class="section project-form" aria-labelledby="ptf-title">
+  <div class="container two-col">
+    <div class="pf-copy">
+      <h2 id="ptf-title" class="h2">Предложить партнёрство</h2>
+      <p class="lead">Расскажите, чем занимаетесь. Ответим и договоримся о знакомстве.</p>
+    </div>
+    <form id="ptf-form" class="form-card glass-light" novalidate data-form="partner" aria-labelledby="ptf-title">
+      <div class="field">
+        <label for="ptf-company">Компания</label>
+        <input id="ptf-company" name="company" autocomplete="organization" placeholder="Название компании или имя специалиста">
+      </div>
+      <div class="field">
+        <label for="ptf-what">Что делаете <span class="opt">необязательно</span></label>
+        <textarea id="ptf-what" name="what" rows="3" placeholder="Например: контрактное производство БАД, лаборатория, дизайн упаковки"></textarea>
+      </div>
+      <div class="field">
+        <label for="ptf-url">Ссылка на сайт <span class="opt">необязательно</span></label>
+        <input id="ptf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.com">
+      </div>
+      <div class="field">
+        <label for="ptf-contact">Контакт для ответа</label>
+        <input id="ptf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
+      </div>
+      ${CONSENT}
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Предложить партнёрство</button>
+      ${STATUS}
+    </form>
+  </div>
+</section>`;
+}
+
+/** Заявка pro bono (blagotvoritelnost.html). */
+export function probonoSection() {
+  return `<section id="probono-form" class="section project-form" aria-labelledby="pbf-title">
+  <div class="container two-col">
+    <div class="pf-copy">
+      <h2 id="pbf-title" class="h2">Как подать заявку</h2>
+      <p class="lead">Расскажите о проекте через форму. Отвечаем всем; если в этом месяце места нет — предложим срок.</p>
+    </div>
+    <form id="pbf-form" class="form-card glass-light" novalidate data-form="probono" aria-labelledby="pbf-title">
+      <div class="field">
+        <label for="pbf-about">О проекте</label>
+        <textarea id="pbf-about" name="about" rows="4" placeholder="Кто вы, кому помогаете и с чем нужна помощь"></textarea>
+      </div>
+      <div class="field">
+        <label for="pbf-url">Ссылка на сайт или страницу проекта <span class="opt">необязательно</span></label>
+        <input id="pbf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.org">
+      </div>
+      <div class="field">
+        <label for="pbf-contact">Контакт для ответа</label>
+        <input id="pbf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
+      </div>
+      ${CONSENT}
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Отправить заявку</button>
+      ${STATUS}
+    </form>
+  </div>
+</section>`;
+}
+
+/** «Карта документов» (dokumenty/karta-dokumentov.html): продукт и форма выпуска, состав (текст или файл),
+ *  где производите, где будете продавать, контакт, согласие. «Что нужно» предвыбрано — «Определить, какой документ нужен». */
+export function kartaSection(needs: readonly string[], preselect: string) {
+  if (!needs.includes(preselect)) throw new Error(`Нет варианта «${preselect}» в NEEDS`);
+  const radio = (v: string) => `<label class="choice"><input type="radio" name="production" value="${esc(v)}"><span>${esc(v)}</span></label>`;
+  const check = (v: string) => `<label class="choice"><input type="checkbox" name="channels" value="${esc(v)}"><span>${esc(v)}</span></label>`;
+  return `<section id="karta-form" class="section project-form" aria-labelledby="kf-title">
+  <div class="container two-col">
+    <div class="pf-copy">
+      <h2 id="kf-title" class="h2" tabindex="-1">Получить карту документов</h2>
+      <p class="lead">Бесплатно. Пришлите продукт и состав — подготовим одну страницу: документ, риски в составе, шаги и строки сметы.</p>
+    </div>
+    <form id="kf-form" class="form-card glass-light" novalidate data-form="karta" aria-labelledby="kf-title">
+      <div class="field">
+        <label for="kf-product">Продукт и форма выпуска</label>
+        <input id="kf-product" name="product" autocomplete="off" placeholder="Например: магний, таблетки">
+      </div>
+      <div class="field">
+        <label for="kf-composition">Состав</label>
+        <textarea id="kf-composition" name="composition" rows="4" placeholder="Компоненты и дозировки" aria-describedby="kf-composition-hint"></textarea>
+        <p class="hint" id="kf-composition-hint">Текстом или файлом ниже</p>
+      </div>
+      <div class="field">
+        <label for="kf-file">Файл с составом <span class="opt">необязательно</span></label>
+        <input id="kf-file" name="compositionFile" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
+      </div>
+      <fieldset class="field">
+        <legend>Где производите <span class="opt">необязательно</span></legend>
+        <div class="choice-row">${["Своё производство", "Контрактное производство", "Импорт"].map(radio).join("")}</div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>Где будете продавать <span class="opt">можно несколько</span></legend>
+        <div class="choice-row">${["Маркетплейсы", "Аптеки", "Торговые сети", "Свой сайт"].map(check).join("")}</div>
+      </fieldset>
+      <div class="field">
+        <label for="kf-need">Что нужно</label>
+        <select id="kf-need" name="need">${needs.map((n) => `<option value="${esc(n)}"${n === preselect ? " selected" : ""}>${esc(n)}</option>`).join("")}</select>
+      </div>
+      <div class="field">
+        <label for="kf-contact">Контакт для ответа</label>
+        <input id="kf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
+      </div>
+      ${consent("../")}
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Получить карту документов</button>
+      ${STATUS}
+    </form>
+  </div>
+</section>`;
+}

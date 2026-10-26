@@ -2,7 +2,9 @@
 // тексты, факты и метки источников те же (pages.ts, quiz.ts, sources.ts — копии v2), меняются только разметка и ссылки.
 // На выходе — страницы dokumenty/*.html, общая страница kak-my-rabotaem.html, список фактов для REGULATORY_VERIFY.md и предупреждения.
 import { PRICES, REG_PARTNER, REG_PRICES } from "../data";
-import { projectSection } from "../forms";
+import { consent, projectSection } from "../forms";
+import { docPrices, priceText, unitText } from "../prices";
+import { f } from "./mark";
 import { breadcrumbLd, faqLd, keepLast, nextSection, renderDoc, serviceLd, type PageDoc } from "../layout";
 import { team } from "../pages/home";
 import { MAIN_HREF, UPDATED } from "./config";
@@ -102,11 +104,22 @@ function hero(p: RegPage) {
           ${p.cta2 ? `<a class="btn btn-ghost btn-lg" href="${p.cta2.href}">${esc(p.cta2.label)}</a>` : ""}
         </div>
         <p class="reg-updated">Обновлено: ${UPDATED} · <a href="#normy">Нормативная база</a></p>
+        ${priceLine(p)}
       </div>
       ${aside}
     </div>
   </div>
 </section>`;
+}
+
+/** Строка «Цены» в первом экране: позиции прайса (site-prices.json) по DOC_PRICE_MAP; без соответствия — только ссылка. */
+function priceLine(p: RegPage) {
+  if (p.kind === "about") return "";
+  const items = docPrices(p.slug);
+  const text = items.length
+    ? t(f("proba-price", `Цены: ${items.map((x) => `${items.length > 1 ? `${x.service.toLowerCase().replace(/^сгр/, "СГР")} — ` : ""}${priceText(x)} ${unitText(x)}`.trim()).join("; ")}`)) + " · "
+    : "";
+  return `<p class="reg-updated reg-price-line">${text}<a href="../ceny.html#dokumenty">${items.length ? "Все цены" : "Цены на услуги раздела"}</a></p>`;
 }
 
 const sec = (id: string, title: string, body: string, opts: { lead?: string; cls?: string } = {}) =>
@@ -264,7 +277,7 @@ function form(p: RegPage) {
         <label for="rf-contact">Контакт для ответа</label>
         <input id="rf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
       </div>
-      <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных для ответа на заявку</span></label>
+      ${consent("../")}
       <button class="btn btn-primary btn-lg btn-block" type="submit">${esc(p.kind === "hub" ? "Проверить состав бесплатно" : p.cta.label)}</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
@@ -492,6 +505,19 @@ ${projectSection("")}
     ld: [breadcrumbLd([{ name: "Proba Lab", path: "index.html" }, { name: "Как мы работаем", path: "kak-my-rabotaem.html" }])],
     body,
   };
+}
+
+/** Текст новой страницы вне раздела (блог, новости): метки f(ключ, фраза) → REGULATORY_VERIFY.md, непомеченные цифры и номера НПА → ошибка сборки. */
+export function factText(page: string, raw: string, where = "") {
+  const prev = current;
+  current = page;
+  const out = t(raw, where);
+  current = prev;
+  return out;
+}
+/** Факты и предупреждения, собранные после renderAll() и factText(). */
+export function collected() {
+  return { facts: [...facts], warnings: [...warnings] };
 }
 
 export function renderAll() {

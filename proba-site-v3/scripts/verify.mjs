@@ -1,10 +1,15 @@
 // Проверка Proba Lab v3 (Playwright). Запуск: scripts/verify.sh [папка-для-скриншотов]
 import { chromium } from "/home/user/-Product_Lab/proba-site/node_modules/@playwright/test/index.mjs";
+import { build } from "/home/user/-Product_Lab/proba-site/node_modules/esbuild/lib/main.js";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const [BASE, SITE, SHOTS] = process.argv.slice(2);
-const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...readdirSync(join(SITE, "dokumenty")).filter((f) => f.endsWith(".html")).map((f) => "dokumenty/" + f)].sort();
+const sub = (d) => readdirSync(join(SITE, d)).filter((f) => f.endsWith(".html")).map((f) => `${d}/${f}`);
+const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...sub("dokumenty"), ...sub("blog")].sort();
+const LEGAL = ["oferta.html", "politika-pd.html", "soglasie-pd.html", "pravovaya-informaciya.html"];
+const COMPANY = { tel: "tel:+79994662279", mail: "mailto:I.koptelin@yandex.ru", inn: "540821689171", email: "I.koptelin@yandex.ru" };
+const CONSENT_TEXT = "Согласен на обработку персональных данных";
 const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const log = (...a) => console.log(...a);
 const fails = [];
@@ -49,9 +54,10 @@ for (const vp of VPS) {
     ok(ov === 0, `${f}@${vp.name}: горизонтальное переполнение ${ov}px`, "layout");
     ok((await p.locator("h1").count()) === 1, `${f}@${vp.name}: h1 ≠ 1`, "layout");
     if (vp.name === "390") {
-      const r = await p.evaluate(() => { const e = document.querySelector("[data-primary-cta]").getBoundingClientRect(); return { bottom: Math.round(e.bottom), h: Math.round(e.height) }; });
-      ok(r.bottom <= 844 && r.h > 0, `${f}@390: CTA ниже первого экрана (bottom=${r.bottom})`, "cta390");
-      const small = await p.evaluate(() => [...document.querySelectorAll("a, button, summary, .choice span")].filter((el) => { const s = getComputedStyle(el); if (s.display === "none" || s.visibility === "hidden" || el.closest("[hidden], .crumbs li span, .skip-link")) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.height < 40 && !el.closest("p, li:not(.svc-grid li):not(.dir-grid li):not(.next-grid li), dd, .quiz-list"); }).map((el) => `${el.tagName}.${el.className}:${Math.round(el.getBoundingClientRect().height)}`));
+      // У юридических документов (body.page-legal) кнопки в первом экране нет — это документ, а не посадочная страница
+      const r = await p.evaluate(() => { const el = document.querySelector("[data-primary-cta]"); if (!el) return { legal: document.body.classList.contains("page-legal"), bottom: 0, h: 0 }; const e = el.getBoundingClientRect(); return { bottom: Math.round(e.bottom), h: Math.round(e.height) }; });
+      ok(r.legal || (r.bottom <= 844 && r.h > 0), `${f}@390: CTA ниже первого экрана (bottom=${r.bottom})`, "cta390");
+      const small = await p.evaluate(() => [...document.querySelectorAll("a, button, summary, .choice span")].filter((el) => { const s = getComputedStyle(el); if (s.display === "none" || s.visibility === "hidden" || el.closest("[hidden], .crumbs li span, .skip-link")) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && r.height < 40 && !el.closest("p, li:not(.svc-grid li):not(.dir-grid li):not(.next-grid li):not(.blog-list li), dd, .quiz-list, .consent"); }).map((el) => `${el.tagName}.${el.className}:${Math.round(el.getBoundingClientRect().height)}`));
       ok(small.length === 0, `${f}@390: мелкие цели касания ${JSON.stringify(small.slice(0, 5))}`, "touch");
       log(`  ${f.padEnd(32)} 390: overflow ${ov}, CTA bottom ${r.bottom}px`);
     }
@@ -77,7 +83,24 @@ for (const vp of VPS) {
         quizCta: !!document.querySelector('.site-header a.header-cta[href$="dokumenty/index.html#quiz"]'),
         nav: [...document.querySelectorAll(".main-nav a")].map((a) => a.textContent.trim()),
         live: [...document.querySelectorAll(".form-status")].every((s) => s.getAttribute("aria-live") === "polite"),
+        consent: [...document.querySelectorAll("form[data-form]")].map((fm) => {
+          const l = fm.querySelector("label.consent");
+          const a = l?.querySelector("a");
+          return { form: fm.id, text: (l?.textContent || "").replace(/\s+/g, " ").trim(), linkText: a?.textContent.trim(), href: a ? new URL(a.getAttribute("href"), location.href).pathname : null, target: a?.getAttribute("target") || "", input: !!l?.querySelector('input[type="checkbox"][name="consent"]') };
+        }),
+        footer: {
+          company: [...document.querySelectorAll('.site-footer nav[aria-label="Компания"] a')].map((a) => a.textContent.trim()),
+          clients: [...document.querySelectorAll('.site-footer nav[aria-label="Клиентам"] a')].map((a) => a.textContent.trim()),
+          legal: document.querySelector(".footer-legal")?.textContent.replace(/\s+/g, " ").trim(),
+          tel: !!document.querySelector(`.site-footer a[href="tel:+79994662279"]`),
+          mail: !!document.querySelector(`.site-footer a[href="mailto:I.koptelin@yandex.ru"]`),
+        },
       }));
+      if (vp.name === "1440") {
+        // «Цены» в шапке: всё меню в одну строку и не упирается в кнопку
+        const hdr = await p.evaluate(() => { const links = [...document.querySelectorAll(".main-nav a")].map((a) => a.getBoundingClientRect()); const nav = document.querySelector(".main-nav").getBoundingClientRect(); const act = document.querySelector(".header-actions").getBoundingClientRect(); return { rows: new Set(links.map((r) => Math.round(r.top))).size, gap: Math.round(act.left - nav.right) }; });
+        ok(hdr.rows === 1 && hdr.gap >= 8, `${f}@1440: меню в шапке ${JSON.stringify(hdr)}`, "layout");
+      }
     }
     await ctx.close();
   }
@@ -86,7 +109,8 @@ for (const vp of VPS) {
 /* 2. Метаданные и JSON-LD */
 log("\n== Метаданные и JSON-LD");
 const titles = new Set(), descs = new Set();
-const SERVICE = ["marketing.html", "prodvizhenie.html", "analitika.html", "audit-prodazh.html", "avtomatizaciya.html", ...pages.filter((f) => f.startsWith("dokumenty/") && !/index|kak-my/.test(f))];
+const SERVICE = ["marketing.html", "prodvizhenie.html", "analitika.html", "audit-prodazh.html", "avtomatizaciya.html", ...pages.filter((f) => f.startsWith("dokumenty/") && !/index|kak-my|karta-dokumentov/.test(f))];
+const ldOf = (f) => meta[f].ld.map((s) => { try { return JSON.parse(s); } catch { return {}; } });
 for (const [f, m] of Object.entries(meta)) {
   ok(m.doctype === "html" && m.lang === "ru" && m.charset === "UTF-8" && m.viewport, `${f}: doctype/lang/charset/viewport`, "meta");
   ok(!titles.has(m.title), `${f}: повтор title`, "meta"); titles.add(m.title);
@@ -103,8 +127,28 @@ for (const [f, m] of Object.entries(meta)) {
   ok(m.headings[0] === "H1" && !jump, `${f}: порядок заголовков ${m.headings.join(",")}`, "a11y");
   ok(m.unlabeled.length === 0, `${f}: поля без подписи ${m.unlabeled}`, "a11y");
   ok(m.skip && m.live, `${f}: skip-link / aria-live`, "a11y");
-  ok(m.quizCta && m.nav.join("·") === "Документы·Маркетинг·Продвижение·Аналитика·Аудит продаж·Автоматизация", `${f}: меню ${m.nav}`, "meta");
+  ok(m.quizCta && m.nav.join("·") === "Документы·Маркетинг·Продвижение·Аналитика·Аудит продаж·Автоматизация·Цены", `${f}: меню ${m.nav}`, "meta");
+  for (const c of m.consent) ok(c.input && c.text === CONSENT_TEXT && c.linkText === "обработку персональных данных" && c.href === "/soglasie-pd.html" && !c.target, `${f}: согласие в форме ${JSON.stringify(c)}`, "consent");
+  ok(m.footer.company.join("·") === "О нас·Контакты·Партнёрам·Благотворительность·Новости·Блог" && m.footer.clients.join("·") === "Цены·Оплата·Публичная оферта·Политика обработки ПДн·Правовая информация" && m.footer.legal === "ИП Коптелин Илья Алексеевич · ИНН 540821689171 · ОГРНИП 326547600096728" && m.footer.tel && m.footer.mail, `${f}: подвал ${JSON.stringify(m.footer)}`, "footer");
   log(`  ${f.padEnd(32)} title ${String(m.title.length).padStart(2)} · desc ${String(m.desc.length).padStart(3)} · LD ${types.join("+")}`);
+}
+
+{
+  const formsTotal = Object.values(meta).reduce((s, m) => s + m.consent.length, 0);
+  log(`  форм с согласием: ${formsTotal} (ссылка на soglasie-pd.html в каждой)`);
+  const org = ldOf("index.html").find((j) => j["@type"] === "Organization");
+  ok(org && org.legalName === "ИП Коптелин Илья Алексеевич" && org.taxID === COMPANY.inn && org.telephone === "+79994662279" && org.email === COMPANY.email && org.address?.postalCode === "633203", `index: Organization ${JSON.stringify(org)}`, "ld");
+  const lb = ldOf("kontakty.html").find((j) => j["@type"] === "LocalBusiness");
+  ok(lb && lb.telephone && lb.email === COMPANY.email && lb.address?.streetAddress && !("openingHours" in lb) && !("openingHoursSpecification" in lb), `kontakty: LocalBusiness ${JSON.stringify(lb)}`, "ld");
+  const cat = ldOf("ceny.html").find((j) => j["@type"] === "OfferCatalog");
+  const prices = JSON.parse(readFileSync("/home/user/-Product_Lab/proba-growth/pricing/site-prices.json", "utf8"));
+  ok(cat && cat.itemListElement.length === prices.length && cat.itemListElement.every((o, i) => o["@type"] === "Offer" && o.priceCurrency === "RUB" && o.price === prices[i].from && (o.price === 0 ? o.description === "Бесплатно" : o.description.startsWith("от "))), `ceny: OfferCatalog (${cat?.itemListElement.length} из ${prices.length})`, "ld");
+  for (const f of pages.filter((x) => x !== "ceny.html")) ok(!meta[f].ld.some((s) => /"Offer"|"price"/.test(s)), `${f}: Offer/price вне ceny.html`, "ld");
+  for (const f of pages.filter((x) => x.startsWith("blog/") && x !== "blog/index.html")) {
+    const bp = ldOf(f).find((j) => j["@type"] === "BlogPosting");
+    ok(bp && bp.author?.["@type"] === "Person" && bp.author.name === "Илья Коптелин" && bp.datePublished === "2026-10-26" && bp.headline, `${f}: BlogPosting ${JSON.stringify(bp)}`, "ld");
+  }
+  log(`  Organization: ${org?.legalName}, ИНН ${org?.taxID}; LocalBusiness без часов: ${!!lb && !("openingHours" in lb)}; Offer на ceny: ${cat?.itemListElement.length}`);
 }
 
 /* 3. Ссылки и якоря */
@@ -115,6 +159,7 @@ log("\n== Ссылки");
   for (const f of pages) {
     await p.goto(`${BASE}/${f}`);
     for (const h of await p.$$eval("a[href]", (as) => as.map((a) => a.getAttribute("href")))) {
+      if (h === COMPANY.tel || h === COMPANY.mail) continue; // телефон и почта компании — единственные допустимые не-HTTP ссылки
       if (/^(https?:|mailto:|tel:)/.test(h)) { ok(false, `${f}: внешняя ссылка ${h}`, "links"); continue; }
       ok(!h.startsWith("/"), `${f}: абсолютный путь ${h}`, "links");
       links.set(new URL(h, `${BASE}/${f}`).href, f);
@@ -134,6 +179,11 @@ log("\n== Ссылки");
     }
   }
   for (const extra of ["sitemap.xml", "robots.txt", "assets/site.css", "assets/site.js"]) ok((await p.request.get(`${BASE}/${extra}`)).status() === 200, `${extra} не отдаётся`, "links");
+  // sitemap.xml: ровно все страницы
+  const sm = await (await p.request.get(`${BASE}/sitemap.xml`)).text();
+  const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname.slice(1)).map((x) => (x === "" || x.endsWith("/") ? `${x}index.html` : x)).sort();
+  ok(JSON.stringify(locs) === JSON.stringify(pages), `sitemap.xml: ${locs.length} адресов, страниц ${pages.length}; нет: ${pages.filter((x) => !locs.includes(x))}`, "links");
+  log(`  sitemap.xml: ${locs.length} адресов из ${pages.length} страниц`);
   log(`  уникальных ссылок: ${checked}, с якорем: ${anchors}`);
   await ctx.close();
 }
@@ -206,6 +256,11 @@ await formRun("index.html", "#review-form", async (p) => { await p.fill("#rv-url
 await formRun("index.html", "#pf-form", async (p) => { await p.click('#pf-form label.choice:has(input[value="docs"])'); await contactConsent("#pf-form")(p); });
 for (const pg of ["marketing.html", "prodvizhenie.html", "analitika.html", "audit-prodazh.html"]) await formRun(pg, "#pf-form", contactConsent("#pf-form"));
 await formRun("kak-my-rabotaem.html", "#pf-form", async (p) => { await p.click('#pf-form label.choice:has(input[value="audit"])'); await contactConsent("#pf-form")(p); });
+for (const pg of ["o-nas.html", "kontakty.html", "ceny.html"]) await formRun(pg, "#pf-form", async (p) => { await p.click('#pf-form label.choice:has(input[value="docs"])'); await contactConsent("#pf-form")(p); });
+await formRun("kalkulyator-sku.html", "#pf-form", contactConsent("#pf-form"));
+await formRun("partneram.html", "#ptf-form", async (p) => { await p.fill("#ptf-company", "Контрактное производство"); await p.fill("#ptf-url", "example.com"); await contactConsent("#ptf-form")(p); });
+await formRun("blagotvoritelnost.html", "#pbf-form", async (p) => { await p.fill("#pbf-about", "Организация пациентов, нужны материалы для партнёров"); await contactConsent("#pbf-form")(p); });
+await formRun("dokumenty/karta-dokumentov.html", "#kf-form", async (p) => { await p.fill("#kf-product", "Магний, таблетки"); await p.fill("#kf-composition", "Магния цитрат, витамин B6"); await contactConsent("#kf-form")(p); });
 await formRun("avtomatizaciya.html", "#af-form", async (p) => { await p.fill("#af-process", "Заказы аптек приходят в мессенджер"); await contactConsent("#af-form")(p); });
 for (const pg of ["dokumenty/registraciya-bad.html", "dokumenty/index.html", "dokumenty/kak-my-rabotaem.html"]) await formRun(pg, "#reg-form", async (p) => { await p.click('#reg-form label.choice:has(input[value="БАД"])'); await p.fill("#rf-url", "example.com/product"); await contactConsent("#reg-form")(p); });
 // нормализация адреса
@@ -222,7 +277,14 @@ for (const pg of ["dokumenty/registraciya-bad.html", "dokumenty/index.html", "do
   await ctx.close();
 }
 // предвыбор задачи и кнопки data-task
-const PRESET = { "index.html": null, "marketing.html": "promo", "prodvizhenie.html": "promo", "analitika.html": "analytics", "audit-prodazh.html": "audit", "kak-my-rabotaem.html": null };
+const PRESET = { "index.html": null, "marketing.html": "promo", "prodvizhenie.html": "promo", "analitika.html": "analytics", "audit-prodazh.html": "audit", "kak-my-rabotaem.html": null, "kalkulyator-sku.html": "analytics", "kontakty.html": null };
+{
+  const { ctx, p } = await open(`${BASE}/dokumenty/karta-dokumentov.html`, VPS[0]);
+  const st = await p.evaluate(() => ({ need: document.querySelector("#kf-need").value, sample: document.querySelector(".karta-sample .tag")?.textContent, file: document.querySelector('#kf-file[type="file"]') !== null }));
+  ok(st.need === "Определить, какой документ нужен" && st.sample === "Пример" && st.file, `karta-dokumentov: ${JSON.stringify(st)}`, "forms");
+  log(`  karta-dokumentov: «Что нужно» = ${st.need}; пример помечен «${st.sample}»`);
+  await ctx.close();
+}
 for (const [pg, want] of Object.entries(PRESET)) {
   const { ctx, p } = await open(`${BASE}/${pg}`, VPS[0]);
   const got = await p.evaluate(() => document.querySelector('#pf-form input[name="task"]:checked')?.value ?? null);
@@ -234,6 +296,60 @@ for (const [pg, want] of Object.entries(PRESET)) {
     ok(st.task === "package" && st.title.startsWith("Заявка на пакет") && st.focus === "pf-title", `marketing: кнопка пакета ${JSON.stringify(st)}`, "forms");
     log(`  marketing: кнопка пакета → ${JSON.stringify(st)}`);
   }
+  await ctx.close();
+}
+
+/* 5б. Калькулятор SKU: формулы (src/calc.ts) и интерфейс */
+log("\n== Калькулятор SKU");
+{
+  const out = await build({ entryPoints: [join(SITE, "../src/calc.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent" });
+  const calc = await import(`data:text/javascript;base64,${Buffer.from(out.outputFiles[0].text).toString("base64")}`);
+  const near = (a, b) => (a === null || b === null ? a === b : Math.abs(a - b) < 1e-9);
+  // Ожидания посчитаны здесь вручную по формуле, независимо от calcSku
+  const cases = [
+    { name: "прибыльный товар", in: { price: 1000, cost: 300, commission: 15, logistics: 100, returns: 10, returnCost: 50, ads: 50, tax: 6, packaging: 20 },
+      want: { profit: 1000 - 300 - 150 - 100 - 5 - 50 - 60 - 20, margin: 31.5, breakEven: (300 + 100 + 5 + 50 + 20) / (1 - 0.15 - 0.06), biggest: "cost" } },
+    { name: "убыточный товар", in: { price: 500, cost: 200, commission: 20, logistics: 150, returns: 0, returnCost: 0, ads: 100, tax: 6, packaging: 0 },
+      want: { profit: 500 - 200 - 100 - 150 - 0 - 100 - 30 - 0, margin: -16, breakEven: (200 + 150 + 100) / (1 - 0.2 - 0.06), biggest: "cost" } },
+    { name: "комиссия + налог = 100 %", in: { price: 800, cost: 100, commission: 60, logistics: 0, returns: 0, returnCost: 0, ads: 0, tax: 40, packaging: 0 },
+      want: { profit: 800 - 100 - 480 - 320, margin: -12.5, breakEven: null, biggest: "commission" } },
+    { name: "возвраты — главная статья", in: { price: 2000, cost: 100, commission: 5, logistics: 50, returns: 50, returnCost: 600, ads: 0, tax: 0, packaging: 0 },
+      want: { profit: 2000 - 100 - 100 - 50 - 300, margin: 72.5, breakEven: (100 + 50 + 300) / 0.95, biggest: "returns" } },
+  ];
+  for (const c of cases) {
+    const r = calc.calcSku(c.in);
+    const pass = near(r.profit, c.want.profit) && near(r.margin, c.want.margin) && near(r.breakEven, c.want.breakEven) && r.biggest === c.want.biggest;
+    ok(pass, `calcSku «${c.name}»: ${JSON.stringify({ profit: r.profit, margin: r.margin, breakEven: r.breakEven, biggest: r.biggest })} ≠ ${JSON.stringify(c.want)}`, "calc");
+    log(`  ${pass ? "✓" : "✗"} ${c.name}: прибыль ${r.profit}, маржа ${r.margin}%, безубыточность ${r.breakEven === null ? "нет" : r.breakEven.toFixed(2)}, главная статья ${r.biggest}`);
+  }
+  const parse = [["1 249,5", 1249.5], ["249.5", 249.5], ["  15 ", 15], ["", null], ["abc", NaN], ["-5", NaN], ["1,2,3", NaN]];
+  for (const [raw, want] of parse) { const got = calc.parseNum(raw); ok(Number.isNaN(want) ? Number.isNaN(got) : got === want, `parseNum(${JSON.stringify(raw)}) = ${got}, ожидалось ${want}`, "calc"); }
+  ok(calc.fmt(-80) === "−80" && calc.fmt(601.2658227848101) === "601,27" && calc.fmt(31.5, 1) === "31,5" && calc.fmt(150000) === "150\u00a0000", "fmt: формат чисел", "calc");
+  log(`  parseNum: ${parse.length} случаев (запятая, пробелы, пусто, текст, минус)`);
+
+  // Интерфейс: живой пересчёт, запятая, ошибки, aria-live, без сети и хранилища
+  const { ctx, p, errs, ext } = await open(`${BASE}/kalkulyator-sku.html`, VPS[2], { reducedMotion: "reduce" });
+  const reqs = [];
+  p.on("request", (r) => { if (!isFont(r.url())) reqs.push(r.url()); });
+  const vals = { price: "1 000", cost: "300", commission: "15", logistics: "100", returns: "10", returnCost: "50", ads: "49,5", tax: "6", packaging: "20,5" };
+  for (const [k, v] of Object.entries(vals)) await p.fill(`#c-${k}`, v);
+  await p.waitForTimeout(450);
+  const ui = await p.evaluate(() => Object.fromEntries(["profit", "margin", "breakEven", "biggest"].map((k) => [k, document.querySelector(`[data-out="${k}"]`).textContent.replace(/\u00a0/g, " ")])));
+  const live = await p.evaluate(() => ({ text: document.querySelector("[data-calc-status]").textContent.replace(/\u00a0/g, " "), live: document.querySelector("[data-calc-status]").getAttribute("aria-live") }));
+  // 1000 − 300 − 150 − 100 − 5 − 49,5 − 60 − 20,5 = 315; безубыточность (300+100+5+49,5+20,5)/0,79 = 601,27
+  const uiPass = ui.profit === "315 ₽" && ui.margin === "31,5 %" && ui.breakEven === "601,27 ₽" && ui.biggest === "Себестоимость — 300 ₽ (30 % цены)" && live.live === "polite" && live.text.startsWith("Прибыль на единицу 315 ₽");
+  ok(uiPass, `калькулятор: ${JSON.stringify({ ui, live })}`, "calc");
+  log(`  ${uiPass ? "✓" : "✗"} интерфейс 390: ${JSON.stringify(ui)}`);
+  await p.fill("#c-cost", "три сотни");
+  await p.fill("#c-tax", "140");
+  const bad = await p.evaluate(() => ({ cost: document.querySelector("#c-cost").getAttribute("aria-invalid"), costErr: document.querySelector("#c-cost-err")?.textContent, tax: document.querySelector("#c-tax-err")?.textContent, profit: document.querySelector('[data-out="profit"]').textContent }));
+  ok(bad.cost === "true" && bad.costErr && bad.tax === "Не больше 100 %" && bad.profit === "—", `калькулятор: проверка ввода ${JSON.stringify(bad)}`, "calc");
+  log(`  проверка ввода: ${JSON.stringify(bad)}`);
+  await p.fill("#c-cost", "300"); await p.fill("#c-tax", "6"); await p.waitForTimeout(450);
+  const anims = await p.evaluate(() => document.getAnimations().filter((a) => a.playState === "running").length);
+  const store = await p.evaluate(() => ({ calls: window.__storage, ls: localStorage.length, ss: sessionStorage.length }));
+  ok(anims === 0 && reqs.length === 0 && store.calls === 0 && errs.length === 0 && ext.length === 0, `калькулятор: анимации ${anims}, запросы ${reqs}, хранилище ${JSON.stringify(store)}, ошибки ${errs}`, "calc");
+  await p.screenshot({ path: `${SHOTS}/kalkulyator-sku-390-filled.png`, fullPage: true });
   await ctx.close();
 }
 
@@ -260,8 +376,9 @@ for (const f of ["index.html", "marketing.html", "dokumenty/registraciya-bad.htm
 
 /* 7. prefers-reduced-motion */
 log("\n== prefers-reduced-motion");
-for (const f of ["index.html", "marketing.html", "dokumenty/index.html", "dokumenty/registraciya-bad.html", "avtomatizaciya.html"]) {
+for (const f of ["index.html", "marketing.html", "dokumenty/index.html", "dokumenty/registraciya-bad.html", "avtomatizaciya.html", "o-nas.html", "ceny.html", "kalkulyator-sku.html", "blog/etiketka-bad-do-registracii.html", "dokumenty/karta-dokumentov.html", "oferta.html"]) {
   const { ctx, p } = await open(`${BASE}/${f}`, VPS[0], { reducedMotion: "reduce" });
+  if (f === "kalkulyator-sku.html") { await p.fill("#c-price", "1000"); await p.fill("#c-cost", "300"); await p.fill("#c-commission", "15"); }
   const a0 = await p.evaluate(() => document.getAnimations().filter((a) => a.playState === "running").length);
   await p.evaluate(() => scrollTo(0, document.body.scrollHeight / 2)); await p.waitForTimeout(200);
   await p.locator(".faq-list summary").first().click().catch(() => {});
@@ -308,11 +425,14 @@ ok(!/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage/.test(js), "s
 log(`  запрещённых слов и «{{»: ${hits}`);
 
 /* 9. Скриншоты */
-const shots = [["index.html", 0, "top"], ["index.html", 0, "full"], ["index.html", 2, "top"], ["index.html", 2, "full"], ["marketing.html", 0, "full"], ["marketing.html", 2, "full"], ["audit-prodazh.html", 2, "full"], ["dokumenty/registraciya-bad.html", 2, "full"]];
+const shots = [["index.html", 0, "top"], ["index.html", 0, "full"], ["index.html", 2, "top"], ["index.html", 2, "full"], ["marketing.html", 0, "full"], ["marketing.html", 2, "full"], ["audit-prodazh.html", 2, "full"], ["dokumenty/registraciya-bad.html", 2, "full"],
+  ["o-nas.html", 0, "full"], ["o-nas.html", 2, "full"], ["ceny.html", 0, "full"], ["ceny.html", 2, "full"], ["oferta.html", 0, "full"], ["index.html", 0, "footer"], ["index.html", 2, "footer"]];
 for (const [f, vi, mode] of shots) {
   const vp = VPS[vi];
   const { ctx, p } = await open(`${BASE}/${f}`, vp, { reducedMotion: "reduce" });
-  await p.screenshot({ path: `${SHOTS}/${f.replace(/\//g, "-").replace(".html", "")}-${vp.name}-${mode}.png`, fullPage: mode === "full" });
+  const file = `${SHOTS}/${mode === "footer" ? "footer" : f.replace(/\//g, "-").replace(".html", "")}-${vp.name}-${mode}.png`;
+  if (mode === "footer") { await p.addStyleTag({ content: ".site-header{display:none!important}" }); await p.locator(".site-footer").screenshot({ path: file }); }
+  else await p.screenshot({ path: file, fullPage: mode === "full" });
   await ctx.close();
 }
 

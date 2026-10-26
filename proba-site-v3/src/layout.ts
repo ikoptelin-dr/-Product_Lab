@@ -1,5 +1,6 @@
 // Общий каркас страниц v3: <head>, шапка, подвал, хлебные крошки, JSON-LD, типографика.
 // Выполняется при сборке (scripts/build.mjs), в браузер не попадает.
+import { COMPANY } from "./data";
 import { SITE_URL } from "./regulatory/config";
 
 /* ---------------- Текст ---------------- */
@@ -23,7 +24,7 @@ export function typo(html: string): string {
 export const keepLast = (s: string) => s.replace(/ ([^\s<>]{1,14})$/, "\u00a0$1");
 
 /* ---------------- Навигация ---------------- */
-export type NavKey = "docs" | "marketing" | "promo" | "analytics" | "audit" | "automation" | "how" | "home";
+export type NavKey = "docs" | "marketing" | "promo" | "analytics" | "audit" | "automation" | "how" | "home" | "prices" | "none";
 
 export const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: "docs", href: "dokumenty/index.html", label: "Документы" },
@@ -34,10 +35,13 @@ export const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: "automation", href: "avtomatizaciya.html", label: "Автоматизация" },
 ];
 
+/** Шапка: направления + «Цены» (в подвале «Цены» — в группе «Клиентам», не среди направлений). */
+export const HEADER_NAV: { key: NavKey; href: string; label: string }[] = [...NAV, { key: "prices", href: "ceny.html", label: "Цены" }];
+
 export const QUIZ_HREF = "dokumenty/index.html#quiz";
 
 function header(base: string, active: NavKey) {
-  const link = (n: (typeof NAV)[number]) =>
+  const link = (n: (typeof HEADER_NAV)[number]) =>
     `<a href="${base}${n.href}"${n.key === active ? ' aria-current="page"' : ""}>${n.label}</a>`;
   return `<a class="skip-link" href="#main">Перейти к содержанию</a>
 <header class="site-header">
@@ -47,7 +51,7 @@ function header(base: string, active: NavKey) {
       <span class="brand-name">Proba Lab</span>
     </a>
     <nav class="main-nav" aria-label="Основная навигация">
-      ${NAV.map(link).join("\n      ")}
+      ${HEADER_NAV.map(link).join("\n      ")}
     </nav>
     <div class="header-actions">
       <a class="btn btn-primary btn-sm header-cta" href="${base}${QUIZ_HREF}">Проверить состав</a>
@@ -56,7 +60,7 @@ function header(base: string, active: NavKey) {
   </div>
   <div id="mobile-menu" class="mobile-menu" hidden>
     <nav aria-label="Мобильная навигация" class="container">
-      ${NAV.map(link).join("\n      ")}
+      ${HEADER_NAV.map(link).join("\n      ")}
       <a href="${base}kak-my-rabotaem.html"${active === "how" ? ' aria-current="page"' : ""}>Как мы работаем</a>
       <a class="btn btn-primary btn-lg" href="${base}${QUIZ_HREF}">Проверить состав</a>
     </nav>
@@ -64,14 +68,33 @@ function header(base: string, active: NavKey) {
 </header>`;
 }
 
+/** Подвал: группы «Компания» и «Клиентам» (страницы подвала и юридические документы). */
+export const FOOTER_COMPANY = [
+  ["o-nas.html", "О нас"],
+  ["kontakty.html", "Контакты"],
+  ["partneram.html", "Партнёрам"],
+  ["blagotvoritelnost.html", "Благотворительность"],
+  ["novosti.html", "Новости"],
+  ["blog/index.html", "Блог"],
+] as const;
+export const FOOTER_CLIENTS = [
+  ["ceny.html", "Цены"],
+  ["oplata.html", "Оплата"],
+  ["oferta.html", "Публичная оферта"],
+  ["politika-pd.html", "Политика обработки ПДн"],
+  ["pravovaya-informaciya.html", "Правовая информация"],
+] as const;
+
 function footer(base: string) {
   const year = new Date().getFullYear();
+  const list = (items: readonly (readonly [string, string])[]) => items.map(([h, l]) => `<li><a href="${base}${h}">${l}</a></li>`).join("");
   return `<footer class="site-footer grain">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="${base}index.html"><img class="brand-mark" src="${base}assets/emblem-ink.png" alt="" width="34" height="34"><span class="brand-name">Proba Lab</span></a>
         <p>Для производителей и брендов БАД и косметики</p>
+        <p class="footer-contacts"><a href="${COMPANY.phoneHref}">${COMPANY.phone}</a><br><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
       </div>
       <nav class="footer-nav" aria-label="Направления">
         <p class="footer-label">Направления</p>
@@ -83,10 +106,23 @@ function footer(base: string) {
           <li><a href="${base}kak-my-rabotaem.html">Как мы работаем</a></li>
           <li><a href="${base}${QUIZ_HREF}">Какой документ нужен</a></li>
           <li><a href="${base}index.html#review">Бесплатный разбор</a></li>
+          <li><a href="${base}kalkulyator-sku.html">Калькулятор SKU</a></li>
+          <li><a href="${base}dokumenty/karta-dokumentov.html">Карта документов</a></li>
         </ul>
       </nav>
+      <nav class="footer-nav" aria-label="Компания">
+        <p class="footer-label">Компания</p>
+        <ul>${list(FOOTER_COMPANY)}</ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Клиентам">
+        <p class="footer-label">Клиентам</p>
+        <ul>${list(FOOTER_CLIENTS)}</ul>
+      </nav>
     </div>
-    <p class="footer-copy">© ${year} Proba Lab</p>
+    <div class="footer-bottom">
+      <p class="footer-legal">${COMPANY.legalName} · ИНН ${COMPANY.inn} · ОГРНИП ${COMPANY.ogrnip}</p>
+      <p class="footer-copy">© ${year} Proba Lab</p>
+    </div>
   </div>
 </footer>`;
 }
@@ -120,6 +156,24 @@ export function faqLd(items: { q: string; a: string }[]) {
   };
 }
 
+/** Адрес и контакты компании для JSON-LD. */
+export function companyLd() {
+  return {
+    legalName: COMPANY.legalName,
+    taxID: COMPANY.inn,
+    telephone: COMPANY.phoneHref.replace("tel:", ""),
+    email: COMPANY.email,
+    address: {
+      "@type": "PostalAddress",
+      postalCode: COMPANY.address.postalCode,
+      addressRegion: COMPANY.address.region,
+      addressLocality: COMPANY.address.locality.replace(/^г\. /, ""),
+      streetAddress: COMPANY.address.street,
+      addressCountry: "RU",
+    },
+  };
+}
+
 export function serviceLd(name: string, serviceType: string, description: string, path: string) {
   return {
     "@context": "https://schema.org",
@@ -147,7 +201,8 @@ export interface PageDoc {
 
 export function renderDoc(p: PageDoc): string {
   const base = p.path.includes("/") ? "../" : "";
-  if (p.title.length > 70) throw new Error(`${p.path}: title длиннее 70 символов (${p.title.length})`);
+  // 75: title «Партнёрам…» из footer-pages.md — 72 символа, оставлен дословно
+  if (p.title.length > 75) throw new Error(`${p.path}: title длиннее 75 символов (${p.title.length})`);
   if (p.description.length > 170) throw new Error(`${p.path}: description длиннее 170 символов (${p.description.length})`);
   const canonical = SITE_URL ? `\n<link rel="canonical" href="${absUrl(p.path)}">\n<meta property="og:url" content="${absUrl(p.path)}">` : "";
   const ld = p.ld.map((b) => `<script type="application/ld+json">${JSON.stringify(b).replace(/</g, "\\u003c")}</script>`).join("\n");
