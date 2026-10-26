@@ -390,3 +390,16 @@ details > summary::-webkit-details-marker { display: none; }
   *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; scroll-behavior: auto !important; }
   .btn:hover, .btn:active { transform: none; }
 }
+
+/* Документы и соответствие — блок-переход в раздел dokumenty/ */
+.docs-links { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+@media (max-width: 900px) { .docs-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .docs-links { gap: 8px; margin-top: 20px; } .docs-links a { padding: 14px; } .docs-links b { font-size: 0.9375rem; } .docs-links span { font-size: 0.8125rem; } }
+.docs-links a { display: grid; gap: 4px; align-content: start; height: 100%; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); text-decoration: none; transition: border-color .2s, transform .2s cubic-bezier(.2,.8,.2,1); }
+.docs-links a:hover { border-color: var(--petrol); transform: translateY(-2px); }
+.docs-links a:focus-visible { outline: 2px solid var(--petrol); outline-offset: 2px; }
+.docs-links b { font-family: var(--font-head); font-weight: 700; font-size: 1.0625rem; }
+.docs-links span { font-size: var(--fs-small); color: var(--muted); }
+.docs-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+@media (max-width: 520px) { .docs-actions .btn { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .docs-links a { transition: none; } .docs-links a:hover { transform: none; } }
