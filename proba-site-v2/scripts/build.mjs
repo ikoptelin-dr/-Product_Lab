@@ -1,6 +1,7 @@
 // Собирает самодостаточную страницу dist/proba-lab.html: стили, логотип и скрипт встроены.
 // Цены, варианты задач формы и отзывы берутся из src/data.ts, поэтому страница полна и без скрипта.
 // Шрифты Manrope (600, 700) и Golos Text (400, 500, 600) — Google Fonts. Запуск: node scripts/build.mjs
+// В конце собирается и раздел «Документы и соответствие» (scripts/build-section.mjs → dist/dokumenty/).
 import { build } from "../../proba-site/node_modules/esbuild/lib/main.js";
 import { cpSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -54,3 +55,6 @@ writeFileSync(join(root, "dist/proba-lab.html"), page);
 // Иллюстрации — отдельными файлами рядом со страницей (img/…), загружаются лениво
 cpSync(join(root, "assets/img"), join(root, "dist/img"), { recursive: true });
 console.log(`✓ dist/proba-lab.html — ${(page.length / 1024).toFixed(0)} КБ`);
+
+// Раздел «Документы и соответствие» — отдельные страницы dist/dokumenty/*.html
+await import("./build-section.mjs");

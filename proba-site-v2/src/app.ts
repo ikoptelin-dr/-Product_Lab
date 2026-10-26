@@ -1,6 +1,9 @@
 // Лендинг Proba Lab: навигация между главной и «Автоматизацией», выбор задачи в форме,
 // локальная проверка форм (прототип: без отправки и без сохранения контактов) и движение.
 import { PRICES } from "./data";
+import { normalizeUrl } from "./url";
+
+export { normalizeUrl };
 
 const $ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => r.querySelector<T>(s);
 const $$ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => Array.from(r.querySelectorAll<T>(s));
@@ -156,19 +159,6 @@ function projectForm() {
 }
 
 /* ---------------- Проверка форм (локально, без отправки) ---------------- */
-/** «example.com/x» → «https://example.com/x». Возвращает null, если это не похоже на адрес. */
-export function normalizeUrl(raw: string): string | null {
-  let v = raw.trim();
-  if (!v) return "";
-  if (!/^https?:\/\//i.test(v)) v = `https://${v.replace(/^\/+/, "")}`;
-  try {
-    const u = new URL(v);
-    return /\.[a-zа-яё]{2,}$/i.test(u.hostname) ? u.toString() : null;
-  } catch {
-    return null;
-  }
-}
-
 function clearErrors(form: HTMLFormElement) {
   $$(".field-error", form).forEach((n) => n.remove());
   $$("[aria-invalid]", form).forEach((n) => n.removeAttribute("aria-invalid"));
