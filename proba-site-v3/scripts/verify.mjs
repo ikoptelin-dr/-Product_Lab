@@ -8,7 +8,7 @@ const [BASE, SITE, SHOTS] = process.argv.slice(2);
 const sub = (d) => readdirSync(join(SITE, d)).filter((f) => f.endsWith(".html")).map((f) => `${d}/${f}`);
 // Переадресации со старых адресов (meta refresh) не проверяем как страницы
 const MOVED = new Set(["404.html", "kalkulyator-sku.html", "dokumenty/sanpin.html", "blog/ekonomika-sku-marketplejs.html", "dokumenty/kak-my-rabotaem.html"]);
-const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...["dokumenty", "blog", "marketing", "analitika", "avtomatizaciya", "prodvizhenie"].flatMap(sub)].filter((f) => !MOVED.has(f)).sort();
+const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...["dokumenty", "blog", "marketing", "analitika", "avtomatizaciya", "prodvizhenie", "kejsy"].flatMap(sub)].filter((f) => !MOVED.has(f)).sort();
 const LEGAL = ["oferta.html", "politika-pd.html", "soglasie-pd.html", "pravovaya-informaciya.html"];
 const COMPANY = { tel: "tel:+79811002848", mail: "mailto:i.koptelin@proba-lab.ru", inn: "540821689171", email: "i.koptelin@proba-lab.ru" };
 const CONSENT_TEXT = "Согласен на обработку персональных данных";
