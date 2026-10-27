@@ -106,7 +106,7 @@ function footer(base: string) {
           <li><a href="${base}kak-my-rabotaem.html">Как мы работаем</a></li>
           <li><a href="${base}${QUIZ_HREF}">Какой документ нужен</a></li>
           <li><a href="${base}index.html#review">Бесплатный разбор</a></li>
-          <li><a href="${base}kalkulyator-sku.html">Калькулятор SKU</a></li>
+          <li><a href="${base}analitika/kalkulyator-yunit-ekonomiki.html">Калькулятор юнит-экономики</a></li>
           <li><a href="${base}dokumenty/karta-dokumentov.html">Карта документов</a></li>
         </ul>
       </nav>

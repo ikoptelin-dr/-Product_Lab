@@ -98,29 +98,8 @@ const calcField = (fl: (typeof SKU_FIELDS)[number]) => `<div class="field calc-f
           <div class="input-unit"><input id="c-${fl.key}" name="${fl.key}" inputmode="decimal" autocomplete="off" spellcheck="false"${fl.required ? "" : ' placeholder="0"'} data-unit="${fl.unit}"><span class="unit" aria-hidden="true">${fl.unit}</span></div>
         </div>`;
 
-export const kalkulyator: PageDoc = {
-  path: "kalkulyator-sku.html",
-  title: "Калькулятор экономики SKU для маркетплейса — Proba Lab",
-  description: "Посчитайте прибыль на единицу, маржу и цену безубыточности товара на маркетплейсе по своим цифрам. Данные никуда не отправляются и не сохраняются.",
-  nav: "none",
-  ld: [
-    breadcrumbLd([
-      { name: "Proba Lab", path: "index.html" },
-      { name: "Калькулятор SKU", path: "kalkulyator-sku.html" },
-    ]),
-  ],
-  body: `${pageHero({
-    crumbs: [{ name: "Proba Lab", href: "index.html" }, { name: "Калькулятор SKU" }],
-    eyebrow: "Бесплатно",
-    h1: "Калькулятор: сколько зарабатывает ваш товар на маркетплейсе",
-    lead: "Прибыль на единицу, маржа, цена безубыточности и статья, которая сильнее всего съедает маржу. Пересчёт сразу, без отправки данных. Значения не сохраняются.",
-    ctas: [
-      { label: "Посчитать", href: "#calc" },
-      { label: "Разбор по всем SKU", href: "#project-form" },
-    ],
-  })}
-<div class="light">
-<section id="calc" class="section calc-section" aria-labelledby="calc-title">
+/** Калькулятор экономики SKU — используется и на странице analitika/kalkulyator-yunit-ekonomiki (тексты из proba-growth/content). */
+export const calcSection = `<section id="calc" class="section calc-section" aria-labelledby="calc-title">
   <div class="container">
     <div class="section-head reveal">
       <h2 id="calc-title" class="h2">Посчитайте по своим цифрам</h2>
@@ -151,7 +130,31 @@ export const kalkulyator: PageDoc = {
       <p>Прибыль на единицу = цена − себестоимость − цена × комиссия − логистика − доля возвратов × обратная логистика − реклама − цена × налог − упаковка. Маржа — прибыль, делённая на цену. Цена безубыточности — цена, при которой прибыль равна нулю: расходы в рублях, делённые на долю цены, которая остаётся после комиссии и налога.</p>
     </div>
   </div>
-</section>
+</section>`;
+
+export const kalkulyator: PageDoc = {
+  path: "kalkulyator-sku.html",
+  title: "Калькулятор экономики SKU для маркетплейса — Proba Lab",
+  description: "Посчитайте прибыль на единицу, маржу и цену безубыточности товара на маркетплейсе по своим цифрам. Данные никуда не отправляются и не сохраняются.",
+  nav: "none",
+  ld: [
+    breadcrumbLd([
+      { name: "Proba Lab", path: "index.html" },
+      { name: "Калькулятор SKU", path: "kalkulyator-sku.html" },
+    ]),
+  ],
+  body: `${pageHero({
+    crumbs: [{ name: "Proba Lab", href: "index.html" }, { name: "Калькулятор SKU" }],
+    eyebrow: "Бесплатно",
+    h1: "Калькулятор: сколько зарабатывает ваш товар на маркетплейсе",
+    lead: "Прибыль на единицу, маржа, цена безубыточности и статья, которая сильнее всего съедает маржу. Пересчёт сразу, без отправки данных. Значения не сохраняются.",
+    ctas: [
+      { label: "Посчитать", href: "#calc" },
+      { label: "Разбор по всем SKU", href: "#project-form" },
+    ],
+  })}
+<div class="light">
+${calcSection}
 ${projectSection("analytics", { title: "Хотите разбор по всем SKU?", lead: "Пришлите выгрузку — посчитаем и покажем, где теряется маржа." })}
 </div>`,
 };

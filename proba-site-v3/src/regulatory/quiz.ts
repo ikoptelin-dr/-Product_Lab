@@ -181,7 +181,7 @@ export function quizResult(a: QuizAnswers): QuizResult {
       obl.push({
         title: "Программа производственного контроля",
         text: f("ppk", "Программа производственного контроля обязательна по санитарному законодательству.") + " " + f("ppk-lab", "Лабораторный контроль — только в аккредитованных лабораториях."),
-        href: "sanpin.html",
+        href: "proverki-rospotrebnadzora.html",
       });
     }
     if (a.type === "bad") {
@@ -259,7 +259,7 @@ export function quizResult(a: QuizAnswers): QuizResult {
     obl.push({
       title: "Требования торговых сетей",
       text: f("nets", "Сети запрашивают систему контроля рисков (ХАССП, производственный контроль) и протоколы аккредитованной лаборатории.") + " Требования конкретной сети сверим по её стандарту поставщика.",
-      href: "sanpin.html",
+      href: "proverki-rospotrebnadzora.html",
     });
   }
   if (ch.has("site")) {

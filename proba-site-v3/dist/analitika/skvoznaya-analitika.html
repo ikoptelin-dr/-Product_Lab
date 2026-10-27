@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Сквозная аналитика и настройка Яндекс Метрики — Proba Lab</title>
+<meta name="description" content="Настроим Яндекс Метрику, цели, коллтрекинг и связку сайта с CRM, чтобы было видно, какой канал приводит оплаты. От 15 000 ₽ за старт, лицензии отдельно.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Proba Lab">
+<meta property="og:title" content="Сквозная аналитика и настройка Яндекс Метрики — Proba Lab">
+<meta property="og:description" content="Настроим Яндекс Метрику, цели, коллтрекинг и связку сайта с CRM, чтобы было видно, какой канал приводит оплаты. От 15 000 ₽ за старт, лицензии отдельно.">
+<link rel="icon" type="image/png" href="../assets/emblem-ink.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Аналитика","item":"analitika.html"},{"@type":"ListItem","position":3,"name":"Сквозная аналитика: от рекламы и сайта до оплаты в CRM","item":"analitika/skvoznaya-analitika.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Сквозная аналитика: от рекламы и сайта до оплаты в CRM","serviceType":"20 Веб-аналитика · Коммерческий: заказ услуги","description":"Настроим Яндекс Метрику, цели, коллтрекинг и связку сайта с CRM, чтобы было видно, какой канал приводит оплаты. От 15 000 ₽ за старт, лицензии отдельно.","areaServed":"RU","provider":{"@type":"Organization","name":"Proba Lab"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как настроить сквозную аналитику?","acceptedAnswer":{"@type":"Answer","text":"Настроить Метрику и цели, разметить источники, подключить коллтрекинг, связать сайт с CRM и вернуть статусы и суммы сделок в отчёт. Последний шаг — проверить, что тестовая заявка из каждого канала доходит до отчёта."}},{"@type":"Question","name":"Как работает сквозная аналитика?","acceptedAnswer":{"@type":"Answer","text":"Каждая заявка получает метку источника. CRM хранит её вместе со статусом и суммой сделки. Отчёт складывает расходы по каналу и выручку по его заявкам."}},{"@type":"Question","name":"Как работает коллтрекинг?","acceptedAnswer":{"@type":"Answer","text":"Посетителям из разных источников показываются разные номера телефона. По номеру, на который позвонили, система определяет источник и передаёт звонок в отчёт."}},{"@type":"Question","name":"Для чего нужен коллтрекинг?","acceptedAnswer":{"@type":"Answer","text":"Чтобы звонки учитывались так же, как заявки с сайта. Если клиенты в основном пишут через формы и мессенджеры, часто достаточно целей и отдельных номеров для ключевых каналов."}}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href="../index.html" aria-label="Proba Lab — на главную">
+      <img class="brand-mark" src="../assets/emblem-ink.png" alt="" width="34" height="34">
+      <span class="brand-name">Proba Lab</span>
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="../dokumenty/index.html">Документы</a>
+      <a href="../marketing.html">Маркетинг</a>
+      <a href="../prodvizhenie.html">Продвижение</a>
+      <a href="../analitika.html" aria-current="page">Аналитика</a>
+      <a href="../audit-prodazh.html">Аудит продаж</a>
+      <a href="../avtomatizaciya.html">Автоматизация</a>
+      <a href="../ceny.html">Цены</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm header-cta" href="../dokumenty/index.html#quiz">Проверить состав</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <nav aria-label="Мобильная навигация" class="container">
+      <a href="../dokumenty/index.html">Документы</a>
+      <a href="../marketing.html">Маркетинг</a>
+      <a href="../prodvizhenie.html">Продвижение</a>
+      <a href="../analitika.html" aria-current="page">Аналитика</a>
+      <a href="../audit-prodazh.html">Аудит продаж</a>
+      <a href="../avtomatizaciya.html">Автоматизация</a>
+      <a href="../ceny.html">Цены</a>
+      <a href="../kak-my-rabotaem.html">Как мы работаем</a>
+      <a class="btn btn-primary btn-lg" href="../dokumenty/index.html#quiz">Проверить состав</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero grain" aria-labelledby="page-title">
+  <div class="container">
+    <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="../index.html">Proba Lab</a></li><li><a href="../analitika.html">Аналитика</a></li><li><span aria-current="page">Сквозная аналитика: от рекламы и сайта до оплаты в CRM</span></li></ol></nav>
+    <div class="page-hero-grid">
+      <div class="page-hero-copy">
+        
+        <h1 id="page-title" class="h1-page">Сквозная аналитика: от рекламы и сайта до оплаты в CRM</h1>
+        <p class="hero-lead">Настраиваем учёт так, чтобы по каждой заявке было видно, откуда она пришла, что с ней стало и сколько стоил клиент. Начинаем с Яндекс Метрики и целей, дальше связываем сайт, звонки и CRM.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Обсудить аналитику</a>
+          <a class="btn btn-ghost btn-lg" href="#ceny">Сначала аудит аналитики</a>
+        </div>
+        <p class="hero-price"><strong>от 15 000 ₽</strong> · настройка Метрики и целей · <strong>от 60 000 ₽</strong> · сквозная аналитика; лицензии сервисов — отдельно</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<div class="light">
+<section class="section"><div class="container"><div class="prose"><h2>Что такое сквозная аналитика простыми словами</h2>
+<p>Это цепочка «реклама или другой источник → сайт → заявка в CRM → оплата», собранная в одном отчёте. Обычная веб-аналитика показывает клики и заявки. Сквозная показывает, какой канал приводит деньги, а какой только трафик.</p>
+<h2>Когда это нужно</h2>
+<ul>
+<li>Непонятно, сколько заявок приносит сайт, маркетплейс и партнёры.</li>
+<li>Часть клиентов звонит, и звонки ни к какому источнику не привязаны.</li>
+<li>Есть CRM, но данные о продажах не возвращаются в Метрику.</li>
+<li>Планируете вкладываться в продвижение и хотите знать стоимость клиента по каналам.</li>
+</ul>
+<h2>Что настраиваем</h2>
+<ol type="1">
+<li><strong>Настройка Яндекс Метрики на сайте.</strong> Счётчик, цели на заявки, звонки и переходы в мессенджеры. Согласие на cookie — до загрузки счётчика.</li>
+<li><strong>Источники заявок.</strong> UTM-метки там, где площадка их поддерживает; отдельные номера или адреса — там, где нет.</li>
+<li><strong>Коллтрекинг для сайта.</strong> Отдельные номера по источникам, чтобы звонок попадал в отчёт так же, как заявка из формы.</li>
+<li><strong>Связка сайта с CRM.</strong> Заявка из CRM с её статусом и суммой возвращается в Метрику как конверсия. Работаем со сквозной аналитикой в Битрикс24 и amoCRM.</li>
+<li><strong>Дашборд.</strong> Одна страница с главными цифрами: заявки, конверсия, стоимость клиента, выручка по каналам. Обновляется автоматически.</li>
+</ol>
+<h2>Когда не подходит</h2>
+<ul>
+<li><strong>Нет CRM.</strong> Сначала нужна система, куда попадают все заявки, — <a href="../avtomatizaciya/vnedrenie-crm.html">внедрение CRM</a>.</li>
+<li><strong>Заявок единицы в месяц.</strong> Достаточно Метрики с целями, сквозная аналитика не окупит настройку.</li>
+<li><strong>Продажи только на маркетплейсе.</strong> Площадки не передают все данные о покупателях. Начните с экономики товаров — <a href="../analitika/kalkulyator-yunit-ekonomiki.html">калькулятор юнит-экономики</a>.</li>
+</ul>
+<h2>Как проходит работа</h2>
+<ol type="1">
+<li><strong>Аудит:</strong> что и как считается сейчас.</li>
+<li><strong>План:</strong> какие цели, источники и отчёты нужны под ваши решения.</li>
+<li><strong>Настройка:</strong> Метрика, коллтрекинг, интеграция с CRM.</li>
+<li><strong>Проверка:</strong> тестовая заявка и звонок из каждого канала доходят до отчёта.</li>
+<li><strong>Инструкция и передача</strong> команде.</li>
+</ol>
+<h2>Что нужно от вас</h2>
+<ul>
+<li>доступ к сайту и Метрике или разрешение их создать;</li>
+<li>доступ к CRM или выгрузки из неё;</li>
+<li>список каналов, откуда приходят клиенты;</li>
+<li>одна встреча с тем, кто обрабатывает заявки.</li>
+</ul>
+<h2 id="ceny">Стоимость</h2>
+<ul>
+<li>аудит аналитики — <strong>от 12 000 ₽</strong>, засчитывается в настройку;</li>
+<li>старт: Метрика, цели на заявки и звонки, согласие на cookie — <strong>от 15 000 ₽</strong>;</li>
+<li>стандарт: старт + источники заявок, связь с CRM, отчёт — <strong>от 35 000 ₽</strong>;</li>
+<li>сквозная аналитика: реклама → сайт → CRM → оплаты — <strong>от 60 000 ₽</strong>;</li>
+<li>дашборд — <strong>от 20 000 ₽</strong>;</li>
+<li>сопровождение аналитики — <strong>от 25 000 ₽</strong> в месяц.</li>
+</ul>
+<p>Сквозная аналитика: цены выше — без лицензий. Коллтрекинг и аналитические сервисы оплачиваются по их тарифам.</p>
+<h2>Частые ошибки</h2>
+<ul>
+<li><strong>Цели на всё подряд.</strong> В отчёте десятки целей, и непонятно, какая значит «заявка».</li>
+<li><strong>Звонки вне учёта.</strong> Половина клиентов звонит, а отчёт показывает только формы.</li>
+<li><strong>CRM без статусов.</strong> Сделки не закрываются в системе — и связать рекламу с оплатой нельзя.</li>
+<li><strong>Настроили и забыли.</strong> Сайт поменялся, цели перестали срабатывать. Проверяйте раз в месяц.</li>
+</ul>
+</div></div></section><section id="faq" class="section faq" aria-labelledby="faq-title">
+  <div class="container faq-grid">
+    <h2 id="faq-title" class="h2 reveal">Вопросы</h2>
+    <div class="faq-list">
+      <details><summary>Как настроить сквозную аналитику?</summary><div class="details-body"><p>Настроить Метрику и цели, разметить источники, подключить коллтрекинг, связать сайт с CRM и вернуть статусы и суммы сделок в отчёт. Последний шаг — проверить, что тестовая заявка из каждого канала доходит до отчёта.</p></div></details>
+      <details><summary>Как работает сквозная аналитика?</summary><div class="details-body"><p>Каждая заявка получает метку источника. CRM хранит её вместе со статусом и суммой сделки. Отчёт складывает расходы по каналу и выручку по его заявкам.</p></div></details>
+      <details><summary>Как работает коллтрекинг?</summary><div class="details-body"><p>Посетителям из разных источников показываются разные номера телефона. По номеру, на который позвонили, система определяет источник и передаёт звонок в отчёт.</p></div></details>
+      <details><summary>Для чего нужен коллтрекинг?</summary><div class="details-body"><p>Чтобы звонки учитывались так же, как заявки с сайта. Если клиенты в основном пишут через формы и мессенджеры, часто достаточно целей и отдельных номеров для ключевых каналов.</p></div></details>
+    </div>
+  </div>
+</section><section class="section"><div class="container"><div class="prose">
+<h2>Что дальше</h2>
+<ul>
+<li><a href="../avtomatizaciya/vnedrenie-crm.html">Внедрение CRM</a> — если заявки пока живут в почте и мессенджерах.</li>
+<li><a href="../audit-prodazh.html">Аудит продаж</a> — где теряются покупатели и деньги.</li>
+<li>Все услуги — в разделе <a href="../analitika.html">Аналитика</a>.</li>
+</ul>
+</div></div></section><section id="project-form" class="section project-form" aria-labelledby="pf-title">
+  <div class="container two-col">
+    <div class="pf-copy">
+      <h2 id="pf-title" class="h2" data-pf-title>Обсудить аналитику</h2>
+      <p class="lead" data-pf-lead>Сквозная аналитика: расскажите, что нужно сделать. Уточним объём и назовём смету до начала работ.</p>
+    </div>
+    <form id="pf-form" class="form-card glass-light" novalidate data-form="project" aria-labelledby="pf-title">
+      <fieldset class="field" data-required-group="task">
+        <legend>Задача</legend>
+        <div class="choice-col"><label class="choice"><input type="radio" name="task" value="docs"><span>Документы и регистрация</span></label><label class="choice"><input type="radio" name="task" value="promo"><span>Подготовить продукт к продвижению</span></label><label class="choice"><input type="radio" name="task" value="partners"><span>Подготовить материалы для партнёров</span></label><label class="choice"><input type="radio" name="task" value="automation"><span>Упростить заявки и работу команды</span></label><label class="choice"><input type="radio" name="task" value="analytics" checked><span>Настроить аналитику и учёт заявок</span></label><label class="choice"><input type="radio" name="task" value="audit"><span>Аудит продаж</span></label><label class="choice"><input type="radio" name="task" value="package"><span>Пакет «Предложение для одного продукта» — 29 000 ₽</span></label><label class="choice"><input type="radio" name="task" value="support"><span>Сопровождение продвижения</span></label></div>
+      </fieldset>
+      <fieldset class="field" data-show-for="promo" hidden>
+        <legend>Что может понадобиться <span class="opt">необязательно</span></legend>
+        <div class="choice-row">
+          <label class="choice"><input type="checkbox" name="needs" value="Предложение и аргументы"><span>Предложение и аргументы</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Сайт или лендинг" data-site><span>Сайт или лендинг</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Карточки товаров"><span>Карточки товаров</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Фото и видео"><span>Фото и видео</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="SEO" data-site><span>SEO</span></label>
+          <label class="choice"><input type="checkbox" name="needs" value="Материалы для размещений"><span>Материалы для размещений</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="field" data-has-site hidden>
+        <legend>Сайт уже есть?</legend>
+        <div class="choice-row">
+          <label class="choice"><input type="radio" name="hasSite" value="Есть"><span>Есть</span></label>
+          <label class="choice"><input type="radio" name="hasSite" value="Нет"><span>Нет</span></label>
+        </div>
+      </fieldset>
+      <p class="pf-package-note" data-show-for="package" hidden>Материалы и срок согласуем до начала работы. Оплата — после согласования.</p>
+      <div class="field">
+        <label for="pf-details" data-details-label>Коротко о задаче <span class="opt">необязательно</span></label>
+        <textarea id="pf-details" name="details" rows="3" data-details placeholder="Например: обновить карточки к запуску новой линейки"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="pf-url">Ссылка на продукт или сайт <span class="opt">необязательно</span></label>
+          <input id="pf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.com">
+        </div>
+        <div class="field" data-term>
+          <label for="pf-term">Желаемый срок</label>
+          <select id="pf-term" name="term"><option value="">Не важно</option><option value="month">В течение месяца</option><option value="1-3">1–3 месяца</option><option value="later">Позже</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="pf-contact">Контакт для ответа</label>
+        <input id="pf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
+      </div>
+      <label class="consent"><input type="checkbox" name="consent"><span>Согласен на <a href="../soglasie-pd.html">обработку персональных данных</a></span></label>
+      <button class="btn btn-primary btn-lg btn-block" type="submit" data-pf-submit>Отправить</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</div>
+</main>
+<footer class="site-footer grain">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html"><img class="brand-mark" src="../assets/emblem-ink.png" alt="" width="34" height="34"><span class="brand-name">Proba Lab</span></a>
+        <p>Для производителей и брендов БАД и косметики</p>
+        <p class="footer-contacts"><a href="tel:+79994662279">+7 999 466-22-79</a><br><a href="mailto:i.koptelin@proba-lab.ru">i.koptelin@proba-lab.ru</a></p>
+      </div>
+      <nav class="footer-nav" aria-label="Направления">
+        <p class="footer-label">Направления</p>
+        <ul><li><a href="../dokumenty/index.html">Документы</a></li><li><a href="../marketing.html">Маркетинг</a></li><li><a href="../prodvizhenie.html">Продвижение</a></li><li><a href="../analitika.html">Аналитика</a></li><li><a href="../audit-prodazh.html">Аудит продаж</a></li><li><a href="../avtomatizaciya.html">Автоматизация</a></li></ul>
+      </nav>
+      <nav class="footer-nav" aria-label="О работе">
+        <p class="footer-label">О работе</p>
+        <ul>
+          <li><a href="../kak-my-rabotaem.html">Как мы работаем</a></li>
+          <li><a href="../dokumenty/index.html#quiz">Какой документ нужен</a></li>
+          <li><a href="../index.html#review">Бесплатный разбор</a></li>
+          <li><a href="../analitika/kalkulyator-yunit-ekonomiki.html">Калькулятор юнит-экономики</a></li>
+          <li><a href="../dokumenty/karta-dokumentov.html">Карта документов</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Компания">
+        <p class="footer-label">Компания</p>
+        <ul><li><a href="../o-nas.html">О нас</a></li><li><a href="../kontakty.html">Контакты</a></li><li><a href="../partneram.html">Партнёрам</a></li><li><a href="../blagotvoritelnost.html">Благотворительность</a></li><li><a href="../novosti.html">Новости</a></li><li><a href="../blog/index.html">Блог</a></li></ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Клиентам">
+        <p class="footer-label">Клиентам</p>
+        <ul><li><a href="../ceny.html">Цены</a></li><li><a href="../oplata.html">Оплата</a></li><li><a href="../oferta.html">Публичная оферта</a></li><li><a href="../politika-pd.html">Политика обработки ПДн</a></li><li><a href="../pravovaya-informaciya.html">Правовая информация</a></li></ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">ИП Коптелин Илья Алексеевич · ИНН 540821689171 · ОГРНИП 326547600096728</p>
+      <p class="footer-copy">© 2026 Proba Lab</p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

@@ -308,7 +308,7 @@ function renderIndex(): PageDoc {
     lead: "Статьи о документах, этикетке и продажах БАД и косметики.",
     ctas: [
       { label: "Проверить состав бесплатно", href: `../${QUIZ_HREF}` },
-      { label: "Калькулятор SKU", href: "../kalkulyator-sku.html" },
+      { label: "Калькулятор юнит-экономики", href: "../analitika/kalkulyator-yunit-ekonomiki.html" },
     ],
   });
   const cards = ARTICLES.map(

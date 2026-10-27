@@ -823,3 +823,8 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
 }
 
 .section + .reg-meta > .container { border-top: 1px solid var(--line-strong); padding-top: 32px; }
+
+/* Цена «от» под кнопками первого экрана (страницы из proba-growth/content) */
+.hero-price { margin-top: 18px; color: var(--z300, #d4d4d8); font-size: 1rem; }
+.hero-price strong, .hero-price b { color: var(--emerald, #34d399); font-weight: 600; }
+.page-home .page-hero { padding-top: clamp(40px, 8vw, 96px); }

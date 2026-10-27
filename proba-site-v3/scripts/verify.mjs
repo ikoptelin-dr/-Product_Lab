@@ -6,7 +6,9 @@ import { join } from "node:path";
 
 const [BASE, SITE, SHOTS] = process.argv.slice(2);
 const sub = (d) => readdirSync(join(SITE, d)).filter((f) => f.endsWith(".html")).map((f) => `${d}/${f}`);
-const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...sub("dokumenty"), ...sub("blog")].sort();
+// Переадресации со старых адресов (meta refresh) не проверяем как страницы
+const MOVED = new Set(["analitika/kalkulyator-yunit-ekonomiki.html", "dokumenty/sanpin.html", "blog/ekonomika-sku-marketplejs.html", "dokumenty/kak-my-rabotaem.html"]);
+const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...["dokumenty", "blog", "marketing", "analitika", "avtomatizaciya", "prodvizhenie"].flatMap(sub)].filter((f) => !MOVED.has(f)).sort();
 const LEGAL = ["oferta.html", "politika-pd.html", "soglasie-pd.html", "pravovaya-informaciya.html"];
 const COMPANY = { tel: "tel:+79994662279", mail: "mailto:i.koptelin@proba-lab.ru", inn: "540821689171", email: "i.koptelin@proba-lab.ru" };
 const CONSENT_TEXT = "Согласен на обработку персональных данных";
@@ -257,7 +259,7 @@ await formRun("index.html", "#pf-form", async (p) => { await p.click('#pf-form l
 for (const pg of ["marketing.html", "prodvizhenie.html", "analitika.html", "audit-prodazh.html"]) await formRun(pg, "#pf-form", contactConsent("#pf-form"));
 await formRun("kak-my-rabotaem.html", "#pf-form", async (p) => { await p.click('#pf-form label.choice:has(input[value="audit"])'); await contactConsent("#pf-form")(p); });
 for (const pg of ["o-nas.html", "kontakty.html", "ceny.html"]) await formRun(pg, "#pf-form", async (p) => { await p.click('#pf-form label.choice:has(input[value="docs"])'); await contactConsent("#pf-form")(p); });
-await formRun("kalkulyator-sku.html", "#pf-form", contactConsent("#pf-form"));
+await formRun("analitika/kalkulyator-yunit-ekonomiki.html", "#pf-form", contactConsent("#pf-form"));
 await formRun("partneram.html", "#ptf-form", async (p) => { await p.fill("#ptf-company", "Контрактное производство"); await p.fill("#ptf-url", "example.com"); await contactConsent("#ptf-form")(p); });
 await formRun("blagotvoritelnost.html", "#pbf-form", async (p) => { await p.fill("#pbf-about", "Организация пациентов, нужны материалы для партнёров"); await contactConsent("#pbf-form")(p); });
 await formRun("dokumenty/karta-dokumentov.html", "#kf-form", async (p) => { await p.fill("#kf-product", "Магний, таблетки"); await p.fill("#kf-composition", "Магния цитрат, витамин B6"); await contactConsent("#kf-form")(p); });
@@ -277,7 +279,7 @@ for (const pg of ["dokumenty/registraciya-bad.html", "dokumenty/index.html", "do
   await ctx.close();
 }
 // предвыбор задачи и кнопки data-task
-const PRESET = { "index.html": null, "marketing.html": "promo", "prodvizhenie.html": "promo", "analitika.html": "analytics", "audit-prodazh.html": "audit", "kak-my-rabotaem.html": null, "kalkulyator-sku.html": "analytics", "kontakty.html": null };
+const PRESET = { "index.html": null, "marketing.html": "promo", "prodvizhenie.html": "promo", "analitika.html": "analytics", "audit-prodazh.html": "audit", "kak-my-rabotaem.html": null, "analitika/kalkulyator-yunit-ekonomiki.html": "analytics", "kontakty.html": null };
 {
   const { ctx, p } = await open(`${BASE}/dokumenty/karta-dokumentov.html`, VPS[0]);
   const st = await p.evaluate(() => ({ need: document.querySelector("#kf-need").value, sample: document.querySelector(".karta-sample .tag")?.textContent, file: document.querySelector('#kf-file[type="file"]') !== null }));
@@ -328,7 +330,7 @@ log("\n== Калькулятор SKU");
   log(`  parseNum: ${parse.length} случаев (запятая, пробелы, пусто, текст, минус)`);
 
   // Интерфейс: живой пересчёт, запятая, ошибки, aria-live, без сети и хранилища
-  const { ctx, p, errs, ext } = await open(`${BASE}/kalkulyator-sku.html`, VPS[2], { reducedMotion: "reduce" });
+  const { ctx, p, errs, ext } = await open(`${BASE}/analitika/kalkulyator-yunit-ekonomiki.html`, VPS[2], { reducedMotion: "reduce" });
   const reqs = [];
   p.on("request", (r) => { if (!isFont(r.url())) reqs.push(r.url()); });
   const vals = { price: "1 000", cost: "300", commission: "15", logistics: "100", returns: "10", returnCost: "50", ads: "49,5", tax: "6", packaging: "20,5" };
@@ -376,9 +378,9 @@ for (const f of ["index.html", "marketing.html", "dokumenty/registraciya-bad.htm
 
 /* 7. prefers-reduced-motion */
 log("\n== prefers-reduced-motion");
-for (const f of ["index.html", "marketing.html", "dokumenty/index.html", "dokumenty/registraciya-bad.html", "avtomatizaciya.html", "o-nas.html", "ceny.html", "kalkulyator-sku.html", "blog/etiketka-bad-do-registracii.html", "dokumenty/karta-dokumentov.html", "oferta.html"]) {
+for (const f of ["index.html", "marketing.html", "dokumenty/index.html", "dokumenty/registraciya-bad.html", "avtomatizaciya.html", "o-nas.html", "ceny.html", "analitika/kalkulyator-yunit-ekonomiki.html", "blog/etiketka-bad-do-registracii.html", "dokumenty/karta-dokumentov.html", "oferta.html"]) {
   const { ctx, p } = await open(`${BASE}/${f}`, VPS[0], { reducedMotion: "reduce" });
-  if (f === "kalkulyator-sku.html") { await p.fill("#c-price", "1000"); await p.fill("#c-cost", "300"); await p.fill("#c-commission", "15"); }
+  if (f === "analitika/kalkulyator-yunit-ekonomiki.html") { await p.fill("#c-price", "1000"); await p.fill("#c-cost", "300"); await p.fill("#c-commission", "15"); }
   const a0 = await p.evaluate(() => document.getAnimations().filter((a) => a.playState === "running").length);
   await p.evaluate(() => scrollTo(0, document.body.scrollHeight / 2)); await p.waitForTimeout(200);
   await p.locator(".faq-list summary").first().click().catch(() => {});

@@ -357,7 +357,7 @@ function hubHow() {
       <li class="reveal"><h3>Смета</h3><p>Работа, испытания, экспертиза и госпошлина — отдельными строками. Внешние расходы — по факту.</p></li>
       <li class="reveal"><h3>Сроки</h3><p>Отдельно срок рассмотрения в ведомстве и отдельно срок всего проекта. Решение ведомства не обещаем — обещаем полный и проверенный комплект.</p></li>
     </ul>
-    <div class="how-foot"><a class="btn btn-outline" href="kak-my-rabotaem.html">Подробнее о ролях и договоре</a><p class="stop-line">${esc(STOP_LINE)}</p></div>`,
+    <div class="how-foot"><a class="btn btn-outline" href="../kak-my-rabotaem.html">Подробнее о ролях и договоре</a><p class="stop-line">${esc(STOP_LINE)}</p></div>`,
   );
 }
 
