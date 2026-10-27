@@ -24,7 +24,7 @@ export function typo(html: string): string {
 export const keepLast = (s: string) => s.replace(/ ([^\s<>]{1,14})$/, "\u00a0$1");
 
 /* ---------------- Навигация ---------------- */
-export type NavKey = "docs" | "marketing" | "promo" | "analytics" | "audit" | "automation" | "how" | "home" | "prices" | "none";
+export type NavKey = "blog" | "docs" | "marketing" | "promo" | "analytics" | "audit" | "automation" | "how" | "home" | "prices" | "none";
 
 export const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: "docs", href: "dokumenty/index.html", label: "Документы" },
@@ -36,7 +36,7 @@ export const NAV: { key: NavKey; href: string; label: string }[] = [
 ];
 
 /** Шапка: направления + «Цены» (в подвале «Цены» — в группе «Клиентам», не среди направлений). */
-export const HEADER_NAV: { key: NavKey; href: string; label: string }[] = [...NAV, { key: "prices", href: "ceny.html", label: "Цены" }];
+export const HEADER_NAV: { key: NavKey; href: string; label: string }[] = [...NAV, { key: "blog", href: "blog/index.html", label: "Блог" }, { key: "prices", href: "ceny.html", label: "Цены" }];
 
 export const QUIZ_HREF = "dokumenty/index.html#quiz";
 

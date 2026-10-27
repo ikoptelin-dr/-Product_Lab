@@ -305,13 +305,14 @@ function renderIndex(): PageDoc {
   const hero = pageHero({
     crumbs: [{ name: "Proba Lab", href: "../index.html" }, { name: "Блог" }],
     h1: "Блог",
-    lead: "Статьи о документах, этикетке и продажах БАД и косметики.",
+    lead: "Статьи о документах, маркетинге и продажах БАД и косметики: регистрация и маркировка, позиционирование, исследование покупателей, экономика товара.",
     ctas: [
       { label: "Проверить состав бесплатно", href: `../${QUIZ_HREF}` },
       { label: "Калькулятор юнит-экономики", href: "../analitika/kalkulyator-yunit-ekonomiki.html" },
     ],
   });
-  const cards = ARTICLES.map(
+  // Статья ekonomika-sku-marketplejs переехала в blog/yunit-ekonomika-prostymi-slovami (тексты proba-growth/content)
+  const cards = ARTICLES.filter((a) => a.slug !== "ekonomika-sku-marketplejs").map(
     (a) => `<li class="reveal"><a class="next-card glass-light blog-card" href="${a.slug}.html">
         <span class="blog-meta"><time datetime="${PUBLISHED.iso}">${PUBLISHED.text}</time> · ${AUTHOR.name}</span>
         <span class="next-label blog-card-title">${esc(a.h1)}</span>
@@ -323,7 +324,7 @@ function renderIndex(): PageDoc {
     path: "blog/index.html",
     title: "Блог Proba Lab — документы, этикетка и продажи БАД и косметики",
     description: "Статьи Proba Lab о документах, этикетке и продажах БАД и косметики: регистрация, декларации, экономика товара на маркетплейсе.",
-    nav: "none",
+    nav: "blog",
     ld: [
       breadcrumbLd([
         { name: "Proba Lab", path: "index.html" },
@@ -341,7 +342,7 @@ function renderIndex(): PageDoc {
 <div class="light">
 <section class="section" aria-labelledby="posts-title">
   <div class="container">
-    <h2 id="posts-title" class="visually-hidden">Статьи</h2>
+    <h2 id="posts-title" class="next-title">Ещё о документах</h2>
     <ul class="blog-list">${cards}</ul>
   </div>
 </section>

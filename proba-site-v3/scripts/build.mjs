@@ -196,10 +196,17 @@ for (const [hub, list] of hubLinks) {
   const fresh = list.filter((c) => !f.html.includes(`href="${rel(c.file)}"`));
   if (!fresh.length) continue;
   const isBlog = hub === "blog/index.html";
-  const cards = fresh
-    .map((c) => `<li class="reveal"><a class="next-card glass-light${isBlog ? " blog-card" : ""}" href="${rel(c.file)}"><span class="next-label${isBlog ? " blog-card-title" : ""}">${escH(c.h1)}</span><span class="next-text">${escH(c.description)}</span><span class="arrow" aria-hidden="true"></span></a></li>`)
-    .join("");
-  const block = `<section class="section next" aria-labelledby="more-title"><div class="container"><h2 id="more-title" class="next-title">${isBlog ? "Новые статьи" : "Все услуги направления"}</h2><ul class="${isBlog ? "blog-list" : "next-grid"}">${cards}</ul></div></section>\n`;
+  const card = (c) => `<li class="reveal"><a class="next-card glass-light${isBlog ? " blog-card" : ""}" href="${rel(c.file)}"><span class="next-label${isBlog ? " blog-card-title" : ""}">${escH(c.h1)}</span><span class="next-text">${escH(c.description)}</span><span class="arrow" aria-hidden="true"></span></a></li>`;
+  if (isBlog) {
+    // Блог: статьи по темам сразу после первого экрана
+    const reg = (c) => /^(0\d|1[0-1])\b/.test(c.cluster);
+    const groups = [["Маркетинг и продажи", fresh.filter((c) => !reg(c))], ["Документы и требования", fresh.filter(reg)]].filter(([, l]) => l.length);
+    const blockB = groups.map(([t, l], i) => `<section class="section" aria-labelledby="bg${i}-title"><div class="container"><h2 id="bg${i}-title" class="next-title">${t}</h2><ul class="blog-list">${l.map(card).join("")}</ul></div></section>`).join("\n");
+    f.html = f.html.replace('<div class="light">', `<div class="light">\n${blockB}`);
+    continue;
+  }
+  const cards = fresh.map(card).join("");
+  const block = `<section class="section next" aria-labelledby="more-title"><div class="container"><h2 id="more-title" class="next-title">Все услуги направления</h2><ul class="next-grid">${cards}</ul></div></section>\n`;
   const at = f.html.indexOf('<section id="project-form"');
   f.html = at > 0 ? f.html.slice(0, at) + block + f.html.slice(at) : f.html.replace("</main>", `${block}</main>`);
 }

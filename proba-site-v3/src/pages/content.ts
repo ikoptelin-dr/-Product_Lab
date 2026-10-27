@@ -45,7 +45,7 @@ const HUBS: Record<string, { name: string; file: string; nav: NavKey }> = {
   prodvizhenie: { name: "Продвижение", file: "prodvizhenie.html", nav: "promo" },
   analitika: { name: "Аналитика", file: "analitika.html", nav: "analytics" },
   avtomatizaciya: { name: "Автоматизация", file: "avtomatizaciya.html", nav: "automation" },
-  blog: { name: "Блог", file: "blog/index.html", nav: "none" },
+  blog: { name: "Блог", file: "blog/index.html", nav: "blog" },
 };
 
 /** Задача формы из текста («Документы и регистрация», «Маркетинг»…) → id из TASKS. */
