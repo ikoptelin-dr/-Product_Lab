@@ -78,6 +78,26 @@ export const SOURCES = {
     label: "R §6 «Отношение площадок» — [Наблюдение — по выдаче, первоисточник seller.ozon.ru]",
     status: CHECK,
   },
+  "sgr-registry": {
+    url: "https://nsi.eaeunion.org/portal/1995 (не подтверждено) ; раздел реестров на rospotrebnadzor.ru",
+    label: "R §1 «Где проверить» — [Наблюдение — по выдаче]; точные URL реестров не подтверждены, ссылки на сайт не ставим до сверки",
+    status: CHECK,
+  },
+  "sgr-scope": {
+    url: "https://legalacts.ru/doc/pismo-rospotrebnadzora-ot-01072013-n-017420-13-32-o/",
+    label: "R §3 «Что это» (специализированная пищевая продукция и продукция нового вида; письмо Роспотребнадзора № 01/7420-13-32) — [Наблюдение — по выдаче]",
+    status: CHECK,
+  },
+  "prof-visit": {
+    url: "https://www.advgazeta.ru/ag-expert/advices/moratoriy-na-proverki-prodlili-do-2030-goda/ ; https://buh.ru/news/pravitelstvo-prodlilo-ograniceniya-na-planovye-proverki-biznesa-do-2030-goda.html",
+    label: "P §5 «Режим проверок в 2026 году» (профилактические визиты по поручению Президента или Правительства) — [Наблюдение, по выдаче]",
+    status: CHECK,
+  },
+  tr005: {
+    url: "https://www.ifcg.ru/news/2024-09-17/izmenen-tehniceskij-reglament-o-bezopasnosti-upakovki-tr-ts-0052011/",
+    label: "R §4 «ТР ТС 005/2011 — упаковка» (Решение Совета ЕЭК № 61 от 06.09.2024, с 05.03.2025) — [Наблюдение — по выдаче: ifcg.ru]",
+    status: CHECK,
+  },
   "otkaz-mp": {
     url: "uniseller.io",
     label: "R §6 «Отношение площадок» (отклонение письма: коды ТН ВЭД, ссылки на пункты регламентов) — [Наблюдение — по выдаче: uniseller.io]",
