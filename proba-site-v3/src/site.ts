@@ -12,6 +12,51 @@ const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const EASE = "cubic-bezier(.2,.8,.2,1)";
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+/* ---------------- Яндекс Метрика — только после согласия на cookie ---------------- */
+// Номер счётчика задаётся при сборке (YM_ID → <meta name="proba-ym">). Без согласия счётчик не загружается.
+const CONSENT_COOKIE = "proba_cookie";
+const ymId = () => document.querySelector<HTMLMetaElement>('meta[name="proba-ym"]')?.content || "";
+type Ym = ((id: number, ...a: unknown[]) => void) & { a?: unknown[][]; l?: number };
+function loadMetrika() {
+  const id = Number(ymId());
+  if (!id) return;
+  const w = window as unknown as { ym?: Ym };
+  if (w.ym) return;
+  const ym = ((...a: unknown[]) => { (ym.a = ym.a || []).push(a); }) as unknown as Ym;
+  ym.l = Date.now();
+  w.ym = ym;
+  const sc = document.createElement("script");
+  sc.async = true;
+  sc.src = "https://mc.yandex.ru/metrika/tag.js";
+  document.head.append(sc);
+  ym(id, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
+}
+function goal(name: string) {
+  const w = window as unknown as { ym?: Ym };
+  const id = Number(ymId());
+  if (id && w.ym) w.ym(id, "reachGoal", name);
+}
+function cookieBar() {
+  if (!ymId()) return;
+  const v = document.cookie.match(new RegExp(`(?:^|; )${CONSENT_COOKIE}=([^;]*)`))?.[1];
+  if (v === "yes") return loadMetrika();
+  if (v === "no") return;
+  const base = (document.querySelector<HTMLAnchorElement>(".brand")?.getAttribute("href") || "index.html").replace(/index\.html$/, "");
+  const bar = document.createElement("div");
+  bar.className = "cookie-bar glass-light";
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "Cookie");
+  bar.innerHTML = `<p>Мы используем cookie и Яндекс Метрику, чтобы понимать, какие страницы полезны. Подробнее — в <a href="${base}politika-pd.html">политике обработки данных</a>.</p><div class="cookie-actions"><button type="button" class="btn btn-primary btn-sm" data-c="yes">Принять</button><button type="button" class="btn btn-outline btn-sm" data-c="no">Отказаться</button></div>`;
+  bar.addEventListener("click", (e) => {
+    const c = (e.target as HTMLElement).closest<HTMLElement>("[data-c]")?.dataset.c;
+    if (!c) return;
+    document.cookie = `${CONSENT_COOKIE}=${c}; max-age=${60 * 60 * 24 * 365}; path=/; SameSite=Lax`;
+    bar.remove();
+    if (c === "yes") loadMetrika();
+  });
+  document.body.append(bar);
+}
+
 /* ---------------- Новая страница открывается сверху ---------------- */
 // При переходе по ссылке страница начинается с первого экрана, а не с места, где был подвал предыдущей
 // (некоторые браузеры и окна предпросмотра сохраняют прокрутку). «Назад/вперёд» и ссылки с #якорем не трогаем.
@@ -292,9 +337,26 @@ function forms() {
         $<HTMLElement>(`[name="${errors[0]!.name}"]`, form)?.focus();
         return;
       }
-      // Прототип: данные никуда не отправляются и не сохраняются.
+      goal(`form_${kind}`);
+      const endpoint = document.querySelector<HTMLMetaElement>('meta[name="proba-form-endpoint"]')?.content;
+      if (!endpoint) {
+        // Прототип: адрес приёма заявок не задан при сборке — данные никуда не отправляются.
+        status.className = "form-status is-filled";
+        status.textContent = "Форма заполнена. Отправка пока не подключена.";
+        return;
+      }
+      // Обычная отправка формы (без fetch): сервер приёма заявок отвечает переадресацией на spasibo.html
+      for (const [n, v] of [["page", location.pathname], ["form", kind]] as const) {
+        const h = document.createElement("input");
+        h.type = "hidden"; h.name = n; h.value = v;
+        form.append(h);
+      }
+      form.action = endpoint;
+      form.method = "post";
+      if (form.querySelector('input[type="file"]')) form.enctype = "multipart/form-data";
       status.className = "form-status is-filled";
-      status.textContent = "Форма заполнена. Отправка пока не подключена.";
+      status.textContent = "Отправляем…";
+      HTMLFormElement.prototype.submit.call(form);
     });
   }
 }
@@ -451,6 +513,7 @@ function stepsMotion() {
 
 function init() {
   startAtTop();
+  cookieBar();
   header();
   smoothDetails();
   projectForm();

@@ -841,3 +841,35 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
 
 /* Статьи: длинные заголовки — кнопка первого экрана видна на телефоне */
 @media (max-width: 640px) { .page-article .h1-page { font-size: clamp(1.75rem, 1.2rem + 3vw, 2.25rem); } .page-article .hero-lead { font-size: 1rem; } }
+
+/* Согласие на cookie (появляется, только если при сборке задан YM_ID) */
+.cookie-bar { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 60; max-width: 720px; margin: 0 auto; padding: 16px 18px; display: flex; gap: 12px 18px; align-items: center; flex-wrap: wrap; border-radius: var(--radius-sm, 14px); box-shadow: 0 10px 30px rgba(0,0,0,.18); font-size: .9375rem; }
+.cookie-bar p { flex: 1 1 320px; margin: 0; color: var(--z800, #27272a); }
+.cookie-bar a { color: var(--emerald-ink, #047857); text-decoration: underline; }
+.cookie-actions { display: flex; gap: 8px; }
+
+/* Схемы первого экрана (src/visuals.ts) */
+.hero-visual { margin: 0; align-self: center; padding: clamp(16px, 2.5vw, 28px); border-radius: var(--radius, 20px); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); backdrop-filter: blur(8px); }
+.hero-visual svg { display: block; width: 100%; height: auto; }
+.pv-caption { margin-top: 10px; color: var(--z300, #d4d4d8); font-size: .875rem; text-align: center; }
+.pv-track, .pl-track { fill: none; stroke: rgba(255,255,255,.14); stroke-width: 2; }
+.pv-line, .pl-line { fill: none; stroke: var(--emerald, #34d399); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; animation: pv-draw 2.4s cubic-bezier(.2,.8,.2,1) .2s forwards; }
+.pl-line-2 { animation-delay: .45s; }
+.pv-dot { fill: #0b0b0c; stroke: var(--emerald, #34d399); stroke-width: 2.5; opacity: .35; animation: pv-on .5s ease forwards; animation-delay: calc(var(--d, 0s) + .3s); }
+.pl-launch .pv-dot { animation-delay: 2.4s; }
+.pv-ring { fill: none; stroke: var(--emerald, #34d399); stroke-width: 1.5; opacity: 0; transform-box: fill-box; transform-origin: center; animation: pv-ring 2.8s ease-out infinite; animation-delay: calc(var(--d, 0s) + .8s); }
+.pv-label, .pl-label { fill: #e4e4e7; font: 500 13px/1 Inter, system-ui, sans-serif; }
+.pl-lane { fill: #a1a1aa; font: 500 11px/1 Inter, system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.pl-pill { fill: #151517; stroke: rgba(255,255,255,.16); }
+.pl-node { opacity: .25; animation: pv-on .6s ease forwards; animation-delay: calc(var(--d, 0s) + .3s); }
+.pl-sales .pl-pill { stroke: rgba(52,211,153,.55); }
+.pl-launch-label { fill: var(--emerald, #34d399); font-weight: 600; }
+@keyframes pv-draw { to { stroke-dashoffset: 0; } }
+@keyframes pv-on { to { opacity: 1; } }
+@keyframes pv-ring { 0% { opacity: .55; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.9); } }
+@media (prefers-reduced-motion: reduce) {
+  .pv-line, .pl-line { animation: none; stroke-dashoffset: 0; }
+  .pv-dot, .pl-node { animation: none; opacity: 1; }
+  .pv-ring { animation: none; }
+}
+@media (max-width: 900px) { .hero-visual { margin-top: 28px; } }

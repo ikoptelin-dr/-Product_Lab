@@ -159,7 +159,7 @@ for (const fpath of walk(CONTENT_DIR).sort()) {
 }
 
 // 1. Страницы: TypeScript-шаблоны → модуль в памяти
-const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent", define: { __ASSET_V__: JSON.stringify(ASSET_V), __SITE_URL__: JSON.stringify(SITE_URL) } });
+const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent", define: { __ASSET_V__: JSON.stringify(ASSET_V), __SITE_URL__: JSON.stringify(SITE_URL), __FORM_ENDPOINT__: JSON.stringify(process.env.FORM_ENDPOINT || ""), __YM_ID__: JSON.stringify((process.env.YM_ID || "").replace(/\D/g, "")) } });
 const mod = await import(`data:text/javascript;base64,${Buffer.from(pagesJs.outputFiles[0].text).toString("base64")}`);
 const { files, facts, warnings, sources, moved } = mod.renderSite(legal, content);
 
@@ -197,7 +197,7 @@ for (const [hub, list] of hubLinks) {
     continue;
   }
   const cards = fresh.map(card).join("");
-  const block = `<section class="section next" aria-labelledby="more-title"><div class="container"><h2 id="more-title" class="next-title">Все услуги направления</h2><ul class="next-grid">${cards}</ul></div></section>\n`;
+  const block = `<section class="section next" aria-labelledby="more-title"><div class="container"><h2 id="more-title" class="next-title">${hub === "kejsy.html" ? "Демо-кейсы" : "Все услуги направления"}</h2><ul class="next-grid">${cards}</ul></div></section>\n`;
   // Внутрь светлой части: перед формой, иначе перед концом .light
   const formAt = ['<section id="project-form"', '<section id="form"', '<section id="af-'].map((m) => f.html.indexOf(m)).filter((i) => i > 0);
   const at = formAt.length ? Math.min(...formAt) : f.html.lastIndexOf("</div>\n</main>");

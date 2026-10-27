@@ -6,6 +6,11 @@ import { SITE_URL } from "./regulatory/config";
 /** Версия ассетов для сброса кеша (подставляет scripts/build.mjs: хеш site.css + site.js). */
 declare const __ASSET_V__: string;
 const ASSET_V = typeof __ASSET_V__ === "string" ? __ASSET_V__ : "dev";
+/** Приём заявок и Яндекс Метрика — задаются при сборке (FORM_ENDPOINT, YM_ID). Пусто — формы в режиме прототипа, счётчика нет. */
+declare const __FORM_ENDPOINT__: string;
+declare const __YM_ID__: string;
+const FORM_ENDPOINT = typeof __FORM_ENDPOINT__ === "string" ? __FORM_ENDPOINT__ : "";
+const YM_ID = typeof __YM_ID__ === "string" ? __YM_ID__ : "";
 
 /* ---------------- Текст ---------------- */
 export const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -28,7 +33,7 @@ export function typo(html: string): string {
 export const keepLast = (s: string) => s.replace(/ ([^\s<>]{1,14})$/, "\u00a0$1");
 
 /* ---------------- Навигация ---------------- */
-export type NavKey = "blog" | "docs" | "marketing" | "promo" | "analytics" | "audit" | "automation" | "how" | "home" | "prices" | "none";
+export type NavKey = "cases" | "blog" | "docs" | "marketing" | "promo" | "analytics" | "audit" | "automation" | "how" | "home" | "prices" | "none";
 
 export const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: "docs", href: "dokumenty/index.html", label: "Документы" },
@@ -40,7 +45,16 @@ export const NAV: { key: NavKey; href: string; label: string }[] = [
 ];
 
 /** Шапка: направления + «Цены» (в подвале «Цены» — в группе «Клиентам», не среди направлений). */
-export const HEADER_NAV: { key: NavKey; href: string; label: string }[] = [...NAV, { key: "blog", href: "blog/index.html", label: "Блог" }, { key: "prices", href: "ceny.html", label: "Цены" }];
+/** Шапка — фокус на запуске продукта (стратегия правок 2026-10-27): документы, маркетинг, аналитика, кейсы, блог, цены.
+ *  Продвижение, аудит продаж и автоматизация — в подвале («Направления») и в хабах, не в шапке. */
+export const HEADER_NAV: { key: NavKey; href: string; label: string }[] = [
+  { key: "docs", href: "dokumenty/index.html", label: "Документы" },
+  { key: "marketing", href: "marketing.html", label: "Маркетинг" },
+  { key: "analytics", href: "analitika.html", label: "Аналитика" },
+  { key: "cases", href: "kejsy.html", label: "Кейсы" },
+  { key: "blog", href: "blog/index.html", label: "Блог" },
+  { key: "prices", href: "ceny.html", label: "Цены" },
+];
 
 export const QUIZ_HREF = "dokumenty/index.html#quiz";
 
@@ -222,7 +236,7 @@ export function renderDoc(p: PageDoc): string {
 <meta property="og:site_name" content="Proba Lab">
 <meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}">${canonical}
-<link rel="icon" type="image/png" href="${base}assets/emblem-ink.png">
+<link rel="icon" type="image/png" href="${base}assets/emblem-ink.png">${FORM_ENDPOINT ? `\n<meta name="proba-form-endpoint" content="${esc(FORM_ENDPOINT)}">` : ""}${YM_ID ? `\n<meta name="proba-ym" content="${esc(YM_ID)}">` : ""}
 <link rel="preload" href="${base}assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${base}assets/site.css?v=${ASSET_V}">
 ${ld}

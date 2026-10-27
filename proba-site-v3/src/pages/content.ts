@@ -7,6 +7,7 @@ import { breadcrumbLd, companyLd, esc, faqLd, keepLast, pageHero, serviceLd, typ
 import { factText } from "../regulatory/render";
 import { AUTHOR, PUBLISHED } from "./blog";
 import { calcSection } from "./tools";
+import { parallelVisual, pathVisual } from "../visuals";
 
 export type Token =
   | { type: "fact"; raw: string }
@@ -48,6 +49,7 @@ const HUBS: Record<string, { name: string; file: string; nav: NavKey }> = {
   analitika: { name: "Аналитика", file: "analitika.html", nav: "analytics" },
   avtomatizaciya: { name: "Автоматизация", file: "avtomatizaciya.html", nav: "automation" },
   blog: { name: "Блог", file: "blog/index.html", nav: "blog" },
+  kejsy: { name: "Кейсы", file: "kejsy.html", nav: "cases" },
 };
 
 /** Задача формы из текста («Документы и регистрация», «Маркетинг»…) → id из TASKS. */
@@ -125,6 +127,7 @@ export function renderContent(p: ContentPage): PageDoc {
     h1: esc(p.h1),
     lead: tok(p.lead),
     ctas: ctas.map((c) => ({ label: esc(c.label), href: esc(c.href) })),
+    aside: isHome ? pathVisual() : p.url === "marketing/upakovka-do-registracii/" ? parallelVisual() : undefined,
     extra: [p.price ? `<p class="hero-price">${tok(p.price)}</p>` : "", isArticle ? `<p class="byline"><span>${esc(p.author ?? `${AUTHOR.name}, ${AUTHOR.role}`)}</span><span aria-hidden="true"> · </span><time datetime="${PUBLISHED.iso}">${PUBLISHED.text}</time></p>` : ""].join(""),
   }).replace(/<nav class="crumbs"[^]*?<\/nav>/, isHome ? "" : "$&");
 
@@ -157,7 +160,7 @@ export function renderContent(p: ContentPage): PageDoc {
     path: p.file,
     title: p.title,
     description: p.description,
-    nav: isHome ? "home" : (hub?.nav ?? (p.url.startsWith("kak-my-rabotaem") ? "how" : "none")),
+    nav: isHome ? "home" : p.url.startsWith("kejsy") ? "cases" : (hub?.nav ?? (p.url.startsWith("kak-my-rabotaem") ? "how" : "none")),
     ld,
     body: `${heroHtml}\n<div class="light">\n${body}\n</div>`,
     bodyClass: isHome ? "page page-home" : isArticle ? "page page-article" : undefined,

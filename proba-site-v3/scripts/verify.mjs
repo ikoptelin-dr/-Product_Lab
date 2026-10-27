@@ -131,7 +131,7 @@ for (const [f, m] of Object.entries(meta)) {
   ok(m.headings[0] === "H1" && !jump, `${f}: порядок заголовков ${m.headings.join(",")}`, "a11y");
   ok(m.unlabeled.length === 0, `${f}: поля без подписи ${m.unlabeled}`, "a11y");
   ok(m.skip && m.live, `${f}: skip-link / aria-live`, "a11y");
-  ok(m.quizCta && m.nav.join("·") === "Документы·Маркетинг·Продвижение·Аналитика·Аудит продаж·Автоматизация·Блог·Цены", `${f}: меню ${m.nav}`, "meta");
+  ok(m.quizCta && m.nav.join("·") === "Документы·Маркетинг·Аналитика·Кейсы·Блог·Цены", `${f}: меню ${m.nav}`, "meta");
   for (const c of m.consent) ok(c.input && c.text === CONSENT_TEXT && c.linkText === "обработку персональных данных" && c.href === "/soglasie-pd.html" && !c.target, `${f}: согласие в форме ${JSON.stringify(c)}`, "consent");
   ok(m.footer.company.join("·") === "О нас·Контакты·Партнёрам·Благотворительность·Новости·Блог" && m.footer.clients.join("·") === "Цены·Оплата·Публичная оферта·Политика обработки ПДн·Правовая информация" && m.footer.legal === "ИП Коптелин Илья Алексеевич · ИНН 540821689171 · ОГРНИП 326547600096728" && m.footer.tel && m.footer.mail, `${f}: подвал ${JSON.stringify(m.footer)}`, "footer");
   log(`  ${f.padEnd(32)} title ${String(m.title.length).padStart(2)} · desc ${String(m.desc.length).padStart(3)} · LD ${types.join("+")}`);
