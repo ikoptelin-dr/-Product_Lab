@@ -12,6 +12,22 @@ const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const EASE = "cubic-bezier(.2,.8,.2,1)";
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+/* ---------------- Новая страница открывается сверху ---------------- */
+// При переходе по ссылке страница начинается с первого экрана, а не с места, где был подвал предыдущей
+// (некоторые браузеры и окна предпросмотра сохраняют прокрутку). «Назад/вперёд» и ссылки с #якорем не трогаем.
+function startAtTop() {
+  const nav = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+  if (location.hash || nav?.type === "back_forward") return;
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const top = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+    // Если страница встроена в окно предпросмотра, прокрутить и его — к началу страницы
+    document.documentElement.scrollIntoView({ block: "start", behavior: "instant" as ScrollBehavior });
+  };
+  top();
+  addEventListener("load", top, { once: true });
+}
+
 /* ---------------- Шапка и мобильное меню ---------------- */
 function header() {
   const h = $(".site-header")!;
@@ -434,6 +450,7 @@ function stepsMotion() {
 }
 
 function init() {
+  startAtTop();
   header();
   smoothDetails();
   projectForm();
