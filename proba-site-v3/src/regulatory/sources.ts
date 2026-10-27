@@ -68,6 +68,21 @@ export const SOURCES = {
     label: "R §1 — [Наблюдение — по выдаче]",
     status: CHECK,
   },
+  otkaz: {
+    url: "uniseller.io ; skillbox.ru (по выдаче, официального статуса в НПА не найдено)",
+    label: "R §6 «Что это» — [Наблюдение — по выдаче: uniseller.io, skillbox.ru]; «не подходит для БАД и большинства косметики» — [Рекомендация на основе разделов 1–4]",
+    status: CHECK,
+  },
+  "otkaz-ozon": {
+    url: "seller.ozon.ru (первоисточник по выдаче)",
+    label: "R §6 «Отношение площадок» — [Наблюдение — по выдаче, первоисточник seller.ozon.ru]",
+    status: CHECK,
+  },
+  "otkaz-mp": {
+    url: "uniseller.io",
+    label: "R §6 «Отношение площадок» (отклонение письма: коды ТН ВЭД, ссылки на пункты регламентов) — [Наблюдение — по выдаче: uniseller.io]",
+    status: CHECK,
+  },
   "voluntary-cert": {
     url: "https://markirovka.ru/knowledge/tovarnye-gruppy/badi/podlezhat-li-bad-sertifikatsii-dolzhny-li-bad-imet-sgr",
     label: "R §5 «Добровольная сертификация» — [Наблюдение — по выдаче: markirovka.ru, cleverence]",
