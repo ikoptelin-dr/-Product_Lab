@@ -8,6 +8,9 @@ import { factText } from "../regulatory/render";
 import { AUTHOR, PUBLISHED } from "./blog";
 import { calcSection } from "./tools";
 import { parallelVisual, pathVisual } from "../visuals";
+import { enhance, gradH1, inline } from "../blocks";
+import { bento, marquee } from "../home";
+import { reelSection } from "../showreel";
 
 export type Token =
   | { type: "fact"; raw: string }
@@ -52,6 +55,16 @@ const HUBS: Record<string, { name: string; file: string; nav: NavKey }> = {
   kejsy: { name: "Кейсы", file: "kejsy.html", nav: "cases" },
 };
 
+/** Цвет направления (v4): документы — изумруд, маркетинг — фиолетовый, аналитика — голубой. */
+const DIR: Record<string, string> = { dokumenty: "docs", marketing: "mkt", prodvizhenie: "mkt", kejsy: "mkt", analitika: "ana", avtomatizaciya: "ana" };
+
+/** Шоурил (src/showreel.ts) — на главной и на страницах 3D и видео. */
+const REEL: Record<string, { title: string; lead: string }> = {
+  "": { title: "Путь продукта <span class=\"grad\">за 15 секунд</span>", lead: "Так выглядит наш моушн-дизайн: от состава до карточки и продаж. Тот же подход — для вашей упаковки и карточек." },
+  "marketing/3d-vizualizaciya-upakovki/": { title: "Моушн и 3D — <span class=\"grad\">в деле</span>", lead: "Ролик собран кодом: так же оживляем вашу упаковку для карточки, сайта и соцсетей." },
+  "marketing/video-dlya-kartochek/": { title: "Как это может <span class=\"grad\">двигаться</span>", lead: "15 секунд — от состава до продаж. Видео для карточки строим так же: коротко, по сценам, без съёмочного дня." },
+};
+
 /** Задача формы из текста («Документы и регистрация», «Маркетинг»…) → id из TASKS. */
 function taskId(label: string): string {
   const l = label.toLowerCase();
@@ -89,7 +102,7 @@ export function renderContent(p: ContentPage): PageDoc {
   <div class="container faq-grid">
     <h2 id="faq-title" class="h2 reveal">Вопросы</h2>
     <div class="faq-list">
-      ${t.items.map((x) => `<details><summary>${tok(x.q)}</summary><div class="details-body">${tok(x.a)}</div></details>`).join("\n      ")}
+      ${t.items.map((x) => `<details><summary>${tok(inline(x.q))}</summary><div class="details-body">${tok(inline(x.a))}</div></details>`).join("\n      ")}
     </div>
   </div>
 </section><section class="section"><div class="container"><div class="prose">`;
@@ -121,20 +134,24 @@ export function renderContent(p: ContentPage): PageDoc {
         : isArticle
           ? [{ label: hub ? `Все статьи` : "На главную", href: base + (hub?.file ?? "index.html") }]
           : [{ label: "Обсудить задачу", href: "#project-form" }];
+  const { html: bodyHtml, toc } = enhance(p.html, { article: isArticle });
+  const words = p.html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const readMin = Math.max(2, Math.round(words / 170));
   const heroHtml = pageHero({
     crumbs,
     eyebrow: isArticle ? "Блог" : p.type === "case" ? "Демо-проект · бренд вымышленный" : undefined,
-    h1: esc(p.h1),
-    lead: tok(p.lead),
+    h1: gradH1(esc(p.h1)),
+    lead: tok(inline(p.lead)),
     ctas: ctas.map((c) => ({ label: esc(c.label), href: esc(c.href) })),
     aside: isHome ? pathVisual() : p.url === "marketing/upakovka-do-registracii/" ? parallelVisual() : undefined,
-    extra: [p.price ? `<p class="hero-price">${tok(p.price)}</p>` : "", isArticle ? `<p class="byline"><span>${esc(p.author ?? `${AUTHOR.name}, ${AUTHOR.role}`)}</span><span aria-hidden="true"> · </span><time datetime="${PUBLISHED.iso}">${PUBLISHED.text}</time></p>` : ""].join(""),
+    extra: [p.price ? `<p class="hero-price">${tok(p.price)}</p>` : "", isArticle ? `<p class="byline"><span>${esc(p.author ?? `${AUTHOR.name}, ${AUTHOR.role}`)}</span><span aria-hidden="true"> · </span><time datetime="${PUBLISHED.iso}">${PUBLISHED.text}</time><span aria-hidden="true"> · </span><span>${readMin} мин чтения</span></p>` : ""].join(""),
   }).replace(/<nav class="crumbs"[^]*?<\/nav>/, isHome ? "" : "$&");
 
-  let body = `<section class="section"><div class="container"><div class="prose">${tok(p.html)}</div></div></section>`;
+  const tocHtml = isArticle && toc.length >= 3 ? `<nav class="toc" aria-label="Содержание статьи"><p class="toc-t">В статье</p><ol>${toc.filter((x) => !/^(Вопросы|Коротко)/.test(x.t)).map((x) => `<li><a href="#${x.id}">${esc(x.t)}</a></li>`).join("")}</ol></nav>` : "";
+  let body = `${isArticle ? '<div class="read-progress" aria-hidden="true"><span></span></div>' : ""}<section class="section${isArticle ? " article-body" : " blk-intro"}"><div class="container"><div class="prose">${tocHtml}${tok(bodyHtml)}</div></div></section>`;
   if (!formUsed && !isArticle) body += projectSection("", { base });
   // Пустые секции, оставшиеся после вставки блоков
-  body = body.replace(/<section class="section"><div class="container"><div class="prose">\s*<\/div><\/div><\/section>/g, "");
+  body = body.replace(/<section class="section[^"]*"(?: aria-labelledby="[^"]*")?><div class="container"><div class="prose[^"]*">\s*<\/div><\/div><\/section>/g, "");
 
   const pathLd = [{ name: "Proba Lab", path: "index.html" }, ...(hub ? [{ name: hub.name, path: hub.file }] : []), { name: p.h1, path: p.file }];
   const ld: object[] = isHome
@@ -162,7 +179,7 @@ export function renderContent(p: ContentPage): PageDoc {
     description: p.description,
     nav: isHome ? "home" : p.url.startsWith("kejsy") ? "cases" : (hub?.nav ?? (p.url.startsWith("kak-my-rabotaem") ? "how" : "none")),
     ld,
-    body: `${heroHtml}\n<div class="light">\n${body}\n</div>`,
-    bodyClass: isHome ? "page page-home" : isArticle ? "page page-article" : undefined,
+    body: `${heroHtml}\n${isHome ? marquee() : ""}${REEL[p.url] ? reelSection(REEL[p.url]!) : ""}\n<div class="light">\n${isHome ? bento(base) : ""}${body}\n</div>`,
+    bodyClass: `page ${isHome ? "page-home" : isArticle ? "page-article" : "page-service"} dir-${DIR[top] ?? "docs"}`,
   };
 }

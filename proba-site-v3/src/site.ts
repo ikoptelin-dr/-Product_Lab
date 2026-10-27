@@ -488,7 +488,9 @@ function reveal() {
         if (!en.isIntersecting) continue;
         io.unobserve(en.target);
         if (en.boundingClientRect.top < innerHeight) continue;
-        (en.target as HTMLElement).animate([{ opacity: 0, transform: "translateY(14px)" }, { opacity: 1, transform: "none" }], { duration: 560, easing: EASE });
+        const el = en.target as HTMLElement;
+        const i = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.animate([{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "none" }], { duration: 600, delay: Math.min(i, 6) * 70, easing: EASE, fill: "backwards" });
       }
     },
     { rootMargin: "0px 0px 30% 0px" },
@@ -511,6 +513,47 @@ function stepsMotion() {
   io.observe(list);
 }
 
+/** Шоурил: играет, только когда виден; кнопка паузы. */
+function reels() {
+  for (const fig of $$("[data-reel]")) {
+    const btn = $("[data-reel-toggle]", fig);
+    const label = $("[data-reel-label]", fig);
+    btn?.addEventListener("click", () => {
+      const paused = fig.classList.toggle("is-paused");
+      btn.setAttribute("aria-pressed", String(paused));
+      if (label) label.textContent = paused ? "Смотреть" : "Пауза";
+    });
+    if ("IntersectionObserver" in window) new IntersectionObserver(([en]) => fig.classList.toggle("is-off", !en?.isIntersecting), { threshold: 0.15 }).observe(fig);
+  }
+}
+
+/** Прогресс чтения статьи. */
+function readProgress() {
+  const bar = $(".read-progress");
+  const body = $(".article-body");
+  if (!bar || !body) return;
+  let raf = 0;
+  const upd = () => {
+    raf = 0;
+    const r = body.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+    bar.style.setProperty("--p", p.toFixed(3));
+  };
+  addEventListener("scroll", () => (raf ||= requestAnimationFrame(upd)), { passive: true });
+  upd();
+}
+
+/** Стеклянные фигуры первого экрана слегка следуют за мышью. */
+function ambientParallax() {
+  if (reduced() || !matchMedia("(pointer: fine)").matches) return;
+  const shapes = $$(".page-hero .ambient b");
+  if (!shapes.length) return;
+  addEventListener("pointermove", (e) => {
+    const x = e.clientX / innerWidth - 0.5, y = e.clientY / innerHeight - 0.5;
+    shapes.forEach((s, i) => { const k = (i + 1) * 14; s.style.setProperty("--mx", `${(-x * k).toFixed(1)}px`); s.style.setProperty("--my", `${(-y * k).toFixed(1)}px`); });
+  }, { passive: true });
+}
+
 function init() {
   startAtTop();
   cookieBar();
@@ -525,5 +568,8 @@ function init() {
   heroMotion();
   reveal();
   stepsMotion();
+  reels();
+  readProgress();
+  ambientParallax();
 }
 document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", init) : init();

@@ -8,7 +8,7 @@ import { copyFileSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, w
 import { dirname, join, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
-const dist = join(root, "dist");
+const dist = process.env.DIST ? resolve(process.env.DIST) : join(root, "dist"); // DIST=… — сборка в другую папку (проверка текстов агентами)
 const read = (p) => readFileSync(join(root, p), "utf8");
 
 /** Базовый адрес сайта для sitemap.xml. TODO: домен не выбран — заменить перед публикацией (см. README). */
@@ -158,8 +158,14 @@ for (const fpath of walk(CONTENT_DIR).sort()) {
   });
 }
 
+// Изображения и видеопетли в assets/images (их может ещё не быть — тогда заглушки)
+const IMG_DIR = join(root, "assets/images");
+const imgFiles = (() => { try { return readdirSync(IMG_DIR); } catch { return []; } })();
+const IMAGES = imgFiles.filter((n) => /\.(webp|avif|png|jpe?g)$/i.test(n));
+const VIDEOS = imgFiles.filter((n) => /\.(mp4|webm)$/i.test(n));
+
 // 1. Страницы: TypeScript-шаблоны → модуль в памяти
-const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent", define: { __ASSET_V__: JSON.stringify(ASSET_V), __SITE_URL__: JSON.stringify(SITE_URL), __FORM_ENDPOINT__: JSON.stringify(process.env.FORM_ENDPOINT || ""), __YM_ID__: JSON.stringify((process.env.YM_ID || "").replace(/\D/g, "")) } });
+const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent", define: { __ASSET_V__: JSON.stringify(ASSET_V), __SITE_URL__: JSON.stringify(SITE_URL), __FORM_ENDPOINT__: JSON.stringify(process.env.FORM_ENDPOINT || ""), __YM_ID__: JSON.stringify((process.env.YM_ID || "").replace(/\D/g, "")), __IMAGES__: JSON.stringify([...IMAGES, ...VIDEOS]) } });
 const mod = await import(`data:text/javascript;base64,${Buffer.from(pagesJs.outputFiles[0].text).toString("base64")}`);
 const { files, facts, warnings, sources, moved } = mod.renderSite(legal, content);
 
@@ -280,6 +286,10 @@ const jsText = js.outputFiles[0].text;
 if (/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage|indexedDB/.test(jsText)) throw new Error("site.js: сетевые запросы или хранилище браузера запрещены");
 writeFileSync(join(dist, "assets/site.js"), jsText);
 for (const img of ["emblem-ink.png"]) copyFileSync(join(root, "assets", img), join(dist, "assets", img));
+// Изображения (Ideogram и др.) — если владелец их положил; страницы показывают их вместо градиентных заглушек
+if (IMAGES.length || VIDEOS.length) mkdirSync(join(dist, "assets/images"), { recursive: true });
+for (const im of IMAGES) copyFileSync(join(root, "assets/images", im), join(dist, "assets/images", im));
+for (const v of VIDEOS) copyFileSync(join(root, "assets/images", v), join(dist, "assets/images", v));
 mkdirSync(join(dist, "assets/fonts"), { recursive: true });
 for (const ff of readdirSync(join(root, "assets/fonts"))) copyFileSync(join(root, "assets/fonts", ff), join(dist, "assets/fonts", ff));
 

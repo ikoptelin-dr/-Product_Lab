@@ -267,6 +267,7 @@ const ctaAttrs = (c: Cta) => (c.task ? ` data-task="${c.task}"` : "");
 export function pageHero(o: { crumbs: Crumb[]; eyebrow?: string; h1: string; lead: string; ctas: Cta[]; aside?: string; extra?: string }) {
   const [a, b] = o.ctas;
   return `<section class="page-hero grain" aria-labelledby="page-title">
+  <div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="g1"></b><b class="g2"></b></div>
   <div class="container">
     ${crumbsHtml(o.crumbs)}
     <div class="page-hero-grid${o.aside ? " has-aside" : ""}">
