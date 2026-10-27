@@ -1,0 +1,240 @@
+# Структура сайта Proba Lab: вложенность, страницы, волны
+
+**Дата:** 2026-10-27.
+
+**Основа:**
+- `SEMANTIC-CORE-REPORT.md` (разделы 1–8);
+- `wordstat-clustered.csv` — 4 727 фраз, из них 52 с точной частотой;
+- текущий сайт `proba-site-v3/dist/` — 36 страниц.
+
+**Частоты в таблицах:**
+- **Т** — точная частота по России (`"!…"`);
+- **Б** — базовая частота: она завышена и используется только там, где точной нет.
+
+Фразы приведены в формулировках выгрузки, без изменений.
+
+**Домен:** предполагается `proba-lab.ru` — по почте владельца. Подтвердить.
+
+---
+
+## 1. Дерево разделов
+
+Обозначения: ✅ есть · 🆕 новая · 🔀 объединить или перенести · 🛠 инструмент.
+
+```
+/                                         ✅ Главная (хаб всего сайта)
+├── dokumenty/                            ✅ Хаб «Документы и соответствие»
+│   ├── otkaznoe-pismo/                   🆕 Услуга: отказное письмо
+│   ├── otkaznoe-pismo-dlya-marketplejsov/🆕 Услуга: отказное письмо для маркетплейсов
+│   ├── registraciya-bad/                 ✅ Услуга: регистрация БАД (СГР)
+│   ├── registraciya-produkcii/           🆕 Услуга: госрегистрация продукции (СГР), не только БАД
+│   ├── deklaracii/                       ✅ Услуга: декларирование продукции
+│   ├── kosmetika/                        ✅ Услуга: документы на косметику
+│   ├── tu/                               ✅ Услуга: технические условия
+│   ├── markirovka/                       ✅ Услуга: маркировка и «Честный знак»
+│   ├── dokumenty-dlya-marketplejsov/     🆕 Услуга: какие документы нужны для Ozon/WB
+│   ├── laboratorii/                      ✅ Услуга: испытания в аккредитованных лабораториях
+│   ├── haccp/                            ✅ Услуга: разработка и внедрение ХАССП
+│   ├── programma-proizvodstvennogo-kontrolya/ 🆕 Услуга: разработка ППК (из sanpin)
+│   ├── proverki-rospotrebnadzora/        🆕🔀 Услуга: подготовка к проверкам (вбирает sanpin)
+│   ├── gmp/                              ✅ Услуга: GMP для БАД и косметики
+│   ├── vyvod-na-rynok/                   ✅ Услуга: вывод на рынок, СТМ, контрактное производство
+│   └── karta-dokumentov/                 🛠 Лид-магнит «Карта документов»
+├── marketing/                            🔀 Хаб «Маркетинг» (сейчас marketing.html)
+│   ├── kartochki-marketplejsov/          🆕 Услуга: карточки и инфографика
+│   ├── dizajn-etiketki-i-upakovki/       🆕 Услуга: дизайн этикетки и упаковки
+│   ├── issledovanie-rynka/               🆕 Услуга: исследование рынка и конкурентов
+│   └── predmetnaya-semka/                🆕 Услуга: предметная съёмка (если есть исполнитель)
+├── prodvizhenie/                         🔀 Хаб «Продвижение» (сейчас prodvizhenie.html)
+│   └── vyhod-na-marketplejsy/            🆕 Услуга: выход на маркетплейсы (без рекламы внутри площадок)
+├── analitika/                            🔀 Хаб «Аналитика» (сейчас analitika.html)
+│   ├── kalkulyator-yunit-ekonomiki/      🛠🔀 Калькулятор (сейчас kalkulyator-sku.html)
+│   └── skvoznaya-analitika/              🆕 Услуга: сквозная аналитика и Метрика
+├── audit-prodazh/                        ✅ Услуга: аудит продаж
+├── avtomatizaciya/                       🔀 Хаб «Автоматизация» (сейчас avtomatizaciya.html)
+│   ├── vnedrenie-crm/                    🆕 Услуга: внедрение CRM (Битрикс24, amoCRM)
+│   └── baza-znanij/                      🆕 Услуга: база знаний и AI-поиск для сотрудников
+├── blog/                                 ✅ Хаб «Блог»
+│   └── (статьи — раздел 2.7)
+├── novosibirsk/                          🆕 Локальная страница (Академгородок, Технопарк)
+├── ceny/ · oplata/ · kak-my-rabotaem/ · o-nas/ · kontakty/ · partneram/ · blagotvoritelnost/ · novosti/   ✅
+└── oferta/ · politika-pd/ · soglasie-pd/ · pravovaya-informaciya/   ✅ (служебные, в индекс — да)
+```
+
+**Что объединяем:**
+- `dokumenty/kak-my-rabotaem.html` → `kak-my-rabotaem/`: дубль страницы.
+- `dokumenty/sanpin.html` → `dokumenty/proverki-rospotrebnadzora/`: СанПиН и проверки. Программа производственного контроля выносится на отдельную страницу — у неё свой большой кластер.
+- `kalkulyator-sku.html` → `analitika/kalkulyator-yunit-ekonomiki/`: фразы «калькулятор юнит экономики», а не «SKU».
+- `blog/ekonomika-sku-marketplejs.html` → `blog/yunit-ekonomika-prostymi-slovami/`: перенацелить на «юнит экономика это простыми».
+
+---
+
+## 2. Страницы
+
+**Колонки:**
+- **Фразы** — из выгрузки, без изменений.
+- **Ссылки** — 3–5 обязательных внутренних ссылок.
+- **CTA** — следующий шаг клиента.
+
+### 2.1 Хабы
+
+| URL | Тип | Кластер | Фразы | Интент | Родитель | Ссылки | CTA |
+|---|---|---|---|---|---|---|---|
+| `/` | хаб | бренд + обзор | — (брендовый трафик) | смешанный | — | dokumenty/, marketing/, analitika/, ceny/, karta-dokumentov/ | Проверить состав бесплатно |
+| `dokumenty/` | хаб | Документы | декларирование продукции (Т 1 179); государственная регистрация продукции (Б 3 535); сертификация и декларирование продукции (Т 126) | смешанный | `/` | otkaznoe-pismo/, registraciya-bad/, haccp/, karta-dokumentov/, ceny/ | Какой документ нужен (квиз) |
+| `marketing/` | хаб | Маркетинг, бренд | продвижение бренда (Б 6 182); стратегия продвижения бренда (Б 883); позиционирование бренда это (Б 424) | смешанный | `/` | kartochki-marketplejsov/, dizajn-etiketki-i-upakovki/, issledovanie-rynka/, ceny/ | Бесплатный разбор продукта |
+| `prodvizhenie/` | хаб | Продвижение | seo продвижение сайта (Б 9 304); услуги продвижения сайта (Б 1 162); контент маркетинг (Б 4 801) | коммерческий, конкурентный | `/` | vyhod-na-marketplejsy/, kartochki-marketplejsov/, analitika/ | Обсудить продвижение |
+| `analitika/` | хаб | Веб-аналитика | веб аналитика (Б 3 230); коллтрекинг (Б 4 288); дашборды для бизнеса (Б 381) | смешанный | `/` | kalkulyator-yunit-ekonomiki/, skvoznaya-analitika/, audit-prodazh/ | Посчитать юнит-экономику |
+| `avtomatizaciya/` | хаб | CRM и автоматизация | автоматизация отдела продаж (Б 317); ai ассистент для бизнеса (Б 97) | смешанный | `/` | vnedrenie-crm/, baza-znanij/, analitika/ | Разбор одного процесса |
+| `blog/` | хаб | статьи | — | информационный | `/` | 5 последних статей + хабы | Подписка на регуляторный календарь |
+
+### 2.2 Документы — услуги
+
+| URL | Тип | Кластер | Фразы | Интент | Родитель | Ссылки | CTA |
+|---|---|---|---|---|---|---|---|
+| `dokumenty/otkaznoe-pismo/` | услуга | 02 Отказное письмо · заказ | оформить отказное письмо (Т 1 389); заказать отказное письмо (Т 931); сделать отказное письмо (Т 880); сколько стоит отказное письмо (Т 266); отказное письмо цена (Т 139); отказное письмо стоимость (Т 83); отказное письмо на продукцию (Б 999); отказное письмо на товар (Б 2 472) | коммерческий | dokumenty/ | otkaznoe-pismo-dlya-marketplejsov/, deklaracii/, blog/chto-takoe-otkaznoe-pismo/, karta-dokumentov/, ceny/ | Оформить отказное письмо (проверим, подходит ли оно продукту) |
+| `dokumenty/otkaznoe-pismo-dlya-marketplejsov/` | услуга | 02 · маркетплейсы | отказное письмо для маркетплейсов (Т 2 103); отказное письмо для маркетплейсов заказать (Т 707); отказное письмо для маркетплейсов оформить (Т 195); отказное письмо для озон (Т 1 255); сделать отказное письмо для озон (Т 150) | коммерческий | dokumenty/ | otkaznoe-pismo/, dokumenty-dlya-marketplejsov/, marketing/kartochki-marketplejsov/, registraciya-bad/ | Документы + карточка для маркетплейса |
+| `dokumenty/registraciya-bad/` | услуга | 01 СГР · БАД | регистрация бадов (Т 117); сгр на бады (Т 108); оформление сгр (Т 188); свидетельство о государственной регистрации бад (Т 64); стоимость оформления сгр (Т 25); оформить сгр на бад (Т 15) | коммерческий | dokumenty/ | registraciya-produkcii/, markirovka/, laboratorii/, dizajn-etiketki-i-upakovki/, blog/kak-poluchit-sgr/ | Проверить состав бесплатно |
+| `dokumenty/registraciya-produkcii/` | услуга | 01 СГР · общая | государственная регистрация продукции (Б 3 535); свидетельство о регистрации продукции (Б 2 641); свидетельство о государственной регистрации продукции (Б 2 348); получить сгр на продукцию (Б 180); государственная регистрация пищевой продукции (Б 222) | коммерческий / смешанный | dokumenty/ | registraciya-bad/, kosmetika/, blog/reestr-sgr-kak-proverit/, deklaracii/ | Карта документов |
+| `dokumenty/deklaracii/` | услуга | 03 Декларирование | декларирование продукции (Т 1 179); декларирование пищевой продукции (Б 332); декларация на пищевую продукцию (Б 330); сертификация пищевой продукции (Б 578); сертификация и декларирование продукции (Т 126) | коммерческий / смешанный | dokumenty/ | blog/perechen-produkcii-deklarirovanie/, otkaznoe-pismo/, laboratorii/, kosmetika/ | Получить смету |
+| `dokumenty/kosmetika/` | услуга | 03 · косметика | декларация на косметику (Т 70); сертификация косметики (Б 235); сгр на косметику (Б 206) | коммерческий | dokumenty/ | markirovka/, dizajn-etiketki-i-upakovki/, deklaracii/, blog/markirovka-kosmetiki/ | Определить документ |
+| `dokumenty/tu/` | услуга | 04 ТУ | технические условия на продукцию (Т 872); разработка ту на продукцию (Б 435); разработка технических условий на продукцию (Б 299); технические условия на пищевую продукцию (Б 274); разработка ту цены (Б 245); разработка ту стоимость (Т 8) | коммерческий | dokumenty/ | registraciya-produkcii/, deklaracii/, haccp/ | Обсудить ТУ |
+| `dokumenty/markirovka/` | услуга | 05 Маркировка | маркировка бад (Б 2 542); честный знак бады (Б 1 773); маркировка косметики (Б 2 926); маркировка косметики честный знак (Б 684); регистрация продукции в честном знаке (Б 214) | смешанный | dokumenty/ | blog/markirovka-bad-chestnyj-znak/, blog/markirovka-kosmetiki/, registraciya-bad/, dokumenty-dlya-marketplejsov/ | Подключить маркировку |
+| `dokumenty/dokumenty-dlya-marketplejsov/` | услуга + гайд | 21 · документы | какие документы нужны для озона (Б 1 754); какие документы нужны для озон склада (Б 435); документы качества для озон (Б 336); какие документы нужны для работы в озон (Б 184) | информационный → коммерческий | dokumenty/ | otkaznoe-pismo-dlya-marketplejsov/, registraciya-bad/, markirovka/, marketing/kartochki-marketplejsov/ | Карта документов |
+| `dokumenty/laboratorii/` | услуга | 09 Лаборатории | аккредитованная лаборатория (Б 18 805); аккредитованная испытательная лаборатория (Б 3 767); протоколы испытаний аккредитованной лаборатории (Б 459); аккредитованные лаборатории испытаний продукции (Б 412); аккредитованная лаборатория для проведения испытаний (Б 325) | смешанный | dokumenty/ | blog/kak-proverit-akkreditaciyu-laboratorii/, registraciya-bad/, deklaracii/ | Рассчитать испытания |
+| `dokumenty/haccp/` | услуга | 06 ХАССП · заказ | разработка хассп (Т 548); внедрение хассп (Б 851); внедрение системы хассп (Б 323); разработка и внедрение хассп (Б 236); хассп под ключ (Б 137); хассп аудит (Б 549); хассп (Т 43 379) | коммерческий | dokumenty/ | blog/sistema-haccp/, programma-proizvodstvennogo-kontrolya/, proverki-rospotrebnadzora/, novosibirsk/ | Обсудить производство |
+| `dokumenty/programma-proizvodstvennogo-kontrolya/` | услуга | 07 ППК · заказ | разработка программы производственного контроля (Б 747); программа производственного контроля заказать (Б 59); купить программу производственного контроля (Б 67); программа производственного контроля (Т 21 481); программа санитарного производственного контроля (Б 2 190) | коммерческий | dokumenty/ | blog/programma-proizvodstvennogo-kontrolya-obrazec/, haccp/, proverki-rospotrebnadzora/, laboratorii/ | Заказать ППК |
+| `dokumenty/proverki-rospotrebnadzora/` | услуга | 08 Проверки | проверка роспотребнадзора (Т 3 781); плановая проверка роспотребнадзора (Б 1 724); внеплановая проверка роспотребнадзора (Б 776); проверка роспотребнадзора что проверяют (Б 822) | смешанный → коммерческий | dokumenty/ | blog/proverki-rospotrebnadzora-2026/, haccp/, programma-proizvodstvennogo-kontrolya/, novosibirsk/ | Аудит готовности к проверке |
+| `dokumenty/gmp/` | услуга | 10 GMP | gmp на бадах (Б 172) | информационный | dokumenty/ | haccp/, vyvod-na-rynok/, blog/gmp-na-badah/ | Обсудить производство |
+| `dokumenty/vyvod-na-rynok/` | услуга | 11 Контрактное, СТМ | контрактное производство косметики (Т 950); контрактное производство бадов (Т 183); стм бады (Б 301); производство косметики под своим брендом (Б 180); производство бадов под ключ (Б 37) | смешанный | dokumenty/ | registraciya-bad/, marketing/dizajn-etiketki-i-upakovki/, marketing/kartochki-marketplejsov/, partneram/ | Получить план запуска |
+| `dokumenty/karta-dokumentov/` | инструмент | лид-магнит | — | — | dokumenty/ | registraciya-bad/, otkaznoe-pismo/, deklaracii/ | Отправить состав |
+
+### 2.3 Маркетинг
+
+| URL | Тип | Кластер | Фразы | Интент | Родитель | Ссылки | CTA |
+|---|---|---|---|---|---|---|---|
+| `marketing/kartochki-marketplejsov/` | услуга | 13 Карточки | создание карточек товара (Б 13 106); создание карточек товара для маркетплейсов (Б 1 999); инфографика для маркетплейсов (Б 7 520); инфографика карточек для маркетплейсов (Б 540); карточка товара на озон (Б 8 814) | коммерческий (много «сделаю сам») | marketing/ | dokumenty/otkaznoe-pismo-dlya-marketplejsov/, dizajn-etiketki-i-upakovki/, audit-prodazh/ | Разбор карточки бесплатно |
+| `marketing/dizajn-etiketki-i-upakovki/` | услуга | 12 Дизайн | дизайн этикетки (Т 872); дизайн упаковки косметики (Т 47); разработать дизайн этикетки (Б 55); разработка дизайна упаковки и этикетки (Т 9) | коммерческий | marketing/ | dokumenty/registraciya-bad/, dokumenty/markirovka/, blog/etiketka-bad-do-registracii/ | Проверить этикетку |
+| `marketing/issledovanie-rynka/` | услуга | 22 · заказ | заказать исследование рынка (Т 130); маркетинговые исследования рынка заказать (Б 379); анализ цен конкурентов (Б 1 089); анализ рынка и конкурентов (Т 1 380) | коммерческий | marketing/ | blog/analiz-konkurentov/, audit-prodazh/ | Обсудить исследование |
+| `marketing/predmetnaya-semka/` | услуга | 14 Фото | предметная съемка (Т 2 404); съемка для маркетплейсов (Б 746); фотограф предметная съемка (Б 134); студия предметной съемки (Б 121) | коммерческий | marketing/ | kartochki-marketplejsov/, novosibirsk/ | Обсудить съёмку |
+
+### 2.4 Продвижение, аналитика, аудит, автоматизация
+
+| URL | Тип | Кластер | Фразы | Интент | Родитель | Ссылки | CTA |
+|---|---|---|---|---|---|---|---|
+| `prodvizhenie/vyhod-na-marketplejsy/` | услуга | 21 · выход | выход на маркетплейсы (Б 405); продвижение товаров на озон (Б 445); продвижение на озон (Б 1 640) | коммерческий | prodvizhenie/ | dokumenty/dokumenty-dlya-marketplejsov/, marketing/kartochki-marketplejsov/, analitika/kalkulyator-yunit-ekonomiki/ | Обсудить выход |
+| `analitika/kalkulyator-yunit-ekonomiki/` | инструмент | 19 Юнит-экономика | калькулятор юнит экономики (Т 440); расчет юнит экономики (Т 381); юнит экономика озон (Т 772); юнит экономика вб (Б 502); таблица юнит экономики (Б 755) | инструмент | analitika/ | blog/yunit-ekonomika-prostymi-slovami/, audit-prodazh/, analitika/ | Разбор всех SKU |
+| `analitika/skvoznaya-analitika/` | услуга | 20 Веб-аналитика | сквозная аналитика (Б 2 841); настройка яндекс метрики (Б 912); настройка яндекс метрики на сайте (Б 447); коллтрекинг (Б 4 288) | коммерческий / смешанный | analitika/ | avtomatizaciya/vnedrenie-crm/, audit-prodazh/ | Обсудить аналитику |
+| `audit-prodazh/` | услуга | 25 Аудит | аудит продаж (Б 1 004); аудит отдела продаж (Б 302); аудит воронки продаж (Б 32) | коммерческий | `/` | analitika/, marketing/kartochki-marketplejsov/, avtomatizaciya/vnedrenie-crm/ | Заказать аудит |
+| `avtomatizaciya/vnedrenie-crm/` | услуга | 26 CRM | внедрение crm (Т 813); внедрение битрикс24 (Б 736); внедрение amocrm (Б 134); внедрение crm для бизнеса (Б 101); внедрение битрикс24 цена (Б 34) | коммерческий | avtomatizaciya/ | analitika/skvoznaya-analitika/, baza-znanij/, audit-prodazh/ | Разбор одного процесса |
+| `avtomatizaciya/baza-znanij/` | услуга | 26 · база знаний | база знаний для сотрудников (Т 420); ai ассистент для бизнеса (Б 97) | смешанный | avtomatizaciya/ | vnedrenie-crm/ | Пилот AI-поиска |
+
+### 2.5 Локальная страница
+
+| URL | Тип | Кластер | Фразы | Интент | Родитель | Ссылки | CTA |
+|---|---|---|---|---|---|---|---|
+| `novosibirsk/` | локальная | НСО: ХАССП, ППК, проверки, съёмка, декларирование | хассп (НСО 1 099, индекс 119); программа производственного контроля (НСО 532, индекс 113); проверка роспотребнадзора (НСО 91, индекс 114); предметная съемка (НСО 178, индекс 346); декларирование продукции (НСО 42, индекс 167) | коммерческий, локальный | `/` | dokumenty/haccp/, programma-proizvodstvennogo-kontrolya/, proverki-rospotrebnadzora/, kontakty/ | Выезд на производство |
+
+Только реальный адрес: Новосибирск, Академгородок, Технопарк. Без страниц по другим городам — это дорвеи.
+
+### 2.6 Компания и служебные
+
+`ceny/`, `oplata/`, `kak-my-rabotaem/`, `o-nas/`, `kontakty/`, `partneram/`, `blagotvoritelnost/`, `novosti/`, `oferta/`, `politika-pd/`, `soglasie-pd/`, `pravovaya-informaciya/` — без поисковых кластеров. В подвале со всех страниц; на услугах — ссылки на `ceny/` и `kak-my-rabotaem/`.
+
+### 2.7 Статьи блога
+
+| URL | Кластер | Фразы | Родитель-услуга | Ссылки |
+|---|---|---|---|---|
+| `blog/chto-takoe-otkaznoe-pismo/` | 02 · что это, образец, реестр | отказное письмо (Т 33 628); отказное письмо скачать (Т 1 001); сертификат или отказное письмо (Б 1 114); реестр отказных писем (Т 267); отказное письмо по сертификации (Б 1 387) | otkaznoe-pismo/ | otkaznoe-pismo-dlya-marketplejsov/, deklaracii/, dokumenty/ |
+| `blog/sistema-haccp/` | 06 · что это, требования | система хассп (Т 1 999); принципы хассп (Б 4 437); требования хассп (Т 809); гост хассп (Б 1 095); хассп 2026 (Б 1 208); документы хассп (Б 1 137) | haccp/ | programma-proizvodstvennogo-kontrolya/, dokumenty/ |
+| `blog/programma-proizvodstvennogo-kontrolya-obrazec/` | 07 · образец, 2026, требования | программа производственного контроля образец (Т 1 517); программа производственного контроля 2026 (Т 3 693); программа производственного контроля требования (Б 1 420); кем составляется программа производственного контроля (Б 1 702) | programma-proizvodstvennogo-kontrolya/ | haccp/, proverki-rospotrebnadzora/ |
+| `blog/proverki-rospotrebnadzora-2026/` | 08 · план и график | проверки роспотребнадзора на 2026 (Т 624); роспотребнадзор план проверок (Б 1 402); график проверок роспотребнадзора (Б 1 305); проверка роспотребнадзора по инн (Б 951) | proverki-rospotrebnadzora/ | haccp/, programma-proizvodstvennogo-kontrolya/ |
+| `blog/kak-poluchit-sgr/` | 01 · как получить | сгр как получить (Т 244); как получить сгр на продукцию (Б 81); как получить сгр на бады (Т 5) | registraciya-bad/ | registraciya-produkcii/, laboratorii/ |
+| `blog/reestr-sgr-kak-proverit/` | 01 · реестр | реестр государственной регистрации продукции (Т 608); реестр свидетельств о государственной регистрации продукции (Б 686); проверить свидетельство о государственной регистрации продукции (Б 216); реестр сгр бад (Б 98) | registraciya-produkcii/ | registraciya-bad/ |
+| `blog/perechen-produkcii-deklarirovanie/` | 03 · перечень | перечень продукции подлежащей декларированию (Т 287); единый перечень продукции подлежащей декларированию (Б 745); перечень продукции подлежащей обязательной сертификации и декларированию (Б 594) | deklaracii/ | otkaznoe-pismo/, tu/ |
+| `blog/markirovka-bad-chestnyj-znak/` | 05 · БАД | честный знак бады (Б 1 773); маркировка бадов честный знак (Б 334); обязательная маркировка бад (Б 209) | markirovka/ | registraciya-bad/, dokumenty-dlya-marketplejsov/ |
+| `blog/markirovka-kosmetiki/` | 05 · косметика | маркировка косметики честный знак (Б 684); сроки маркировки косметики (Б 240); косметика обязательная маркировка (Б 356) | markirovka/ | kosmetika/ |
+| `blog/kak-proverit-akkreditaciyu-laboratorii/` | 09 · реестр | реестр аккредитованных лабораторий (Б 2 259); список аккредитованных лабораторий (Б 1 717); реестр аккредитованных испытательных лабораторий (Б 942) | laboratorii/ | deklaracii/, registraciya-bad/ |
+| `blog/yunit-ekonomika-prostymi-slovami/` 🔀 | 19 · что это | юнит экономика (Б 12 889); юнит экономика это простыми (Б 600) | analitika/kalkulyator-yunit-ekonomiki/ | audit-prodazh/ |
+| `blog/analiz-konkurentov/` | 22 · что это, методы | анализ конкурентов (Т 7 897); методы анализа конкурентов (Б 647); анализ конкурентов таблица (Б 545); swot анализ конкурентов (Б 526) | marketing/issledovanie-rynka/ | audit-prodazh/ |
+| `blog/gmp-na-badah/` | 10 · что значит | gmp на бадах (Б 172); знак gmp на бадах что означает (Б 32) | dokumenty/gmp/ | vyvod-na-rynok/ |
+| `blog/etiketka-bad-do-registracii/` ✅ | поддерживающая | — (нет прямого кластера) | marketing/dizajn-etiketki-i-upakovki/ | registraciya-bad/, markirovka/ |
+| `blog/sgr-ili-deklaraciya/` ✅ | поддерживающая | — | dokumenty/ | registraciya-bad/, deklaracii/, otkaznoe-pismo/ |
+
+---
+
+## 3. Правила вложенности
+
+1. **Статья → своя услуга + хаб.** Ссылка на услугу в первом экране текста и в финальном CTA. Ссылка на хаб — в хлебных крошках.
+2. **Услуга → 2–3 статьи своего кластера + 1–2 соседние услуги** (колонка «Ссылки»). Анкор — естественная фраза, а не точная коммерческая формулировка.
+3. **Хаб → все свои услуги** карточками + 2–3 свежие статьи.
+4. **Один кластер = одна страница.** Коммерческие формулировки (заказать, оформить, цена) — на услуге; «что это», «образец», «реестр», «требования» — в статье.
+5. **Страница-инструмент** (калькулятор, карта документов) ссылается на услугу, куда ведёт результат.
+6. **Хлебные крошки и JSON-LD BreadcrumbList — по дереву раздела 1.**
+7. **Нет сиротских страниц:** на каждую ведут минимум 2 внутренние ссылки, кроме служебных.
+
+### Спорные пары (риск каннибализации)
+
+| Пара | Решение |
+|---|---|
+| «отказное письмо» (Т 33 628): услуга `otkaznoe-pismo/` или статья `chto-takoe-otkaznoe-pismo/` | Head-фраза — на **статье**: широкий запрос, много «скачать / образец / что это». Услуга берёт «оформить / заказать / сделать / цена». **Проверить выдачу Яндекса:** если в топе услуги — поменять местами |
+| `otkaznoe-pismo/` и `otkaznoe-pismo-dlya-marketplejsov/` | Разделены уточнением «для маркетплейсов / для озон». На общей странице — блок-ссылка на маркетплейсную |
+| `registraciya-bad/` и `registraciya-produkcii/` | БАД — «бады / бад». Общая — «продукции», «свидетельство о регистрации продукции» |
+| «хассп» (Т 43 379): услуга `haccp/` или статья `sistema-haccp/` | Head — на **услуге** (её поддерживает коммерческий хвост). Статья — «система, принципы, требования, гост» |
+| «программа производственного контроля» (Т 21 481) | Head — на **услуге** `programma-proizvodstvennogo-kontrolya/`. Статья — «образец, 2026, требования, кем составляется» |
+| `proverki-rospotrebnadzora/` и `blog/proverki-rospotrebnadzora-2026/` | Услуга — «проверка роспотребнадзора, плановая, внеплановая, что проверяют». Статья — «план, график, 2026, по ИНН» |
+| `dokumenty-dlya-marketplejsov/` и `otkaznoe-pismo-dlya-marketplejsov/` | Первая — «какие документы нужны» (общий выбор). Вторая — только отказное |
+| `marketing/kartochki-marketplejsov/` и `prodvizhenie/vyhod-na-marketplejsy/` | Карточки — «создание карточек, инфографика». Выход — «выход на маркетплейсы, продвижение на озон» |
+| `analitika/kalkulyator-yunit-ekonomiki/` и `blog/yunit-ekonomika-prostymi-slovami/` | Калькулятор — «калькулятор, расчёт, таблица, озон, вб». Статья — «юнит экономика, это простыми» |
+| `marketing/issledovanie-rynka/` и `blog/analiz-konkurentov/` | Услуга — «заказать исследование, анализ цен конкурентов». Статья — «анализ конкурентов, методы, таблица, swot» |
+| `dokumenty/haccp/` и `novosibirsk/` | Локальная страница — только с геомодификатором и выездом. Без копирования текста |
+
+---
+
+## 4. Волны публикации
+
+Спрос — точные частоты, где сняты. Маржа:
+- регистрация — высокий чек, мало спроса;
+- отказное письмо — низкий чек, много спроса, переход в карточки;
+- ХАССП и ППК — средний чек, средний спрос;
+- маркетинг — средний и высокий чек.
+
+| Волна | Сроки | Страницы | Обоснование |
+|---|---|---|---|
+| **1** | недели 1–4 | `otkaznoe-pismo/`, `otkaznoe-pismo-dlya-marketplejsov/`, `blog/chto-takoe-otkaznoe-pismo/`, `haccp/` (доработка), `blog/sistema-haccp/`, `programma-proizvodstvennogo-kontrolya/`, `blog/programma-proizvodstvennogo-kontrolya-obrazec/`, `registraciya-bad/` (доработка), `analitika/kalkulyator-yunit-ekonomiki/` (перенос и доработка) | **Отказное письмо:** самый большой точный коммерческий спрос, ≈ 4 740/мес — нижняя оценка по непересекающимся фразам. Ведёт к карточкам. **ХАССП и ППК:** широкий спрос 43 379 и 21 481, коммерческий хвост 548+ и 747 (Б), средний чек. **Регистрация БАД:** коммерческий спрос всего ≈ 340/мес, но самый высокий чек и ядро позиционирования. **Калькулятор:** 440 + 381 + 772 точных, готов, только перенести |
+| **2** | недели 5–8 | `proverki-rospotrebnadzora/` + статья 2026, `deklaracii/` + статья «перечень», `tu/` (доработка), `markirovka/` + 2 статьи, `dokumenty-dlya-marketplejsov/`, `marketing/kartochki-marketplejsov/`, `marketing/dizajn-etiketki-i-upakovki/`, `registraciya-produkcii/` + статья «реестр» | Проверки — Т 3 781, Сибирь индекс 129–152. Декларирование — Т 1 179. Маркировка и документы для маркетплейсов закрывают путь селлера. Карточки и этикетка — мост к маркетингу |
+| **3** | недели 9–12 | `laboratorii/` + статья, `novosibirsk/`, `marketing/issledovanie-rynka/` + `blog/analiz-konkurentov/` (Т 7 897), `analitika/skvoznaya-analitika/`, `avtomatizaciya/vnedrenie-crm/` (Т 813), `baza-znanij/` (Т 420), `prodvizhenie/vyhod-na-marketplejsy/`, `blog/kak-poluchit-sgr/`, `blog/gmp-na-badah/`, `marketing/predmetnaya-semka/` (Т 2 404, НСО индекс 346 — только при наличии исполнителя) | Информационный трафик и смежные услуги; локальное присутствие в Новосибирске |
+
+**Не делать:** «заказать сайт» вообще, «seo продвижение» вообще, «продвижение на авито», «менеджер маркетплейсов».
+
+---
+
+## 5. URL-схема и 301-редиректы
+
+**Схема для боевого домена:**
+- **Адреса без `.html`, со слешем в конце.** Пример: `https://proba-lab.ru/dokumenty/otkaznoe-pismo/`. Сборка кладёт страницу в `dokumenty/otkaznoe-pismo/index.html`.
+- **Только латиница:** нижний регистр, дефисы, транслит без мягких знаков.
+- **Глубина ≤ 3 уровня:** хаб / услуга или статья.
+- **Канонические адреса:** на каждой странице `rel=canonical` на версию со слешем. Редиректы: `http` → `https`, `www` → без `www`.
+- **Превью в Claude** остаётся на `.html`. Переключение — флагом сборки, например `CLEAN_URLS=1`.
+
+**301-редиректы** (сайт ещё не в индексе, поэтому они защищают только ссылки, которые уже разошлись по рукам, и превью):
+
+| Старый адрес | Новый адрес |
+|---|---|
+| `/index.html` | `/` |
+| `/marketing.html` | `/marketing/` |
+| `/prodvizhenie.html` | `/prodvizhenie/` |
+| `/analitika.html` | `/analitika/` |
+| `/audit-prodazh.html` | `/audit-prodazh/` |
+| `/avtomatizaciya.html` | `/avtomatizaciya/` |
+| `/kalkulyator-sku.html` | `/analitika/kalkulyator-yunit-ekonomiki/` |
+| `/dokumenty/index.html` | `/dokumenty/` |
+| `/dokumenty/<slug>.html` | `/dokumenty/<slug>/` (все 12) |
+| `/dokumenty/sanpin.html` | `/dokumenty/proverki-rospotrebnadzora/` |
+| `/dokumenty/kak-my-rabotaem.html` | `/kak-my-rabotaem/` |
+| `/blog/ekonomika-sku-marketplejs.html` | `/blog/yunit-ekonomika-prostymi-slovami/` |
+| `/blog/<slug>.html` | `/blog/<slug>/` |
+| `/<страница>.html` (ceny, oplata, kontakty, o-nas, partneram, blagotvoritelnost, novosti, oferta, politika-pd, soglasie-pd, pravovaya-informaciya, kak-my-rabotaem) | `/<страница>/` |
+
+Конфиг для nginx — в промте 9 плана запуска: правило `rewrite ^/(.*)\.html$ /$1/ permanent;` плюс отдельные строки для переименований выше.
