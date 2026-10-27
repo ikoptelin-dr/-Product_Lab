@@ -8,7 +8,7 @@ const [BASE, SITE, SHOTS] = process.argv.slice(2);
 const sub = (d) => readdirSync(join(SITE, d)).filter((f) => f.endsWith(".html")).map((f) => `${d}/${f}`);
 const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...sub("dokumenty"), ...sub("blog")].sort();
 const LEGAL = ["oferta.html", "politika-pd.html", "soglasie-pd.html", "pravovaya-informaciya.html"];
-const COMPANY = { tel: "tel:+79994662279", mail: "mailto:I.koptelin@yandex.ru", inn: "540821689171", email: "I.koptelin@yandex.ru" };
+const COMPANY = { tel: "tel:+79994662279", mail: "mailto:i.koptelin@proba-lab.ru", inn: "540821689171", email: "i.koptelin@proba-lab.ru" };
 const CONSENT_TEXT = "Согласен на обработку персональных данных";
 const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const log = (...a) => console.log(...a);
@@ -93,7 +93,7 @@ for (const vp of VPS) {
           clients: [...document.querySelectorAll('.site-footer nav[aria-label="Клиентам"] a')].map((a) => a.textContent.trim()),
           legal: document.querySelector(".footer-legal")?.textContent.replace(/\s+/g, " ").trim(),
           tel: !!document.querySelector(`.site-footer a[href="tel:+79994662279"]`),
-          mail: !!document.querySelector(`.site-footer a[href="mailto:I.koptelin@yandex.ru"]`),
+          mail: !!document.querySelector(`.site-footer a[href="mailto:i.koptelin@proba-lab.ru"]`),
         },
       }));
       if (vp.name === "1440") {
@@ -137,7 +137,7 @@ for (const [f, m] of Object.entries(meta)) {
   const formsTotal = Object.values(meta).reduce((s, m) => s + m.consent.length, 0);
   log(`  форм с согласием: ${formsTotal} (ссылка на soglasie-pd.html в каждой)`);
   const org = ldOf("index.html").find((j) => j["@type"] === "Organization");
-  ok(org && org.legalName === "ИП Коптелин Илья Алексеевич" && org.taxID === COMPANY.inn && org.telephone === "+79994662279" && org.email === COMPANY.email && org.address?.postalCode === "633203", `index: Organization ${JSON.stringify(org)}`, "ld");
+  ok(org && org.legalName === "ИП Коптелин Илья Алексеевич" && org.taxID === COMPANY.inn && org.telephone === "+79994662279" && org.email === COMPANY.email && org.address?.addressLocality === "Новосибирск" && !JSON.stringify(org).includes("Искитим"), `index: Organization ${JSON.stringify(org)}`, "ld");
   const lb = ldOf("kontakty.html").find((j) => j["@type"] === "LocalBusiness");
   ok(lb && lb.telephone && lb.email === COMPANY.email && lb.address?.streetAddress && !("openingHours" in lb) && !("openingHoursSpecification" in lb), `kontakty: LocalBusiness ${JSON.stringify(lb)}`, "ld");
   const cat = ldOf("ceny.html").find((j) => j["@type"] === "OfferCatalog");
