@@ -94,7 +94,7 @@ export const ARTICLES: Article[] = [
     ],
     cta: {
       label: "Проверить этикетку",
-      href: "../dokumenty/markirovka.html#form",
+      href: "../dokumenty/markirovka.html#project-form",
       text: "Проверим обязательные сведения, соответствие документам и рискованные формулировки — до печати и подачи.",
     },
   },

@@ -67,7 +67,11 @@ const meta = (s: string) => {
 
 /* ---------------- Ссылки ---------------- */
 const main = (hash = "") => `${MAIN_HREF}${hash}`;
+/** Страницы раздела, которые заменены текстами proba-growth/content (старые адреса — переадресации). */
+const MOVED_SLUG: Record<string, string> = { sanpin: "proverki-rospotrebnadzora", "kak-my-rabotaem": "../kak-my-rabotaem" };
 const pageHref = (slug: string) => `${slug}.html`;
+/** Ссылка на страницу раздела с учётом переездов. */
+const linkHref = (slug: string) => `${MOVED_SLUG[slug] ?? slug}.html`;
 const bySlug = (slug: string) => {
   const p = PAGES.find((x) => x.slug === slug);
   if (!p) throw new Error(`Нет страницы ${slug}`);
@@ -221,7 +225,7 @@ function bridge(p: RegPage) {
         <p class="dark-card-fine">${t(PACKAGE_LINE)}</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="../marketing.html#ceny">Документы + этикетка + карточка</a>
-          <a class="btn btn-ghost" href="${main("#napravleniya")}">Все задачи Proba Lab</a>
+          <a class="btn btn-ghost" href="${main()}">Все задачи Proba Lab</a>
         </div>
       </div>
     </div>
@@ -236,7 +240,7 @@ function related(p: RegPage) {
 
 function svcCard(q: RegPage) {
   const pr = price(q.slug);
-  return `<li class="reveal"><a class="svc-card glass-light" href="${pageHref(q.slug)}"><span class="svc-kicker">${esc(q.group ?? "")}</span><span class="svc-title">${esc(q.name)}</span><span class="svc-text">${t(q.cardText, "card")}</span>${pr ? `<span class="reg-price">${esc(nb(pr))}</span>` : ""}<span class="arrow" aria-hidden="true"></span></a></li>`;
+  return `<li class="reveal"><a class="svc-card glass-light" href="${linkHref(q.slug)}"><span class="svc-kicker">${esc(q.group ?? "")}</span><span class="svc-title">${esc(q.name)}</span><span class="svc-text">${t(q.cardText, "card")}</span>${pr ? `<span class="reg-price">${esc(nb(pr))}</span>` : ""}<span class="arrow" aria-hidden="true"></span></a></li>`;
 }
 
 function form(p: RegPage) {

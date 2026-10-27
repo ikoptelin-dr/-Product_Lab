@@ -4,9 +4,10 @@
  *  Якоря главной собираются как `${MAIN_HREF}#review`. */
 export const MAIN_HREF = "../index.html";
 
-/** Абсолютный адрес сайта без завершающего слэша, например "https://probalab.ru".
+/** Абсолютный адрес сайта без завершающего слэша, например "https://proba-lab.ru".
  *  Пока пусто — canonical и og:url не выводятся, ссылки в JSON-LD относительные. */
-export const SITE_URL = "";
+declare const __SITE_URL__: string;
+export const SITE_URL = typeof __SITE_URL__ === "string" ? __SITE_URL__ : "";
 
 /** Папка раздела на сайте. */
 export const SECTION_DIR = "dokumenty";

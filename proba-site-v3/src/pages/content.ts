@@ -36,6 +36,8 @@ export interface ContentPage {
   tokens: Token[];
   faq: { q: string; a: string }[];
   author?: string;
+  /** Дата из frontmatter (updated), YYYY-MM-DD. */
+  updated?: string;
 }
 
 /** Хабы для хлебных крошек и меню: первая часть адреса → название, файл, пункт меню. */
@@ -68,7 +70,7 @@ const FORM_TITLES: Record<string, string> = {
 export function renderContent(p: ContentPage): PageDoc {
   const base = p.file.includes("/") ? "../" : "";
   const slug = p.file.replace(/\.html$/, "");
-  const top = p.url.split("/")[0] ?? "";
+  const top = p.url.replace(/^\/+/, "").split("/")[0] ?? "";
   const hub = HUBS[top];
   const isHome = p.file === "index.html";
   const isArticle = p.type === "article";
@@ -96,7 +98,7 @@ export function renderContent(p: ContentPage): PageDoc {
         case "cta":
           return `</div></div></section><section class="section" aria-label="${esc(t.label)}"><div class="container"><div class="dark-card grain article-cta reveal">
       <div><p class="h2">${keepLast(esc(t.label))}</p></div>
-      <div class="hero-actions"><a class="btn btn-primary btn-lg" href="${t.href}">${esc(t.label)}</a>${t.second ? `<a class="btn btn-ghost btn-lg" href="${t.second.href}">${esc(t.second.label)}</a>` : ""}</div>
+      <div class="hero-actions"><a class="btn btn-primary btn-lg" href="${esc(t.href)}">${esc(t.label)}</a>${t.second ? `<a class="btn btn-ghost btn-lg" href="${esc(t.second.href)}">${esc(t.second.label)}</a>` : ""}</div>
     </div></div></section><section class="section"><div class="container"><div class="prose">`;
         case "form": {
           formUsed = true;
@@ -114,13 +116,15 @@ export function renderContent(p: ContentPage): PageDoc {
       ? [{ label: "Посчитать", href: "#calc" }, { label: "Разбор всех SKU", href: "#project-form" }]
       : ctaTok
         ? [{ label: ctaTok.label, href: ctaTok.href }]
-        : [{ label: "Обсудить задачу", href: "#project-form" }];
+        : isArticle
+          ? [{ label: hub ? `Все статьи` : "На главную", href: base + (hub?.file ?? "index.html") }]
+          : [{ label: "Обсудить задачу", href: "#project-form" }];
   const heroHtml = pageHero({
     crumbs,
     eyebrow: isArticle ? "Блог" : undefined,
     h1: esc(p.h1),
     lead: tok(p.lead),
-    ctas,
+    ctas: ctas.map((c) => ({ label: esc(c.label), href: esc(c.href) })),
     extra: [p.price ? `<p class="hero-price">${tok(p.price)}</p>` : "", isArticle ? `<p class="byline"><span>${esc(p.author ?? `${AUTHOR.name}, ${AUTHOR.role}`)}</span><span aria-hidden="true"> · </span><time datetime="${PUBLISHED.iso}">${PUBLISHED.text}</time></p>` : ""].join(""),
   }).replace(/<nav class="crumbs"[^]*?<\/nav>/, isHome ? "" : "$&");
 
@@ -142,11 +146,11 @@ export function renderContent(p: ContentPage): PageDoc {
       description: plainDesc,
       inLanguage: "ru",
       datePublished: PUBLISHED.iso,
-      dateModified: "2026-10-27",
+      dateModified: p.updated || PUBLISHED.iso,
       author: { "@type": "Person", name: AUTHOR.name, jobTitle: "Врач, основатель Proba Lab" },
       publisher: { "@type": "Organization", name: "Proba Lab" },
     });
-  else if (p.type === "service" || p.type === "tool") ld.push(serviceLd(p.h1, p.cluster, plainDesc, p.file));
+  else if (p.type === "service" || p.type === "tool") ld.push(serviceLd(p.h1, hub?.name ?? p.h1, plainDesc, p.file));
   if (p.faq.length) ld.push(faqLd(p.faq));
 
   return {
@@ -156,6 +160,6 @@ export function renderContent(p: ContentPage): PageDoc {
     nav: isHome ? "home" : (hub?.nav ?? (p.url.startsWith("kak-my-rabotaem") ? "how" : "none")),
     ld,
     body: `${heroHtml}\n<div class="light">\n${body}\n</div>`,
-    bodyClass: isHome ? "page page-home" : undefined,
+    bodyClass: isHome ? "page page-home" : isArticle ? "page page-article" : undefined,
   };
 }

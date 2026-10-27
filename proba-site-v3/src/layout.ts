@@ -3,6 +3,10 @@
 import { COMPANY } from "./data";
 import { SITE_URL } from "./regulatory/config";
 
+/** Версия ассетов для сброса кеша (подставляет scripts/build.mjs: хеш site.css + site.js). */
+declare const __ASSET_V__: string;
+const ASSET_V = typeof __ASSET_V__ === "string" ? __ASSET_V__ : "dev";
+
 /* ---------------- Текст ---------------- */
 export const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -219,10 +223,8 @@ export function renderDoc(p: PageDoc): string {
 <meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}">${canonical}
 <link rel="icon" type="image/png" href="${base}assets/emblem-ink.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="${base}assets/site.css">
+<link rel="preload" href="${base}assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="${base}assets/site.css?v=${ASSET_V}">
 ${ld}
 </head>
 <body class="${p.bodyClass ?? "page"}">
@@ -231,7 +233,7 @@ ${header(base, p.nav)}
 ${typo(p.body)}
 </main>
 ${footer(base)}
-<script src="${base}assets/site.js" defer></script>
+<script src="${base}assets/site.js?v=${ASSET_V}" defer></script>
 </body>
 </html>
 `;

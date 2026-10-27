@@ -6,7 +6,8 @@ export function normalizeUrl(raw: string): string | null {
   if (!/^https?:\/\//i.test(v)) v = `https://${v.replace(/^\/+/, "")}`;
   try {
     const u = new URL(v);
-    return /\.[a-zа-яё]{2,}$/i.test(u.hostname) ? u.toString() : null;
+    // Кириллические домены (магазин.рф) URL переводит в punycode: xn--p1ai
+    return /\.([a-zа-яё]{2,}|xn--[a-z0-9-]+)$/i.test(u.hostname) ? u.toString() : null;
   } catch {
     return null;
   }

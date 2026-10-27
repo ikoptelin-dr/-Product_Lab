@@ -53,8 +53,10 @@ export type CostKey = keyof typeof COST_LABELS;
 export function parseNum(raw: string): number | null {
   const v = raw.replace(/[\s  ]/g, "").replace(",", ".");
   if (!v) return null;
-  if (!/^\d+(\.\d+)?$/.test(v) && !/^\.\d+$/.test(v)) return NaN;
-  return Number(v);
+  if (!/^-?\d+(\.\d+)?$/.test(v) && !/^\.\d+$/.test(v)) return NaN;
+  const n = Number(v);
+  // Больше триллиона — опечатка; иначе в результате «1e+21 ₽» или Infinity
+  return Number.isFinite(n) && Math.abs(n) <= 1e12 ? n : NaN;
 }
 
 export interface SkuResult {

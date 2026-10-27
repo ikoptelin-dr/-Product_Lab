@@ -12,12 +12,10 @@
 <meta property="og:title" content="Создание и разработка лендинга — Proba Lab">
 <meta property="og:description" content="Разработаем продающий лендинг продукта или бренда: позиционирование, тексты, дизайн, вёрстка, форма заявки и аналитика. От 60 000 ₽.">
 <link rel="icon" type="image/png" href="../assets/emblem-ink.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="preload" href="../assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css?v=1e260c23f8">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Маркетинг","item":"marketing.html"},{"@type":"ListItem","position":3,"name":"Создание лендинга для продукта и бренда","item":"marketing/lending.html"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Создание лендинга для продукта и бренда","serviceType":"Лендинг","description":"Разработаем продающий лендинг продукта или бренда: позиционирование, тексты, дизайн, вёрстка, форма заявки и аналитика. От 60 000 ₽.","areaServed":"RU","provider":{"@type":"Organization","name":"Proba Lab"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Создание лендинга для продукта и бренда","serviceType":"Маркетинг","description":"Разработаем продающий лендинг продукта или бренда: позиционирование, тексты, дизайн, вёрстка, форма заявки и аналитика. От 60 000 ₽.","areaServed":"RU","provider":{"@type":"Organization","name":"Proba Lab"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит лендинг «под ключ»?","acceptedAnswer":{"@type":"Answer","text":"У нас — от 60 000 ₽: предложение, тексты, дизайн, вёрстка, форма заявки и базовая аналитика. Точную сумму называем после короткого разговора."}}]}</script>
 </head>
 <body class="page">
@@ -117,12 +115,12 @@
   <div class="container two-col">
     <div class="pf-copy">
       <h2 id="pf-title" class="h2" data-pf-title>Обсудить задачу</h2>
-      <p class="lead" data-pf-lead>Расскажите, что нужно сделать. Уточним объём и предложим состав работ.</p>
+      <p class="lead" data-pf-lead>Лендинг: расскажите, что нужно сделать. Уточним объём и назовём смету до начала работ.</p>
     </div>
     <form id="pf-form" class="form-card glass-light" novalidate data-form="project" aria-labelledby="pf-title">
       <fieldset class="field" data-required-group="task">
         <legend>Задача</legend>
-        <div class="choice-col"><label class="choice"><input type="radio" name="task" value="docs"><span>Документы и регистрация</span></label><label class="choice"><input type="radio" name="task" value="promo"><span>Подготовить продукт к продвижению</span></label><label class="choice"><input type="radio" name="task" value="partners"><span>Подготовить материалы для партнёров</span></label><label class="choice"><input type="radio" name="task" value="automation"><span>Упростить заявки и работу команды</span></label><label class="choice"><input type="radio" name="task" value="analytics"><span>Настроить аналитику и учёт заявок</span></label><label class="choice"><input type="radio" name="task" value="audit"><span>Аудит продаж</span></label><label class="choice"><input type="radio" name="task" value="package"><span>Пакет «Предложение для одного продукта» — 29 000 ₽</span></label><label class="choice"><input type="radio" name="task" value="support"><span>Сопровождение продвижения</span></label></div>
+        <div class="choice-col"><label class="choice"><input type="radio" name="task" value="docs"><span>Документы и регистрация</span></label><label class="choice"><input type="radio" name="task" value="promo" checked><span>Подготовить продукт к продвижению</span></label><label class="choice"><input type="radio" name="task" value="partners"><span>Подготовить материалы для партнёров</span></label><label class="choice"><input type="radio" name="task" value="automation"><span>Упростить заявки и работу команды</span></label><label class="choice"><input type="radio" name="task" value="analytics"><span>Настроить аналитику и учёт заявок</span></label><label class="choice"><input type="radio" name="task" value="audit"><span>Аудит продаж</span></label><label class="choice"><input type="radio" name="task" value="package"><span>Пакет «Предложение для одного продукта» — 29 000 ₽</span></label><label class="choice"><input type="radio" name="task" value="support"><span>Сопровождение продвижения</span></label></div>
       </fieldset>
       <fieldset class="field" data-show-for="promo" hidden>
         <legend>Что может понадобиться <span class="opt">необязательно</span></legend>
@@ -206,6 +204,6 @@
     </div>
   </div>
 </footer>
-<script src="../assets/site.js" defer></script>
+<script src="../assets/site.js?v=1e260c23f8" defer></script>
 </body>
 </html>

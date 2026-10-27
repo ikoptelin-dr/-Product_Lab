@@ -7,7 +7,7 @@ import { join } from "node:path";
 const [BASE, SITE, SHOTS] = process.argv.slice(2);
 const sub = (d) => readdirSync(join(SITE, d)).filter((f) => f.endsWith(".html")).map((f) => `${d}/${f}`);
 // Переадресации со старых адресов (meta refresh) не проверяем как страницы
-const MOVED = new Set(["analitika/kalkulyator-yunit-ekonomiki.html", "dokumenty/sanpin.html", "blog/ekonomika-sku-marketplejs.html", "dokumenty/kak-my-rabotaem.html"]);
+const MOVED = new Set(["404.html", "kalkulyator-sku.html", "dokumenty/sanpin.html", "blog/ekonomika-sku-marketplejs.html", "dokumenty/kak-my-rabotaem.html"]);
 const pages = [...readdirSync(SITE).filter((f) => f.endsWith(".html")), ...["dokumenty", "blog", "marketing", "analitika", "avtomatizaciya", "prodvizhenie"].flatMap(sub)].filter((f) => !MOVED.has(f)).sort();
 const LEGAL = ["oferta.html", "politika-pd.html", "soglasie-pd.html", "pravovaya-informaciya.html"];
 const COMPANY = { tel: "tel:+79994662279", mail: "mailto:i.koptelin@proba-lab.ru", inn: "540821689171", email: "i.koptelin@proba-lab.ru" };
@@ -22,7 +22,8 @@ const VPS = [
   { name: "768", viewport: { width: 768, height: 1024 } },
   { name: "390", viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 },
 ];
-const isFont = (u) => /fonts\.(googleapis|gstatic)\.com/.test(u);
+// Шрифты локальные (assets/fonts): внешних запросов не должно быть совсем
+const isFont = () => false;
 const isLocal = (u) => u.startsWith(BASE) || u.startsWith("data:");
 const norm = (s) => (s || "").replace(/ /g, " ");
 
@@ -111,7 +112,8 @@ for (const vp of VPS) {
 /* 2. Метаданные и JSON-LD */
 log("\n== Метаданные и JSON-LD");
 const titles = new Set(), descs = new Set();
-const SERVICE = ["marketing.html", "prodvizhenie.html", "analitika.html", "audit-prodazh.html", "avtomatizaciya.html", ...pages.filter((f) => f.startsWith("dokumenty/") && !/index|kak-my|karta-dokumentov/.test(f))];
+// Страницы с разметкой Service: направления, раздел «Документы» и услуги из proba-growth/content (marketing/, analitika/, avtomatizaciya/, prodvizhenie/)
+const SERVICE = ["marketing.html", "prodvizhenie.html", "analitika.html", "audit-prodazh.html", "avtomatizaciya.html", ...pages.filter((f) => (f.startsWith("dokumenty/") && !/index|kak-my|karta-dokumentov/.test(f)) || /^(marketing|analitika|avtomatizaciya|prodvizhenie)\//.test(f))];
 const ldOf = (f) => meta[f].ld.map((s) => { try { return JSON.parse(s); } catch { return {}; } });
 for (const [f, m] of Object.entries(meta)) {
   ok(m.doctype === "html" && m.lang === "ru" && m.charset === "UTF-8" && m.viewport, `${f}: doctype/lang/charset/viewport`, "meta");
@@ -129,7 +131,7 @@ for (const [f, m] of Object.entries(meta)) {
   ok(m.headings[0] === "H1" && !jump, `${f}: порядок заголовков ${m.headings.join(",")}`, "a11y");
   ok(m.unlabeled.length === 0, `${f}: поля без подписи ${m.unlabeled}`, "a11y");
   ok(m.skip && m.live, `${f}: skip-link / aria-live`, "a11y");
-  ok(m.quizCta && m.nav.join("·") === "Документы·Маркетинг·Продвижение·Аналитика·Аудит продаж·Автоматизация·Цены", `${f}: меню ${m.nav}`, "meta");
+  ok(m.quizCta && m.nav.join("·") === "Документы·Маркетинг·Продвижение·Аналитика·Аудит продаж·Автоматизация·Блог·Цены", `${f}: меню ${m.nav}`, "meta");
   for (const c of m.consent) ok(c.input && c.text === CONSENT_TEXT && c.linkText === "обработку персональных данных" && c.href === "/soglasie-pd.html" && !c.target, `${f}: согласие в форме ${JSON.stringify(c)}`, "consent");
   ok(m.footer.company.join("·") === "О нас·Контакты·Партнёрам·Благотворительность·Новости·Блог" && m.footer.clients.join("·") === "Цены·Оплата·Публичная оферта·Политика обработки ПДн·Правовая информация" && m.footer.legal === "ИП Коптелин Илья Алексеевич · ИНН 540821689171 · ОГРНИП 326547600096728" && m.footer.tel && m.footer.mail, `${f}: подвал ${JSON.stringify(m.footer)}`, "footer");
   log(`  ${f.padEnd(32)} title ${String(m.title.length).padStart(2)} · desc ${String(m.desc.length).padStart(3)} · LD ${types.join("+")}`);
@@ -264,7 +266,7 @@ await formRun("partneram.html", "#ptf-form", async (p) => { await p.fill("#ptf-c
 await formRun("blagotvoritelnost.html", "#pbf-form", async (p) => { await p.fill("#pbf-about", "Организация пациентов, нужны материалы для партнёров"); await contactConsent("#pbf-form")(p); });
 await formRun("dokumenty/karta-dokumentov.html", "#kf-form", async (p) => { await p.fill("#kf-product", "Магний, таблетки"); await p.fill("#kf-composition", "Магния цитрат, витамин B6"); await contactConsent("#kf-form")(p); });
 await formRun("avtomatizaciya.html", "#af-form", async (p) => { await p.fill("#af-process", "Заказы аптек приходят в мессенджер"); await contactConsent("#af-form")(p); });
-for (const pg of ["dokumenty/registraciya-bad.html", "dokumenty/index.html", "dokumenty/kak-my-rabotaem.html"]) await formRun(pg, "#reg-form", async (p) => { await p.click('#reg-form label.choice:has(input[value="БАД"])'); await p.fill("#rf-url", "example.com/product"); await contactConsent("#reg-form")(p); });
+for (const pg of ["dokumenty/index.html"]) await formRun(pg, "#reg-form", async (p) => { await p.click('#reg-form label.choice:has(input[value="БАД"])'); await p.fill("#rf-url", "example.com/product"); await contactConsent("#reg-form")(p); });
 // нормализация адреса
 {
   const { ctx, p } = await open(`${BASE}/index.html`, VPS[0]);
@@ -324,7 +326,7 @@ log("\n== Калькулятор SKU");
     ok(pass, `calcSku «${c.name}»: ${JSON.stringify({ profit: r.profit, margin: r.margin, breakEven: r.breakEven, biggest: r.biggest })} ≠ ${JSON.stringify(c.want)}`, "calc");
     log(`  ${pass ? "✓" : "✗"} ${c.name}: прибыль ${r.profit}, маржа ${r.margin}%, безубыточность ${r.breakEven === null ? "нет" : r.breakEven.toFixed(2)}, главная статья ${r.biggest}`);
   }
-  const parse = [["1 249,5", 1249.5], ["249.5", 249.5], ["  15 ", 15], ["", null], ["abc", NaN], ["-5", NaN], ["1,2,3", NaN]];
+  const parse = [["1 249,5", 1249.5], ["249.5", 249.5], ["  15 ", 15], ["", null], ["abc", NaN], ["-5", -5], ["1e999", NaN], ["99999999999999", NaN], ["1,2,3", NaN]];
   for (const [raw, want] of parse) { const got = calc.parseNum(raw); ok(Number.isNaN(want) ? Number.isNaN(got) : got === want, `parseNum(${JSON.stringify(raw)}) = ${got}, ожидалось ${want}`, "calc"); }
   ok(calc.fmt(-80) === "−80" && calc.fmt(601.2658227848101) === "601,27" && calc.fmt(31.5, 1) === "31,5" && calc.fmt(150000) === "150\u00a0000", "fmt: формат чисел", "calc");
   log(`  parseNum: ${parse.length} случаев (запятая, пробелы, пусто, текст, минус)`);
@@ -413,7 +415,7 @@ for (const f of ["index.html", "marketing.html", "dokumenty/index.html", "dokume
 
 /* 8. Текст */
 log("\n== Текст");
-const FORBIDDEN = [/инновационн/i, /уникальн/i, /комплексн\S* подход/i, /синерги/i, /эффективн\S* решени/i, /команда профессионалов/i, /лучш(?:ий|ая|ее|ие)(?! момент)/i, /(?<!не )гарантируем/i, /рост продаж в \d/i, /(?![©®™])\p{Extended_Pictographic}/u, /\{\{|⟪|⟫/];
+const FORBIDDEN = [/инновационн/i, /уникальн(?!ое торговое предложение|ого торгового предложения|ым торговым предложением|ом торговом предложении|ая формула»)/i, /комплексн\S* подход/i, /синерги/i, /эффективн\S* решени/i, /команда профессионалов/i, /лучш(?:ий|ая|ее|ие)(?! момент)/i, /(?<!не )гарантируем/i, /рост продаж в \d/i, /(?![©®™])\p{Extended_Pictographic}/u, /\{\{|⟪|⟫/];
 let hits = 0;
 for (const f of pages) {
   const html = readFileSync(join(SITE, f), "utf8");

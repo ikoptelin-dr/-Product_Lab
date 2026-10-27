@@ -252,7 +252,10 @@ function forms() {
         const hasFile = file instanceof File && file.size > 0;
         if (String(fd.get("composition") || "").trim().length < 3 && !hasFile) errors.push({ name: "composition", msg: "Добавьте состав текстом или файлом" });
       }
-      if (String(fd.get("contact") || "").trim().length < 5) errors.push({ name: "contact", msg: "Укажите email, телефон или Telegram" });
+      const contact = String(fd.get("contact") || "").trim();
+      // email, телефон (от 10 цифр) или Telegram (@ник или t.me/ник)
+      const okContact = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact) || contact.replace(/\D/g, "").length >= 10 || /^(@|https?:\/\/t\.me\/|t\.me\/)[a-z0-9_]{4,}$/i.test(contact);
+      if (!okContact) errors.push({ name: "contact", msg: "Укажите email, телефон или Telegram (@ник)" });
       if (!fd.get("consent")) errors.push({ name: "consent", msg: "Нужно согласие на обработку данных" });
 
       for (const { name, msg } of errors) {
@@ -327,7 +330,9 @@ function calculator() {
       const input = form.elements.namedItem(fl.key) as HTMLInputElement;
       const v = parseNum(input.value);
       let msg = "";
-      if (v !== null && Number.isNaN(v)) msg = "Введите число, например 249,5";
+      const rawV = input.value.replace(/[\s\u00a0]/g, "");
+      if (v !== null && Number.isNaN(v)) msg = /^\d{13,}/.test(rawV) ? "Слишком большое число" : "Введите число, например 249,5";
+      else if (v !== null && v < 0) msg = "Не может быть отрицательным";
       else if (v !== null && fl.unit === "%" && v > 100) msg = "Не больше 100 %";
       else if (fl.key === "price" && v === 0) msg = "Цена должна быть больше нуля";
       setErr(input, msg);
