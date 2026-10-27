@@ -13,12 +13,12 @@
 <meta property="og:description" content="Посчитайте прибыль на единицу товара, маржу и цену безубыточности на маркетплейсе. Ваши цифры, расчёт сразу, данные не сохраняются.">
 <link rel="icon" type="image/png" href="../assets/emblem-ink.png">
 <link rel="preload" href="../assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=b9b2b67c21">
+<link rel="stylesheet" href="../assets/site.css?v=a2cbe95598">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Аналитика","item":"analitika.html"},{"@type":"ListItem","position":3,"name":"Калькулятор юнит-экономики для Ozon и Wildberries","item":"analitika/kalkulyator-yunit-ekonomiki.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Калькулятор юнит-экономики для Ozon и Wildberries","serviceType":"Аналитика","description":"Посчитайте прибыль на единицу товара, маржу и цену безубыточности на маркетплейсе. Ваши цифры, расчёт сразу, данные не сохраняются.","areaServed":"RU","provider":{"@type":"Organization","name":"Proba Lab"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как считается юнит-экономика?","acceptedAnswer":{"@type":"Answer","text":"Цена после скидок минус себестоимость, комиссия, логистика, возвраты, реклама, налог и упаковка в расчёте на одну единицу. Результат — прибыль с одной продажи."}},{"@type":"Question","name":"Что значит юнит-экономика?","acceptedAnswer":{"@type":"Answer","text":"Это экономика одной единицы товара: сколько вы зарабатываете или теряете на каждой продаже. Подробнее — в статье «Юнит-экономика простыми словами»."}}]}</script>
 </head>
-<body class="page">
+<body class="page page-service dir-ana">
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <header class="site-header">
   <div class="container header-row">
@@ -54,13 +54,14 @@
 </header>
 <main id="main">
 <section class="page-hero grain" aria-labelledby="page-title">
+  <div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="g1"></b><b class="g2"></b></div>
   <div class="container">
     <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="../index.html">Proba Lab</a></li><li><a href="../analitika.html">Аналитика</a></li><li><span aria-current="page">Калькулятор юнит-экономики для Ozon и Wildberries</span></li></ol></nav>
     <div class="page-hero-grid">
       <div class="page-hero-copy">
         
         <h1 id="page-title" class="h1-page">Калькулятор юнит-экономики для Ozon и Wildberries</h1>
-        <p class="hero-lead">Введите свои цифры — калькулятор сразу покажет прибыль на единицу, маржу и цену безубыточности. Ставки площадок меняются, поэтому берите их из своего кабинета. Данные никуда не отправляются.</p>
+        <p class="hero-lead">Расчёт юнит-экономики для одного товара: введите свои цифры — калькулятор покажет прибыль на единицу, маржу и цену безубыточности. Данные никуда не отправляются.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#calc" data-primary-cta>Посчитать</a>
           <a class="btn btn-ghost btn-lg" href="#project-form">Разбор всех SKU</a>
@@ -71,6 +72,7 @@
     </div>
   </div>
 </section>
+
 <div class="light">
 <section id="calc" class="section calc-section" aria-labelledby="calc-title">
   <div class="container">
@@ -138,24 +140,24 @@
       <p>Прибыль на единицу = цена − себестоимость − цена × комиссия − логистика − доля возвратов × обратная логистика − реклама − цена × налог − упаковка. Маржа — прибыль, делённая на цену. Цена безубыточности — цена, при которой прибыль равна нулю: расходы в рублях, делённые на долю цены, которая остаётся после комиссии и налога.</p>
     </div>
   </div>
-</section><section class="section"><div class="container"><div class="prose">
-<h2>Как считается юнит-экономика</h2>
-<p>Юнит-экономика — расчёт прибыли на одну проданную единицу товара. Из цены, которую платит покупатель после скидок, вычитаем всё, что тратится на эту единицу:</p>
-<ul>
-<li>себестоимость товара;</li>
-<li>комиссию площадки;</li>
-<li>логистику до покупателя и обратно;</li>
-<li>потери на возвратах;</li>
-<li>рекламу в пересчёте на одну продажу;</li>
-<li>налог;</li>
-<li>упаковку и маркировку.</li>
+</section><section class="section blk" aria-labelledby="kak-schitaetsya-yunit-ekonomika"><div class="container"><div class="prose blk-body"><h2 id="kak-schitaetsya-yunit-ekonomika" class="sec-title">Как считается юнит-экономика</h2><p class="sec-lead">Юнит-экономика — расчёт прибыли на одну проданную единицу. Из цены после скидок вычитаем всё, что тратится на эту единицу:</p>
+<ul class="cards">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><b class="card-t">Себестоимость товара</b></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b class="card-t">Комиссия площадки</b></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></svg><b class="card-t">Логистика до покупателя и обратно</b></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b class="card-t">Потери на возвратах</b></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/></svg><b class="card-t">Реклама на одну продажу</b></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b class="card-t">Налог</b></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 3h8v3H8zM7 6h10l1 3v11a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9z"/><path d="M6 12h12v5H6"/></svg><b class="card-t">Упаковка и маркировка</b></li>
 </ul>
-<p>Остаток — прибыль на единицу. Если он отрицательный, каждая продажа приносит убыток, сколько бы товара вы ни продали.</p>
-<h2>Юнит-экономика на Ozon и WB</h2>
-<p>Формула одна для обеих площадок. Различаются ставки комиссий, логистика и схема работы (со своего склада или со склада площадки). Поэтому калькулятор не подставляет ставки сам: возьмите актуальные из кабинета продавца для своей категории.</p>
-<p>Если продаёте на обеих площадках, считайте каждую отдельно: цена безубыточности может различаться.</p>
-<h2>Таблица юнит-экономики для всех товаров</h2>
-<p>Калькулятор считает один товар. Если товаров много, удобнее разобрать все сразу. Пришлите выгрузку из кабинета — мы посчитаем юнит-экономику по каждому SKU и покажем, какие товары тянут прибыль вниз и что с ними делать.</p>
+<p>Остаток — прибыль на единицу. Если он отрицательный, <mark class="hl">каждая продажа приносит убыток</mark>, сколько бы товара вы ни продали.</p>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="yunit-ekonomika-na-ozon-i-wb"><div class="container"><div class="prose blk-body"><h2 id="yunit-ekonomika-na-ozon-i-wb" class="sec-title">Юнит-экономика на Ozon и WB</h2><p class="sec-lead">Формула одна для обеих площадок, <mark class="hl">ставки берите из своего кабинета</mark>.</p>
+<ul class="cards cards-3">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg><b class="card-t">Что различается</b><span class="card-d">ставки комиссий, логистика и схема работы (со своего склада или со склада площадки).</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b class="card-t">Почему ставок нет в калькуляторе</b><span class="card-d">ставки площадок меняются: возьмите актуальные для своей категории.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><b class="card-t">Две площадки</b><span class="card-d">считайте каждую отдельно: цена безубыточности может различаться.</span></li>
+</ul>
+</div></div></section><section class="section blk" aria-labelledby="tablica-yunit-ekonomiki-dlya-vseh-tovarov"><div class="container"><div class="prose blk-body"><h2 id="tablica-yunit-ekonomiki-dlya-vseh-tovarov" class="sec-title">Таблица юнит-экономики для всех товаров</h2><p class="sec-lead">Калькулятор считает один товар. Пришлите выгрузку из кабинета — <mark class="hl">посчитаем юнит-экономику по каждому SKU</mark> и покажем, какие товары тянут прибыль вниз и что с ними делать.</p>
 <p><a class="btn btn-primary" href="#project-form">Разбор всех SKU по выгрузке</a></p>
 </div></div></section><section id="faq" class="section faq" aria-labelledby="faq-title">
   <div class="container faq-grid">
@@ -165,12 +167,11 @@
       <details><summary>Что значит юнит-экономика?</summary><div class="details-body"><p>Это экономика одной единицы товара: сколько вы зарабатываете или теряете на каждой продаже. Подробнее — в статье <a href="../blog/yunit-ekonomika-prostymi-slovami.html">«Юнит-экономика простыми словами»</a>.</p></div></details>
     </div>
   </div>
-</section><section class="section"><div class="container"><div class="prose">
-<h2>Что ещё может понадобиться</h2>
-<ul>
-<li><a href="../analitika.html">Аналитика продаж на маркетплейсах</a></li>
-<li><a href="../audit-prodazh.html">Аудит продаж</a></li>
-<li><a href="../marketing.html">Карточки товаров</a></li>
+</section><section class="section blk blk-tint" aria-labelledby="chto-esche-mozhet-ponadobitsya"><div class="container"><div class="prose blk-body"><h2 id="chto-esche-mozhet-ponadobitsya" class="sec-title">Что ещё может понадобиться</h2>
+<ul class="link-cards">
+<li class="reveal"><a href="../analitika.html">Аналитика продаж на маркетплейсах</a><span class="card-d">все услуги раздела</span></li>
+<li class="reveal"><a href="../audit-prodazh.html">Аудит продаж</a><span class="card-d">где теряются покупатели и деньги</span></li>
+<li class="reveal"><a href="../marketing.html">Карточки товаров</a><span class="card-d">маркетинг для маркетплейсов</span></li>
 </ul>
 </div></div></section><section id="project-form" class="section project-form" aria-labelledby="pf-title">
   <div class="container two-col">
@@ -265,6 +266,6 @@
     </div>
   </div>
 </footer>
-<script src="../assets/site.js?v=b9b2b67c21" defer></script>
+<script src="../assets/site.js?v=a2cbe95598" defer></script>
 </body>
 </html>

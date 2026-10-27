@@ -13,10 +13,10 @@
 <meta property="og:description" content="Демо-проект на вымышленном бренде: считаем юнит-экономику батончика, ищем, где теряется маржа, готовим документы, упаковку, 3D и видео для карточки.">
 <link rel="icon" type="image/png" href="../assets/emblem-ink.png">
 <link rel="preload" href="../assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=b9b2b67c21">
+<link rel="stylesheet" href="../assets/site.css?v=a2cbe95598">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"kejsy.html"},{"@type":"ListItem","position":3,"name":"Протеиновый батончик: юнит-экономика и выход на маркетплейс","item":"kejsy/batonchik-yunit-ekonomika.html"}]}</script>
 </head>
-<body class="page">
+<body class="page page-service dir-mkt">
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <header class="site-header">
   <div class="container header-row">
@@ -52,6 +52,7 @@
 </header>
 <main id="main">
 <section class="page-hero grain" aria-labelledby="page-title">
+  <div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="g1"></b><b class="g2"></b></div>
   <div class="container">
     <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="../index.html">Proba Lab</a></li><li><a href="../kejsy.html">Кейсы</a></li><li><span aria-current="page">Протеиновый батончик: юнит-экономика и выход на маркетплейс</span></li></ol></nav>
     <div class="page-hero-grid">
@@ -69,17 +70,17 @@
     </div>
   </div>
 </section>
+
 <div class="light">
-<section class="section"><div class="container"><div class="prose"><h2>Задача</h2>
-<p>Условный производитель снеков хочет выпустить протеиновый батончик и продавать его на Ozon и Wildberries. Рецептура есть, упаковки и документов нет.</p>
+<section class="section blk" aria-labelledby="zadacha"><div class="container"><div class="prose blk-body"><h2 id="zadacha" class="sec-title">Задача</h2><p class="sec-lead">Условный производитель снеков хочет выпустить протеиновый батончик и продавать его на Ozon и Wildberries. Рецептура есть, упаковки и документов нет.</p>
 <p>Покупатель — человек, у которого сорвался обед: встреча затянулась, смена без перерыва, дорога между объектами. Ему нужно продержаться до вечера и не тратить время на поиск еды.</p>
 <p>Что нужно решить:</p>
-<ul>
+<ul class="dots">
 <li>будет ли батончик зарабатывать после всех расходов площадки;</li>
 <li>в каком формате продавать — поштучно или набором;</li>
 <li>какой документ нужен и как подать продукт без лишних обещаний.</li>
 </ul>
-<h2>Что мы сделали</h2>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="chto-my-sdelali"><div class="container"><div class="prose blk-body"><h2 id="chto-my-sdelali" class="sec-title">Что мы сделали</h2>
 <h3>1. Определили документ до упаковки</h3>
 <p>Тип документа зависит от состава, назначения и того, как продукт подан. Обычная пищевая продукция подтверждается декларацией. Госрегистрации подлежат специализированная пищевая продукция и пищевая продукция нового вида. В том числе продукция для питания спортсменов.</p>
 <p>Поэтому слова на упаковке и в карточке выбираем вместе со специалистом по регуляторике. Решение о документе принимаем после проверки состава, а не заранее. Подробнее — <a href="../dokumenty/registraciya-produkcii.html">регистрация продукции</a>.</p>
@@ -150,12 +151,12 @@
 <p>Попробовать на своих цифрах — <a href="../analitika/kalkulyator-yunit-ekonomiki.html">калькулятор юнит-экономики</a>. Основы — в статье <a href="../blog/yunit-ekonomika-prostymi-slovami.html">«Юнит-экономика простыми словами»</a>.</p>
 <h3>4. Нашли, где теряется маржа</h3>
 <p>Пример в словах, без ставок:</p>
-<ul>
-<li><strong>Фиксированные расходы на маленьком чеке.</strong> Логистика и часть платежей площадки не зависят от цены товара. Для недорогого батончика они съедают заметную долю цены. В наборе из нескольких штук те же расходы делятся на все батончики.</li>
-<li><strong>Срок годности.</strong> Батончик живёт меньше, чем банка витаминов. Если товар долго лежит на складе площадки, растут хранение и списания.</li>
-<li><strong>Акции и скидки.</strong> Участие в распродаже снижает Ц, а остальные расходы остаются прежними. Считаем, при какой скидке прибыль уходит в ноль.</li>
-<li><strong>Сезон.</strong> Глазурь летом может деформироваться в дороге. Это возвраты и плохие оценки — закладываем в В и в выбор упаковки.</li>
-<li><strong>Реклама.</strong> Чем дешевле товар, тем меньше места для рекламы в расчёте на продажу. Поэтому сначала проверяем, сходится ли экономика набора.</li>
+<ul class="cards cards-3">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg><b class="card-t">Фиксированные расходы на маленьком чеке.</b><span class="card-d">Логистика и часть платежей площадки не зависят от цены товара. Для недорогого батончика они съедают заметную долю цены. В наборе из нескольких штук те же расходы делятся на все батончики.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b class="card-t">Срок годности.</b><span class="card-d">Батончик живёт меньше, чем банка витаминов. Если товар долго лежит на складе площадки, растут хранение и списания.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg><b class="card-t">Акции и скидки.</b><span class="card-d">Участие в распродаже снижает Ц, а остальные расходы остаются прежними. Считаем, при какой скидке прибыль уходит в ноль.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b class="card-t">Сезон.</b><span class="card-d">Глазурь летом может деформироваться в дороге. Это возвраты и плохие оценки — закладываем в В и в выбор упаковки.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg><b class="card-t">Реклама.</b><span class="card-d">Чем дешевле товар, тем меньше места для рекламы в расчёте на продажу. Поэтому сначала проверяем, сходится ли экономика набора.</span></li>
 </ul>
 <p>Итог шага — таблица с вариантами «поштучно / набор / набор в акции» и ценой безубыточности для каждого.</p>
 <h3>5. Упаковка: флоупак и коробка набора</h3>
@@ -165,8 +166,8 @@
 <p>Дизайнер собрал в Blender 3D-модели обёртки и коробки. Рендеры: батончик в обёртке, батончик в разрезе, коробка-набор, набор с одним открытым батончиком. Ролик до 15 секунд: коробка открывается, батончик выезжает, разрез, формат набора.</p>
 <h3>7. Карточка и запуск</h3>
 <p>Слайды, название, описание и ответы на вопросы сверили с документом. Для обычной пищевой продукции Ozon запрашивает декларацию, для специализированной — СГР. Порядок запуска — в услуге <a href="../prodvizhenie/vyhod-na-marketplejsy.html">вывод на маркетплейсы</a>.</p>
-<h2>Что получает клиент</h2>
-<ul>
+</div></div></section><section class="section blk" aria-labelledby="chto-poluchaet-klient"><div class="container"><div class="prose blk-body"><h2 id="chto-poluchaet-klient" class="sec-title">Что получает клиент</h2>
+<ul class="dots">
 <li>заключение по документу: какой нужен и какие слова на упаковке на него влияют;</li>
 <li>формулировку работы покупателя и ключевое сообщение;</li>
 <li>модель юнит-экономики в таблице: переменные, формулы, сценарии «поштучно / набор / акция», цена безубыточности;</li>
@@ -175,7 +176,7 @@
 <li>3D-модели и 3–5 рендеров, видео до 15 секунд в вертикальной и квадратной версиях;</li>
 <li>карточку Ozon и Wildberries, готовую к загрузке после получения документа.</li>
 </ul>
-<h2>Сколько это стоит</h2>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="skolko-eto-stoit"><div class="container"><div class="prose blk-body"><h2 id="skolko-eto-stoit" class="sec-title">Сколько это стоит</h2>
 <div class="table-wrap" role="region" aria-label="Таблица 2" tabindex="0"><table>
 <thead>
 <tr class="header">
@@ -219,10 +220,10 @@
 </tbody>
 </table></div>
 <p>Испытания, экспертиза и госпошлина — отдельными строками сметы.</p>
-<h2>Сроки</h2>
-<ul>
-<li><strong>Ведомство:</strong> зависит от документа. Для декларации: Заявитель сам подтверждает соответствие на основании протоколов испытаний и регистрирует декларацию в реестре Росаккредитации. Если понадобится СГР: Орган рассматривает заявление не более 30 дней, а испытания и экспертиза в этот срок не входят.</li>
-<li><strong>Проект:</strong> зависит от состава, лаборатории и числа вариантов упаковки; называем после анализа.</li>
+</div></div></section><section class="section blk" aria-labelledby="sroki"><div class="container"><div class="prose blk-body"><h2 id="sroki" class="sec-title">Сроки</h2>
+<ul class="cards cards-2">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg><b class="card-t">Ведомство:</b><span class="card-d">зависит от документа. Для декларации: Заявитель сам подтверждает соответствие на основании протоколов испытаний и регистрирует декларацию в реестре Росаккредитации. Если понадобится СГР: Орган рассматривает заявление не более 30 дней, а испытания и экспертиза в этот срок не входят.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b class="card-t">Проект:</b><span class="card-d">зависит от состава, лаборатории и числа вариантов упаковки; называем после анализа.</span></li>
 </ul>
 </div></div></section><section class="section" aria-label="Посчитать экономику и вывести продукт на маркетплейс"><div class="container"><div class="dark-card grain article-cta reveal">
       <div><p class="h2">Посчитать экономику и вывести продукт на маркетплейс</p></div>
@@ -322,6 +323,6 @@
     </div>
   </div>
 </footer>
-<script src="../assets/site.js?v=b9b2b67c21" defer></script>
+<script src="../assets/site.js?v=a2cbe95598" defer></script>
 </body>
 </html>

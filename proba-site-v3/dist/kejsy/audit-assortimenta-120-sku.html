@@ -13,10 +13,10 @@
 <meta property="og:description" content="Демо-проект: проверяем ассортимент продавца на Ozon и WB — документы, статусы, наименования, маркировку. План правок и мониторинг изменений.">
 <link rel="icon" type="image/png" href="../assets/emblem-ink.png">
 <link rel="preload" href="../assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=b9b2b67c21">
+<link rel="stylesheet" href="../assets/site.css?v=a2cbe95598">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Кейсы","item":"kejsy.html"},{"@type":"ListItem","position":3,"name":"Аудит ассортимента 120 SKU под правила маркетплейсов 2026 года","item":"kejsy/audit-assortimenta-120-sku.html"}]}</script>
 </head>
-<body class="page">
+<body class="page page-service dir-mkt">
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <header class="site-header">
   <div class="container header-row">
@@ -52,6 +52,7 @@
 </header>
 <main id="main">
 <section class="page-hero grain" aria-labelledby="page-title">
+  <div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="g1"></b><b class="g2"></b></div>
   <div class="container">
     <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="../index.html">Proba Lab</a></li><li><a href="../kejsy.html">Кейсы</a></li><li><span aria-current="page">Аудит ассортимента 120 SKU под правила маркетплейсов 2026 года</span></li></ol></nav>
     <div class="page-hero-grid">
@@ -69,21 +70,21 @@
     </div>
   </div>
 </section>
+
 <div class="light">
-<section class="section"><div class="container"><div class="prose"><h2>Задача</h2>
-<p>Условный продавец торгует на Ozon и Wildberries: 120 SKU (товарных позиций) — БАД, косметика и несколько пищевых товаров. Часть товаров от разных производителей, часть — под собственной маркой. Документы собирались годами, кто-то из поставщиков сменился.</p>
+<section class="section blk" aria-labelledby="zadacha"><div class="container"><div class="prose blk-body"><h2 id="zadacha" class="sec-title">Задача</h2><p class="sec-lead">Условный продавец торгует на Ozon и Wildberries: 120 SKU (товарных позиций) — БАД, косметика и несколько пищевых товаров. Часть товаров от разных производителей, часть — под собственной маркой. Документы собирались годами, кто-то из поставщиков сменился.</p>
 <p>Осенью 2026 года правила стали строже:</p>
-<ul>
+<ul class="dots">
 <li>С 1 октября 2026 года закон прямо запрещает предлагать к продаже незарегистрированные БАД (ст. 11.1 закона о торговле в ред. 290-ФЗ), а площадки обязаны проверять документы (289-ФЗ).</li>
 <li>С 28 октября 2026 года действуют изменения ТР ТС 009/2011: дополнены перечни запрещённых и ограниченных веществ.</li>
 </ul>
 <p>Продавцу нужно понять, какие карточки под риском, и что делать с каждой — до того, как это решит площадка.</p>
-<h2>Что мы сделали</h2>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="chto-my-sdelali"><div class="container"><div class="prose blk-body"><h2 id="chto-my-sdelali" class="sec-title">Что мы сделали</h2>
 <h3>1. Собрали выгрузку и документы</h3>
 <p>Взяли из кабинетов выгрузку всех карточек: название, категория, бренд, загруженный документ. Попросили у продавца папку с документами и договоры с поставщиками. Каждой позиции дали строку в одной таблице.</p>
 <h3>2. Проверили каждый документ по четырём признакам</h3>
 <p><strong>Тип документа.</strong> Подходит ли он для этой категории:</p>
-<ul>
+<ul class="dots">
 <li>Для БАД Wildberries требует именно СГР, а не сертификат или декларацию.</li>
 <li>Для косметики нужна декларация о соответствии. Отдельным группам, например косметике для детей, нужна госрегистрация.</li>
 <li>Для БАД и большинства косметики отказное письмо не подходит: на них нужен СГР или декларация.</li>
@@ -172,22 +173,18 @@
 </tbody>
 </table></div>
 <h3>5. Составили план по трём спискам</h3>
-<ol type="1">
-<li><strong>Переоформить.</strong> Документы с ошибками в сведениях о заявителе или изготовителе, неподходящий тип документа, когда продукт можно оформить правильно.</li>
-<li><strong>Снять.</strong> Позиции, у которых сейчас нет допустимого документа или статус в реестре не действующий. Снимаем до исправления, а не навсегда.</li>
-<li><strong>Исправить в карточке.</strong> Название, изготовитель, поле документа, фразы с лечебным смыслом, слайды.</li>
-</ol>
+<ol class="steps steps-h"><li class="reveal" style="--i:0"><span class="step-n">01</span><b class="card-t">Переоформить.</b><span class="card-d">Документы с ошибками в сведениях о заявителе или изготовителе, неподходящий тип документа, когда продукт можно оформить правильно.</span></li><li class="reveal" style="--i:1"><span class="step-n">02</span><b class="card-t">Снять.</b><span class="card-d">Позиции, у которых сейчас нет допустимого документа или статус в реестре не действующий. Снимаем до исправления, а не навсегда.</span></li><li class="reveal" style="--i:2"><span class="step-n">03</span><b class="card-t">Исправить в карточке.</b><span class="card-d">Название, изготовитель, поле документа, фразы с лечебным смыслом, слайды.</span></li></ol>
 <p>У каждой строки плана — ответственный (мы, продавец или поставщик), приоритет и смета.</p>
 <h3>6. Предложили абонемент мониторинга</h3>
 <p>Ассортимент и правила меняются. Раз в месяц:</p>
-<ul>
+<ul class="dots">
 <li>сверяем статусы документов в реестрах по всему ассортименту;</li>
 <li>проверяем новые SKU до загрузки в кабинет;</li>
 <li>следим за изменениями требований площадок и норм, которые касаются ваших категорий;</li>
 <li>присылаем короткий отчёт: что изменилось и что сделать.</li>
 </ul>
-<h2>Что получает клиент</h2>
-<ul>
+</div></div></section><section class="section blk" aria-labelledby="chto-poluchaet-klient"><div class="container"><div class="prose blk-body"><h2 id="chto-poluchaet-klient" class="sec-title">Что получает клиент</h2>
+<ul class="dots">
 <li>таблицу рисков по всем SKU: тип документа, статус, наименование, маркировка, уровень риска;</li>
 <li>план «переоформить / снять / исправить в карточке» с ответственными и приоритетами;</li>
 <li>список фраз в карточках, которые нужно заменить, и готовые замены;</li>
@@ -195,7 +192,7 @@
 <li>письма-запросы поставщикам за недостающими документами;</li>
 <li>абонемент мониторинга — по желанию.</li>
 </ul>
-<h2>Сколько это стоит</h2>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="skolko-eto-stoit"><div class="container"><div class="prose blk-body"><h2 id="skolko-eto-stoit" class="sec-title">Сколько это стоит</h2>
 <div class="table-wrap" role="region" aria-label="Таблица 2" tabindex="0"><table>
 <thead>
 <tr class="header">
@@ -235,10 +232,10 @@
 </tbody>
 </table></div>
 <p>Испытания, экспертиза и госпошлина — отдельными строками сметы.</p>
-<h2>Сроки</h2>
-<ul>
-<li><strong>Ведомство и площадки:</strong> Проверка документа занимает около 3 суток, затем в карточке появляется значок «Документы проверены». Для новых СГР: Заявление орган рассматривает не более 30 дней. Испытания и экспертиза в этот срок не входят.</li>
-<li><strong>Проект:</strong> зависит от числа SKU, категорий и того, как собраны документы; называем после анализа выгрузки.</li>
+</div></div></section><section class="section blk" aria-labelledby="sroki"><div class="container"><div class="prose blk-body"><h2 id="sroki" class="sec-title">Сроки</h2>
+<ul class="cards cards-2">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg><b class="card-t">Ведомство и площадки:</b><span class="card-d">Проверка документа занимает около 3 суток, затем в карточке появляется значок «Документы проверены». Для новых СГР: Заявление орган рассматривает не более 30 дней. Испытания и экспертиза в этот срок не входят.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b class="card-t">Проект:</b><span class="card-d">зависит от числа SKU, категорий и того, как собраны документы; называем после анализа выгрузки.</span></li>
 </ul>
 </div></div></section><section class="section" aria-label="Проверить ассортимент под правила 2026 года"><div class="container"><div class="dark-card grain article-cta reveal">
       <div><p class="h2">Проверить ассортимент под правила 2026 года</p></div>
@@ -338,6 +335,6 @@
     </div>
   </div>
 </footer>
-<script src="../assets/site.js?v=b9b2b67c21" defer></script>
+<script src="../assets/site.js?v=a2cbe95598" defer></script>
 </body>
 </html>

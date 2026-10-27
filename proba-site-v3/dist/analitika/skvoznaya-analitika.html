@@ -13,12 +13,12 @@
 <meta property="og:description" content="Настроим Яндекс Метрику, цели, коллтрекинг и связку сайта с CRM, чтобы было видно, какой канал приводит оплаты. От 15 000 ₽ за старт, лицензии отдельно.">
 <link rel="icon" type="image/png" href="../assets/emblem-ink.png">
 <link rel="preload" href="../assets/fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/site.css?v=b9b2b67c21">
+<link rel="stylesheet" href="../assets/site.css?v=a2cbe95598">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Proba Lab","item":"index.html"},{"@type":"ListItem","position":2,"name":"Аналитика","item":"analitika.html"},{"@type":"ListItem","position":3,"name":"Сквозная аналитика: от рекламы и сайта до оплаты в CRM","item":"analitika/skvoznaya-analitika.html"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Сквозная аналитика: от рекламы и сайта до оплаты в CRM","serviceType":"Аналитика","description":"Настроим Яндекс Метрику, цели, коллтрекинг и связку сайта с CRM, чтобы было видно, какой канал приводит оплаты. От 15 000 ₽ за старт, лицензии отдельно.","areaServed":"RU","provider":{"@type":"Organization","name":"Proba Lab"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как настроить сквозную аналитику?","acceptedAnswer":{"@type":"Answer","text":"Настроить Метрику и цели, разметить источники, подключить коллтрекинг, связать сайт с CRM и вернуть статусы и суммы сделок в отчёт. Последний шаг — проверить, что тестовая заявка из каждого канала доходит до отчёта."}},{"@type":"Question","name":"Как работает сквозная аналитика?","acceptedAnswer":{"@type":"Answer","text":"Каждая заявка получает метку источника. CRM хранит её вместе со статусом и суммой сделки. Отчёт складывает расходы по каналу и выручку по его заявкам."}},{"@type":"Question","name":"Как работает коллтрекинг?","acceptedAnswer":{"@type":"Answer","text":"Посетителям из разных источников показываются разные номера телефона. По номеру, на который позвонили, система определяет источник и передаёт звонок в отчёт."}},{"@type":"Question","name":"Для чего нужен коллтрекинг?","acceptedAnswer":{"@type":"Answer","text":"Чтобы звонки учитывались так же, как заявки с сайта. Если клиенты в основном пишут через формы и мессенджеры, часто достаточно целей и отдельных номеров для ключевых каналов."}}]}</script>
 </head>
-<body class="page">
+<body class="page page-service dir-ana">
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <header class="site-header">
   <div class="container header-row">
@@ -54,13 +54,14 @@
 </header>
 <main id="main">
 <section class="page-hero grain" aria-labelledby="page-title">
+  <div class="ambient" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="g1"></b><b class="g2"></b></div>
   <div class="container">
     <nav class="crumbs" aria-label="Хлебные крошки"><ol><li><a href="../index.html">Proba Lab</a></li><li><a href="../analitika.html">Аналитика</a></li><li><span aria-current="page">Сквозная аналитика: от рекламы и сайта до оплаты в CRM</span></li></ol></nav>
     <div class="page-hero-grid">
       <div class="page-hero-copy">
         
         <h1 id="page-title" class="h1-page">Сквозная аналитика: от рекламы и сайта до оплаты в CRM</h1>
-        <p class="hero-lead">Настраиваем учёт так, чтобы по каждой заявке было видно, откуда она пришла, что с ней стало и сколько стоил клиент. Начинаем с Яндекс Метрики и целей, дальше связываем сайт, звонки и CRM.</p>
+        <p class="hero-lead">По каждой заявке видно, откуда она пришла, что с ней стало и сколько стоил клиент.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Обсудить аналитику</a>
           <a class="btn btn-ghost btn-lg" href="#ceny">Сначала аудит аналитики</a>
@@ -71,61 +72,46 @@
     </div>
   </div>
 </section>
+
 <div class="light">
-<section class="section"><div class="container"><div class="prose"><h2>Что такое сквозная аналитика простыми словами</h2>
-<p>Это цепочка «реклама или другой источник → сайт → заявка в CRM → оплата», собранная в одном отчёте. Обычная веб-аналитика показывает клики и заявки. Сквозная показывает, какой канал приводит деньги, а какой только трафик.</p>
-<h2>Когда это нужно</h2>
-<ul>
-<li>Непонятно, сколько заявок приносит сайт, маркетплейс и партнёры.</li>
-<li>Часть клиентов звонит, и звонки ни к какому источнику не привязаны.</li>
-<li>Есть CRM, но данные о продажах не возвращаются в Метрику.</li>
-<li>Планируете вкладываться в продвижение и хотите знать стоимость клиента по каналам.</li>
+<section class="section blk" aria-labelledby="chto-takoe-skvoznaya-analitika-prostymi-slovami"><div class="container"><div class="prose blk-body"><h2 id="chto-takoe-skvoznaya-analitika-prostymi-slovami" class="sec-title">Что такое сквозная аналитика простыми словами</h2><p class="sec-lead">Это цепочка «реклама → сайт → заявка в CRM → оплата» в одном отчёте. Видно, <mark class="hl">какой канал приводит деньги, а какой — трафик</mark>.</p>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="kogda-eto-nuzhno"><div class="container"><div class="prose blk-body"><h2 id="kogda-eto-nuzhno" class="sec-title">Когда это нужно</h2>
+<ul class="checks checks-yes">
+<li>Непонятно, сколько заявок приносят сайт, маркетплейс и партнёры.</li>
+<li>Звонки не привязаны к источникам.</li>
+<li>Данные о продажах из CRM не возвращаются в Метрику.</li>
+<li>Нужна стоимость клиента по каналам.</li>
 </ul>
-<h2>Что настраиваем</h2>
-<ol type="1">
-<li><strong>Настройка Яндекс Метрики на сайте.</strong> Счётчик, цели на заявки, звонки и переходы в мессенджеры. Согласие на cookie — до загрузки счётчика.</li>
-<li><strong>Источники заявок.</strong> UTM-метки там, где площадка их поддерживает; отдельные номера или адреса — там, где нет.</li>
-<li><strong>Коллтрекинг для сайта.</strong> Отдельные номера по источникам, чтобы звонок попадал в отчёт так же, как заявка из формы.</li>
-<li><strong>Связка сайта с CRM.</strong> Заявка из CRM с её статусом и суммой возвращается в Метрику как конверсия. Работаем со сквозной аналитикой в Битрикс24 и amoCRM.</li>
-<li><strong>Дашборд.</strong> Одна страница с главными цифрами: заявки, конверсия, стоимость клиента, выручка по каналам. Обновляется автоматически.</li>
-</ol>
-<h2>Когда не подходит</h2>
-<ul>
-<li><strong>Нет CRM.</strong> Сначала нужна система, куда попадают все заявки, — <a href="../avtomatizaciya/vnedrenie-crm.html">внедрение CRM</a>.</li>
-<li><strong>Заявок единицы в месяц.</strong> Достаточно Метрики с целями, сквозная аналитика не окупит настройку.</li>
-<li><strong>Продажи только на маркетплейсе.</strong> Площадки не передают все данные о покупателях. Начните с экономики товаров — <a href="../analitika/kalkulyator-yunit-ekonomiki.html">калькулятор юнит-экономики</a>.</li>
+</div></div></section><section class="section blk" aria-labelledby="chto-nastraivaem"><div class="container"><div class="prose blk-body"><h2 id="chto-nastraivaem" class="sec-title">Что настраиваем</h2>
+<ul class="cards cards-3">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2M9.5 7h5v6h-5z"/></svg><b class="card-t">Настройка Яндекс Метрики на сайте</b><span class="card-d">счётчик и цели; согласие на cookie — до загрузки счётчика.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b class="card-t">Источники заявок</b><span class="card-d">UTM-метки или отдельные номера и адреса.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2M9.5 7h5v6h-5z"/></svg><b class="card-t">Коллтрекинг для сайта</b><span class="card-d">звонок попадает в отчёт, как заявка из формы.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2M9.5 7h5v6h-5z"/></svg><b class="card-t">Связка сайта с CRM</b><span class="card-d">статус и сумма сделки возвращаются в Метрику. Сквозная аналитика в Битрикс24 и amoCRM.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg><b class="card-t">Дашборд</b><span class="card-d">заявки, стоимость клиента и выручка по каналам на одной странице.</span></li>
 </ul>
-<h2>Как проходит работа</h2>
-<ol type="1">
-<li><strong>Аудит:</strong> что и как считается сейчас.</li>
-<li><strong>План:</strong> какие цели, источники и отчёты нужны под ваши решения.</li>
-<li><strong>Настройка:</strong> Метрика, коллтрекинг, интеграция с CRM.</li>
-<li><strong>Проверка:</strong> тестовая заявка и звонок из каждого канала доходят до отчёта.</li>
-<li><strong>Инструкция и передача</strong> команде.</li>
-</ol>
-<h2>Что нужно от вас</h2>
-<ul>
-<li>доступ к сайту и Метрике или разрешение их создать;</li>
-<li>доступ к CRM или выгрузки из неё;</li>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="kogda-ne-podhodit"><div class="container"><div class="prose blk-body"><h2 id="kogda-ne-podhodit" class="sec-title">Когда не подходит</h2>
+<ul class="checks checks-no">
+<li>Нет CRM — сначала нужна система для всех заявок: <a href="../avtomatizaciya/vnedrenie-crm.html">внедрение CRM</a>.</li>
+<li>Заявок единицы в месяц — достаточно Метрики с целями.</li>
+<li>Продажи только на маркетплейсе — площадки не передают все данные о покупателях; начните с <a href="../analitika/kalkulyator-yunit-ekonomiki.html">калькулятора юнит-экономики</a>.</li>
+</ul>
+</div></div></section><section class="section blk" aria-labelledby="kak-prohodit-rabota"><div class="container"><div class="prose blk-body"><h2 id="kak-prohodit-rabota" class="sec-title">Как проходит работа</h2>
+<ol class="steps steps-h"><li class="reveal" style="--i:0"><span class="step-n">01</span><b class="card-t">Аудит</b><span class="card-d">что считается сейчас.</span></li><li class="reveal" style="--i:1"><span class="step-n">02</span><b class="card-t">План</b><span class="card-d">цели, источники, отчёты.</span></li><li class="reveal" style="--i:2"><span class="step-n">03</span><b class="card-t">Настройка</b><span class="card-d">Метрика, коллтрекинг, CRM.</span></li><li class="reveal" style="--i:3"><span class="step-n">04</span><b class="card-t">Проверка</b><span class="card-d">тестовая заявка из каждого канала в отчёте.</span></li><li class="reveal" style="--i:4"><span class="step-n">05</span><b class="card-t">Передача</b><span class="card-d">инструкция команде.</span></li></ol>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="chto-nuzhno-ot-vas"><div class="container"><div class="prose blk-body"><h2 id="chto-nuzhno-ot-vas" class="sec-title">Что нужно от вас</h2>
+<ul class="checks checks-yes">
+<li>доступ к сайту, Метрике и CRM;</li>
 <li>список каналов, откуда приходят клиенты;</li>
 <li>одна встреча с тем, кто обрабатывает заявки.</li>
 </ul>
-<h2 id="ceny">Стоимость</h2>
-<ul>
-<li>аудит аналитики — <strong>от 12 000 ₽</strong>, засчитывается в настройку;</li>
-<li>старт: Метрика, цели на заявки и звонки, согласие на cookie — <strong>от 15 000 ₽</strong>;</li>
-<li>стандарт: старт + источники заявок, связь с CRM, отчёт — <strong>от 35 000 ₽</strong>;</li>
-<li>сквозная аналитика: реклама → сайт → CRM → оплаты — <strong>от 60 000 ₽</strong>;</li>
-<li>дашборд — <strong>от 20 000 ₽</strong>;</li>
-<li>сопровождение аналитики — <strong>от 25 000 ₽</strong> в месяц.</li>
-</ul>
-<p>Сквозная аналитика: цены выше — без лицензий. Коллтрекинг и аналитические сервисы оплачиваются по их тарифам.</p>
-<h2>Частые ошибки</h2>
-<ul>
-<li><strong>Цели на всё подряд.</strong> В отчёте десятки целей, и непонятно, какая значит «заявка».</li>
-<li><strong>Звонки вне учёта.</strong> Половина клиентов звонит, а отчёт показывает только формы.</li>
-<li><strong>CRM без статусов.</strong> Сделки не закрываются в системе — и связать рекламу с оплатой нельзя.</li>
-<li><strong>Настроили и забыли.</strong> Сайт поменялся, цели перестали срабатывать. Проверяйте раз в месяц.</li>
+</div></div></section><section class="section blk" aria-labelledby="ceny"><div class="container"><div class="prose blk-body"><h2 id="ceny" class="sec-title">Стоимость</h2><p class="sec-lead">Цены <mark class="hl">без лицензий сервисов</mark> — они оплачиваются по их тарифам.</p>
+<ul class="price-cards"><li class="reveal"><span class="pc-name">Аудит аналитики, засчитывается в настройку</span><b class="pc-price">от 12 000 ₽</b></li><li class="reveal"><span class="pc-name">Старт: Метрика, цели, согласие на cookie</span><b class="pc-price">от 15 000 ₽</b></li><li class="reveal"><span class="pc-name">Стандарт: старт + источники, связь с CRM</span><b class="pc-price">от 35 000 ₽</b></li><li class="reveal"><span class="pc-name">Сквозная аналитика</span><b class="pc-price">от 60 000 ₽</b></li><li class="reveal"><span class="pc-name">Дашборд</span><b class="pc-price">от 20 000 ₽</b></li><li class="reveal"><span class="pc-name">Сопровождение аналитики</span><b class="pc-price">от 25 000 ₽ в месяц</b></li></ul>
+</div></div></section><section class="section blk blk-tint" aria-labelledby="chastye-oshibki"><div class="container"><div class="prose blk-body"><h2 id="chastye-oshibki" class="sec-title">Частые ошибки</h2>
+<ul class="cards cards-warn">
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg><b class="card-t">Цели на всё подряд</b><span class="card-d">какая из них «заявка»?</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg><b class="card-t">Звонки вне учёта</b><span class="card-d">отчёт показывает только формы.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg><b class="card-t">CRM без статусов</b><span class="card-d">рекламу не связать с оплатой.</span></li>
+<li class="reveal"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/></svg><b class="card-t">Настроили и забыли</b><span class="card-d">сайт поменялся, цели не срабатывают. Проверяйте ежемесячно.</span></li>
 </ul>
 </div></div></section><section id="faq" class="section faq" aria-labelledby="faq-title">
   <div class="container faq-grid">
@@ -137,12 +123,11 @@
       <details><summary>Для чего нужен коллтрекинг?</summary><div class="details-body"><p>Чтобы звонки учитывались так же, как заявки с сайта. Если клиенты в основном пишут через формы и мессенджеры, часто достаточно целей и отдельных номеров для ключевых каналов.</p></div></details>
     </div>
   </div>
-</section><section class="section"><div class="container"><div class="prose">
-<h2>Что дальше</h2>
-<ul>
-<li><a href="../avtomatizaciya/vnedrenie-crm.html">Внедрение CRM</a> — если заявки пока живут в почте и мессенджерах.</li>
-<li><a href="../audit-prodazh.html">Аудит продаж</a> — где теряются покупатели и деньги.</li>
-<li>Все услуги — в разделе <a href="../analitika.html">Аналитика</a>.</li>
+</section><section class="section blk" aria-labelledby="chto-dalshe"><div class="container"><div class="prose blk-body"><h2 id="chto-dalshe" class="sec-title">Что дальше</h2>
+<ul class="link-cards">
+<li class="reveal"><a href="../avtomatizaciya/vnedrenie-crm.html">Внедрение CRM</a><span class="card-d">если заявки живут в почте и мессенджерах.</span></li>
+<li class="reveal"><a href="../audit-prodazh.html">Аудит продаж</a><span class="card-d">где теряются покупатели и деньги.</span></li>
+<li class="reveal"><a href="../analitika.html">Аналитика</a><span class="card-d">все услуги раздела.</span></li>
 </ul>
 </div></div></section><section id="project-form" class="section project-form" aria-labelledby="pf-title">
   <div class="container two-col">
@@ -237,6 +222,6 @@
     </div>
   </div>
 </footer>
-<script src="../assets/site.js?v=b9b2b67c21" defer></script>
+<script src="../assets/site.js?v=a2cbe95598" defer></script>
 </body>
 </html>
