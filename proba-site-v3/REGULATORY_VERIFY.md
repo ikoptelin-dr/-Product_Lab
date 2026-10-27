@@ -474,6 +474,9 @@
 | `rpn-change` | https://44.rospotrebnadzor.ru/gosudarstvennaja_reg/2593/ | R §9 «Изменение состава или рецептуры — новая регистрация» — [Наблюдение — по выдаче, первоисточник] | проверить у партнёра |
 | `rpn-reissue` | 04.rospotrebnadzor.ru ; 39.rospotrebnadzor.ru ; 35.rospotrebnadzor.ru (точные URL в фактбазе не указаны) | R §9 «Переоформление без новых испытаний» — [Наблюдение — по выдаче, первоисточник] | проверить у партнёра |
 | `refusals` | R §1 «Частые ошибки и причины отказов» (сводка выдачи, полного официального перечня нет) | R §1 — [Наблюдение — по выдаче] | проверить у партнёра |
+| `otkaz` | uniseller.io ; skillbox.ru (по выдаче, официального статуса в НПА не найдено) | R §6 «Что это» — [Наблюдение — по выдаче: uniseller.io, skillbox.ru]; «не подходит для БАД и большинства косметики» — [Рекомендация на основе разделов 1–4] | проверить у партнёра |
+| `otkaz-ozon` | seller.ozon.ru (первоисточник по выдаче) | R §6 «Отношение площадок» — [Наблюдение — по выдаче, первоисточник seller.ozon.ru] | проверить у партнёра |
+| `otkaz-mp` | uniseller.io | R §6 «Отношение площадок» (отклонение письма: коды ТН ВЭД, ссылки на пункты регламентов) — [Наблюдение — по выдаче: uniseller.io] | проверить у партнёра |
 | `voluntary-cert` | https://markirovka.ru/knowledge/tovarnye-gruppy/badi/podlezhat-li-bad-sertifikatsii-dolzhny-li-bad-imet-sgr | R §5 «Добровольная сертификация» — [Наблюдение — по выдаче: markirovka.ru, cleverence] | проверить у партнёра |
 | `bad-tests` | vestnik.susu.ru (сводка выдачи; точный URL в фактбазе не указан) | R §1 «Испытания» — [Наблюдение — по выдаче] | проверить у партнёра |
 | `wb` | https://seller.wildberries.ru/instructions/ru/ru/material/certificates-and-conformity-declarations ; https://seller.wildberries.ru/instructions/ru/ru/material/A-232 | R §8.5 «Wildberries» — [Наблюдение — по выдаче, первоисточник seller.wildberries.ru] | проверить у партнёра |
