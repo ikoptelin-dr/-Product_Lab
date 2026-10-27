@@ -10,14 +10,13 @@ const crumbs = (name: string) => [{ name: "Proba Lab", href: "index.html" }, { n
 const ldCrumbs = (name: string, path: string) => breadcrumbLd([{ name: "Proba Lab", path: "index.html" }, { name, path }]);
 const wrap = (hero: string, body: string) => `${hero}\n<div class="light">\n${body}\n</div>`;
 
-/** Реквизиты COMPANY: для «Оплаты» — платёжные, для «Контактов» — полностью. */
+/** Реквизиты COMPANY: для «Оплаты» — платёжные, для «Контактов» — с датой регистрации. Адрес регистрации ИП на сайт не выводится (решение владельца). */
 export function requisites(full: boolean) {
   const rows: [string, string][] = [
     ["Получатель", COMPANY.fullName],
     ["ИНН", COMPANY.inn],
     ["ОГРНИП", COMPANY.ogrnip],
     ...(full ? ([["Дата регистрации", COMPANY.registered]] as [string, string][]) : []),
-    ["Адрес", COMPANY.address.full],
     ["Расчётный счёт", COMPANY.bank.account],
     ["Банк", COMPANY.bank.name],
     ["БИК", COMPANY.bank.bik],
@@ -81,7 +80,7 @@ export const oNas: PageDoc = {
         body: `<ul class="principles">
       <li class="reveal"><h3>Основатель</h3><p>Научная проверка заявлений, стратегия, ключевые решения в каждом проекте.</p></li>
       <li class="reveal"><h3>Дизайнеры и разработчики</h3><p>Упаковка, карточки, сайты, интеграции.</p></li>
-      <li class="reveal"><h3>Специалисты-партнёры</h3><p>Регистрация, декларации, требования к производству. Испытания — в лабораториях, аккредитованных в национальной системе аккредитации.</p></li>
+      <li class="reveal"><h3>Специалисты по регуляторике</h3><p>Регистрация, декларации, требования к производству. Испытания — в лабораториях, аккредитованных в национальной системе аккредитации.</p></li>
     </ul>`,
       }),
       `<section id="gde" class="section" aria-labelledby="gde-title">
@@ -99,7 +98,7 @@ export const oNas: PageDoc = {
 export const oplata: PageDoc = {
   path: "oplata.html",
   title: "Оплата услуг Proba Lab",
-  description: "Как оплатить услуги Proba Lab: по счёту для компаний и ИП, порядок предоплаты, закрывающие документы.",
+  description: "Как оплатить услуги Proba Lab: по счёту для компаний и ИП, без НДС, порядок предоплаты, закрывающие документы.",
   nav: "none",
   ld: [ldCrumbs("Оплата", "oplata.html")],
   body: wrap(
@@ -134,11 +133,12 @@ export const oplata: PageDoc = {
       }),
       `<section id="sposoby" class="section info-section" aria-label="Способы оплаты и закрывающие документы">
   <div class="container">
-    <div class="info-panel glass-light reveal" style="--cols:2">
+    <div class="info-panel glass-light reveal" style="--cols:3">
       <div class="info-block"><h2 class="info-title">Способы оплаты</h2><ul class="check-list">
-        <li>Безналичный перевод по счёту для организаций и индивидуальных предпринимателей.</li>
-        <li>Для физических лиц — по счёту после подключения онлайн-кассы.</li>
+        <li>Безналичный перевод по счёту.</li>
+        <li>${COMPANY.clients}</li>
       </ul></div>
+      <div class="info-block"><h2 class="info-title">НДС</h2><p>${COMPANY.vat}</p></div>
       <div class="info-block"><h2 class="info-title">Закрывающие документы</h2><p>Счёт, акт об оказании услуг. Обмен документами — по электронной почте или через ЭДО.</p></div>
     </div>
   </div>
@@ -163,7 +163,7 @@ export const oplata: PageDoc = {
 export const kontakty: PageDoc = {
   path: "kontakty.html",
   title: "Контакты Proba Lab",
-  description: "Телефон, почта и адрес Proba Lab. Новосибирская область, работаем онлайн по всей России.",
+  description: "Телефон, почта и адрес Proba Lab: Новосибирск, Академгородок, Технопарк. Работаем по всей России онлайн.",
   nav: "none",
   ld: [
     ldCrumbs("Контакты", "kontakty.html"),
@@ -187,7 +187,7 @@ export const kontakty: PageDoc = {
       <div><dt>Телефон</dt><dd><a href="${COMPANY.phoneHref}">${COMPANY.phone}</a></dd></div>
       <div><dt>Почта</dt><dd><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></dd></div>
       <div><dt>Адрес</dt><dd>${COMPANY.address.full}</dd></div>
-      <div><dt>География</dt><dd>Новосибирская область — очно, вся Россия — онлайн.</dd></div>
+      <div><dt>География</dt><dd>Вся Россия — онлайн, документы через ЭДО. В Новосибирской области — выезд на производство.</dd></div>
     </dl>
   </div>
 </section>`,
@@ -251,31 +251,54 @@ export const partneram: PageDoc = {
 /* ================================================================ Благотворительность */
 export const blagotvoritelnost: PageDoc = {
   path: "blagotvoritelnost.html",
-  title: "Благотворительность и pro bono — Proba Lab",
-  description: "Бесплатно помогаем некоммерческим организациям и социальным проектам разобраться с документами и понятно рассказать о своей работе.",
+  title: "Pro bono и благотворительность — Proba Lab",
+  description: "Бесплатно помогаем некоммерческим организациям пациентов и социальным проектам: проверяем тексты, состав и этикетку, помогаем понятно и честно рассказать о проекте.",
   nav: "none",
   ld: [ldCrumbs("Благотворительность", "blagotvoritelnost.html")],
   body: wrap(
     pageHero({
       crumbs: crumbs("Благотворительность"),
-      h1: "Pro bono: помогаем бесплатно, когда это важно",
-      lead: "Мы врачи и маркетологи по опыту, и часть нашего времени отдаём проектам, которые помогают людям, а не зарабатывают.",
-      ctas: [{ label: "Подать заявку", href: "#probono-form" }],
+      h1: "Pro bono: делаем бесплатно, когда это помогает людям",
+      lead: "Медицина научила нас простому правилу: помощь должна быть понятной и честной. Часть своего времени мы отдаём проектам, которые помогают людям, а не зарабатывают на них.",
+      ctas: [{ label: "Рассказать о проекте", href: "#probono-form" }],
     }),
     [
       section({
-        id: "predlagaem",
-        title: "Что предлагаем",
-        body: `<ul class="rows">
-      <li class="reveal"><h3>Некоммерческим организациям пациентов и социальным проектам</h3><p>Бесплатная консультация — как понятно и честно рассказать о проекте, как оформить материалы для сбора средств или партнёров.</p></li>
-      <li class="reveal"><h3>Социальным предприятиям</h3><p>Выпускающим пищевую продукцию или косметику: бесплатная проверка состава и этикетки.</p></li>
-      <li class="reveal"><h3>Объём</h3><p>До одного проекта в месяц — чтобы делать хорошо, а не обещать много.</p></li>
+        id: "komu",
+        title: "Кому помогаем",
+        body: `<ul class="card-grid">
+      <li class="card glass-light reveal"><h3>Организациям пациентов</h3><p>Некоммерческие объединения людей с заболеваниями и их близких — тем, кто объясняет сложное простыми словами.</p></li>
+      <li class="card glass-light reveal"><h3>Социальным предприятиям</h3><p>Небольшим производствам пищевой продукции и косметики, где работают люди с инвалидностью или из уязвимых групп.</p></li>
+      <li class="card glass-light reveal"><h3>Просветительским проектам о здоровье</h3><p>Тем, кто говорит о здоровье на языке доказательств, а не обещаний.</p></li>
     </ul>`,
       }),
-      `<section id="ne-delaem" class="section" aria-labelledby="ne-delaem-title">
+      section({
+        id: "chto-delaem",
+        title: "Что делаем бесплатно",
+        body: `<ul class="rows">
+      <li class="reveal"><h3>Разбор текстов и материалов</h3><p>Проверяем, понятно и честно ли проект рассказывает о себе: сайт, презентацию, письмо партнёрам или благотворителям. Подсказываем, что убрать и что добавить.</p></li>
+      <li class="reveal"><h3>Проверка состава и этикетки</h3><p>Для социальных предприятий: какой документ нужен продукту, что обязательно на этикетке, какие формулировки рискованны.</p></li>
+      <li class="reveal"><h3>Ответы на вопросы о документах</h3><p>Если проект выпускает продукцию или собирается это сделать — объясняем порядок шагов и из чего сложатся расходы.</p></li>
+    </ul>`,
+      }),
+      section({
+        id: "kak",
+        title: "Как это устроено",
+        body: `<ol class="card-grid is-numbered">
+      <li class="card glass-light reveal"><span class="card-n" aria-hidden="true">01</span><p>Вы рассказываете о проекте через форму ниже.</p></li>
+      <li class="card glass-light reveal"><span class="card-n" aria-hidden="true">02</span><p>Отвечаем каждому. Если в этом месяце места нет — называем срок, когда сможем взяться.</p></li>
+      <li class="card glass-light reveal"><span class="card-n" aria-hidden="true">03</span><p>Берём один проект в месяц — чтобы сделать хорошо, а не обещать много.</p></li>
+      <li class="card glass-light reveal"><span class="card-n" aria-hidden="true">04</span><p>Передаём результат и, если вы не против, рассказываем о проекте в новостях Proba Lab.</p></li>
+    </ol>`,
+      }),
+      `<section id="principy" class="section" aria-labelledby="principy-title">
   <div class="container two-col">
-    <h2 id="ne-delaem-title" class="h2 reveal">Чего не делаем</h2>
-    <p class="statement-text reveal">Не берём проекты, которые обещают лечение или собирают деньги без прозрачной отчётности.</p>
+    <h2 id="principy-title" class="h2 reveal">Наши принципы</h2>
+    <ul class="rows">
+      <li class="reveal"><h3>Без обещаний лечения</h3><p>Не помогаем проектам, которые обещают вылечить или собирают деньги без прозрачной отчётности.</p></li>
+      <li class="reveal"><h3>Без рекламы на вас</h3><p>Не используем ваш проект в рекламе Proba Lab без письменного согласия.</p></li>
+      <li class="reveal"><h3>Так же внимательно, как за деньги</h3><p>Pro bono-проект получает то же качество работы, что и клиентский.</p></li>
+    </ul>
   </div>
 </section>`,
       probonoSection(),
@@ -290,7 +313,7 @@ interface News {
   iso: string;
   title: string;
   text: string;
-  /** Регуляторная новость: метки источников, пометка «Проверяется» до сверки партнёром. */
+  /** Регуляторная новость: метки источников, пометка «Проверяется» до сверки специалистом. */
   reg?: boolean;
 }
 const NEWS: News[] = [
@@ -351,7 +374,7 @@ export const novosti: PageDoc = {
       `<section class="section" aria-label="Новости">
   <div class="container">
     <ol class="news-list">${NEWS.map(item).join("")}</ol>
-    <p class="note">Регуляторные новости отмечены «Проверяется», пока их не сверил специалист-партнёр.</p>
+    <p class="note">Регуляторные новости отмечены «Проверяется», пока их не сверил наш специалист по регуляторике.</p>
   </div>
 </section>`,
     );

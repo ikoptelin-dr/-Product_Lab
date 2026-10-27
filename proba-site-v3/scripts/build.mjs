@@ -11,7 +11,7 @@ const dist = join(root, "dist");
 const read = (p) => readFileSync(join(root, p), "utf8");
 
 /** Базовый адрес сайта для sitemap.xml. TODO: домен не выбран — заменить перед публикацией (см. README). */
-const SITEMAP_BASE = process.env.SITE_URL || "https://example.com";
+const SITEMAP_BASE = process.env.SITE_URL || "https://proba-lab.ru"; // домен по почте владельца — подтвердить
 
 // 0. Юридические документы: proba-legal/*.md → HTML (pandoc gfm: списки без пустой строки перед ними, таблицы; текст без изменений, без «умных» кавычек, переносы строк сохраняются)
 const LEGAL_DIR = resolve(root, "../proba-legal");

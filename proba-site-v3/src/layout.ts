@@ -165,9 +165,8 @@ export function companyLd() {
     email: COMPANY.email,
     address: {
       "@type": "PostalAddress",
-      postalCode: COMPANY.address.postalCode,
       addressRegion: COMPANY.address.region,
-      addressLocality: COMPANY.address.locality.replace(/^г\. /, ""),
+      addressLocality: COMPANY.address.locality,
       streetAddress: COMPANY.address.street,
       addressCountry: "RU",
     },
