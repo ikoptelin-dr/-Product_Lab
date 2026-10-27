@@ -187,7 +187,7 @@ for (const [hub, list] of hubLinks) {
   const fresh = list.filter((c) => !f.html.includes(`href="${rel(c.file)}"`));
   if (!fresh.length) continue;
   const isBlog = hub === "blog/index.html";
-  const card = (c) => `<li class="reveal"><a class="next-card glass-light${isBlog ? " blog-card" : ""}" href="${rel(c.file)}"><span class="next-label${isBlog ? " blog-card-title" : ""}">${escH(c.h1)}</span><span class="next-text">${escH(c.description)}</span><span class="arrow" aria-hidden="true"></span></a></li>`;
+  const card = (c) => `<li class="reveal"><a class="next-card glass-light${isBlog ? " blog-card" : ""}" href="${rel(c.file)}">${c.type === "case" ? '<span class="blog-meta">Демо-проект</span>' : ""}<span class="next-label${isBlog ? " blog-card-title" : ""}">${escH(c.h1)}</span><span class="next-text">${escH(c.description)}</span><span class="arrow" aria-hidden="true"></span></a></li>`;
   if (isBlog) {
     // Блог: статьи по темам сразу после первого экрана
     const reg = (c) => /^(0\d|1[0-1])\b/.test(c.cluster);

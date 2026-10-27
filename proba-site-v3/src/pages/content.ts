@@ -123,7 +123,7 @@ export function renderContent(p: ContentPage): PageDoc {
           : [{ label: "Обсудить задачу", href: "#project-form" }];
   const heroHtml = pageHero({
     crumbs,
-    eyebrow: isArticle ? "Блог" : undefined,
+    eyebrow: isArticle ? "Блог" : p.type === "case" ? "Демо-проект · бренд вымышленный" : undefined,
     h1: esc(p.h1),
     lead: tok(p.lead),
     ctas: ctas.map((c) => ({ label: esc(c.label), href: esc(c.href) })),
