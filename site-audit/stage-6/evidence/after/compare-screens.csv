@@ -1,0 +1,325 @@
+page,mode,result,px,share,bbox
+404_html,1440d,идентично,,,
+404_html,320m,идентично,,,
+404_html,390m,идентично,,,
+404_html,768m,идентично,,,
+analitika_html,1440d,идентично,,,
+analitika_html,320m,идентично,,,
+analitika_html,390m,идентично,,,
+analitika_html,768m,идентично,,,
+analitika_kalkulyator-yunit-ekonomiki_html,1440d,идентично,,,
+analitika_kalkulyator-yunit-ekonomiki_html,320m,идентично,,,
+analitika_kalkulyator-yunit-ekonomiki_html,390m,идентично,,,
+analitika_kalkulyator-yunit-ekonomiki_html,768m,идентично,,,
+analitika_skvoznaya-analitika_html,1440d,идентично,,,
+analitika_skvoznaya-analitika_html,320m,идентично,,,
+analitika_skvoznaya-analitika_html,390m,идентично,,,
+analitika_skvoznaya-analitika_html,768m,идентично,,,
+audit-prodazh_html,1440d,размер,"(1440, 5652)→(1440, 5716)",,
+audit-prodazh_html,320m,размер,"(320, 7481)→(320, 7616)",,
+audit-prodazh_html,390m,размер,"(390, 7007)→(390, 7088)",,
+audit-prodazh_html,768m,размер,"(768, 5423)→(768, 5480)",,
+avtomatizaciya_baza-znanij_html,1440d,отличается,5379,0.054%,"(144, 3804, 585, 3833)"
+avtomatizaciya_baza-znanij_html,320m,размер,"(320, 10323)→(320, 10349)",,
+avtomatizaciya_baza-znanij_html,390m,размер,"(390, 9582)→(390, 9608)",,
+avtomatizaciya_baza-znanij_html,768m,размер,"(768, 7113)→(768, 7119)",,
+avtomatizaciya_html,1440d,отличается,4680,0.067%,"(716, 2338, 1240, 2375)"
+avtomatizaciya_html,320m,размер,"(320, 7807)→(320, 7761)",,
+avtomatizaciya_html,390m,отличается,4702,0.170%,"(41, 3826, 330, 3887)"
+avtomatizaciya_html,768m,отличается,3819,0.090%,"(56, 3039, 688, 3053)"
+avtomatizaciya_vnedrenie-crm_html,1440d,отличается,7535,0.071%,"(144, 627, 844, 4143)"
+avtomatizaciya_vnedrenie-crm_html,320m,размер,"(320, 10980)→(320, 11006)",,
+avtomatizaciya_vnedrenie-crm_html,390m,размер,"(390, 10197)→(390, 10223)",,
+avtomatizaciya_vnedrenie-crm_html,768m,размер,"(768, 7490)→(768, 7465)",,
+blagotvoritelnost_html,1440d,идентично,,,
+blagotvoritelnost_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+blagotvoritelnost_html,390m,идентично,,,
+blagotvoritelnost_html,768m,идентично,,,
+blog_analiz-konkurentov_html,1440d,идентично,,,
+blog_analiz-konkurentov_html,320m,идентично,,,
+blog_analiz-konkurentov_html,390m,идентично,,,
+blog_analiz-konkurentov_html,768m,идентично,,,
+blog_chto-takoe-otkaznoe-pismo_html,1440d,отличается,4209,0.055%,"(452, 711, 1230, 726)"
+blog_chto-takoe-otkaznoe-pismo_html,320m,размер,"(320, 7839)→(320, 7791)",,
+blog_chto-takoe-otkaznoe-pismo_html,390m,размер,"(390, 6782)→(390, 6734)",,
+blog_chto-takoe-otkaznoe-pismo_html,768m,размер,"(768, 5048)→(768, 5024)",,
+blog_cjm-karta-puti-klienta_html,1440d,идентично,,,
+blog_cjm-karta-puti-klienta_html,320m,идентично,,,
+blog_cjm-karta-puti-klienta_html,390m,идентично,,,
+blog_cjm-karta-puti-klienta_html,768m,идентично,,,
+blog_etiketka-bad-do-registracii_html,1440d,отличается,4253,0.070%,"(951, 3011, 1263, 3082)"
+blog_etiketka-bad-do-registracii_html,320m,размер,"(320, 6972)→(320, 6995)",,
+blog_etiketka-bad-do-registracii_html,390m,отличается,4006,0.170%,"(39, 4437, 290, 4508)"
+blog_etiketka-bad-do-registracii_html,768m,отличается,3926,0.123%,"(54, 2919, 304, 2989)"
+blog_gmp-na-badah_html,1440d,отличается,4212,0.051%,"(452, 711, 1230, 726)"
+blog_gmp-na-badah_html,320m,размер,"(320, 8497)→(320, 8449)",,
+blog_gmp-na-badah_html,390m,размер,"(390, 7308)→(390, 7260)",,
+blog_gmp-na-badah_html,768m,размер,"(768, 5499)→(768, 5475)",,
+blog_index_html,1440d,идентично,,,
+blog_index_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+blog_index_html,390m,идентично,,,
+blog_index_html,768m,идентично,,,
+blog_jobs-to-be-done_html,1440d,идентично,,,
+blog_jobs-to-be-done_html,320m,идентично,,,
+blog_jobs-to-be-done_html,390m,идентично,,,
+blog_jobs-to-be-done_html,768m,идентично,,,
+blog_kak-poluchit-sgr_html,1440d,отличается,4211,0.042%,"(452, 680, 1230, 695)"
+blog_kak-poluchit-sgr_html,320m,размер,"(320, 11248)→(320, 11200)",,
+blog_kak-poluchit-sgr_html,390m,размер,"(390, 9690)→(390, 9642)",,
+blog_kak-poluchit-sgr_html,768m,размер,"(768, 6774)→(768, 6750)",,
+blog_kak-proverit-akkreditaciyu-laboratorii_html,1440d,размер,"(1440, 5495)→(1440, 5391)",,
+blog_kak-proverit-akkreditaciyu-laboratorii_html,320m,размер,"(320, 8804)→(320, 8554)",,
+blog_kak-proverit-akkreditaciyu-laboratorii_html,390m,размер,"(390, 7723)→(390, 7526)",,
+blog_kak-proverit-akkreditaciyu-laboratorii_html,768m,размер,"(768, 5367)→(768, 5243)",,
+blog_kak-sozdat-svoj-brend-kosmetiki_html,1440d,отличается,2905,0.033%,"(121, 2346, 831, 2392)"
+blog_kak-sozdat-svoj-brend-kosmetiki_html,320m,размер,"(320, 8796)→(320, 8825)",,
+blog_kak-sozdat-svoj-brend-kosmetiki_html,390m,размер,"(390, 7731)→(390, 7760)",,
+blog_kak-sozdat-svoj-brend-kosmetiki_html,768m,отличается,3358,0.074%,"(31, 2166, 735, 2212)"
+blog_kastdev-i-glubinnye-intervyu_html,1440d,идентично,,,
+blog_kastdev-i-glubinnye-intervyu_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+blog_kastdev-i-glubinnye-intervyu_html,390m,идентично,,,
+blog_kastdev-i-glubinnye-intervyu_html,768m,идентично,,,
+blog_markirovka-bad-chestnyj-znak_html,1440d,отличается,4212,0.057%,"(452, 774, 1230, 789)"
+blog_markirovka-bad-chestnyj-znak_html,320m,размер,"(320, 7394)→(320, 7346)",,
+blog_markirovka-bad-chestnyj-znak_html,390m,размер,"(390, 6499)→(390, 6451)",,
+blog_markirovka-bad-chestnyj-znak_html,768m,размер,"(768, 4832)→(768, 4808)",,
+blog_markirovka-kosmetiki_html,1440d,отличается,4210,0.059%,"(452, 680, 1230, 695)"
+blog_markirovka-kosmetiki_html,320m,размер,"(320, 6988)→(320, 6940)",,
+blog_markirovka-kosmetiki_html,390m,размер,"(390, 6288)→(390, 6240)",,
+blog_markirovka-kosmetiki_html,768m,размер,"(768, 4732)→(768, 4708)",,
+blog_perechen-produkcii-deklarirovanie_html,1440d,отличается,4207,0.052%,"(452, 649, 1230, 664)"
+blog_perechen-produkcii-deklarirovanie_html,320m,размер,"(320, 8279)→(320, 8231)",,
+blog_perechen-produkcii-deklarirovanie_html,390m,размер,"(390, 7291)→(390, 7243)",,
+blog_perechen-produkcii-deklarirovanie_html,768m,размер,"(768, 5447)→(768, 5423)",,
+blog_pozicionirovanie-brenda-eto_html,1440d,идентично,,,
+blog_pozicionirovanie-brenda-eto_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+blog_pozicionirovanie-brenda-eto_html,390m,идентично,,,
+blog_pozicionirovanie-brenda-eto_html,768m,идентично,,,
+blog_programma-proizvodstvennogo-kontrolya-obrazec_html,1440d,отличается,4211,0.051%,"(452, 806, 1230, 821)"
+blog_programma-proizvodstvennogo-kontrolya-obrazec_html,320m,размер,"(320, 8273)→(320, 8225)",,
+blog_programma-proizvodstvennogo-kontrolya-obrazec_html,390m,размер,"(390, 7102)→(390, 7054)",,
+blog_programma-proizvodstvennogo-kontrolya-obrazec_html,768m,размер,"(768, 5459)→(768, 5435)",,
+blog_proverki-rospotrebnadzora-2026_html,1440d,отличается,4213,0.060%,"(452, 743, 1230, 758)"
+blog_proverki-rospotrebnadzora-2026_html,320m,размер,"(320, 6776)→(320, 6728)",,
+blog_proverki-rospotrebnadzora-2026_html,390m,размер,"(390, 5891)→(390, 5843)",,
+blog_proverki-rospotrebnadzora-2026_html,768m,размер,"(768, 4585)→(768, 4561)",,
+blog_reestr-sgr-kak-proverit_html,1440d,отличается,4212,0.055%,"(452, 743, 1230, 758)"
+blog_reestr-sgr-kak-proverit_html,320m,размер,"(320, 7411)→(320, 7363)",,
+blog_reestr-sgr-kak-proverit_html,390m,размер,"(390, 6629)→(390, 6581)",,
+blog_reestr-sgr-kak-proverit_html,768m,размер,"(768, 4986)→(768, 4962)",,
+blog_sgr-ili-deklaraciya_html,1440d,идентично,,,
+blog_sgr-ili-deklaraciya_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+blog_sgr-ili-deklaraciya_html,390m,идентично,,,
+blog_sgr-ili-deklaraciya_html,768m,идентично,,,
+blog_sistema-haccp_html,1440d,отличается,4209,0.044%,"(452, 743, 1230, 758)"
+blog_sistema-haccp_html,320m,размер,"(320, 10041)→(320, 9993)",,
+blog_sistema-haccp_html,390m,размер,"(390, 8936)→(390, 8888)",,
+blog_sistema-haccp_html,768m,размер,"(768, 6534)→(768, 6510)",,
+blog_unikalnoe-torgovoe-predlozhenie_html,1440d,размер,"(1440, 7051)→(1440, 7082)",,
+blog_unikalnoe-torgovoe-predlozhenie_html,320m,размер,"(320, 10385)→(320, 10446)",,
+blog_unikalnoe-torgovoe-predlozhenie_html,390m,размер,"(390, 9343)→(390, 9426)",,
+blog_unikalnoe-torgovoe-predlozhenie_html,768m,размер,"(768, 6789)→(768, 6829)",,
+blog_yunit-ekonomika-prostymi-slovami_html,1440d,идентично,,,
+blog_yunit-ekonomika-prostymi-slovami_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+blog_yunit-ekonomika-prostymi-slovami_html,390m,идентично,,,
+blog_yunit-ekonomika-prostymi-slovami_html,768m,идентично,,,
+ceny_html,1440d,идентично,,,
+ceny_html,320m,идентично,,,
+ceny_html,390m,идентично,,,
+ceny_html,768m,идентично,,,
+dokumenty_audit-assortimenta_html,1440d,размер,"(1440, 5673)→(1440, 5719)",,
+dokumenty_audit-assortimenta_html,320m,размер,"(320, 8612)→(320, 8687)",,
+dokumenty_audit-assortimenta_html,390m,размер,"(390, 8003)→(390, 8078)",,
+dokumenty_audit-assortimenta_html,768m,размер,"(768, 6015)→(768, 6061)",,
+dokumenty_deklaracii_html,1440d,идентично,,,
+dokumenty_deklaracii_html,320m,идентично,,,
+dokumenty_deklaracii_html,390m,идентично,,,
+dokumenty_deklaracii_html,768m,идентично,,,
+dokumenty_dokumenty-dlya-marketplejsov_html,1440d,идентично,,,
+dokumenty_dokumenty-dlya-marketplejsov_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+dokumenty_dokumenty-dlya-marketplejsov_html,390m,идентично,,,
+dokumenty_dokumenty-dlya-marketplejsov_html,768m,идентично,,,
+dokumenty_gmp_html,1440d,отличается,3081,0.025%,"(951, 6122, 1234, 6182)"
+dokumenty_gmp_html,320m,размер,"(320, 13892)→(320, 13868)",,
+dokumenty_gmp_html,390m,отличается,1996,0.041%,"(39, 9075, 252, 9113)"
+dokumenty_gmp_html,768m,отличается,1983,0.028%,"(54, 6491, 267, 6529)"
+dokumenty_haccp_html,1440d,идентично,,,
+dokumenty_haccp_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+dokumenty_haccp_html,390m,идентично,,,
+dokumenty_haccp_html,768m,идентично,,,
+dokumenty_index_html,1440d,размер,"(1440, 9443)→(1440, 9419)",,
+dokumenty_index_html,320m,размер,"(320, 15962)→(320, 15938)",,
+dokumenty_index_html,390m,отличается,1996,0.037%,"(39, 4774, 252, 4812)"
+dokumenty_index_html,768m,отличается,1983,0.024%,"(54, 3674, 267, 3712)"
+dokumenty_karta-dokumentov_html,1440d,идентично,,,
+dokumenty_karta-dokumentov_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+dokumenty_karta-dokumentov_html,390m,идентично,,,
+dokumenty_karta-dokumentov_html,768m,идентично,,,
+dokumenty_kosmetika_html,1440d,отличается,3081,0.023%,"(547, 6683, 830, 6743)"
+dokumenty_kosmetika_html,320m,размер,"(320, 15440)→(320, 15416)",,
+dokumenty_kosmetika_html,390m,отличается,1996,0.037%,"(39, 10008, 252, 10046)"
+dokumenty_kosmetika_html,768m,отличается,1987,0.026%,"(413, 7196, 626, 7234)"
+dokumenty_laboratorii_html,1440d,идентично,,,
+dokumenty_laboratorii_html,320m,идентично,,,
+dokumenty_laboratorii_html,390m,идентично,,,
+dokumenty_laboratorii_html,768m,идентично,,,
+dokumenty_markirovka_html,1440d,идентично,,,
+dokumenty_markirovka_html,320m,идентично,,,
+dokumenty_markirovka_html,390m,идентично,,,
+dokumenty_markirovka_html,768m,идентично,,,
+dokumenty_otkaznoe-pismo-dlya-marketplejsov_html,1440d,размер,"(1440, 6148)→(1440, 6117)",,
+dokumenty_otkaznoe-pismo-dlya-marketplejsov_html,320m,размер,"(320, 8310)→(320, 8256)",,
+dokumenty_otkaznoe-pismo-dlya-marketplejsov_html,390m,размер,"(390, 7689)→(390, 7634)",,
+dokumenty_otkaznoe-pismo-dlya-marketplejsov_html,768m,размер,"(768, 6006)→(768, 5976)",,
+dokumenty_otkaznoe-pismo_html,1440d,идентично,,,
+dokumenty_otkaznoe-pismo_html,320m,идентично,,,
+dokumenty_otkaznoe-pismo_html,390m,идентично,,,
+dokumenty_otkaznoe-pismo_html,768m,идентично,,,
+dokumenty_programma-proizvodstvennogo-kontrolya_html,1440d,идентично,,,
+dokumenty_programma-proizvodstvennogo-kontrolya_html,320m,идентично,,,
+dokumenty_programma-proizvodstvennogo-kontrolya_html,390m,идентично,,,
+dokumenty_programma-proizvodstvennogo-kontrolya_html,768m,идентично,,,
+dokumenty_proverka-kartochek-dlya-agentstv_html,1440d,отличается,2655,0.032%,"(270, 585, 850, 632)"
+dokumenty_proverka-kartochek-dlya-agentstv_html,320m,отличается,3255,0.121%,"(17, 641, 296, 708)"
+dokumenty_proverka-kartochek-dlya-agentstv_html,390m,отличается,3127,0.103%,"(17, 552, 365, 596)"
+dokumenty_proverka-kartochek-dlya-agentstv_html,768m,отличается,2381,0.054%,"(170, 491, 713, 535)"
+dokumenty_proverki-rospotrebnadzora_html,1440d,идентично,,,
+dokumenty_proverki-rospotrebnadzora_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+dokumenty_proverki-rospotrebnadzora_html,390m,идентично,,,
+dokumenty_proverki-rospotrebnadzora_html,768m,идентично,,,
+dokumenty_registraciya-bad_html,1440d,размер,"(1440, 7898)→(1440, 8039)",,
+dokumenty_registraciya-bad_html,320m,размер,"(320, 11969)→(320, 12109)",,
+dokumenty_registraciya-bad_html,390m,размер,"(390, 11091)→(390, 11203)",,
+dokumenty_registraciya-bad_html,768m,размер,"(768, 7832)→(768, 7943)",,
+dokumenty_registraciya-produkcii_html,1440d,идентично,,,
+dokumenty_registraciya-produkcii_html,320m,идентично,,,
+dokumenty_registraciya-produkcii_html,390m,идентично,,,
+dokumenty_registraciya-produkcii_html,768m,идентично,,,
+dokumenty_tu_html,1440d,идентично,,,
+dokumenty_tu_html,320m,идентично,,,
+dokumenty_tu_html,390m,идентично,,,
+dokumenty_tu_html,768m,идентично,,,
+dokumenty_vyvod-na-rynok_html,1440d,идентично,,,
+dokumenty_vyvod-na-rynok_html,320m,идентично,,,
+dokumenty_vyvod-na-rynok_html,390m,идентично,,,
+dokumenty_vyvod-na-rynok_html,768m,идентично,,,
+index_html,1440d,идентично,,,
+index_html,320m,идентично,,,
+index_html,390m,идентично,,,
+index_html,768m,идентично,,,
+kak-my-rabotaem_html,1440d,отличается,5521,0.065%,"(751, 2010, 1152, 2542)"
+kak-my-rabotaem_html,320m,размер,"(320, 8513)→(320, 8561)",,
+kak-my-rabotaem_html,390m,размер,"(390, 7897)→(390, 7921)",,
+kak-my-rabotaem_html,768m,отличается,5462,0.130%,"(54, 1723, 634, 2399)"
+kejsy_audit-assortimenta-120-sku_html,1440d,идентично,,,
+kejsy_audit-assortimenta-120-sku_html,320m,идентично,,,
+kejsy_audit-assortimenta-120-sku_html,390m,идентично,,,
+kejsy_audit-assortimenta-120-sku_html,768m,идентично,,,
+kejsy_batonchik-yunit-ekonomika_html,1440d,идентично,,,
+kejsy_batonchik-yunit-ekonomika_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+kejsy_batonchik-yunit-ekonomika_html,390m,идентично,,,
+kejsy_batonchik-yunit-ekonomika_html,768m,идентично,,,
+kejsy_html,1440d,отличается,4220,0.065%,"(123, 397, 873, 448)"
+kejsy_html,320m,размер,"(320, 7697)→(320, 7670)",,
+kejsy_html,390m,отличается,3279,0.124%,"(18, 379, 326, 423)"
+kejsy_html,768m,отличается,3893,0.103%,"(33, 320, 734, 367)"
+kejsy_krem-dlya-ruk-jtbd_html,1440d,размер,"(1440, 7104)→(1440, 7170)",,
+kejsy_krem-dlya-ruk-jtbd_html,320m,размер,"(320, 10503)→(320, 10530)",,
+kejsy_krem-dlya-ruk-jtbd_html,390m,размер,"(390, 9685)→(390, 9711)",,
+kejsy_krem-dlya-ruk-jtbd_html,768m,размер,"(768, 7131)→(768, 7189)",,
+kejsy_magnij-do-registracii_html,1440d,идентично,,,
+kejsy_magnij-do-registracii_html,320m,идентично,,,
+kejsy_magnij-do-registracii_html,390m,идентично,,,
+kejsy_magnij-do-registracii_html,768m,идентично,,,
+kontakty_html,1440d,идентично,,,
+kontakty_html,320m,идентично,,,
+kontakty_html,390m,идентично,,,
+kontakty_html,768m,идентично,,,
+marketing_3d-vizualizaciya-upakovki_html,1440d,идентично,,,
+marketing_3d-vizualizaciya-upakovki_html,320m,идентично,,,
+marketing_3d-vizualizaciya-upakovki_html,390m,идентично,,,
+marketing_3d-vizualizaciya-upakovki_html,768m,идентично,,,
+marketing_dizajn-etiketki-i-upakovki_html,1440d,идентично,,,
+marketing_dizajn-etiketki-i-upakovki_html,320m,идентично,,,
+marketing_dizajn-etiketki-i-upakovki_html,390m,идентично,,,
+marketing_dizajn-etiketki-i-upakovki_html,768m,идентично,,,
+marketing_html,1440d,идентично,,,
+marketing_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+marketing_html,390m,идентично,,,
+marketing_html,768m,идентично,,,
+marketing_issledovanie-klientov_html,1440d,отличается,2673,0.028%,"(687, 4486, 1172, 4508)"
+marketing_issledovanie-klientov_html,320m,размер,"(320, 9862)→(320, 10002)",,
+marketing_issledovanie-klientov_html,390m,размер,"(390, 9183)→(390, 9295)",,
+marketing_issledovanie-klientov_html,768m,размер,"(768, 6739)→(768, 6788)",,
+marketing_issledovanie-rynka_html,1440d,отличается,5509,0.053%,"(751, 3738, 1192, 3768)"
+marketing_issledovanie-rynka_html,320m,размер,"(320, 10946)→(320, 10972)",,
+marketing_issledovanie-rynka_html,390m,размер,"(390, 10119)→(390, 10145)",,
+marketing_issledovanie-rynka_html,768m,размер,"(768, 7160)→(768, 7188)",,
+marketing_kartochki-marketplejsov_html,1440d,идентично,,,
+marketing_kartochki-marketplejsov_html,320m,идентично,,,
+marketing_kartochki-marketplejsov_html,390m,идентично,,,
+marketing_kartochki-marketplejsov_html,768m,идентично,,,
+marketing_lending_html,1440d,идентично,,,
+marketing_lending_html,320m,идентично,,,
+marketing_lending_html,390m,идентично,,,
+marketing_lending_html,768m,идентично,,,
+marketing_pozicionirovanie-brenda_html,1440d,размер,"(1440, 6936)→(1440, 7170)",,
+marketing_pozicionirovanie-brenda_html,320m,размер,"(320, 10697)→(320, 10924)",,
+marketing_pozicionirovanie-brenda_html,390m,размер,"(390, 9875)→(390, 10049)",,
+marketing_pozicionirovanie-brenda_html,768m,размер,"(768, 7073)→(768, 7279)",,
+marketing_upakovka-do-registracii_html,1440d,размер,"(1440, 6646)→(1440, 6917)",,
+marketing_upakovka-do-registracii_html,320m,размер,"(320, 10693)→(320, 11022)",,
+marketing_upakovka-do-registracii_html,390m,размер,"(390, 9940)→(390, 10216)",,
+marketing_upakovka-do-registracii_html,768m,размер,"(768, 7458)→(768, 7705)",,
+marketing_video-dlya-kartochek_html,1440d,идентично,,,
+marketing_video-dlya-kartochek_html,320m,идентично,,,
+marketing_video-dlya-kartochek_html,390m,идентично,,,
+marketing_video-dlya-kartochek_html,768m,идентично,,,
+novosibirsk_html,1440d,идентично,,,
+novosibirsk_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+novosibirsk_html,390m,идентично,,,
+novosibirsk_html,768m,идентично,,,
+novosti_html,1440d,отличается,4039,0.139%,"(379, 1277, 984, 1294)"
+novosti_html,320m,размер,"(320, 3106)→(320, 3133)",,
+novosti_html,390m,отличается,3919,0.351%,"(17, 1599, 373, 1643)"
+novosti_html,768m,размер,"(768, 2140)→(768, 2167)",,
+o-nas_html,1440d,идентично,,,
+o-nas_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+o-nas_html,390m,идентично,,,
+o-nas_html,768m,идентично,,,
+oferta_html,1440d,идентично,,,
+oferta_html,320m,отличается,3,0.000%,"(19, 41, 21, 44)"
+oferta_html,390m,идентично,,,
+oferta_html,768m,идентично,,,
+oplata_html,1440d,отличается,2985,0.052%,"(578, 1345, 1230, 1389)"
+oplata_html,320m,размер,"(320, 5442)→(320, 5415)",,
+oplata_html,390m,отличается,2931,0.152%,"(16, 1375, 344, 1419)"
+oplata_html,768m,размер,"(768, 4019)→(768, 3994)",,
+partneram_html,1440d,идентично,,,
+partneram_html,320m,идентично,,,
+partneram_html,390m,идентично,,,
+partneram_html,768m,идентично,,,
+politika-pd_html,1440d,идентично,,,
+politika-pd_html,320m,идентично,,,
+politika-pd_html,390m,идентично,,,
+politika-pd_html,768m,идентично,,,
+pravovaya-informaciya_html,1440d,отличается,14909,0.463%,"(120, 1039, 842, 1137)"
+pravovaya-informaciya_html,320m,размер,"(320, 3648)→(320, 3675)",,
+pravovaya-informaciya_html,390m,отличается,2608,0.212%,"(18, 1250, 364, 1293)"
+pravovaya-informaciya_html,768m,отличается,15253,0.889%,"(31, 914, 721, 1013)"
+prodvizhenie_html,1440d,идентично,,,
+prodvizhenie_html,320m,идентично,,,
+prodvizhenie_html,390m,идентично,,,
+prodvizhenie_html,768m,идентично,,,
+prodvizhenie_vyhod-na-marketplejsy_html,1440d,отличается,3390,0.030%,"(747, 5539, 998, 5619)"
+prodvizhenie_vyhod-na-marketplejsy_html,320m,размер,"(320, 11998)→(320, 12139)",,
+prodvizhenie_vyhod-na-marketplejsy_html,390m,размер,"(390, 11024)→(390, 11165)",,
+prodvizhenie_vyhod-na-marketplejsy_html,768m,размер,"(768, 8042)→(768, 8183)",,
+soglasie-pd_html,1440d,идентично,,,
+soglasie-pd_html,320m,идентично,,,
+soglasie-pd_html,390m,идентично,,,
+soglasie-pd_html,768m,идентично,,,
+spasibo_html,1440d,отличается,5353,0.131%,"(120, 303, 844, 354)"
+spasibo_html,320m,отличается,1923,0.152%,"(16, 229, 268, 272)"
+spasibo_html,390m,размер,"(390, 3751)→(390, 3725)",,
+spasibo_html,768m,отличается,4713,0.211%,"(31, 246, 706, 293)"

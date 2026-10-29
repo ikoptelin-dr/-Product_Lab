@@ -1,0 +1,5 @@
+tag_page,runs,perf_med,perf_min,perf_max,lcp_med_ms,lcp_min,lcp_max,cls_med,tbt_med,a11y_med,lh,formFactor,width
+after ceny_html,3,96,96,96,2257,2253,2258,0.000,0,100,13.6.0,mobile,412
+after index_html,3,93,92,96,2559,2253,2708,0.000,0,100,13.6.0,mobile,412
+before ceny_html,3,93,93,96,2555,2257,2559,0.000,0,100,13.6.0,mobile,412
+before index_html,3,93,92,96,2558,2254,2710,0.000,0,100,13.6.0,mobile,412

@@ -1,0 +1,1 @@
+[{"id":"color-contrast","n":5,"ex":"Element has insufficient color contrast of 1.4 (foreground color: #27272a, background color: #000000, font size: 25.5pt (34px), font weight: bold). Expected contrast ratio of 3:1"}]

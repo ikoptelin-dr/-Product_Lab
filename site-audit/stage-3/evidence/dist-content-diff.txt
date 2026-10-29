@@ -1,0 +1,33 @@
+=== index.html
+- - <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Проверить состав бесплатно</a> 
+- - <a class="btn btn-ghost btn-lg" href="marketing/pozicionirovanie-brenda.html">Бесплатный разбор продукта</a> 
++ + <a class="btn btn-primary btn-lg" href="dokumenty/index.html#quiz" data-primary-cta>Проверить состав бесплатно</a> 
++ + <a class="btn btn-ghost btn-lg" href="#review">Бесплатный разбор продукта</a> 
+=== dokumenty/registraciya-bad.html
+- - <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Проверить состав бесплатно</a> 
++ + <a class="btn btn-primary btn-lg" href="../dokumenty/index.html#quiz" data-primary-cta>Проверить состав бесплатно</a> 
+=== o-nas.html
+- - <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Проверить состав бесплатно</a> 
++ + <a class="btn btn-primary btn-lg" href="dokumenty/index.html#quiz" data-primary-cta>Проверить состав бесплатно</a> 
+=== kak-my-rabotaem.html
+- - <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Проверить состав бесплатно</a> 
++ + <a class="btn btn-primary btn-lg" href="dokumenty/index.html#quiz" data-primary-cta>Проверить состав бесплатно</a> 
+=== marketing/pozicionirovanie-brenda.html
+- - <a class="btn btn-primary btn-lg" href="#project-form" data-primary-cta>Бесплатный разбор продукта</a> 
++ + <a class="btn btn-primary btn-lg" href="../index.html#review" data-primary-cta>Бесплатный разбор продукта</a> 
+=== blog/kak-poluchit-sgr.html
+- class="btn btn-primary btn-lg" href="../dokumenty/registraciya-bad.html" data-primary-cta>Проверить состав бесплатно</a> 
++ + <a class="btn btn-primary btn-lg" href="../dokumenty/index.html#quiz" data-primary-cta>Проверить состав бесплатно</a> 
+- hero-actions"><a class="btn btn-primary btn-lg" href="../dokumenty/registraciya-bad.html">Проверить состав бесплатно</a></div> 
++ lass="hero-actions"><a class="btn btn-primary btn-lg" href="../dokumenty/index.html#quiz">Проверить состав бесплатно</a></div> 
+=== blog/pozicionirovanie-brenda-eto.html
+- btn btn-primary btn-lg" href="../marketing/pozicionirovanie-brenda.html" data-primary-cta>Бесплатный разбор продукта</a> 
++ + <a class="btn btn-primary btn-lg" href="../index.html#review" data-primary-cta>Бесплатный разбор продукта</a> 
+- tions"><a class="btn btn-primary btn-lg" href="../marketing/pozicionirovanie-brenda.html">Бесплатный разбор продукта</a></div> 
++ + <div class="hero-actions"><a class="btn btn-primary btn-lg" href="../index.html#review">Бесплатный разбор продукта</a></div> 
+=== dokumenty/kosmetika.html
+- s="reg-step-text">Декларация в реестре или подача на СГР</span><span class="reg-step-who">Партнёр от имени заявителя</span></
++ s="reg-step-text">Декларация в реестре или подача на СГР</span><span class="reg-step-who">Заявитель с Proba Lab</span></li><li><span clas
+=== dokumenty/vyvod-na-rynok.html
+- ания</b><span class="reg-step-text">Документ и протоколы</span><span class="reg-step-who">Партнёр и лаборатория</span></li><l
++ ания</b><span class="reg-step-text">Документ и протоколы</span><span class="reg-step-who">Proba Lab и лаборатория</span></li><li><span 

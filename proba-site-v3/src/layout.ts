@@ -29,6 +29,32 @@ export function typo(html: string): string {
     return `>${t}<`;
   });
 }
+/**
+ * Заголовки на узких экранах (аудит, этап 4): склейки «короткое слово + слово» и keepLast вместе давали неразрывные куски
+ * из 3–4 слов («это помогает людям», «как проверить аккредитацию»). На 320–390 px такой кусок шире строки и обрезался
+ * первым экраном. Если склеенный кусок длиннее порога (HEAD_CHUNK для цепочки, HEAD_PAIR для пары), снимаем только «склейку последних слов» между двумя
+ * обычными словами. Предлог или союз остаётся прижат к следующему слову, тире не начинает строку, числа не разрываются.
+ */
+const HEAD_CHUNK = 14; // цепочка из 3+ слов длиннее этого — разбирается
+const HEAD_PAIR = 18; // пара слов — только если длиннее (пары до 18 символов помещаются даже на 320 px и не меняют вид на десктопе)
+const SHORT_WORD = new RegExp(`^[(«—]?(${SHORT})$`, "i");
+const unglueChunk = (chunk: string) => {
+  const parts = chunk.split("\u00a0");
+  if (parts.length < 2 || chunk.length <= (parts.length === 2 ? HEAD_PAIR : HEAD_CHUNK)) return chunk;
+  let out = parts[0]!;
+  for (let i = 1; i < parts.length; i++) {
+    const prev = parts[i - 1]!, cur = parts[i]!;
+    const keep = SHORT_WORD.test(prev) || cur.startsWith("—") || /\d$/.test(prev) || /^(\d|₽|%|МЕ|мес\.)/.test(cur);
+    out += (keep ? "\u00a0" : " ") + cur;
+  }
+  return out;
+};
+const unglueText = (t: string) => t.split(" ").map(unglueChunk).join(" ");
+/** Применяется к готовому HTML: текст внутри h1–h3 и p.h2 (подпись CTA-полосы). */
+export const unglueHeadings = (html: string) =>
+  html.replace(/(<(h[1-3])\b[^>]*>|<p class="h2"[^>]*>)([\s\S]*?)(<\/(?:h[1-3]|p)>)/g, (_, open, _t, inner, close) =>
+    open + inner.replace(/(^|>)([^<]+)/g, (_m: string, gt: string, x: string) => gt + unglueText(x)) + close);
+
 /** Последние два слова заголовка — неразрывно (без висячего слова в последней строке). */
 export const keepLast = (s: string) => s.replace(/ ([^\s<>]{1,14})$/, "\u00a0$1");
 
@@ -244,7 +270,7 @@ ${ld}
 <body class="${p.bodyClass ?? "page"}">
 ${header(base, p.nav)}
 <main id="main">
-${typo(p.body)}
+${unglueHeadings(typo(p.body))}
 </main>
 ${footer(base)}
 <script src="${base}assets/site.js?v=${ASSET_V}" defer></script>

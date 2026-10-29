@@ -1,0 +1,6 @@
+# Тяжёлые бинарные свидетельства аудита (скриншоты, сырые отчёты Lighthouse, копии сборки) — не храним в git.
+# Текстовые отчёты, CSV, JSON и скрипты коммитятся.
+*.png
+stage-2/evidence/lighthouse/
+stage-2/evidence/build/
+stage-4/evidence/lighthouse/runs/

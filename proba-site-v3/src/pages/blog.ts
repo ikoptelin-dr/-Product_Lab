@@ -90,7 +90,7 @@ export const ARTICLES: Article[] = [
     related: [
       { href: "../dokumenty/markirovka.html", label: "Этикетка и маркировка", text: "Требования, «Честный знак», маркетплейсы" },
       { href: "../dokumenty/registraciya-bad.html", label: "Регистрация БАД (СГР)", text: "Состав, этикетка и маркетплейсы — без сюрпризов" },
-      { href: "../marketing.html", label: "Маркетинг", text: "Покупатель понимает, зачем ему продукт" },
+      { href: "../marketing/dizajn-etiketki-i-upakovki.html", label: "Дизайн этикетки и упаковки", text: "Макет по требованиям и сверка с документами" },
     ],
     cta: {
       label: "Проверить этикетку",

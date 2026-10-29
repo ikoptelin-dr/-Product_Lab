@@ -1,0 +1,10 @@
+import { chromium } from "/home/user/-Product_Lab/proba-site/node_modules/@playwright/test/index.mjs";
+import { createRequire } from "node:module";
+const require = createRequire("/home/user/-Product_Lab/proba-site/");
+const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const p = await b.newPage({ viewport: { width: 1280, height: 600 } });
+await p.goto("http://127.0.0.1:8871/404.html");
+await p.screenshot({ path: process.argv[2] });
+await p.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
+console.log(JSON.stringify(await p.evaluate(async () => (await axe.run(document, { runOnly: ["color-contrast"] })).violations.map((v) => ({ id: v.id, n: v.nodes.length, ex: v.nodes[0]?.any[0]?.message })))));
+await b.close();

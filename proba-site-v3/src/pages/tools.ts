@@ -64,7 +64,7 @@ export const ceny: PageDoc = {
         category: p.block,
         price: p.from,
         priceCurrency: "RUB",
-        description: p.from === 0 ? "Бесплатно" : `от ${p.from} ₽${p.unit && p.unit !== "бесплатно" ? `, ${p.unit}` : ""}`,
+        description: p.from === 0 ? "Бесплатно" : p.unit === "фикс" ? `${p.from} ₽, фиксированная цена` : `от ${p.from} ₽${p.unit && p.unit !== "бесплатно" ? `, ${p.unit}` : ""}`,
         itemOffered: { "@type": "Service", name: p.service, description: p.includes },
         seller: { "@type": "Organization", name: "Proba Lab" },
       })),
@@ -215,7 +215,7 @@ export const karta: PageDoc = {
       <h3 class="karta-sub">Шаги</h3>
       <ol class="reg-flow">${SAMPLE_STEPS.map((s) => `<li><b>${kt(s)}</b></li>`).join("")}</ol>
       <h3 class="karta-sub">Смета</h3>
-      <ul class="karta-estimate">${["Работа", "Испытания", "Экспертиза", "Госпошлина"].map((s) => `<li><span>${kt(s)}</span><span class="karta-dash" aria-label="сумма после анализа состава">—</span></li>`).join("")}</ul>
+      <ul class="karta-estimate">${["Работа", "Испытания", "Экспертиза", "Госпошлина"].map((s) => `<li><span>${kt(s)}</span><span class="karta-dash"><span aria-hidden="true">—</span><span class="visually-hidden">сумма после анализа состава</span></span></li>`).join("")}</ul>
       <p class="fine">${kt("Суммы — после анализа состава вашего продукта.")}</p>
     </figure>
   </div>

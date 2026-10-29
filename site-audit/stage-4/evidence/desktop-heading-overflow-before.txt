@@ -1,0 +1,12 @@
+1440 blog/cjm-karta-puti-klienta.html переполнений нет
+1440 blog/kak-proverit-akkreditaciyu-laboratorii.html «Реестр аккредитованных лабораторий: как проверить » текст 840px > блок 809px
+1440 blog/sistema-haccp.html переполнений нет
+1440 ceny.html «Как складывается итог» текст 511px > блок 458px
+1440 dokumenty/index.html переполнений нет
+1440 blog/sgr-ili-deklaraciya.html переполнений нет
+768 blog/cjm-karta-puti-klienta.html переполнений нет
+768 blog/kak-proverit-akkreditaciyu-laboratorii.html «Реестр аккредитованных лабораторий: как проверить » текст 604px > блок 582px
+768 blog/sistema-haccp.html переполнений нет
+768 ceny.html переполнений нет
+768 dokumenty/index.html переполнений нет
+768 blog/sgr-ili-deklaraciya.html переполнений нет

@@ -1,0 +1,9 @@
+desktop-320 (zoom 400% эквивалент) index.html {"clientW":320,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+desktop-320 (zoom 400% эквивалент) kontakty.html {"clientW":320,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+desktop-320 (zoom 400% эквивалент) blog/jobs-to-be-done.html {"clientW":320,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+mobile-360 index.html {"clientW":360,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+mobile-360 kontakty.html {"clientW":360,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+mobile-360 blog/jobs-to-be-done.html {"clientW":360,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+mobile-320 index.html {"clientW":320,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+mobile-320 kontakty.html {"clientW":320,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}
+mobile-320 blog/jobs-to-be-done.html {"clientW":320,"scrollW":363,"toggleLeft":319,"toggleRight":363,"toggleFullyVisible":false}

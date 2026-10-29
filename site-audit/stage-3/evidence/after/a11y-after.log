@@ -1,0 +1,42 @@
+✓ начальный экран index.html @320: нарушений 0; JS-ошибок 0; overflowX 0
+✓ меню открыто index.html @320: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран kontakty.html @320: нарушений 0; JS-ошибок 0; overflowX 0
+✓ меню открыто kontakty.html @320: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/kosmetika.html @320: нарушений 0; JS-ошибок 0; overflowX 0
+✓ меню открыто dokumenty/kosmetika.html @320: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран index.html @360: нарушений 0; JS-ошибок 0; overflowX 0
+✓ меню открыто index.html @360: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран kontakty.html @360: нарушений 0; JS-ошибок 0; overflowX 0
+✓ меню открыто kontakty.html @360: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/kosmetika.html @360: нарушений 0; JS-ошибок 0; overflowX 0
+✓ меню открыто dokumenty/kosmetika.html @360: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран index.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран index.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/registraciya-bad.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/registraciya-bad.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран marketing/pozicionirovanie-brenda.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран marketing/pozicionirovanie-brenda.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран o-nas.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран o-nas.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран kak-my-rabotaem.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран kak-my-rabotaem.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран blog/kak-poluchit-sgr.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран blog/kak-poluchit-sgr.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран blog/pozicionirovanie-brenda-eto.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран blog/pozicionirovanie-brenda-eto.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/kosmetika.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/kosmetika.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/vyvod-na-rynok.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/vyvod-na-rynok.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/karta-dokumentov.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ начальный экран dokumenty/karta-dokumentov.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ ошибки формы «Карты» dokumenty/karta-dokumentov.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ файл > 5 МБ dokumenty/karta-dokumentov.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ ошибки формы «Карты» dokumenty/karta-dokumentov.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ файл > 5 МБ dokumenty/karta-dokumentov.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ страница ошибки приёмника (копия ответа) zz-endpoint-error.html @390: нарушений 0; JS-ошибок 0; overflowX 0
+✓ страница ошибки приёмника (копия ответа) zz-endpoint-error.html @1440: нарушений 0; JS-ошибок 0; overflowX 0
+✓ переход «Проверить состав бесплатно» с index.html → dokumenty/index.html#quiz: цель в экране, форма 1
+✓ переход «Бесплатный разбор продукта» с index.html → index.html#review: цель в экране, форма 1
+✓ переход «Бесплатный разбор продукта» с marketing/pozicionirovanie-brenda.html → index.html#review: цель в экране, форма 1
+✓ переход «Проверить состав бесплатно» с dokumenty/registraciya-bad.html → dokumenty/index.html#quiz: цель в экране, форма 1

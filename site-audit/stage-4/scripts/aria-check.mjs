@@ -1,0 +1,10 @@
+import { chromium } from "/home/user/-Product_Lab/proba-site/node_modules/@playwright/test/index.mjs";
+import { createRequire } from "node:module";
+const require = createRequire("/home/user/-Product_Lab/proba-site/");
+const b = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const p = await b.newPage();
+await p.goto("http://127.0.0.1:8881/dokumenty/karta-dokumentov.html");
+await p.locator("#kf-form button[type=submit]").click(); await p.waitForTimeout(200);
+await p.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
+console.log(JSON.stringify(await p.evaluate(async () => (await axe.run(document, { runOnly: ["aria-prohibited-attr"], resultTypes: ["incomplete", "violations"] })).incomplete.flatMap((x) => x.nodes.map((n) => ({ t: n.target.join(" "), html: n.html.slice(0, 160), msg: n.any[0]?.message || n.none[0]?.message })))), null, 1));
+await b.close();

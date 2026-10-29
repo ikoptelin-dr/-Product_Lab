@@ -1,0 +1,57 @@
+Изменено файлов сборки относительно исходной версии этапа 4: 82 добавлено: 0
+Технические (только ?v= хеш ассетов): 36
+Содержательные: 46
+   dist/404.html
+   dist/analitika.html
+   dist/assets/site.css
+   dist/avtomatizaciya.html
+   dist/avtomatizaciya/baza-znanij.html
+   dist/blagotvoritelnost.html
+   dist/blog/analiz-konkurentov.html
+   dist/blog/cjm-karta-puti-klienta.html
+   dist/blog/etiketka-bad-do-registracii.html
+   dist/blog/gmp-na-badah.html
+   dist/blog/jobs-to-be-done.html
+   dist/blog/kak-poluchit-sgr.html
+   dist/blog/kak-proverit-akkreditaciyu-laboratorii.html
+   dist/blog/markirovka-kosmetiki.html
+   dist/blog/pozicionirovanie-brenda-eto.html
+   dist/blog/programma-proizvodstvennogo-kontrolya-obrazec.html
+   dist/blog/reestr-sgr-kak-proverit.html
+   dist/blog/sgr-ili-deklaraciya.html
+   dist/blog/sistema-haccp.html
+   dist/blog/unikalnoe-torgovoe-predlozhenie.html
+   dist/blog/yunit-ekonomika-prostymi-slovami.html
+   dist/ceny.html
+   dist/dokumenty/audit-assortimenta.html
+   dist/dokumenty/deklaracii.html
+   dist/dokumenty/dokumenty-dlya-marketplejsov.html
+   dist/dokumenty/gmp.html
+   dist/dokumenty/index.html
+   dist/dokumenty/karta-dokumentov.html
+   dist/dokumenty/kosmetika.html
+   dist/dokumenty/laboratorii.html
+   dist/dokumenty/programma-proizvodstvennogo-kontrolya.html
+   dist/dokumenty/proverki-rospotrebnadzora.html
+   dist/dokumenty/registraciya-produkcii.html
+   dist/dokumenty/vyvod-na-rynok.html
+   dist/kejsy/krem-dlya-ruk-jtbd.html
+   dist/kejsy/magnij-do-registracii.html
+   dist/marketing/3d-vizualizaciya-upakovki.html
+   dist/marketing/dizajn-etiketki-i-upakovki.html
+   dist/marketing/pozicionirovanie-brenda.html
+   dist/novosti.html
+   dist/oferta.html
+   dist/oplata.html
+   dist/politika-pd.html
+   dist/pravovaya-informaciya.html
+   dist/soglasie-pd.html
+   dist/spasibo.html
+
+Только неразрывный пробел → обычный: 42 ; из них вне заголовков: []
+Другие изменения: ['dist/404.html', 'dist/dokumenty/karta-dokumentov.html', 'dist/novosti.html']
+  dist/404.html | -<main id="main" class="section" || +<main id="main" || +<div class="light" || +<section class="section" || -<h1 || +<h1 class="h1-page"
+  dist/dokumenty/karta-dokumentov.html | -<span class="karta-dash" aria-label="сумма после анализа состава" || +<span class="karta-dash" || +<span aria-hidden="true" || +<span class="visually-hidden" || +сумма после анализа состава</span || +</span
+  dist/novosti.html | -
+<section class="section" aria-label="Новости" || +
+<section class="section" aria-label="Список новостей"

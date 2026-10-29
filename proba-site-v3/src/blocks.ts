@@ -80,7 +80,9 @@ function priceCards(tableWrap: string) {
   return `<ul class="price-cards">${rows
     .map(([, a, b]) => {
       const free = /бесплатно/i.test(plain(b!));
-      return `<li class="reveal${free ? " is-free" : ""}"><span class="pc-name">${a}</span><b class="pc-price">${/^\s*(от|бесплатно)/i.test(plain(b!)) ? b : `от ${b}`}</b></li>`;
+      // «от» не добавляем к бесплатному, уже начинающемуся с «от» и к фиксированной цене (site-prices.json, unit «фикс»)
+      const asIs = /^\s*(от|бесплатно)/i.test(plain(b!)) || /фиксированная цена/i.test(plain(b!));
+      return `<li class="reveal${free ? " is-free" : ""}"><span class="pc-name">${a}</span><b class="pc-price">${asIs ? b : `от ${b}`}</b></li>`;
     })
     .join("")}</ul>`;
 }

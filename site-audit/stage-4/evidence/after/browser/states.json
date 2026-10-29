@@ -1,0 +1,417 @@
+[
+ {
+  "label": "мобильное меню",
+  "page": "index.html",
+  "vp": "m390",
+  "note": "меню открыто: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 106
+   }
+  ]
+ },
+ {
+  "label": "мобильное меню",
+  "page": "dokumenty/registraciya-bad.html",
+  "vp": "m390",
+  "note": "меню открыто: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55
+   }
+  ]
+ },
+ {
+  "label": "мобильное меню",
+  "page": "dokumenty/kosmetika.html",
+  "vp": "m390",
+  "note": "меню открыто: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 65
+   }
+  ]
+ },
+ {
+  "label": "мобильное меню",
+  "page": "blog/jobs-to-be-done.html",
+  "vp": "m390",
+  "note": "меню открыто: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51
+   }
+  ]
+ },
+ {
+  "label": "мобильное меню",
+  "page": "ceny.html",
+  "vp": "m390",
+  "note": "меню открыто: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 76
+   }
+  ]
+ },
+ {
+  "label": "мобильное меню",
+  "page": "kontakty.html",
+  "vp": "m390",
+  "note": "меню открыто: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 40
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "index.html",
+  "vp": "d1440",
+  "note": "ошибок: 4, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 111
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "index.html",
+  "vp": "m390",
+  "note": "ошибок: 4, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 106
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "kontakty.html",
+  "vp": "d1440",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "kontakty.html",
+  "vp": "m390",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 40
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "dokumenty/kosmetika.html",
+  "vp": "d1440",
+  "note": "ошибок: 4, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 76
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "dokumenty/kosmetika.html",
+  "vp": "m390",
+  "note": "ошибок: 4, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 65
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": "d1440",
+  "note": "ошибок: 4, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": "m390",
+  "note": "ошибок: 4, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 41
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "avtomatizaciya.html",
+  "vp": "d1440",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "avtomatizaciya.html",
+  "vp": "m390",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "partneram.html",
+  "vp": "d1440",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 40
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "partneram.html",
+  "vp": "m390",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 37
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "blagotvoritelnost.html",
+  "vp": "d1440",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 39
+   }
+  ]
+ },
+ {
+  "label": "пустая отправка формы",
+  "page": "blagotvoritelnost.html",
+  "vp": "m390",
+  "note": "ошибок: 3, статус: «Проверьте отмеченные поля.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 37
+   }
+  ]
+ },
+ {
+  "label": "квиз: пустая отправка",
+  "page": "dokumenty/index.html",
+  "vp": "d1440",
+  "note": "ошибок: 0, статус: «Выберите тип продукта.»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 67
+   }
+  ]
+ },
+ {
+  "label": "квиз: результат → форма",
+  "page": "dokumenty/index.html",
+  "vp": "m390",
+  "note": "кнопка результата: 1, поле состава видно: true",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61
+   }
+  ]
+ },
+ {
+  "label": "калькулятор: неверный ввод",
+  "page": "analitika/kalkulyator-yunit-ekonomiki.html",
+  "vp": "d1440",
+  "note": "ошибок: 1",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 57
+   }
+  ]
+ },
+ {
+  "label": "калькулятор: результат",
+  "page": "analitika/kalkulyator-yunit-ekonomiki.html",
+  "vp": "m390",
+  "note": "итог: «−600 ₽»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50
+   }
+  ]
+ },
+ {
+  "label": "FAQ раскрыт",
+  "page": "dokumenty/registraciya-bad.html",
+  "vp": "m390",
+  "note": "все details открыты",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55
+   }
+  ]
+ },
+ {
+  "label": "«Подробнее» раскрыт",
+  "page": "kejsy/magnij-do-registracii.html",
+  "vp": "d1440",
+  "note": "details.more открыты",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 54
+   }
+  ]
+ },
+ {
+  "label": "шоурил: пауза",
+  "page": "index.html",
+  "vp": "d1440",
+  "note": "aria-pressed=true, подпись «Смотреть»",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 120
+   }
+  ]
+ },
+ {
+  "label": "404",
+  "page": "404.html",
+  "vp": "m390",
+  "note": "",
+  "overflow": 0,
+  "errors": [],
+  "violations": [],
+  "incomplete": []
+ }
+]

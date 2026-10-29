@@ -312,6 +312,8 @@ function forms() {
         const file = fd.get("compositionFile");
         const hasFile = file instanceof File && file.size > 0;
         if (String(fd.get("composition") || "").trim().length < 3 && !hasFile) errors.push({ name: "composition", msg: "Добавьте состав текстом или файлом" });
+        // Тот же предел, что у приёмника заявок (deploy/form-endpoint.mjs)
+        if (hasFile && (file as File).size > 5 * 1024 * 1024) errors.push({ name: "compositionFile", msg: "Файл больше 5 МБ — впишите состав текстом или пришлите файл в переписке" });
       }
       const contact = String(fd.get("contact") || "").trim();
       // email, телефон (от 10 цифр) или Telegram (@ник или t.me/ник)
@@ -359,6 +361,10 @@ function forms() {
       HTMLFormElement.prototype.submit.call(form);
     });
   }
+  // Возврат кнопкой «Назад» (в том числе со страницы ошибки приёмника): не оставляем «Отправляем…», как будто заявка ушла
+  addEventListener("pageshow", () => {
+    for (const st of $$(".form-status.is-filled")) if (st.textContent === "Отправляем…") { st.textContent = ""; st.className = "form-status"; }
+  });
 }
 
 /* ---------------- Калькулятор экономики SKU ---------------- */

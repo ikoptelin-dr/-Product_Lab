@@ -1,0 +1,95 @@
+320m done
+320d done
+360m done
+390m done
+768m done
+1440d done
+страниц 81, проверок 486, с проблемами 87
+✗ 320m analitika.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Аналитика, по которой видно, какие каналы при» R322 в section.page-hero.grain R320
+✗ 320m avtomatizaciya/baza-znanij.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «База знаний для сотрудников с AI-поиском по д» R430 в section.page-hero.grain R320
+✗ 320m blagotvoritelnost.html overflow=16 toggle=true cta=true h2#chto-delaem-title.h2 «Что делаем бесплатно» R336 TEXT:h2.h2 «Что делаем бесплатно» R336  CLIP:h1.h1-page «Pro bono: делаем бесплатно, когда это помогае» R346 в section.page-hero.grain R320
+✗ 320m blog/analiz-konkurentov.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Заказать исследование рынка» R325 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/cjm-karta-puti-klienta.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Построить карту пути ваших покупателей» R305 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/etiketka-bad-do-registracii.html overflow=0 toggle=true cta=true    CLIP:h2.h2 «Проверить этикетку» R315 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/gmp-na-badah.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Обсудить производство» R365 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/jobs-to-be-done.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Провести JTBD-интервью с вашими покупателями» R370 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/kak-poluchit-sgr.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Как получить СГР: этапы, документы и сроки ре» R346 в section.page-hero.grain R320
+✗ 320m blog/kak-proverit-akkreditaciyu-laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Реестр аккредитованных лабораторий: как прове» R419 в section.page-hero.grain R320
+✗ 320m blog/markirovka-kosmetiki.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Подключить маркировку косметики» R358 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/programma-proizvodstvennogo-kontrolya-obrazec.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Разработать программу под ваше производство» R305 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/reestr-sgr-kak-proverit.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Реестр СГР: как проверить свидетельство о гос» R346 в section.page-hero.grain R320
+✗ 320m blog/sistema-haccp.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Разработать и внедрить ХАССП под ваше произво» R305 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/unikalnoe-torgovoe-predlozhenie.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Сформулировать предложение для вашего продукт» R324 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m blog/yunit-ekonomika-prostymi-slovami.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Открыть калькулятор» R334 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m ceny.html overflow=24 toggle=true cta=true  TEXT:h2.h2.reveal «Как складывается итог» R344  
+✗ 320m dokumenty/audit-assortimenta.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Аудит ассортимента под правила маркетплейсов:» R342 в section.page-hero.grain R320
+✗ 320m dokumenty/deklaracii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Декларирование продукции: пищевая продукция, » R355 в section.page-hero.grain R320
+✗ 320m dokumenty/dokumenty-dlya-marketplejsov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Какие документы нужны для Ozon и Wildberries:» R339 в section.page-hero.grain R320
+✗ 320m dokumenty/karta-dokumentov.html overflow=9 toggle=true cta=true  TEXT:dd «СГР — свидетельство о государственной регистр» R329  CLIP:h1.h1-page «Карта документов для вашего продукта — беспла» R381 в section.page-hero.grain R320
+✗ 320m dokumenty/laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Испытания в аккредитованной лаборатории: подб» R390 в section.page-hero.grain R320
+✗ 320m dokumenty/otkaznoe-pismo-dlya-marketplejsov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Отказное письмо для маркетплейсов: Ozon и Wil» R341 в section.page-hero.grain R320
+✗ 320m dokumenty/programma-proizvodstvennogo-kontrolya.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Разработка программы производственного контро» R332 в section.page-hero.grain R320
+✗ 320m dokumenty/proverki-rospotrebnadzora.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Подготовка к проверке Роспотребнадзора: аудит» R386 в section.page-hero.grain R320
+✗ 320m dokumenty/registraciya-produkcii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Государственная регистрация продукции (СГР): » R343 в section.page-hero.grain R320
+✗ 320m kejsy/krem-dlya-ruk-jtbd.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Крем для рук «после смены»: позиционирование » R324 в section.page-hero.grain R320 | p.h2 «Провести JTBD-интервью с вашими покупателями» R370 в div.dark-card.grain.article-cta.reveal R304
+✗ 320m marketing/dizajn-etiketki-i-upakovki.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Дизайн этикетки и упаковки для БАД, косметики» R369 в section.page-hero.grain R320
+✗ 320m marketing/kartochki-marketplejsov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Создание карточек товара для маркетплейсов: и» R341 в section.page-hero.grain R320
+✗ 320m marketing/pozicionirovanie-brenda.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Создание бренда и позиционирование для БАД, к» R469 в section.page-hero.grain R320
+✗ 320m marketing/video-dlya-kartochek.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Видео для маркетплейсов: ролики для карточки » R341 в section.page-hero.grain R320
+✗ 320m novosibirsk.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «ХАССП, производственный контроль и проверки в» R326 в section.page-hero.grain R320
+✗ 320m politika-pd.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Политика обработки персональных данных» R360 в section.page-hero.legal-hero.grain R320
+✗ 320m pravovaya-informaciya.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Правовая информация» R363 в section.page-hero.legal-hero.grain R320
+✗ 320m soglasie-pd.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Согласие на обработку персональных данных» R360 в section.page-hero.legal-hero.grain R320
+✗ 320m spasibo.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Заявка отправлена» R322 в section.page-hero.grain R320
+✗ 320d analitika.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Аналитика, по которой видно, какие каналы при» R322 в section.page-hero.grain R320
+✗ 320d avtomatizaciya/baza-znanij.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «База знаний для сотрудников с AI-поиском по д» R430 в section.page-hero.grain R320
+✗ 320d blagotvoritelnost.html overflow=16 toggle=true cta=true h2#chto-delaem-title.h2 «Что делаем бесплатно» R336 TEXT:h2.h2 «Что делаем бесплатно» R336  CLIP:h1.h1-page «Pro bono: делаем бесплатно, когда это помогае» R346 в section.page-hero.grain R320
+✗ 320d blog/analiz-konkurentov.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Заказать исследование рынка» R325 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/cjm-karta-puti-klienta.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Построить карту пути ваших покупателей» R305 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/etiketka-bad-do-registracii.html overflow=0 toggle=true cta=true    CLIP:h2.h2 «Проверить этикетку» R315 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/gmp-na-badah.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Обсудить производство» R365 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/jobs-to-be-done.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Провести JTBD-интервью с вашими покупателями» R370 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/kak-poluchit-sgr.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Как получить СГР: этапы, документы и сроки ре» R346 в section.page-hero.grain R320
+✗ 320d blog/kak-proverit-akkreditaciyu-laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Реестр аккредитованных лабораторий: как прове» R419 в section.page-hero.grain R320
+✗ 320d blog/markirovka-kosmetiki.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Подключить маркировку косметики» R358 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/programma-proizvodstvennogo-kontrolya-obrazec.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Разработать программу под ваше производство» R305 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/reestr-sgr-kak-proverit.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Реестр СГР: как проверить свидетельство о гос» R346 в section.page-hero.grain R320
+✗ 320d blog/sistema-haccp.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Разработать и внедрить ХАССП под ваше произво» R305 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/unikalnoe-torgovoe-predlozhenie.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Сформулировать предложение для вашего продукт» R324 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d blog/yunit-ekonomika-prostymi-slovami.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Открыть калькулятор» R334 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d ceny.html overflow=24 toggle=true cta=true  TEXT:h2.h2.reveal «Как складывается итог» R344  
+✗ 320d dokumenty/audit-assortimenta.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Аудит ассортимента под правила маркетплейсов:» R342 в section.page-hero.grain R320
+✗ 320d dokumenty/deklaracii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Декларирование продукции: пищевая продукция, » R355 в section.page-hero.grain R320
+✗ 320d dokumenty/dokumenty-dlya-marketplejsov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Какие документы нужны для Ozon и Wildberries:» R339 в section.page-hero.grain R320
+✗ 320d dokumenty/karta-dokumentov.html overflow=9 toggle=true cta=true  TEXT:dd «СГР — свидетельство о государственной регистр» R329  CLIP:h1.h1-page «Карта документов для вашего продукта — беспла» R381 в section.page-hero.grain R320
+✗ 320d dokumenty/laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Испытания в аккредитованной лаборатории: подб» R390 в section.page-hero.grain R320
+✗ 320d dokumenty/otkaznoe-pismo-dlya-marketplejsov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Отказное письмо для маркетплейсов: Ozon и Wil» R341 в section.page-hero.grain R320
+✗ 320d dokumenty/programma-proizvodstvennogo-kontrolya.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Разработка программы производственного контро» R332 в section.page-hero.grain R320
+✗ 320d dokumenty/proverki-rospotrebnadzora.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Подготовка к проверке Роспотребнадзора: аудит» R386 в section.page-hero.grain R320
+✗ 320d dokumenty/registraciya-produkcii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Государственная регистрация продукции (СГР): » R343 в section.page-hero.grain R320
+✗ 320d kejsy/krem-dlya-ruk-jtbd.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Крем для рук «после смены»: позиционирование » R324 в section.page-hero.grain R320 | p.h2 «Провести JTBD-интервью с вашими покупателями» R370 в div.dark-card.grain.article-cta.reveal R304
+✗ 320d marketing/dizajn-etiketki-i-upakovki.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Дизайн этикетки и упаковки для БАД, косметики» R369 в section.page-hero.grain R320
+✗ 320d marketing/kartochki-marketplejsov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Создание карточек товара для маркетплейсов: и» R341 в section.page-hero.grain R320
+✗ 320d marketing/pozicionirovanie-brenda.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Создание бренда и позиционирование для БАД, к» R469 в section.page-hero.grain R320
+✗ 320d marketing/video-dlya-kartochek.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Видео для маркетплейсов: ролики для карточки » R341 в section.page-hero.grain R320
+✗ 320d novosibirsk.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «ХАССП, производственный контроль и проверки в» R326 в section.page-hero.grain R320
+✗ 320d politika-pd.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Политика обработки персональных данных» R360 в section.page-hero.legal-hero.grain R320
+✗ 320d pravovaya-informaciya.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Правовая информация» R363 в section.page-hero.legal-hero.grain R320
+✗ 320d soglasie-pd.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Согласие на обработку персональных данных» R360 в section.page-hero.legal-hero.grain R320
+✗ 320d spasibo.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Заявка отправлена» R322 в section.page-hero.grain R320
+✗ 360m avtomatizaciya/baza-znanij.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «База знаний для сотрудников с AI-поиском по д» R430 в section.page-hero.grain R360
+✗ 360m blog/gmp-na-badah.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Обсудить производство» R365 в div.dark-card.grain.article-cta.reveal R344
+✗ 360m blog/jobs-to-be-done.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Провести JTBD-интервью с вашими покупателями» R370 в div.dark-card.grain.article-cta.reveal R344
+✗ 360m blog/kak-proverit-akkreditaciyu-laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Реестр аккредитованных лабораторий: как прове» R436 в section.page-hero.grain R360
+✗ 360m blog/markirovka-kosmetiki.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Подключить маркировку косметики» R358 в div.dark-card.grain.article-cta.reveal R344
+✗ 360m dokumenty/karta-dokumentov.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Карта документов для вашего продукта — беспла» R381 в section.page-hero.grain R360
+✗ 360m dokumenty/laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Испытания в аккредитованной лаборатории: подб» R390 в section.page-hero.grain R360
+✗ 360m dokumenty/proverki-rospotrebnadzora.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Подготовка к проверке Роспотребнадзора: аудит» R386 в section.page-hero.grain R360
+✗ 360m kejsy/krem-dlya-ruk-jtbd.html overflow=0 toggle=true cta=true    CLIP:p.h2 «Провести JTBD-интервью с вашими покупателями» R370 в div.dark-card.grain.article-cta.reveal R344
+✗ 360m marketing/dizajn-etiketki-i-upakovki.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Дизайн этикетки и упаковки для БАД, косметики» R369 в section.page-hero.grain R360
+✗ 360m marketing/pozicionirovanie-brenda.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Создание бренда и позиционирование для БАД, к» R469 в section.page-hero.grain R360
+✗ 360m pravovaya-informaciya.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page.legal-title «Правовая информация» R363 в section.page-hero.legal-hero.grain R360
+✗ 390m avtomatizaciya/baza-znanij.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «База знаний для сотрудников с AI-поиском по д» R430 в section.page-hero.grain R390
+✗ 390m blog/kak-proverit-akkreditaciyu-laboratorii.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Реестр аккредитованных лабораторий: как прове» R448 в section.page-hero.grain R390
+✗ 390m marketing/pozicionirovanie-brenda.html overflow=0 toggle=true cta=true    CLIP:h1.h1-page «Создание бренда и позиционирование для БАД, к» R469 в section.page-hero.grain R390
+локальная прокрутка (допустимо): 36 проверок, напр. div.table-wrap

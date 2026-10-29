@@ -1,0 +1,13 @@
+{
+ "files": 85,
+ "pages": 80,
+ "redirects": 4,
+ "pagesWithIssues": 1,
+ "canonicalPresent": 0,
+ "robotsMeta": {
+  "404.html": "noindex"
+ }
+}
+sitemap: {"count":80,"notBuilt":[],"builtNotInSitemap":[],"redirectsInSitemap":[],"noindexInSitemap":[],"base":"https://proba-lab.ru"}
+redirects: [{"from":"blog/ekonomika-sku-marketplejs.html","to":"blog/yunit-ekonomika-prostymi-slovami.html","targetOk":true,"noindex":true,"nginx301":true},{"from":"dokumenty/kak-my-rabotaem.html","to":"kak-my-rabotaem.html","targetOk":true,"noindex":true,"nginx301":true},{"from":"dokumenty/sanpin.html","to":"dokumenty/proverki-rospotrebnadzora.html","targetOk":true,"noindex":true,"nginx301":true},{"from":"kalkulyator-sku.html","to":"analitika/kalkulyator-yunit-ekonomiki.html","targetOk":true,"noindex":true,"nginx301":true}]
+✗ partneram.html title 72 симв.

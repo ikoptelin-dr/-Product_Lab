@@ -88,9 +88,10 @@ for (const fpath of walk(CONTENT_DIR).sort()) {
   let rest = cut >= 0 ? body.slice(cut) : "";
   const heroCtas = [];
   let price;
-  intro = intro.replace(/^\*\*\[([^\]]+)\]\*\*(.*)$/gm, (_, label, tail) => {
+  // «**[Кнопка]**» — к форме страницы; «**[Кнопка](/адрес/#якорь)**» — к существующей форме или действию на другой странице
+  intro = intro.replace(/^\*\*\[([^\]]+)\](?:\(([^)\s]+)\))?\*\*(.*)$/gm, (_, label, link, tail) => {
     if (/^(Форма|CTA|Калькулятор)/.test(label)) return _;
-    heroCtas.push({ label, href: "#project-form" });
+    heroCtas.push({ label, href: link ? relHref(link, file) : "#project-form" });
     const sec = tail.match(/\[([^\]]+)\]\(([^)]+)\)/);
     if (sec) heroCtas.push({ label: sec[1], href: relHref(sec[2], file) });
     return "";
@@ -273,8 +274,9 @@ for (const [from, to] of Object.entries(moved)) {
   const canon = SITE_URL ? `${SITE_URL}/${to}` : href;
   writeFileSync(out, `<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Страница переехала — Proba Lab</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" href="${icon}"><link rel="canonical" href="${canon}"><meta http-equiv="refresh" content="0; url=${href}"></head><body><p>Страница переехала: <a href="${href}">${href}</a></p></body></html>\n`);
 }
-// 404 для сервера (nginx: error_page 404 /404.html) — абсолютные ссылки от корня, страница может открыться по любому адресу
-writeFileSync(join(dist, "404.html"), `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Страница не найдена — Proba Lab</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" href="/assets/emblem-ink.png"><link rel="stylesheet" href="/assets/site.css?v=${ASSET_V}"></head><body class="page"><main id="main" class="section"><div class="container prose"><h1>Страница не найдена</h1><p>Возможно, она переехала. Начните с <a href="/index.html">главной</a>, <a href="/dokumenty/index.html">раздела «Документы»</a> или <a href="/blog/index.html">блога</a>.</p></div></main></body></html>\n`);
+// 404 для сервера (nginx: error_page 404 /404.html) — абсолютные ссылки от корня, страница может открыться по любому адресу.
+// Текст на светлом блоке .light: без него тёмный текст стоял на чёрном фоне body (аудит, этап 4)
+writeFileSync(join(dist, "404.html"), `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Страница не найдена — Proba Lab</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" href="/assets/emblem-ink.png"><link rel="stylesheet" href="/assets/site.css?v=${ASSET_V}"></head><body class="page"><main id="main"><div class="light"><section class="section"><div class="container prose"><h1 class="h1-page">Страница не найдена</h1><p>Возможно, она переехала. Начните с <a href="/index.html">главной</a>, <a href="/dokumenty/index.html">раздела «Документы»</a> или <a href="/blog/index.html">блога</a>.</p></div></section></div></main></body></html>\n`);
 if (held.length) console.log(`• не публикуются (пометка «НЕ ПУБЛИКОВАТЬ»): ${held.join(", ")}`);
 
 // 4. Стили, скрипт, логотипы

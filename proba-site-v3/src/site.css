@@ -184,6 +184,22 @@ p, li, dd { text-wrap: pretty; }
   .header-cta { padding-inline: 14px; }
   .brand-name { font-size: 1rem; }
 }
+/* Узкие экраны (360 px, 320 px и масштаб 400 %): шапка помещается без горизонтальной прокрутки, кнопка меню в экране.
+   Выше 374 px вид не меняется. Название у знака скрывается только до 359 px — у ссылки остаётся aria-label. */
+@media (max-width: 374px) {
+  .header-row { gap: 8px; }
+  .header-actions { gap: 6px; }
+  .header-cta { padding-inline: 12px; }
+}
+@media (max-width: 359px) {
+  .site-header .brand-name { display: none; }
+}
+/* Узкие экраны (≤ 374 px): одно длинное слово в H1 первого экрана («производственного», «Роспотребнадзора:») шире строки
+   и обрезалось. Чуть меньший кегль, а перенос внутри слова — только если слово всё равно не помещается. */
+@media (max-width: 374px) {
+  .h1-page { font-size: 1.875rem; }
+  .h1-page, .h2 { overflow-wrap: break-word; }
+}
 
 /* ---------------- Зерно и стекло ---------------- */
 .grain { position: relative; isolation: isolate; }
@@ -782,6 +798,8 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
 .karta-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .karta-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -.015em; }
 .karta-doc > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 4px 16px; }
+/* Узкие экраны (≤ 374 px): подпись над значением — длинные слова («государственной») не выходят за карточку */
+@media (max-width: 374px) { .karta-doc > div { grid-template-columns: minmax(0, 1fr); } }
 .karta-doc dt { font-size: .875rem; font-weight: 500; color: var(--emerald-ink); padding-top: 2px; }
 .karta-doc dd { font-weight: 600; }
 .karta-sub { font-size: .9375rem; color: var(--z600); font-weight: 500; margin-top: 6px; }
@@ -885,12 +903,19 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
 }
 .dir-mkt { --acc: #a78bfa; --acc-ink: #6d28d9; --acc-soft: #f5f3ff; --acc-line: rgba(109, 40, 217, .18); --grad: linear-gradient(100deg, #a78bfa 0%, #38bdf8 100%); }
 .dir-ana { --acc: #38bdf8; --acc-ink: #0369a1; --acc-soft: #f0f9ff; --acc-line: rgba(3, 105, 161, .18); --grad: linear-gradient(100deg, #38bdf8 0%, #34d399 100%); }
+/* Градиентный текст на светлом фоне (аудит, этап 4): светлые тона градиента дают 1,6–2,7:1 на #f4f4f5 и белом — ниже 3:1 даже
+   для крупного текста. На светлых разделах — тот же градиент из «чернильных» тонов направления (≥ 4,8:1). На тёмных фонах не меняется. */
+:root { --grad-ink: linear-gradient(100deg, #047857 0%, #0e7490 100%); }
+.dir-mkt { --grad-ink: linear-gradient(100deg, #6d28d9 0%, #0369a1 100%); }
+.dir-ana { --grad-ink: linear-gradient(100deg, #0369a1 0%, #047857 100%); }
 
 /* Типографика: жирнее, ключевая часть — градиентом */
 .h1, .h1-page, .h2 { font-weight: 700; }
 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
 mark.hl { color: inherit; background: linear-gradient(transparent 55%, color-mix(in srgb, var(--acc) 38%, transparent) 55%); padding: 0 .08em; border-radius: 2px; font-weight: 600; }
 .page-hero mark.hl, .dark-card mark.hl { background: linear-gradient(transparent 58%, rgba(52, 211, 153, .35) 58%); }
+/* Контраст (аудит, этап 4): серый текст лида на изумрудной подложке — 3,98:1 при норме 4,5; внутри маркера текст светлее (8:1) */
+.page-hero mark.hl, .dark-card mark.hl { color: var(--z200); }
 
 /* Живой фон первого экрана: плывущие пятна света, сетка, стеклянные фигуры */
 .ambient { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
@@ -949,6 +974,8 @@ mark.hl { color: inherit; background: linear-gradient(transparent 55%, color-mix
 .prose .steps-h > li { padding-top: 26px; }
 .prose .steps-h > li::after { content: ""; position: absolute; left: 22px; right: 22px; top: 0; height: 3px; border-radius: 0 0 3px 3px; background: var(--grad); transform-origin: left; }
 .step-n { font-size: 2.25rem; font-weight: 700; letter-spacing: -.05em; line-height: 1; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-variant-numeric: tabular-nums; }
+.light .grad, .light .step-n { background-image: var(--grad-ink); }
+.light .dark-card .grad, .light .bento .grad { background-image: var(--grad); }
 .prose .steps-v { gap: 0; max-width: 820px; }
 .prose .steps-v > li { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 18px; row-gap: 4px; padding: 0 0 26px; background: none; border: 0; box-shadow: none; border-radius: 0; }
 .prose .steps-v > li > .step-n { grid-row: span 2; font-size: 1.5rem; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; background: var(--white); -webkit-text-fill-color: var(--acc-ink); color: var(--acc-ink); border: 1px solid var(--acc-line); box-shadow: var(--shadow); }

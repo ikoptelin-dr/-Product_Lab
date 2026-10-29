@@ -1,0 +1,63 @@
+analitika/kalkulyator-yunit-ekonomiki.html 
+  h1.h1-page «Калькулятор юнит-экономики для Ozon и Wi»: 143 → 126
+audit-prodazh.html 
+  h1.h1-page «Аудит продаж: где теряются покупатели и »: 143 → 126
+avtomatizaciya/vnedrenie-crm.html 
+  h1.h1-page «Внедрение CRM: Битрикс24 или amoCRM под »: 178 → 158
+blog/analiz-konkurentov.html 
+  p.h2 «Заказать исследование рынка»: 60 → 91
+blog/cjm-karta-puti-klienta.html 
+  p.h2 «Построить карту пути ваших покупателей»: 91 → 121
+blog/index.html 
+  h1.h1-page «Блог»: 36 → 32
+blog/programma-proizvodstvennogo-kontrolya-obrazec.html 
+  p.h2 «Разработать программу под ваше производс»: 91 → 121
+blog/sgr-ili-deklaraciya.html 
+  h1.h1-page «СГР или декларация: какой документ нужен»: 178 → 158
+blog/sistema-haccp.html 
+  p.h2 «Разработать и внедрить ХАССП под ваше пр»: 121 → 151
+dokumenty/audit-assortimenta.html 
+  h1.h1-page «Аудит ассортимента под правила маркетпле»: 214 → 189
+dokumenty/gmp.html 
+  h1.h1-page «GMP для производства БАД и косметики»: 107 → 95
+  h2.h2 «Проверим состав и посчитаем смету»: 65 → 65
+dokumenty/index.html 
+  h1.h1-page «Документы, производство и испытания для »: 178 → 158
+  h2.h2 «Как мы работаем»: 32 → 32
+dokumenty/kosmetika.html 
+  h1.h1-page «Документы на косметику: декларация или С»: 143 → 126
+  h2.h2 «Проверим состав и посчитаем смету»: 65 → 65
+dokumenty/markirovka.html 
+  h1.h1-page «Маркировка БАД и косметики: «Честный зна»: 143 → 126
+dokumenty/programma-proizvodstvennogo-kontrolya.html 
+  h1.h1-page «Разработка программы производственного к»: 178 → 158
+dokumenty/registraciya-produkcii.html 
+  h1.h1-page «Государственная регистрация продукции (С»: 178 → 189
+dokumenty/tu.html 
+  h1.h1-page «Технические условия на продукцию: разраб»: 178 → 158
+index.html 
+  h1.h1-page «Запускаем БАД и косметику — от состава д»: 143 → 126
+kejsy/batonchik-yunit-ekonomika.html 
+  h1.h1-page «Протеиновый батончик: юнит-экономика и в»: 178 → 126
+kejsy.html 
+  h1.h1-page «Кейсы: как выглядит запуск продукта с на»: 143 → 126
+kontakty.html 
+  h1.h1-page «Контакты»: 36 → 32
+marketing/issledovanie-rynka.html 
+  h1.h1-page «Исследование рынка и конкурентов для бре»: 178 → 158
+marketing/kartochki-marketplejsov.html 
+  h1.h1-page «Создание карточек товара для маркетплейс»: 214 → 189
+novosibirsk.html 
+  h1.h1-page «ХАССП, производственный контроль и прове»: 178 → 158
+novosti.html 
+  h1.h1-page «Новости»: 36 → 32
+oplata.html 
+  h1.h1-page «Оплата»: 36 → 32
+partneram.html 
+  h1.h1-page «Партнёрам»: 36 → 32
+prodvizhenie.html 
+  h1.h1-page «Продвижение, при котором продукт находят»: 143 → 126
+prodvizhenie/vyhod-na-marketplejsy.html 
+  h1.h1-page «Выход на маркетплейсы для брендов БАД и »: 143 → 126
+spasibo.html 
+  h1.h1-page «Заявка отправлена»: 36 → 32

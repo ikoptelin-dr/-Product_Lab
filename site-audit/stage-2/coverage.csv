@@ -1,0 +1,199 @@
+page,check,result,note
+index.html,load_200,passed,"1440 191 мс, 390 197 мс (локальный сервер)"
+index.html,js_errors,passed,console error/warning и pageerror: 0
+index.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+index.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+index.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+index.html,overflow_390_1440,passed,0 px
+index.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+index.html,title,passed,"43 символов, уникален (проверка сборки)"
+index.html,description,passed,144 символов
+index.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+index.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+index.html,headings,passed,"H1=1, пропусков уровней нет"
+index.html,lang,passed,ru
+index.html,internal_links,passed,"36 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+index.html,json_ld,passed,Organization
+index.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 120 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+index.html,axe_details_open,not_applicable,нет <details> вне меню
+index.html,axe_form_errors,passed,нарушений 0 после пустой отправки
+index.html,form_client_validation,passed,"ошибки: 4, фокус на первом поле с ошибкой, aria-invalid, подписи у всех полей"
+index.html,form_delivery,failed,"нет endpoint: «Отправка пока не подключена», 0 запросов — ISS-001"
+index.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+index.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+index.html,content_review,passed,page-decisions.md
+index.html,regulatory_accuracy,not_applicable,
+dokumenty/registraciya-bad.html,load_200,passed,"1440 130 мс, 390 168 мс (локальный сервер)"
+dokumenty/registraciya-bad.html,js_errors,passed,console error/warning и pageerror: 0
+dokumenty/registraciya-bad.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+dokumenty/registraciya-bad.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+dokumenty/registraciya-bad.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+dokumenty/registraciya-bad.html,overflow_390_1440,passed,0 px
+dokumenty/registraciya-bad.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+dokumenty/registraciya-bad.html,title,passed,"52 символов, уникален (проверка сборки)"
+dokumenty/registraciya-bad.html,description,passed,159 символов
+dokumenty/registraciya-bad.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+dokumenty/registraciya-bad.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+dokumenty/registraciya-bad.html,headings,passed,"H1=1, пропусков уровней нет"
+dokumenty/registraciya-bad.html,lang,passed,ru
+dokumenty/registraciya-bad.html,internal_links,passed,"28 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+dokumenty/registraciya-bad.html,json_ld,passed,BreadcrumbList/Service/FAQPage
+dokumenty/registraciya-bad.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 64 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+dokumenty/registraciya-bad.html,axe_details_open,passed,color-contrast ссылок шапки во время перехода шапки в прокрученный вид; после 800 мс не воспроизводится (scripts/repro-header-contrast.mjs) — гипотеза отклонена
+dokumenty/registraciya-bad.html,axe_form_errors,passed,нарушений 0 после пустой отправки
+dokumenty/registraciya-bad.html,form_client_validation,passed,"ошибки: 2, фокус на первом поле с ошибкой, aria-invalid, подписи у всех полей"
+dokumenty/registraciya-bad.html,form_delivery,failed,"нет endpoint: «Отправка пока не подключена», 0 запросов — ISS-001"
+dokumenty/registraciya-bad.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+dokumenty/registraciya-bad.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+dokumenty/registraciya-bad.html,content_review,passed,page-decisions.md
+dokumenty/registraciya-bad.html,regulatory_accuracy,blocked,"профильной сверки нет (все источники «проверить у партнёра», ISS-002); 3 даты сверены по вторичным источникам"
+marketing/3d-vizualizaciya-upakovki.html,load_200,passed,"1440 156 мс, 390 159 мс (локальный сервер)"
+marketing/3d-vizualizaciya-upakovki.html,js_errors,passed,console error/warning и pageerror: 0
+marketing/3d-vizualizaciya-upakovki.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+marketing/3d-vizualizaciya-upakovki.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+marketing/3d-vizualizaciya-upakovki.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+marketing/3d-vizualizaciya-upakovki.html,overflow_390_1440,passed,0 px
+marketing/3d-vizualizaciya-upakovki.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+marketing/3d-vizualizaciya-upakovki.html,title,passed,"54 символов, уникален (проверка сборки)"
+marketing/3d-vizualizaciya-upakovki.html,description,passed,145 символов
+marketing/3d-vizualizaciya-upakovki.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+marketing/3d-vizualizaciya-upakovki.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+marketing/3d-vizualizaciya-upakovki.html,headings,passed,"H1=1, пропусков уровней нет"
+marketing/3d-vizualizaciya-upakovki.html,lang,passed,ru
+marketing/3d-vizualizaciya-upakovki.html,internal_links,passed,"29 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+marketing/3d-vizualizaciya-upakovki.html,json_ld,passed,BreadcrumbList/Service
+marketing/3d-vizualizaciya-upakovki.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 68 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+marketing/3d-vizualizaciya-upakovki.html,axe_details_open,passed,
+marketing/3d-vizualizaciya-upakovki.html,axe_form_errors,passed,нарушений 0 после пустой отправки
+marketing/3d-vizualizaciya-upakovki.html,form_client_validation,passed,"ошибки: 2, фокус на первом поле с ошибкой, aria-invalid, подписи у всех полей"
+marketing/3d-vizualizaciya-upakovki.html,form_delivery,failed,"нет endpoint: «Отправка пока не подключена», 0 запросов — ISS-001"
+marketing/3d-vizualizaciya-upakovki.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+marketing/3d-vizualizaciya-upakovki.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+marketing/3d-vizualizaciya-upakovki.html,content_review,passed,page-decisions.md
+marketing/3d-vizualizaciya-upakovki.html,regulatory_accuracy,not_applicable,
+kejsy/magnij-do-registracii.html,load_200,passed,"1440 170 мс, 390 140 мс (локальный сервер)"
+kejsy/magnij-do-registracii.html,js_errors,passed,console error/warning и pageerror: 0
+kejsy/magnij-do-registracii.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+kejsy/magnij-do-registracii.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+kejsy/magnij-do-registracii.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+kejsy/magnij-do-registracii.html,overflow_390_1440,passed,0 px
+kejsy/magnij-do-registracii.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+kejsy/magnij-do-registracii.html,title,passed,"53 символов, уникален (проверка сборки)"
+kejsy/magnij-do-registracii.html,description,passed,143 символов
+kejsy/magnij-do-registracii.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+kejsy/magnij-do-registracii.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+kejsy/magnij-do-registracii.html,headings,passed,"H1=1, пропусков уровней нет"
+kejsy/magnij-do-registracii.html,lang,passed,ru
+kejsy/magnij-do-registracii.html,internal_links,passed,"32 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+kejsy/magnij-do-registracii.html,json_ld,passed,BreadcrumbList
+kejsy/magnij-do-registracii.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 58 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+kejsy/magnij-do-registracii.html,axe_details_open,passed,color-contrast ссылок шапки во время перехода шапки в прокрученный вид; после 800 мс не воспроизводится (scripts/repro-header-contrast.mjs) — гипотеза отклонена
+kejsy/magnij-do-registracii.html,axe_form_errors,passed,нарушений 0 после пустой отправки
+kejsy/magnij-do-registracii.html,form_client_validation,passed,"ошибки: 2, фокус на первом поле с ошибкой, aria-invalid, подписи у всех полей"
+kejsy/magnij-do-registracii.html,form_delivery,failed,"нет endpoint: «Отправка пока не подключена», 0 запросов — ISS-001"
+kejsy/magnij-do-registracii.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+kejsy/magnij-do-registracii.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+kejsy/magnij-do-registracii.html,content_review,passed,page-decisions.md
+kejsy/magnij-do-registracii.html,regulatory_accuracy,blocked,"профильной сверки нет (все источники «проверить у партнёра», ISS-002); 3 даты сверены по вторичным источникам"
+kontakty.html,load_200,passed,"1440 107 мс, 390 114 мс (локальный сервер)"
+kontakty.html,js_errors,passed,console error/warning и pageerror: 0
+kontakty.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+kontakty.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+kontakty.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+kontakty.html,overflow_390_1440,passed,0 px
+kontakty.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+kontakty.html,title,passed,"18 символов, уникален (проверка сборки)"
+kontakty.html,description,passed,104 символов
+kontakty.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+kontakty.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+kontakty.html,headings,passed,"H1=1, пропусков уровней нет"
+kontakty.html,lang,passed,ru
+kontakty.html,internal_links,passed,"25 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+kontakty.html,json_ld,passed,BreadcrumbList/LocalBusiness
+kontakty.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 54 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+kontakty.html,axe_details_open,not_applicable,нет <details> вне меню
+kontakty.html,axe_form_errors,passed,нарушений 0 после пустой отправки
+kontakty.html,form_client_validation,passed,"ошибки: 3, фокус на первом поле с ошибкой, aria-invalid, подписи у всех полей"
+kontakty.html,form_delivery,failed,"нет endpoint: «Отправка пока не подключена», 0 запросов — ISS-001"
+kontakty.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+kontakty.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+kontakty.html,content_review,passed,page-decisions.md
+kontakty.html,regulatory_accuracy,not_applicable,
+blog/jobs-to-be-done.html,load_200,passed,"1440 117 мс, 390 169 мс (локальный сервер)"
+blog/jobs-to-be-done.html,js_errors,passed,console error/warning и pageerror: 0
+blog/jobs-to-be-done.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+blog/jobs-to-be-done.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+blog/jobs-to-be-done.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+blog/jobs-to-be-done.html,overflow_390_1440,passed,0 px
+blog/jobs-to-be-done.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+blog/jobs-to-be-done.html,title,passed,"48 символов, уникален (проверка сборки)"
+blog/jobs-to-be-done.html,description,passed,136 символов
+blog/jobs-to-be-done.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+blog/jobs-to-be-done.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+blog/jobs-to-be-done.html,headings,passed,"H1=1, пропусков уровней нет"
+blog/jobs-to-be-done.html,lang,passed,ru
+blog/jobs-to-be-done.html,internal_links,passed,"28 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+blog/jobs-to-be-done.html,json_ld,passed,BreadcrumbList/BlogPosting/FAQPage
+blog/jobs-to-be-done.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 55 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+blog/jobs-to-be-done.html,axe_details_open,passed,color-contrast ссылок шапки во время перехода шапки в прокрученный вид; после 800 мс не воспроизводится (scripts/repro-header-contrast.mjs) — гипотеза отклонена
+blog/jobs-to-be-done.html,axe_form_errors,not_applicable,на странице нет формы заявки
+blog/jobs-to-be-done.html,form_client_validation,not_applicable,на странице нет формы заявки
+blog/jobs-to-be-done.html,form_delivery,not_applicable,на странице нет формы заявки
+blog/jobs-to-be-done.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+blog/jobs-to-be-done.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+blog/jobs-to-be-done.html,content_review,passed,page-decisions.md
+blog/jobs-to-be-done.html,regulatory_accuracy,not_applicable,
+blog/sgr-ili-deklaraciya.html,load_200,passed,"1440 147 мс, 390 127 мс (локальный сервер)"
+blog/sgr-ili-deklaraciya.html,js_errors,passed,console error/warning и pageerror: 0
+blog/sgr-ili-deklaraciya.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+blog/sgr-ili-deklaraciya.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+blog/sgr-ili-deklaraciya.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+blog/sgr-ili-deklaraciya.html,overflow_390_1440,passed,0 px
+blog/sgr-ili-deklaraciya.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+blog/sgr-ili-deklaraciya.html,title,passed,"56 символов, уникален (проверка сборки)"
+blog/sgr-ili-deklaraciya.html,description,passed,134 символов
+blog/sgr-ili-deklaraciya.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+blog/sgr-ili-deklaraciya.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+blog/sgr-ili-deklaraciya.html,headings,passed,"H1=1, пропусков уровней нет"
+blog/sgr-ili-deklaraciya.html,lang,passed,ru
+blog/sgr-ili-deklaraciya.html,internal_links,passed,"28 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+blog/sgr-ili-deklaraciya.html,json_ld,passed,BreadcrumbList/BlogPosting
+blog/sgr-ili-deklaraciya.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 49 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+blog/sgr-ili-deklaraciya.html,axe_details_open,not_applicable,нет <details> вне меню
+blog/sgr-ili-deklaraciya.html,axe_form_errors,not_applicable,на странице нет формы заявки
+blog/sgr-ili-deklaraciya.html,form_client_validation,not_applicable,на странице нет формы заявки
+blog/sgr-ili-deklaraciya.html,form_delivery,not_applicable,на странице нет формы заявки
+blog/sgr-ili-deklaraciya.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+blog/sgr-ili-deklaraciya.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+blog/sgr-ili-deklaraciya.html,content_review,passed,page-decisions.md
+blog/sgr-ili-deklaraciya.html,regulatory_accuracy,blocked,"профильной сверки нет (все источники «проверить у партнёра», ISS-002); 3 даты сверены по вторичным источникам"
+dokumenty/kosmetika.html,load_200,passed,"1440 126 мс, 390 145 мс (локальный сервер)"
+dokumenty/kosmetika.html,js_errors,passed,console error/warning и pageerror: 0
+dokumenty/kosmetika.html,failed_requests,passed,requestfailed и HTTP ≥400: 0; внешних запросов 0
+dokumenty/kosmetika.html,html_dom_saved,passed,"evidence/pilot/pages/…/source.html, dom-d1440.html, dom-m390.html"
+dokumenty/kosmetika.html,screenshots_390_1440,passed,"full + fold на 390 и 1440, fold на 320"
+dokumenty/kosmetika.html,overflow_390_1440,passed,0 px
+dokumenty/kosmetika.html,overflow_320,failed,scrollWidth 363 при 320; кнопка меню за краем — ISS-003
+dokumenty/kosmetika.html,title,passed,"54 символов, уникален (проверка сборки)"
+dokumenty/kosmetika.html,description,passed,139 символов
+dokumenty/kosmetika.html,canonical,blocked,"нет canonical: SITE_URL не задан (конфигурация выпуска, ISS-011); на localhost не подменяли"
+dokumenty/kosmetika.html,robots_meta,passed,meta robots нет (индексация технически разрешена); X-Robots-Tag боевого nginx не проверялся
+dokumenty/kosmetika.html,headings,passed,"H1=1, пропусков уровней нет"
+dokumenty/kosmetika.html,lang,passed,ru
+dokumenty/kosmetika.html,internal_links,passed,"32 уникальных, отсутствующих целей 0; полная проверка 4709 ссылок — verify.sh"
+dokumenty/kosmetika.html,json_ld,passed,BreadcrumbList/FAQPage/Service
+dokumenty/kosmetika.html,axe_initial_1440_390,passed,нарушений 0; incomplete color-contrast 78 узлов (фон не определяется из-за псевдоэлементов/градиентов — инструментально не проверено)
+dokumenty/kosmetika.html,axe_details_open,passed,
+dokumenty/kosmetika.html,axe_form_errors,passed,нарушений 0 после пустой отправки
+dokumenty/kosmetika.html,form_client_validation,passed,"ошибки: 4, фокус на первом поле с ошибкой, aria-invalid, подписи у всех полей"
+dokumenty/kosmetika.html,form_delivery,failed,"нет endpoint: «Отправка пока не подключена», 0 запросов — ISS-001"
+dokumenty/kosmetika.html,keyboard_tab_order,passed,"skip-link первым, затем бренд и меню; outline 2px solid, элементы видимы"
+dokumenty/kosmetika.html,lighthouse_mobile_x3,passed,evidence/lighthouse/summary.csv
+dokumenty/kosmetika.html,content_review,passed,page-decisions.md
+dokumenty/kosmetika.html,regulatory_accuracy,blocked,"профильной сверки нет (все источники «проверить у партнёра», ISS-002); 3 даты сверены по вторичным источникам"
+index.html,mobile_menu_390,passed,"открывается, фокус остаётся в шапке, Escape закрывает, axe 0 нарушений; «Контакты» в меню нет — ISS-010"
+scenario,главная → услуга → доказательства → обращение,failed,главная → регистрация БАД: да; услуга → кейс: только через меню (ISS-008); кейс → форма: да
+scenario,статья → услуга,passed,JTBD → исследование клиентов / позиционирование; СГР или декларация → квиз и 3 услуги
+scenario,мобильное меню → контакты,failed,в меню нет пункта; контакты только в подвале (ISS-010)
+scenario,"форма без реальной отправки (kontakty, 390)",passed,валидация работает; доставка не подключена (ISS-001); 0 сетевых запросов
+all 80 pages,verify.sh (существующие тесты),passed,"evidence/verify/verify.log: RC=0, все группы 0 fail; 320 px не входит в набор ширин"

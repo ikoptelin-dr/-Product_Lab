@@ -146,7 +146,7 @@ for (const [f, m] of Object.entries(meta)) {
   ok(lb && lb.telephone && lb.email === COMPANY.email && lb.address?.streetAddress && !("openingHours" in lb) && !("openingHoursSpecification" in lb), `kontakty: LocalBusiness ${JSON.stringify(lb)}`, "ld");
   const cat = ldOf("ceny.html").find((j) => j["@type"] === "OfferCatalog");
   const prices = JSON.parse(readFileSync("/home/user/-Product_Lab/proba-growth/pricing/site-prices.json", "utf8"));
-  ok(cat && cat.itemListElement.length === prices.length && cat.itemListElement.every((o, i) => o["@type"] === "Offer" && o.priceCurrency === "RUB" && o.price === prices[i].from && (o.price === 0 ? o.description === "Бесплатно" : o.description.startsWith("от "))), `ceny: OfferCatalog (${cat?.itemListElement.length} из ${prices.length})`, "ld");
+  ok(cat && cat.itemListElement.length === prices.length && cat.itemListElement.every((o, i) => o["@type"] === "Offer" && o.priceCurrency === "RUB" && o.price === prices[i].from && (o.price === 0 ? o.description === "Бесплатно" : prices[i].unit === "фикс" ? o.description === `${prices[i].from} ₽, фиксированная цена` : o.description.startsWith("от "))), `ceny: OfferCatalog (${cat?.itemListElement.length} из ${prices.length})`, "ld");
   for (const f of pages.filter((x) => x !== "ceny.html")) ok(!meta[f].ld.some((s) => /"Offer"|"price"/.test(s)), `${f}: Offer/price вне ceny.html`, "ld");
   for (const f of pages.filter((x) => x.startsWith("blog/") && x !== "blog/index.html")) {
     const bp = ldOf(f).find((j) => j["@type"] === "BlogPosting");
@@ -375,6 +375,73 @@ for (const f of ["index.html", "marketing.html", "dokumenty/registraciya-bad.htm
   ok(good, `${f}: меню ${JSON.stringify({ opened, inside, closed, focusBack, ov })}`, "menu");
   log(`  ${good ? "✓" : "✗"} ${f}: открыто ${opened}, фокус в меню ${inside.every(Boolean)} (${inside.length} нажатий), Escape ${closed}, фокус на кнопке ${focusBack}`);
   if (f === "index.html") await p.locator(".menu-toggle").tap().then(() => p.waitForTimeout(150)).then(() => p.screenshot({ path: `${SHOTS}/menu-390.png` }));
+  await ctx.close();
+}
+
+// Шапка на узких экранах (аудит, этап 3: при 320 px кнопка меню уходила за край экрана, при 360 — на 3 px).
+// Проверяется только шапка: переполнение контента страниц на 320 px — отдельная задача.
+log("\n== Шапка 320 / 360");
+for (const w of [320, 360]) {
+  const vp = { viewport: { width: w, height: 700 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 };
+  let bad = [];
+  for (const f of pages) {
+    const { ctx, p } = await open(`${BASE}/${f}`, vp);
+    const m = await p.evaluate(() => { const cw = document.documentElement.clientWidth; const t = document.querySelector(".menu-toggle").getBoundingClientRect(); const row = document.querySelector(".header-row"); return { cw, toggle: Math.round(t.right), row: row.scrollWidth - row.clientWidth }; });
+    if (m.toggle > m.cw || m.row > 0) bad.push(`${f} ${JSON.stringify(m)}`);
+    if (f === "index.html") {
+      await p.locator(".menu-toggle").tap();
+      await p.waitForTimeout(150);
+      const opened = await p.isVisible("#mobile-menu");
+      const sx = await p.evaluate(() => scrollX);
+      ok(opened && sx === 0, `${w}px: меню не открылось без прокрутки (opened ${opened}, scrollX ${sx})`, "header");
+    }
+    await ctx.close();
+  }
+  ok(bad.length === 0, `${w}px: шапка не помещается — ${bad.slice(0, 5).join("; ")}`, "header");
+  log(`  ${bad.length ? "✗" : "✓"} ${w}px: шапка помещается на ${pages.length - bad.length} из ${pages.length} страниц`);
+}
+
+// Текст на 320 px (аудит, этап 4): неразрывные склейки в заголовках и узкие колонки выходили за экран или обрезались
+// первым экраном (overflow: hidden). Проверяем всю страницу: документ не шире экрана, ни один текстовый узел не выходит
+// за свой обрезающий контейнер. Локальная прокрутка (таблицы в .table-wrap) допустима.
+log("\n== Текст 320 px");
+{
+  const vp = { viewport: { width: 320, height: 700 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 };
+  const bad = [];
+  for (const f of pages) {
+    const { ctx, p } = await open(`${BASE}/${f}`, vp);
+    await p.evaluate(() => document.fonts.ready);
+    const m = await p.evaluate(() => {
+      const cw = document.documentElement.clientWidth, out = [];
+      const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      for (let n; (n = tw.nextNode()); ) {
+        const el = n.parentElement;
+        if (!n.textContent.trim() || el.closest(".ambient, .marquee, .reel, svg, .visually-hidden, .skip-link, [hidden], .mobile-menu")) continue;
+        const rg = document.createRange(); rg.selectNodeContents(n);
+        const rs = [...rg.getClientRects()].filter((r) => r.width > 0); if (!rs.length) continue;
+        const R = Math.max(...rs.map((r) => r.right)), Lf = Math.min(...rs.map((r) => r.left));
+        let c = null, scroll = false;
+        for (let a = el; a && a !== document.body; a = a.parentElement) { const o = getComputedStyle(a).overflowX; if (o !== "visible") { c = a; scroll = /(auto|scroll)/.test(o); break; } }
+        if (scroll) continue;
+        const lim = c ? c.getBoundingClientRect() : { left: 0, right: cw };
+        if (R > lim.right + 1 || Lf < lim.left - 1) out.push(`«${n.textContent.trim().slice(0, 40)}» R${Math.round(R)}`);
+      }
+      return { overflow: document.documentElement.scrollWidth - cw, out: out.slice(0, 3) };
+    });
+    if (m.overflow > 0 || m.out.length) bad.push(`${f} ${JSON.stringify(m)}`);
+    await ctx.close();
+  }
+  ok(bad.length === 0, `320px: текст за пределами — ${bad.slice(0, 5).join("; ")}`, "text320");
+  log(`  ${bad.length ? "✗" : "✓"} 320px: текст в пределах экрана и контейнеров на ${pages.length - bad.length} из ${pages.length} страниц`);
+}
+// 404 читаема (аудит, этап 4: тёмный текст на чёрном фоне, контраст 1,4:1)
+{
+  const { ctx, p } = await open(`${BASE}/404.html`, VPS[2]);
+  await p.addScriptTag({ path: "/home/user/-Product_Lab/proba-site/node_modules/axe-core/axe.min.js" });
+  const v = await p.evaluate(async () => (await axe.run(document, { runOnly: ["color-contrast"] })).violations.reduce((s, x) => s + x.nodes.length, 0));
+  const links = await p.$$eval("main a[href]", (as) => as.map((a) => a.getAttribute("href")));
+  ok(v === 0 && links.includes("/index.html"), `404: нарушений контраста ${v}, ссылки ${links.join(",")}`, "text320");
+  log(`  ${v === 0 ? "✓" : "✗"} 404: нарушений контраста ${v}, ссылки: ${links.join(", ")}`);
   await ctx.close();
 }
 

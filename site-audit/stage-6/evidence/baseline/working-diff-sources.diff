@@ -1,0 +1,564 @@
+diff --git a/proba-growth/content/pages/blog/kak-poluchit-sgr.md b/proba-growth/content/pages/blog/kak-poluchit-sgr.md
+index 0d61927..bba3a69 100644
+--- a/proba-growth/content/pages/blog/kak-poluchit-sgr.md
++++ b/proba-growth/content/pages/blog/kak-poluchit-sgr.md
+@@ -113,7 +113,7 @@ updated: "2026-10-27"
+ 
+ *Автор: Илья Коптелин, врач, основатель Proba Lab. Проверка: специалист по регуляторике Proba Lab — дата после сверки.*
+ 
+-**[CTA: «Проверить состав бесплатно» → /dokumenty/registraciya-bad/]**
++**[CTA: «Проверить состав бесплатно» → /dokumenty/#quiz]**
+ 
+ ---
+ 
+diff --git a/proba-growth/content/pages/blog/pozicionirovanie-brenda-eto.md b/proba-growth/content/pages/blog/pozicionirovanie-brenda-eto.md
+index 0b4e397..2aefa2a 100644
+--- a/proba-growth/content/pages/blog/pozicionirovanie-brenda-eto.md
++++ b/proba-growth/content/pages/blog/pozicionirovanie-brenda-eto.md
+@@ -91,7 +91,7 @@ updated: "2026-10-27"
+ 
+ *Автор: Илья Коптелин, врач, основатель Proba Lab. Учился маркетингу у Игоря Липсица в НИУ ВШЭ.*
+ 
+-**[CTA: «Бесплатный разбор продукта» → /marketing/pozicionirovanie-brenda/]**
++**[CTA: «Бесплатный разбор продукта» → /#review]**
+ 
+ ---
+ 
+diff --git a/proba-growth/content/pages/dokumenty/registraciya-bad.md b/proba-growth/content/pages/dokumenty/registraciya-bad.md
+index 113b8e0..c9f3ebc 100644
+--- a/proba-growth/content/pages/dokumenty/registraciya-bad.md
++++ b/proba-growth/content/pages/dokumenty/registraciya-bad.md
+@@ -14,7 +14,7 @@ updated: "2026-10-27"
+ 
+ **от 90 000 ₽** · работа; испытания, экспертиза и госпошлина — отдельными строками
+ 
+-**[Проверить состав бесплатно]** · [Из чего складывается смета](#smeta)
++**[Проверить состав бесплатно](/dokumenty/#quiz)** · [Из чего складывается смета](#smeta)
+ 
+ ## Кому и когда нужна регистрация БАД
+ 
+diff --git a/proba-growth/content/pages/index.md b/proba-growth/content/pages/index.md
+index 8bbe564..576828f 100644
+--- a/proba-growth/content/pages/index.md
++++ b/proba-growth/content/pages/index.md
+@@ -12,7 +12,7 @@ updated: "2026-10-27"
+ 
+ Регистраторы делают документы. Агентства делают маркетинг. Мы ведём продукт целиком — и ==документы совпадают с этикеткой и карточкой==.
+ 
+-**[Проверить состав бесплатно]** · [Бесплатный разбор продукта](/marketing/pozicionirovanie-brenda/)
++**[Проверить состав бесплатно](/dokumenty/#quiz)** · [Бесплатный разбор продукта](#review)
+ 
+ ## Для кого мы работаем
+ 
+diff --git a/proba-growth/content/pages/kak-my-rabotaem.md b/proba-growth/content/pages/kak-my-rabotaem.md
+index 0447452..3e6dcb6 100644
+--- a/proba-growth/content/pages/kak-my-rabotaem.md
++++ b/proba-growth/content/pages/kak-my-rabotaem.md
+@@ -12,7 +12,7 @@ updated: "2026-10-27"
+ 
+ Можно прийти на любом шаге — с идеей, с продуктом без документов или с карточкой, которая не продаёт. Говорим, что сделать, в каком порядке и сколько это стоит.
+ 
+-**[Проверить состав бесплатно]** · [Цены](/ceny/)
++**[Проверить состав бесплатно](/dokumenty/#quiz)** · [Цены](/ceny/)
+ 
+ ## Путь продукта
+ 
+diff --git a/proba-growth/content/pages/marketing/pozicionirovanie-brenda.md b/proba-growth/content/pages/marketing/pozicionirovanie-brenda.md
+index 49d3c5a..7beff06 100644
+--- a/proba-growth/content/pages/marketing/pozicionirovanie-brenda.md
++++ b/proba-growth/content/pages/marketing/pozicionirovanie-brenda.md
+@@ -14,7 +14,7 @@ updated: "2026-10-27"
+ 
+ **от 60 000 ₽** · позиционирование продукта или бренда
+ 
+-**[Бесплатный разбор продукта]** · [Начать с исследования клиентов](/marketing/issledovanie-klientov/)
++**[Бесплатный разбор продукта](/#review)** · [Начать с исследования клиентов](/marketing/issledovanie-klientov/)
+ 
+ ## Что такое упаковка бренда в нашей работе
+ 
+diff --git a/proba-growth/content/pages/o-nas.md b/proba-growth/content/pages/o-nas.md
+index aa9d58b..9112603 100644
+--- a/proba-growth/content/pages/o-nas.md
++++ b/proba-growth/content/pages/o-nas.md
+@@ -12,7 +12,7 @@ updated: "2026-10-27"
+ 
+ Обычно запуск собирают из разных подрядчиков, и никто не отвечает за то, чтобы части совпали. Мы делаем всё в одной команде — от проверки состава до карточки и позиционирования.
+ 
+-**[Проверить состав бесплатно]** · [Как мы работаем](/kak-my-rabotaem/)
++**[Проверить состав бесплатно](/dokumenty/#quiz)** · [Как мы работаем](/kak-my-rabotaem/)
+ 
+ ## Почему документы и маркетинг в одной команде
+ 
+diff --git a/proba-site-v3/REGULATORY_VERIFY.md b/proba-site-v3/REGULATORY_VERIFY.md
+index 35f0f45..a5df47b 100644
+--- a/proba-site-v3/REGULATORY_VERIFY.md
++++ b/proba-site-v3/REGULATORY_VERIFY.md
+@@ -8,7 +8,7 @@
+ - Сборка останавливается, если на странице есть цифра или номер документа без метки источника.
+ - В v3 добавлена общая страница `kak-my-rabotaem.html` (вне раздела): её фразы с фактами идут отдельной группой.
+ - Вне раздела помечены также регуляторные новости (`novosti.html`, на сайте — с пометкой «Проверяется») и статьи блога (`blog/*.html`). Цены Proba Lab на страницах раздела (`proba-price`) — из `proba-growth/pricing/site-prices.json`, статус «партнёр подтверждает».
+-- Всего фраз: **556** на 54 страницах. Дата сборки: 2026-10-27.
++- Всего фраз: **556** на 54 страницах. Дата сборки: 2026-10-28.
+ 
+ ## Новости Proba Lab и изменения для рынка БАД и косметики — `novosti.html`
+ 
+diff --git a/proba-site-v3/deploy/form-endpoint.mjs b/proba-site-v3/deploy/form-endpoint.mjs
+index e89cf7c..01376c1 100644
+--- a/proba-site-v3/deploy/form-endpoint.mjs
++++ b/proba-site-v3/deploy/form-endpoint.mjs
+@@ -1,31 +1,139 @@
+ // Приём заявок с сайта Proba Lab: POST /lead → сообщение в Telegram (и копия в журнал) → переадресация на /spasibo.html.
+ // Без зависимостей, Node 18+. Запуск на сервере: TG_TOKEN=… TG_CHAT=… node deploy/form-endpoint.mjs (порт 8787, за nginx).
+ // Сайт собирать с FORM_ENDPOINT=/lead — формы начнут отправляться сюда.
++// Форматы: application/x-www-form-urlencoded (все формы) и multipart/form-data (форма «Карты документов» с полем файла).
++// Файл состава не пишется на диск: уходит в Telegram документом, в журнал — только имя и размер.
++// Ответы об ошибках — страницы в UTF-8 с понятным текстом. Успех (303) — только если заявка сохранилась в журнале или дошла в Telegram.
++// TG_API — адрес Telegram Bot API (по умолчанию https://api.telegram.org); для локальной проверки подставляется тестовый получатель.
+ import { createServer } from "node:http";
+ import { appendFileSync } from "node:fs";
+ 
+ const PORT = Number(process.env.PORT || 8787);
+ const { TG_TOKEN = "", TG_CHAT = "" } = process.env;
++const TG_API = (process.env.TG_API || "https://api.telegram.org").replace(/\/+$/, "");
+ const LOG = process.env.LEAD_LOG || "/var/log/proba-leads.jsonl";
+-const MAX = 64 * 1024; // заявка без файлов; файлы состава лучше просить в переписке
++const MAX = 64 * 1024; // заявка без файла
++const MAX_FILE = 5 * 1024 * 1024; // файл состава (такой же предел проверяет форма в браузере)
++const MAX_MULTIPART = MAX_FILE + MAX;
++const TG_TIMEOUT = 10_000; // не держим посетителя дольше: заявка к этому моменту уже в журнале
+ 
+-const LABELS = { form: "Форма", page: "Страница", task: "Задача", contact: "Контакт", productUrl: "Ссылка", url: "Ссылка", about: "О проекте", process: "Процесс", company: "Компания", product: "Продукт", composition: "Состав", need: "Что нужно", category: "Категория", comment: "Комментарий", deadline: "Срок" };
++const LABELS = { form: "Форма", page: "Страница", task: "Задача", contact: "Контакт", productUrl: "Ссылка", url: "Ссылка", about: "О проекте", process: "Процесс", company: "Компания", product: "Продукт", composition: "Состав", need: "Что нужно", category: "Категория", comment: "Комментарий", deadline: "Срок", term: "Срок", production: "Производство", channels: "Каналы продаж", details: "О задаче", needs: "Что может понадобиться", hasSite: "Сайт есть", what: "Что делает", where: "Где ведут заявки" };
++
++const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
++/** Страница ответа в стиле сайта (assets/site.css), всегда в UTF-8. */
++function reply(res, code, title, text, back, backLabel = "Вернуться к форме") {
++  const html = `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)} — Proba Lab</title><link rel="stylesheet" href="/assets/site.css"></head><body class="page"><main id="main"><div class="light"><section class="section"><div class="container prose"><h1>${esc(title)}</h1><p>${esc(text)}</p><p><a href="${esc(back)}">${esc(backLabel)}</a> · <a href="/kontakty.html">Контакты</a></p></div></section></div></main></body></html>\n`;
++  res.writeHead(code, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" }).end(html);
++}
++/** Куда вернуть посетителя: путь страницы с формой (только с того же сайта). */
++function backOf(req) {
++  try {
++    const u = new URL(req.headers.referer || "", `http://${req.headers.host}`);
++    return u.host === req.headers.host ? u.pathname + u.search : "/";
++  } catch { return "/"; }
++}
++/** multipart/form-data → текстовые поля и файлы (Buffer). */
++function parseMultipart(buf, boundary) {
++  const fields = {}, files = [];
++  const sep = Buffer.from(`--${boundary}`);
++  let pos = buf.indexOf(sep);
++  while (pos !== -1) {
++    const start = pos + sep.length;
++    if (buf.slice(start, start + 2).toString() === "--") break;
++    const next = buf.indexOf(sep, start);
++    if (next === -1) break;
++    const part = buf.slice(start + 2, next - 2); // без \r\n после разделителя и перед следующим
++    const headEnd = part.indexOf("\r\n\r\n");
++    if (headEnd !== -1) {
++      const head = part.slice(0, headEnd).toString("utf8");
++      const body = part.slice(headEnd + 4);
++      const name = head.match(/name="([^"]*)"/i)?.[1];
++      const filename = head.match(/filename="([^"]*)"/i)?.[1];
++      const type = head.match(/content-type:\s*([^\r\n]+)/i)?.[1] || "application/octet-stream";
++      if (name !== undefined) {
++        if (filename !== undefined) { if (filename && body.length) files.push({ name, filename, type, data: body }); }
++        else fields[name] = fields[name] === undefined ? body.toString("utf8") : `${fields[name]}, ${body.toString("utf8")}`;
++      }
++    }
++    pos = next;
++  }
++  return { fields, files };
++}
++const urlencoded = (s) => {
++  const out = {};
++  for (const [k, v] of new URLSearchParams(s)) out[k] = out[k] === undefined ? v : `${out[k]}, ${v}`;
++  return out;
++};
++// Та же проверка контакта, что в форме (src/site.ts): email, телефон от 10 цифр или Telegram
++const okContact = (c) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c) || c.replace(/\D/g, "").length >= 10 || /^(@|https?:\/\/t\.me\/|t\.me\/)[a-z0-9_]{4,}$/i.test(c);
++
++/** Отправка в Telegram: { text } — дошёл ли текст заявки, { files } — дошли ли все файлы. */
++async function telegram(data, files) {
++  const out = { text: false, files: files.length === 0 };
++  if (!TG_TOKEN || !TG_CHAT) return out;
++  const text = ["Заявка с сайта Proba Lab", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 500)}`)].join("\n");
++  try {
++    const r = await fetch(`${TG_API}/bot${TG_TOKEN}/sendMessage`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ chat_id: TG_CHAT, text }), signal: AbortSignal.timeout(TG_TIMEOUT) });
++    if (!r.ok) return out;
++    out.text = true;
++    const warn = () => fetch(`${TG_API}/bot${TG_TOKEN}/sendMessage`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ chat_id: TG_CHAT, text: `Внимание: файл к заявке ${data.contact ?? ""} не доставлен (${files.map((f) => f.filename).join(", ")}). Запросите файл у клиента.` }), signal: AbortSignal.timeout(TG_TIMEOUT) }).catch(() => {});
++    for (const f of files) {
++      const fd = new FormData();
++      fd.append("chat_id", TG_CHAT);
++      fd.append("caption", `Файл к заявке (${data.contact ?? ""})`.slice(0, 1000));
++      fd.append("document", new Blob([f.data], { type: f.type }), f.filename);
++      const d = await fetch(`${TG_API}/bot${TG_TOKEN}/sendDocument`, { method: "POST", body: fd, signal: AbortSignal.timeout(TG_TIMEOUT) }).catch(() => null);
++      if (!d?.ok) { await warn(); return out; }
++    }
++    out.files = true;
++    return out;
++  } catch { return out; }
++}
+ 
+ createServer((req, res) => {
+   if (req.method !== "POST" || !req.url?.startsWith("/lead")) { res.writeHead(404).end(); return; }
+-  let body = "";
+-  let tooBig = false;
+-  req.on("data", (c) => { body += c; if (body.length > MAX) { tooBig = true; req.destroy(); } });
++  const back = backOf(req);
++  const type = req.headers["content-type"] || "";
++  const boundary = type.match(/multipart\/form-data;.*boundary=(?:"([^"]+)"|([^;\s]+))/i);
++  const isForm = type.includes("application/x-www-form-urlencoded");
++  if (!isForm && !boundary) { reply(res, 415, "Не удалось принять заявку", "Форма отправила данные в неизвестном формате. Вернитесь к форме и отправьте её ещё раз.", back); req.resume(); return; }
++  const limit = boundary ? MAX_MULTIPART : MAX;
++  const chunks = [];
++  let size = 0, tooBig = false;
++  req.on("data", (c) => {
++    if (tooBig) return;
++    size += c.length;
++    if (size > limit) {
++      tooBig = true;
++      if (boundary) reply(res, 413, "Слишком большой файл", "Файл больше 5 МБ. Отправьте форму без файла — состав можно вписать текстом или прислать в переписке.", back);
++      else reply(res, 413, "Слишком длинная заявка", "Сократите текст заявки и отправьте форму ещё раз — подробности можно прислать в переписке.", back);
++      return;
++    }
++    chunks.push(c);
++  });
+   req.on("end", async () => {
+     if (tooBig) return;
+-    const type = req.headers["content-type"] || "";
+-    const data = type.includes("application/x-www-form-urlencoded") ? Object.fromEntries(new URLSearchParams(body)) : { raw: body.slice(0, 2000) };
+-    if (!data.consent) { res.writeHead(400).end("Нужно согласие на обработку данных"); return; }
+-    const lead = { at: new Date().toISOString(), ...data };
+-    try { appendFileSync(LOG, JSON.stringify(lead) + "\n"); } catch {}
+-    if (TG_TOKEN && TG_CHAT) {
+-      const text = ["Заявка с сайта Proba Lab", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 500)}`)].join("\n");
+-      try { await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ chat_id: TG_CHAT, text }) }); } catch {}
++    const buf = Buffer.concat(chunks);
++    const { fields: data, files } = boundary ? parseMultipart(buf, boundary[1] || boundary[2]) : { fields: urlencoded(buf.toString("utf8")), files: [] };
++    if (!data.consent) { reply(res, 400, "Нужно согласие на обработку данных", "Отметьте согласие на обработку персональных данных и отправьте форму ещё раз.", back); return; }
++    if (!okContact(String(data.contact || "").trim())) { reply(res, 400, "Проверьте контакт", "Укажите email, телефон или Telegram (@ник), чтобы мы могли ответить.", back); return; }
++    const id = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
++    const lead = { id, at: new Date().toISOString(), ...data, ...(files.length ? { files: files.map((f) => `${f.filename} (${f.data.length} байт)`) } : {}) };
++    let logged = false;
++    try { appendFileSync(LOG, JSON.stringify(lead) + "\n"); logged = true; } catch (e) { console.error("журнал заявок:", e.message); }
++    const sent = await telegram(data, files);
++    if (TG_TOKEN && TG_CHAT && !sent.text) console.error("Telegram: заявка не доставлена", logged ? "(сохранена в журнале)" : "");
++    if (files.length && !sent.files) console.error(`заявка ${id}: файл не доставлен (${files.map((f) => f.filename).join(", ")}) — запросить у клиента`);
++    // Вторая строка журнала — итог доставки: оператор видит, по каким заявкам Telegram или файл не дошли
++    if (logged) try { appendFileSync(LOG, JSON.stringify({ status: "delivery", ref: id, at: new Date().toISOString(), telegram: sent.text, filesDelivered: files.length ? sent.files : null }) + "\n"); } catch {}
++    // Заявка не сохранилась нигде — не выдаём это за успешную отправку (текст в Telegram или запись в журнале — уже сохранена)
++    if (!logged && !sent.text) { reply(res, 502, "Заявка не отправлена", "Не получилось сохранить заявку. Попробуйте ещё раз через минуту или свяжитесь с нами по телефону или почте.", back); return; }
++    // Заявка сохранена, но файл не доставлен (Telegram недоступен или не настроен; на диск файлы не пишутся):
++    // не показываем «Заявка отправлена» — говорим, что принято, что нет и как прислать файл, без повторного заполнения
++    if (files.length && !sent.files) {
++      const names = files.map((f) => `«${f.filename}»`).join(", ");
++      reply(res, 200, "Заявка принята, файл не дошёл", `Заявку и контакт (${String(data.contact).trim()}) мы сохранили и ответим по нему. Файл ${names} передать не удалось — заполнять форму заново не нужно: пришлите файл в ответ на наше сообщение или напишите нам через страницу «Контакты».`, "/index.html", "На главную");
++      return;
+     }
+     res.writeHead(303, { Location: "/spasibo.html" }).end();
+   });
+diff --git a/proba-site-v3/deploy/nginx.conf b/proba-site-v3/deploy/nginx.conf
+index 80926a3..5eb5752 100644
+--- a/proba-site-v3/deploy/nginx.conf
++++ b/proba-site-v3/deploy/nginx.conf
+@@ -42,7 +42,7 @@ server {
+     # Приём заявок (deploy/form-endpoint.mjs); сайт собирать с FORM_ENDPOINT=/lead
+     location = /lead {
+         limit_except POST { deny all; }
+-        client_max_body_size 64k;
++        client_max_body_size 6m;   # файл состава до 5 МБ в форме «Карты документов» + поля (предел приёмника — 5 МБ + 64 КБ)
+         proxy_pass http://127.0.0.1:8787/lead;
+     }
+ 
+diff --git a/proba-site-v3/scripts/build.mjs b/proba-site-v3/scripts/build.mjs
+index 6503455..a25bd59 100644
+--- a/proba-site-v3/scripts/build.mjs
++++ b/proba-site-v3/scripts/build.mjs
+@@ -88,9 +88,10 @@ for (const fpath of walk(CONTENT_DIR).sort()) {
+   let rest = cut >= 0 ? body.slice(cut) : "";
+   const heroCtas = [];
+   let price;
+-  intro = intro.replace(/^\*\*\[([^\]]+)\]\*\*(.*)$/gm, (_, label, tail) => {
++  // «**[Кнопка]**» — к форме страницы; «**[Кнопка](/адрес/#якорь)**» — к существующей форме или действию на другой странице
++  intro = intro.replace(/^\*\*\[([^\]]+)\](?:\(([^)\s]+)\))?\*\*(.*)$/gm, (_, label, link, tail) => {
+     if (/^(Форма|CTA|Калькулятор)/.test(label)) return _;
+-    heroCtas.push({ label, href: "#project-form" });
++    heroCtas.push({ label, href: link ? relHref(link, file) : "#project-form" });
+     const sec = tail.match(/\[([^\]]+)\]\(([^)]+)\)/);
+     if (sec) heroCtas.push({ label: sec[1], href: relHref(sec[2], file) });
+     return "";
+@@ -273,8 +274,9 @@ for (const [from, to] of Object.entries(moved)) {
+   const canon = SITE_URL ? `${SITE_URL}/${to}` : href;
+   writeFileSync(out, `<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Страница переехала — Proba Lab</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" href="${icon}"><link rel="canonical" href="${canon}"><meta http-equiv="refresh" content="0; url=${href}"></head><body><p>Страница переехала: <a href="${href}">${href}</a></p></body></html>\n`);
+ }
+-// 404 для сервера (nginx: error_page 404 /404.html) — абсолютные ссылки от корня, страница может открыться по любому адресу
+-writeFileSync(join(dist, "404.html"), `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Страница не найдена — Proba Lab</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" href="/assets/emblem-ink.png"><link rel="stylesheet" href="/assets/site.css?v=${ASSET_V}"></head><body class="page"><main id="main" class="section"><div class="container prose"><h1>Страница не найдена</h1><p>Возможно, она переехала. Начните с <a href="/index.html">главной</a>, <a href="/dokumenty/index.html">раздела «Документы»</a> или <a href="/blog/index.html">блога</a>.</p></div></main></body></html>\n`);
++// 404 для сервера (nginx: error_page 404 /404.html) — абсолютные ссылки от корня, страница может открыться по любому адресу.
++// Текст на светлом блоке .light: без него тёмный текст стоял на чёрном фоне body (аудит, этап 4)
++writeFileSync(join(dist, "404.html"), `<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Страница не найдена — Proba Lab</title><meta name="robots" content="noindex"><link rel="icon" type="image/png" href="/assets/emblem-ink.png"><link rel="stylesheet" href="/assets/site.css?v=${ASSET_V}"></head><body class="page"><main id="main"><div class="light"><section class="section"><div class="container prose"><h1 class="h1-page">Страница не найдена</h1><p>Возможно, она переехала. Начните с <a href="/index.html">главной</a>, <a href="/dokumenty/index.html">раздела «Документы»</a> или <a href="/blog/index.html">блога</a>.</p></div></section></div></main></body></html>\n`);
+ if (held.length) console.log(`• не публикуются (пометка «НЕ ПУБЛИКОВАТЬ»): ${held.join(", ")}`);
+ 
+ // 4. Стили, скрипт, логотипы
+diff --git a/proba-site-v3/scripts/verify.mjs b/proba-site-v3/scripts/verify.mjs
+index 0331102..1a31c0c 100644
+--- a/proba-site-v3/scripts/verify.mjs
++++ b/proba-site-v3/scripts/verify.mjs
+@@ -378,6 +378,73 @@ for (const f of ["index.html", "marketing.html", "dokumenty/registraciya-bad.htm
+   await ctx.close();
+ }
+ 
++// Шапка на узких экранах (аудит, этап 3: при 320 px кнопка меню уходила за край экрана, при 360 — на 3 px).
++// Проверяется только шапка: переполнение контента страниц на 320 px — отдельная задача.
++log("\n== Шапка 320 / 360");
++for (const w of [320, 360]) {
++  const vp = { viewport: { width: w, height: 700 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 };
++  let bad = [];
++  for (const f of pages) {
++    const { ctx, p } = await open(`${BASE}/${f}`, vp);
++    const m = await p.evaluate(() => { const cw = document.documentElement.clientWidth; const t = document.querySelector(".menu-toggle").getBoundingClientRect(); const row = document.querySelector(".header-row"); return { cw, toggle: Math.round(t.right), row: row.scrollWidth - row.clientWidth }; });
++    if (m.toggle > m.cw || m.row > 0) bad.push(`${f} ${JSON.stringify(m)}`);
++    if (f === "index.html") {
++      await p.locator(".menu-toggle").tap();
++      await p.waitForTimeout(150);
++      const opened = await p.isVisible("#mobile-menu");
++      const sx = await p.evaluate(() => scrollX);
++      ok(opened && sx === 0, `${w}px: меню не открылось без прокрутки (opened ${opened}, scrollX ${sx})`, "header");
++    }
++    await ctx.close();
++  }
++  ok(bad.length === 0, `${w}px: шапка не помещается — ${bad.slice(0, 5).join("; ")}`, "header");
++  log(`  ${bad.length ? "✗" : "✓"} ${w}px: шапка помещается на ${pages.length - bad.length} из ${pages.length} страниц`);
++}
++
++// Текст на 320 px (аудит, этап 4): неразрывные склейки в заголовках и узкие колонки выходили за экран или обрезались
++// первым экраном (overflow: hidden). Проверяем всю страницу: документ не шире экрана, ни один текстовый узел не выходит
++// за свой обрезающий контейнер. Локальная прокрутка (таблицы в .table-wrap) допустима.
++log("\n== Текст 320 px");
++{
++  const vp = { viewport: { width: 320, height: 700 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 };
++  const bad = [];
++  for (const f of pages) {
++    const { ctx, p } = await open(`${BASE}/${f}`, vp);
++    await p.evaluate(() => document.fonts.ready);
++    const m = await p.evaluate(() => {
++      const cw = document.documentElement.clientWidth, out = [];
++      const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
++      for (let n; (n = tw.nextNode()); ) {
++        const el = n.parentElement;
++        if (!n.textContent.trim() || el.closest(".ambient, .marquee, .reel, svg, .visually-hidden, .skip-link, [hidden], .mobile-menu")) continue;
++        const rg = document.createRange(); rg.selectNodeContents(n);
++        const rs = [...rg.getClientRects()].filter((r) => r.width > 0); if (!rs.length) continue;
++        const R = Math.max(...rs.map((r) => r.right)), Lf = Math.min(...rs.map((r) => r.left));
++        let c = null, scroll = false;
++        for (let a = el; a && a !== document.body; a = a.parentElement) { const o = getComputedStyle(a).overflowX; if (o !== "visible") { c = a; scroll = /(auto|scroll)/.test(o); break; } }
++        if (scroll) continue;
++        const lim = c ? c.getBoundingClientRect() : { left: 0, right: cw };
++        if (R > lim.right + 1 || Lf < lim.left - 1) out.push(`«${n.textContent.trim().slice(0, 40)}» R${Math.round(R)}`);
++      }
++      return { overflow: document.documentElement.scrollWidth - cw, out: out.slice(0, 3) };
++    });
++    if (m.overflow > 0 || m.out.length) bad.push(`${f} ${JSON.stringify(m)}`);
++    await ctx.close();
++  }
++  ok(bad.length === 0, `320px: текст за пределами — ${bad.slice(0, 5).join("; ")}`, "text320");
++  log(`  ${bad.length ? "✗" : "✓"} 320px: текст в пределах экрана и контейнеров на ${pages.length - bad.length} из ${pages.length} страниц`);
++}
++// 404 читаема (аудит, этап 4: тёмный текст на чёрном фоне, контраст 1,4:1)
++{
++  const { ctx, p } = await open(`${BASE}/404.html`, VPS[2]);
++  await p.addScriptTag({ path: "/home/user/-Product_Lab/proba-site/node_modules/axe-core/axe.min.js" });
++  const v = await p.evaluate(async () => (await axe.run(document, { runOnly: ["color-contrast"] })).violations.reduce((s, x) => s + x.nodes.length, 0));
++  const links = await p.$$eval("main a[href]", (as) => as.map((a) => a.getAttribute("href")));
++  ok(v === 0 && links.includes("/index.html"), `404: нарушений контраста ${v}, ссылки ${links.join(",")}`, "text320");
++  log(`  ${v === 0 ? "✓" : "✗"} 404: нарушений контраста ${v}, ссылки: ${links.join(", ")}`);
++  await ctx.close();
++}
++
+ /* 7. prefers-reduced-motion */
+ log("\n== prefers-reduced-motion");
+ for (const f of ["index.html", "marketing.html", "dokumenty/index.html", "dokumenty/registraciya-bad.html", "avtomatizaciya.html", "o-nas.html", "ceny.html", "analitika/kalkulyator-yunit-ekonomiki.html", "blog/etiketka-bad-do-registracii.html", "dokumenty/karta-dokumentov.html", "oferta.html"]) {
+diff --git a/proba-site-v3/src/layout.ts b/proba-site-v3/src/layout.ts
+index cbcc261..dff288a 100644
+--- a/proba-site-v3/src/layout.ts
++++ b/proba-site-v3/src/layout.ts
+@@ -29,6 +29,32 @@ export function typo(html: string): string {
+     return `>${t}<`;
+   });
+ }
++/**
++ * Заголовки на узких экранах (аудит, этап 4): склейки «короткое слово + слово» и keepLast вместе давали неразрывные куски
++ * из 3–4 слов («это помогает людям», «как проверить аккредитацию»). На 320–390 px такой кусок шире строки и обрезался
++ * первым экраном. Если склеенный кусок длиннее порога (HEAD_CHUNK для цепочки, HEAD_PAIR для пары), снимаем только «склейку последних слов» между двумя
++ * обычными словами. Предлог или союз остаётся прижат к следующему слову, тире не начинает строку, числа не разрываются.
++ */
++const HEAD_CHUNK = 14; // цепочка из 3+ слов длиннее этого — разбирается
++const HEAD_PAIR = 18; // пара слов — только если длиннее (пары до 18 символов помещаются даже на 320 px и не меняют вид на десктопе)
++const SHORT_WORD = new RegExp(`^[(«—]?(${SHORT})$`, "i");
++const unglueChunk = (chunk: string) => {
++  const parts = chunk.split("\u00a0");
++  if (parts.length < 2 || chunk.length <= (parts.length === 2 ? HEAD_PAIR : HEAD_CHUNK)) return chunk;
++  let out = parts[0]!;
++  for (let i = 1; i < parts.length; i++) {
++    const prev = parts[i - 1]!, cur = parts[i]!;
++    const keep = SHORT_WORD.test(prev) || cur.startsWith("—") || /\d$/.test(prev) || /^(\d|₽|%|МЕ|мес\.)/.test(cur);
++    out += (keep ? "\u00a0" : " ") + cur;
++  }
++  return out;
++};
++const unglueText = (t: string) => t.split(" ").map(unglueChunk).join(" ");
++/** Применяется к готовому HTML: текст внутри h1–h3 и p.h2 (подпись CTA-полосы). */
++export const unglueHeadings = (html: string) =>
++  html.replace(/(<(h[1-3])\b[^>]*>|<p class="h2"[^>]*>)([\s\S]*?)(<\/(?:h[1-3]|p)>)/g, (_, open, _t, inner, close) =>
++    open + inner.replace(/(^|>)([^<]+)/g, (_m: string, gt: string, x: string) => gt + unglueText(x)) + close);
++
+ /** Последние два слова заголовка — неразрывно (без висячего слова в последней строке). */
+ export const keepLast = (s: string) => s.replace(/ ([^\s<>]{1,14})$/, "\u00a0$1");
+ 
+@@ -244,7 +270,7 @@ ${ld}
+ <body class="${p.bodyClass ?? "page"}">
+ ${header(base, p.nav)}
+ <main id="main">
+-${typo(p.body)}
++${unglueHeadings(typo(p.body))}
+ </main>
+ ${footer(base)}
+ <script src="${base}assets/site.js?v=${ASSET_V}" defer></script>
+diff --git a/proba-site-v3/src/pages/company.ts b/proba-site-v3/src/pages/company.ts
+index 718fcc2..02ebf9b 100644
+--- a/proba-site-v3/src/pages/company.ts
++++ b/proba-site-v3/src/pages/company.ts
+@@ -371,7 +371,7 @@ export const novosti: PageDoc = {
+           { label: "Блог", href: "blog/index.html" },
+         ],
+       }),
+-      `<section class="section" aria-label="Новости">
++      `<section class="section" aria-label="Список новостей">
+   <div class="container">
+     <ol class="news-list">${NEWS.map(item).join("")}</ol>
+     <p class="note">Регуляторные новости отмечены «Проверяется», пока их не сверил наш специалист по регуляторике.</p>
+diff --git a/proba-site-v3/src/pages/tools.ts b/proba-site-v3/src/pages/tools.ts
+index bdedaf8..4b363e6 100644
+--- a/proba-site-v3/src/pages/tools.ts
++++ b/proba-site-v3/src/pages/tools.ts
+@@ -215,7 +215,7 @@ export const karta: PageDoc = {
+       <h3 class="karta-sub">Шаги</h3>
+       <ol class="reg-flow">${SAMPLE_STEPS.map((s) => `<li><b>${kt(s)}</b></li>`).join("")}</ol>
+       <h3 class="karta-sub">Смета</h3>
+-      <ul class="karta-estimate">${["Работа", "Испытания", "Экспертиза", "Госпошлина"].map((s) => `<li><span>${kt(s)}</span><span class="karta-dash" aria-label="сумма после анализа состава">—</span></li>`).join("")}</ul>
++      <ul class="karta-estimate">${["Работа", "Испытания", "Экспертиза", "Госпошлина"].map((s) => `<li><span>${kt(s)}</span><span class="karta-dash"><span aria-hidden="true">—</span><span class="visually-hidden">сумма после анализа состава</span></span></li>`).join("")}</ul>
+       <p class="fine">${kt("Суммы — после анализа состава вашего продукта.")}</p>
+     </figure>
+   </div>
+diff --git a/proba-site-v3/src/regulatory/pages.ts b/proba-site-v3/src/regulatory/pages.ts
+index 90d73b3..d182637 100644
+--- a/proba-site-v3/src/regulatory/pages.ts
++++ b/proba-site-v3/src/regulatory/pages.ts
+@@ -243,7 +243,7 @@ export const PAGES: RegPage[] = [
+       { title: "Состав и назначение", text: "Определяем документ: декларация или СГР", who: "Proba Lab" },
+       { title: "Документация", text: "Рецептура, ТУ или СТО, проект этикетки", who: "Proba Lab" },
+       { title: "Испытания", text: "Протоколы по показателям регламента", who: "Аккредитованная лаборатория" },
+-      { title: "Документ", text: "Декларация в реестре или подача на СГР", who: "Партнёр от имени заявителя" },
++      { title: "Документ", text: "Декларация в реестре или подача на СГР", who: "Заявитель с Proba Lab" },
+       { title: "Маркировка", text: "Знак ЕАС, «Честный знак», карточка", who: "Proba Lab" },
+     ],
+     timing: {
+@@ -966,7 +966,7 @@ export const PAGES: RegPage[] = [
+     steps: [
+       { title: "План", text: "Состав, документ, каналы", who: "Proba Lab" },
+       { title: "Производство", text: "Выбор площадки и договор", who: "Вы с нашей помощью" },
+-      { title: "ТУ и испытания", text: "Документ и протоколы", who: "Партнёр и лаборатория" },
++      { title: "ТУ и испытания", text: "Документ и протоколы", who: "Proba Lab и лаборатория" },
+       { title: "СГР", text: "Экспертиза и решение", who: "Роспотребнадзор" },
+       { title: "Упаковка", text: "Параллельно с документами", who: "Proba Lab" },
+       { title: "Старт продаж", text: "«Честный знак» и карточка", who: "Вы с нашей помощью" },
+diff --git a/proba-site-v3/src/site.css b/proba-site-v3/src/site.css
+index be6e413..448ab18 100644
+--- a/proba-site-v3/src/site.css
++++ b/proba-site-v3/src/site.css
+@@ -184,6 +184,22 @@ p, li, dd { text-wrap: pretty; }
+   .header-cta { padding-inline: 14px; }
+   .brand-name { font-size: 1rem; }
+ }
++/* Узкие экраны (360 px, 320 px и масштаб 400 %): шапка помещается без горизонтальной прокрутки, кнопка меню в экране.
++   Выше 374 px вид не меняется. Название у знака скрывается только до 359 px — у ссылки остаётся aria-label. */
++@media (max-width: 374px) {
++  .header-row { gap: 8px; }
++  .header-actions { gap: 6px; }
++  .header-cta { padding-inline: 12px; }
++}
++@media (max-width: 359px) {
++  .site-header .brand-name { display: none; }
++}
++/* Узкие экраны (≤ 374 px): одно длинное слово в H1 первого экрана («производственного», «Роспотребнадзора:») шире строки
++   и обрезалось. Чуть меньший кегль, а перенос внутри слова — только если слово всё равно не помещается. */
++@media (max-width: 374px) {
++  .h1-page { font-size: 1.875rem; }
++  .h1-page, .h2 { overflow-wrap: break-word; }
++}
+ 
+ /* ---------------- Зерно и стекло ---------------- */
+ .grain { position: relative; isolation: isolate; }
+@@ -782,6 +798,8 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
+ .karta-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+ .karta-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -.015em; }
+ .karta-doc > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 4px 16px; }
++/* Узкие экраны (≤ 374 px): подпись над значением — длинные слова («государственной») не выходят за карточку */
++@media (max-width: 374px) { .karta-doc > div { grid-template-columns: minmax(0, 1fr); } }
+ .karta-doc dt { font-size: .875rem; font-weight: 500; color: var(--emerald-ink); padding-top: 2px; }
+ .karta-doc dd { font-weight: 600; }
+ .karta-sub { font-size: .9375rem; color: var(--z600); font-weight: 500; margin-top: 6px; }
+@@ -885,12 +903,19 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
+ }
+ .dir-mkt { --acc: #a78bfa; --acc-ink: #6d28d9; --acc-soft: #f5f3ff; --acc-line: rgba(109, 40, 217, .18); --grad: linear-gradient(100deg, #a78bfa 0%, #38bdf8 100%); }
+ .dir-ana { --acc: #38bdf8; --acc-ink: #0369a1; --acc-soft: #f0f9ff; --acc-line: rgba(3, 105, 161, .18); --grad: linear-gradient(100deg, #38bdf8 0%, #34d399 100%); }
++/* Градиентный текст на светлом фоне (аудит, этап 4): светлые тона градиента дают 1,6–2,7:1 на #f4f4f5 и белом — ниже 3:1 даже
++   для крупного текста. На светлых разделах — тот же градиент из «чернильных» тонов направления (≥ 4,8:1). На тёмных фонах не меняется. */
++:root { --grad-ink: linear-gradient(100deg, #047857 0%, #0e7490 100%); }
++.dir-mkt { --grad-ink: linear-gradient(100deg, #6d28d9 0%, #0369a1 100%); }
++.dir-ana { --grad-ink: linear-gradient(100deg, #0369a1 0%, #047857 100%); }
+ 
+ /* Типографика: жирнее, ключевая часть — градиентом */
+ .h1, .h1-page, .h2 { font-weight: 700; }
+ .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+ mark.hl { color: inherit; background: linear-gradient(transparent 55%, color-mix(in srgb, var(--acc) 38%, transparent) 55%); padding: 0 .08em; border-radius: 2px; font-weight: 600; }
+ .page-hero mark.hl, .dark-card mark.hl { background: linear-gradient(transparent 58%, rgba(52, 211, 153, .35) 58%); }
++/* Контраст (аудит, этап 4): серый текст лида на изумрудной подложке — 3,98:1 при норме 4,5; внутри маркера текст светлее (8:1) */
++.page-hero mark.hl, .dark-card mark.hl { color: var(--z200); }
+ 
+ /* Живой фон первого экрана: плывущие пятна света, сетка, стеклянные фигуры */
+ .ambient { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+@@ -949,6 +974,8 @@ mark.hl { color: inherit; background: linear-gradient(transparent 55%, color-mix
+ .prose .steps-h > li { padding-top: 26px; }
+ .prose .steps-h > li::after { content: ""; position: absolute; left: 22px; right: 22px; top: 0; height: 3px; border-radius: 0 0 3px 3px; background: var(--grad); transform-origin: left; }
+ .step-n { font-size: 2.25rem; font-weight: 700; letter-spacing: -.05em; line-height: 1; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-variant-numeric: tabular-nums; }
++.light .grad, .light .step-n { background-image: var(--grad-ink); }
++.light .dark-card .grad, .light .bento .grad { background-image: var(--grad); }
+ .prose .steps-v { gap: 0; max-width: 820px; }
+ .prose .steps-v > li { display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 18px; row-gap: 4px; padding: 0 0 26px; background: none; border: 0; box-shadow: none; border-radius: 0; }
+ .prose .steps-v > li > .step-n { grid-row: span 2; font-size: 1.5rem; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; background: var(--white); -webkit-text-fill-color: var(--acc-ink); color: var(--acc-ink); border: 1px solid var(--acc-line); box-shadow: var(--shadow); }
+diff --git a/proba-site-v3/src/site.ts b/proba-site-v3/src/site.ts
+index 9fe92e3..f9c4d09 100644
+--- a/proba-site-v3/src/site.ts
++++ b/proba-site-v3/src/site.ts
+@@ -312,6 +312,8 @@ function forms() {
+         const file = fd.get("compositionFile");
+         const hasFile = file instanceof File && file.size > 0;
+         if (String(fd.get("composition") || "").trim().length < 3 && !hasFile) errors.push({ name: "composition", msg: "Добавьте состав текстом или файлом" });
++        // Тот же предел, что у приёмника заявок (deploy/form-endpoint.mjs)
++        if (hasFile && (file as File).size > 5 * 1024 * 1024) errors.push({ name: "compositionFile", msg: "Файл больше 5 МБ — впишите состав текстом или пришлите файл в переписке" });
+       }
+       const contact = String(fd.get("contact") || "").trim();
+       // email, телефон (от 10 цифр) или Telegram (@ник или t.me/ник)
+@@ -359,6 +361,10 @@ function forms() {
+       HTMLFormElement.prototype.submit.call(form);
+     });
+   }
++  // Возврат кнопкой «Назад» (в том числе со страницы ошибки приёмника): не оставляем «Отправляем…», как будто заявка ушла
++  addEventListener("pageshow", () => {
++    for (const st of $$(".form-status.is-filled")) if (st.textContent === "Отправляем…") { st.textContent = ""; st.className = "form-status"; }
++  });
+ }
+ 
+ /* ---------------- Калькулятор экономики SKU ---------------- */

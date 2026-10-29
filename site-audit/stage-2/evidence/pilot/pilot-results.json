@@ -1,0 +1,4119 @@
+{
+  "meta": {
+    "base": "http://127.0.0.1:8850/",
+    "playwright": "1.56.0",
+    "axe": "4.14.0",
+    "browser": "141.0.7390.37",
+    "executablePath": "/opt/pw-browsers/chromium",
+    "date": "2026-10-28T03:18:23.312Z"
+  },
+  "pages": {
+    "index.html": {
+      "page": "index.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 191,
+          "title": "Proba Lab — запуск БАД и косметики на рынок",
+          "titleLen": 43,
+          "description": "Документы, этикетка, 3D-визуализация, карточки маркетплейсов, позиционирование и аналитика для брендов БАД, косметики и функционального питания.",
+          "descLen": 144,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Запускаем БАД и косметику — от состава до продаж"
+          ],
+          "headingJumps": [],
+          "headings": 13,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "Organization"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "index.html",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "dokumenty/index.html#quiz",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "#project-form",
+            "marketing/pozicionirovanie-brenda.html",
+            "dokumenty/index.html",
+            "marketing/upakovka-do-registracii.html",
+            "marketing/3d-vizualizaciya-upakovki.html",
+            "marketing/pozicionirovanie-brenda.html",
+            "analitika.html",
+            "dokumenty/index.html",
+            "marketing/upakovka-do-registracii.html",
+            "marketing.html",
+            "analitika.html",
+            "dokumenty/registraciya-bad.html",
+            "dokumenty/deklaracii.html",
+            "dokumenty/otkaznoe-pismo.html",
+            "marketing/upakovka-do-registracii.html",
+            "dokumenty/dokumenty-dlya-marketplejsov.html",
+            "marketing/issledovanie-klientov.html",
+            "kejsy.html",
+            "ceny.html",
+            "o-nas.html",
+            "blog/jobs-to-be-done.html",
+            "blog/chto-takoe-otkaznoe-pismo.html",
+            "blog/kak-sozdat-svoj-brend-kosmetiki.html",
+            "soglasie-pd.html",
+            "soglasie-pd.html",
+            "index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "dokumenty/index.html",
+            "marketing.html",
+            "prodvizhenie.html",
+            "analitika.html",
+            "audit-prodazh.html",
+            "avtomatizaciya.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "index.html#review",
+            "analitika/kalkulyator-yunit-ekonomiki.html",
+            "dokumenty/karta-dokumentov.html",
+            "o-nas.html",
+            "kontakty.html",
+            "partneram.html",
+            "blagotvoritelnost.html",
+            "novosti.html",
+            "blog/index.html",
+            "ceny.html",
+            "oplata.html",
+            "oferta.html",
+            "politika-pd.html",
+            "pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Проверить состав бесплатно",
+            "Бесплатный разбор продукта"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href=\"blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Запускаем БАД и&nbsp;косметику&nbsp;— <span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span></h1>"
+                  },
+                  {
+                    "target": "#page-title > .grad",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span>"
+                  },
+                  {
+                    "target": ".page-hero-copy > .hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Регистраторы делают документы. Агентства делают маркетинг. Мы ведём продукт целиком&nbsp;— и&nbsp;<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>.</p"
+                  },
+                  {
+                    "target": ".hero-lead > mark",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>"
+                  }
+                ],
+                "count": 120
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 197,
+          "title": "Proba Lab — запуск БАД и косметики на рынок",
+          "titleLen": 43,
+          "description": "Документы, этикетка, 3D-визуализация, карточки маркетплейсов, позиционирование и аналитика для брендов БАД, косметики и функционального питания.",
+          "descLen": 144,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Запускаем БАД и косметику — от состава до продаж"
+          ],
+          "headingJumps": [],
+          "headings": 13,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "Organization"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "index.html",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "dokumenty/index.html#quiz",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "#project-form",
+            "marketing/pozicionirovanie-brenda.html",
+            "dokumenty/index.html",
+            "marketing/upakovka-do-registracii.html",
+            "marketing/3d-vizualizaciya-upakovki.html",
+            "marketing/pozicionirovanie-brenda.html",
+            "analitika.html",
+            "dokumenty/index.html",
+            "marketing/upakovka-do-registracii.html",
+            "marketing.html",
+            "analitika.html",
+            "dokumenty/registraciya-bad.html",
+            "dokumenty/deklaracii.html",
+            "dokumenty/otkaznoe-pismo.html",
+            "marketing/upakovka-do-registracii.html",
+            "dokumenty/dokumenty-dlya-marketplejsov.html",
+            "marketing/issledovanie-klientov.html",
+            "kejsy.html",
+            "ceny.html",
+            "o-nas.html",
+            "blog/jobs-to-be-done.html",
+            "blog/chto-takoe-otkaznoe-pismo.html",
+            "blog/kak-sozdat-svoj-brend-kosmetiki.html",
+            "soglasie-pd.html",
+            "soglasie-pd.html",
+            "index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "dokumenty/index.html",
+            "marketing.html",
+            "prodvizhenie.html",
+            "analitika.html",
+            "audit-prodazh.html",
+            "avtomatizaciya.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "index.html#review",
+            "analitika/kalkulyator-yunit-ekonomiki.html",
+            "dokumenty/karta-dokumentov.html",
+            "o-nas.html",
+            "kontakty.html",
+            "partneram.html",
+            "blagotvoritelnost.html",
+            "novosti.html",
+            "blog/index.html",
+            "ceny.html",
+            "oplata.html",
+            "oferta.html",
+            "politika-pd.html",
+            "pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Проверить состав бесплатно",
+            "Бесплатный разбор продукта"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Запускаем БАД и&nbsp;косметику&nbsp;— <span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span></h1>"
+                  },
+                  {
+                    "target": "#page-title > .grad",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span>"
+                  },
+                  {
+                    "target": ".page-hero-copy > .hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Регистраторы делают документы. Агентства делают маркетинг. Мы ведём продукт целиком&nbsp;— и&nbsp;<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>.</p"
+                  },
+                  {
+                    "target": ".hero-lead > mark",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>"
+                  },
+                  {
+                    "target": "a[href$=\"#project-form\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Проверить состав бесплатно</a>"
+                  },
+                  {
+                    "target": ".btn-ghost",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-ghost btn-lg\" href=\"marketing/pozicionirovanie-brenda.html\">Бесплатный разбор продукта</a>"
+                  },
+                  {
+                    "target": "text[x=\"40\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<text x=\"40\" y=\"72\" text-anchor=\"middle\" class=\"pv-label\">Состав</text>"
+                  }
+                ],
+                "count": 110
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 63,
+          "unique": 36,
+          "missing": []
+        }
+      }
+    },
+    "dokumenty/registraciya-bad.html": {
+      "page": "dokumenty/registraciya-bad.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 130,
+          "title": "Регистрация БАД (СГР): оформление и цена — Proba Lab",
+          "titleLen": 52,
+          "description": "Готовим документы и сопровождаем получение СГР на БАД: анализ состава, испытания в аккредитованной лаборатории, этикетка и карточка по документам. От 90 000 ₽.",
+          "descLen": 159,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Регистрация БАД (СГР): состав, этикетка и маркетплейсы — одной работой"
+          ],
+          "headingJumps": [],
+          "headings": 10,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "Service"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "FAQPage"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../dokumenty/index.html",
+            "#project-form",
+            "#smeta",
+            "../dokumenty/otkaznoe-pismo-dlya-marketplejsov.html",
+            "../marketing.html",
+            "../dokumenty/markirovka.html",
+            "../dokumenty/laboratorii.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Проверить состав бесплатно",
+            "Из чего складывается смета"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": "a[aria-label=\"Proba Lab — на главную\"] > .brand-name",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<span class=\"brand-name\">Proba Lab</span>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../dokumenty/index.html\">Документы</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— одной работой</span>"
+                  }
+                ],
+                "count": 64
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 168,
+          "title": "Регистрация БАД (СГР): оформление и цена — Proba Lab",
+          "titleLen": 52,
+          "description": "Готовим документы и сопровождаем получение СГР на БАД: анализ состава, испытания в аккредитованной лаборатории, этикетка и карточка по документам. От 90 000 ₽.",
+          "descLen": 159,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Регистрация БАД (СГР): состав, этикетка и маркетплейсы — одной работой"
+          ],
+          "headingJumps": [],
+          "headings": 10,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "Service"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "FAQPage"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../dokumenty/index.html",
+            "#project-form",
+            "#smeta",
+            "../dokumenty/otkaznoe-pismo-dlya-marketplejsov.html",
+            "../marketing.html",
+            "../dokumenty/markirovka.html",
+            "../dokumenty/laboratorii.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Проверить состав бесплатно",
+            "Из чего складывается смета"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../dokumenty/index.html\">Документы</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— одной работой</span>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— <span class=\"grad\">одной работой</span></h1>"
+                  },
+                  {
+                    "target": ".grad",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span class=\"grad\">одной работой</span>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">"
+                  },
+                  {
+                    "target": "a[href$=\"#project-form\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Проверить состав бесплатно</a>"
+                  }
+                ],
+                "count": 57
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 47,
+          "unique": 28,
+          "missing": []
+        }
+      }
+    },
+    "marketing/3d-vizualizaciya-upakovki.html": {
+      "page": "marketing/3d-vizualizaciya-upakovki.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 156,
+          "title": "3D-визуализация упаковки для маркетплейсов — Proba Lab",
+          "titleLen": 54,
+          "description": "Сделаем 3D-модель и рендеры упаковки БАД и косметики по макету: для карточки, сайта и презентации — пока продукт ещё на регистрации. От 15 000 ₽.",
+          "descLen": 145,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "3D-визуализация упаковки: продукт в карточке до первой партии"
+          ],
+          "headingJumps": [],
+          "headings": 11,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "Service"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../marketing.html",
+            "#project-form",
+            "../marketing/upakovka-do-registracii.html",
+            "../marketing/video-dlya-kartochek.html",
+            "../marketing/dizajn-etiketki-i-upakovki.html",
+            "../marketing/video-dlya-kartochek.html",
+            "../marketing/kartochki-marketplejsov.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Прислать макет",
+            "Пакет: этикетка + 3D + видео"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой партии</span>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой&nbsp;партии</h1>"
+                  }
+                ],
+                "count": 68
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 159,
+          "title": "3D-визуализация упаковки для маркетплейсов — Proba Lab",
+          "titleLen": 54,
+          "description": "Сделаем 3D-модель и рендеры упаковки БАД и косметики по макету: для карточки, сайта и презентации — пока продукт ещё на регистрации. От 15 000 ₽.",
+          "descLen": 145,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "3D-визуализация упаковки: продукт в карточке до первой партии"
+          ],
+          "headingJumps": [],
+          "headings": 11,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "Service"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../marketing.html",
+            "#project-form",
+            "../marketing/upakovka-do-registracii.html",
+            "../marketing/video-dlya-kartochek.html",
+            "../marketing/dizajn-etiketki-i-upakovki.html",
+            "../marketing/video-dlya-kartochek.html",
+            "../marketing/kartochki-marketplejsov.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Прислать макет",
+            "Пакет: этикетка + 3D + видео"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой партии</span>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой&nbsp;партии</h1>"
+                  },
+                  {
+                    "target": ".page-hero-copy > .hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Фотографировать ещё нечего, а&nbsp;карточку, сайт и&nbsp;презентацию нужно готовить уже сейчас. 3D-визуализация упаковки решает это: по&nbsp;макету этикетки делаем 3D-модель и&nbs"
+                  },
+                  {
+                    "target": "a[href$=\"#project-form\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Прислать макет</a>"
+                  },
+                  {
+                    "target": ".btn-ghost",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-ghost btn-lg\" href=\"../marketing/upakovka-do-registracii.html\">Пакет: этикетка + 3D + видео</a>"
+                  }
+                ],
+                "count": 60
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 47,
+          "unique": 29,
+          "missing": []
+        }
+      }
+    },
+    "kejsy/magnij-do-registracii.html": {
+      "page": "kejsy/magnij-do-registracii.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 170,
+          "title": "Демо-кейс: магний, продажи до регистрации — Proba Lab",
+          "titleLen": 53,
+          "description": "Демо-проект на вымышленном бренде: проверка состава, путь к СГР, этикетка, 3D, видео и карточка Ozon и WB готовятся параллельно с регистрацией.",
+          "descLen": 143,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Магний в маленьких капсулах: готовим продажи, пока идёт регистрация"
+          ],
+          "headingJumps": [],
+          "headings": 8,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../kejsy.html",
+            "../marketing/upakovka-do-registracii.html",
+            "../marketing/3d-vizualizaciya-upakovki.html",
+            "../blog/kak-poluchit-sgr.html",
+            "../blog/jobs-to-be-done.html",
+            "../marketing/upakovka-do-registracii.html",
+            "../dokumenty/registraciya-bad.html",
+            "../marketing/video-dlya-kartochek.html",
+            "../marketing/kartochki-marketplejsov.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Готовить продажи параллельно с регистрацией"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"][aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../kejsy.html\" aria-current=\"page\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт регистрация</span>"
+                  },
+                  {
+                    "target": ".eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Демо-проект · бренд вымышленный</p>"
+                  }
+                ],
+                "count": 58
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 140,
+          "title": "Демо-кейс: магний, продажи до регистрации — Proba Lab",
+          "titleLen": 53,
+          "description": "Демо-проект на вымышленном бренде: проверка состава, путь к СГР, этикетка, 3D, видео и карточка Ozon и WB готовятся параллельно с регистрацией.",
+          "descLen": 143,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Магний в маленьких капсулах: готовим продажи, пока идёт регистрация"
+          ],
+          "headingJumps": [],
+          "headings": 8,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../kejsy.html",
+            "../marketing/upakovka-do-registracii.html",
+            "../marketing/3d-vizualizaciya-upakovki.html",
+            "../blog/kak-poluchit-sgr.html",
+            "../blog/jobs-to-be-done.html",
+            "../marketing/upakovka-do-registracii.html",
+            "../dokumenty/registraciya-bad.html",
+            "../marketing/video-dlya-kartochek.html",
+            "../marketing/kartochki-marketplejsov.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Готовить продажи параллельно с регистрацией"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт регистрация</span>"
+                  },
+                  {
+                    "target": ".eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Демо-проект · бренд вымышленный</p>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт&nbsp;регистрация</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\"><strong>Демо-проект: бренд вымышленный, показываем ход работы и&nbsp;результат на&nbsp;примере.</strong> Бренд «Некрупно» и&nbsp;решения ниже придуманы для&nbsp;этой страницы. Циф"
+                  },
+                  {
+                    "target": "strong",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<strong>Демо-проект: бренд вымышленный, показываем ход работы и&nbsp;результат на&nbsp;примере.</strong>"
+                  }
+                ],
+                "count": 50
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 50,
+          "unique": 32,
+          "missing": []
+        }
+      }
+    },
+    "kontakty.html": {
+      "page": "kontakty.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 107,
+          "title": "Контакты Proba Lab",
+          "titleLen": 18,
+          "description": "Телефон, почта и адрес Proba Lab: Новосибирск, Академгородок, Технопарк. Работаем по всей России онлайн.",
+          "descLen": 104,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Контакты"
+          ],
+          "headingJumps": [],
+          "headings": 4,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "LocalBusiness"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "index.html",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "dokumenty/index.html#quiz",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "index.html",
+            "#project-form",
+            "tel:+79811002848",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "soglasie-pd.html",
+            "index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "dokumenty/index.html",
+            "marketing.html",
+            "prodvizhenie.html",
+            "analitika.html",
+            "audit-prodazh.html",
+            "avtomatizaciya.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "index.html#review",
+            "analitika/kalkulyator-yunit-ekonomiki.html",
+            "dokumenty/karta-dokumentov.html",
+            "o-nas.html",
+            "kontakty.html",
+            "partneram.html",
+            "blagotvoritelnost.html",
+            "novosti.html",
+            "blog/index.html",
+            "ceny.html",
+            "oplata.html",
+            "oferta.html",
+            "politika-pd.html",
+            "pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Оставить заявку",
+            "+7 981 100-28-48"
+          ],
+          "tel": 3,
+          "mail": 2,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href=\"blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Контакты</span>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Контакты</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Как&nbsp;быстрее: оставьте заявку на&nbsp;сайте&nbsp;— мы ответим на&nbsp;почту или&nbsp;в&nbsp;мессенджер, который вы укажете.</p>"
+                  }
+                ],
+                "count": 54
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 114,
+          "title": "Контакты Proba Lab",
+          "titleLen": 18,
+          "description": "Телефон, почта и адрес Proba Lab: Новосибирск, Академгородок, Технопарк. Работаем по всей России онлайн.",
+          "descLen": 104,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Контакты"
+          ],
+          "headingJumps": [],
+          "headings": 4,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "LocalBusiness"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "index.html",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "dokumenty/index.html#quiz",
+            "dokumenty/index.html",
+            "marketing.html",
+            "analitika.html",
+            "kejsy.html",
+            "blog/index.html",
+            "ceny.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "index.html",
+            "#project-form",
+            "tel:+79811002848",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "soglasie-pd.html",
+            "index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "dokumenty/index.html",
+            "marketing.html",
+            "prodvizhenie.html",
+            "analitika.html",
+            "audit-prodazh.html",
+            "avtomatizaciya.html",
+            "kak-my-rabotaem.html",
+            "dokumenty/index.html#quiz",
+            "index.html#review",
+            "analitika/kalkulyator-yunit-ekonomiki.html",
+            "dokumenty/karta-dokumentov.html",
+            "o-nas.html",
+            "kontakty.html",
+            "partneram.html",
+            "blagotvoritelnost.html",
+            "novosti.html",
+            "blog/index.html",
+            "ceny.html",
+            "oplata.html",
+            "oferta.html",
+            "politika-pd.html",
+            "pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Оставить заявку",
+            "+7 981 100-28-48"
+          ],
+          "tel": 3,
+          "mail": 2,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Контакты</span>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Контакты</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Как&nbsp;быстрее: оставьте заявку на&nbsp;сайте&nbsp;— мы ответим на&nbsp;почту или&nbsp;в&nbsp;мессенджер, который вы укажете.</p>"
+                  },
+                  {
+                    "target": "a[href$=\"#project-form\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Оставить заявку</a>"
+                  },
+                  {
+                    "target": ".btn-ghost",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-ghost btn-lg\" href=\"tel:+79811002848\">+7 981 100-28-48</a>"
+                  },
+                  {
+                    "target": "fieldset[data-required-group=\"task\"] > legend",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<legend>Задача</legend>"
+                  }
+                ],
+                "count": 42
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 41,
+          "unique": 25,
+          "missing": []
+        }
+      }
+    },
+    "blog/jobs-to-be-done.html": {
+      "page": "blog/jobs-to-be-done.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 117,
+          "title": "Jobs to be done (JTBD): что это простыми словами",
+          "titleLen": 48,
+          "description": "Что такое JTBD, как сформулировать работу покупателя, как провести интервью и что метод даёт маркетингу. С примерами на БАД и косметике.",
+          "descLen": 136,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Jobs to be done (JTBD): что это простыми словами и как применить к своему продукту"
+          ],
+          "headingJumps": [],
+          "headings": 11,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "BlogPosting"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "FAQPage"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../blog/index.html",
+            "../marketing/issledovanie-klientov.html",
+            "#chto-takoe-jtbd-prostymi-slovami",
+            "#chem-jtbd-otlichaetsya-ot-portreta-auditorii",
+            "#kak-sformulirovat-rabotu",
+            "#primer-jtbd-na-bad-i-kosmetike",
+            "#jtbd-intervyu-kak-provesti",
+            "#chto-jtbd-daet-marketingu",
+            "#jtbd-i-cjm",
+            "#kogda-luchshe-doverit-specialistu",
+            "../blog/kastdev-i-glubinnye-intervyu.html",
+            "../blog/cjm-karta-puti-klienta.html",
+            "../marketing/issledovanie-klientov.html",
+            "../marketing/pozicionirovanie-brenda.html",
+            "../marketing/issledovanie-klientov.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Провести JTBD-интервью с вашими покупателями"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../blog/index.html\" aria-current=\"page\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Jobs to be done (JTBD): что&nbsp;это&nbsp;простыми словами и&nbsp;как&nbsp;применить к&nbsp;своему продукту</span>"
+                  },
+                  {
+                    "target": ".eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Блог</p>"
+                  }
+                ],
+                "count": 55
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 169,
+          "title": "Jobs to be done (JTBD): что это простыми словами",
+          "titleLen": 48,
+          "description": "Что такое JTBD, как сформулировать работу покупателя, как провести интервью и что метод даёт маркетингу. С примерами на БАД и косметике.",
+          "descLen": 136,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Jobs to be done (JTBD): что это простыми словами и как применить к своему продукту"
+          ],
+          "headingJumps": [],
+          "headings": 11,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "BlogPosting"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "FAQPage"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "../blog/index.html",
+            "../marketing/issledovanie-klientov.html",
+            "#chto-takoe-jtbd-prostymi-slovami",
+            "#chem-jtbd-otlichaetsya-ot-portreta-auditorii",
+            "#kak-sformulirovat-rabotu",
+            "#primer-jtbd-na-bad-i-kosmetike",
+            "#jtbd-intervyu-kak-provesti",
+            "#chto-jtbd-daet-marketingu",
+            "#jtbd-i-cjm",
+            "#kogda-luchshe-doverit-specialistu",
+            "../blog/kastdev-i-glubinnye-intervyu.html",
+            "../blog/cjm-karta-puti-klienta.html",
+            "../marketing/issledovanie-klientov.html",
+            "../marketing/pozicionirovanie-brenda.html",
+            "../marketing/issledovanie-klientov.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Провести JTBD-интервью с вашими покупателями"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Jobs to be done (JTBD): что&nbsp;это&nbsp;простыми словами и&nbsp;как&nbsp;применить к&nbsp;своему продукту</span>"
+                  },
+                  {
+                    "target": ".eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Блог</p>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Jobs to be done (JTBD): что&nbsp;это&nbsp;простыми словами и&nbsp;как&nbsp;применить к&nbsp;своему&nbsp;продукту</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Jobs to be done (JTBD)&nbsp;— подход, в&nbsp;котором продукт рассматривают как&nbsp;«работника», которого покупатель «нанимает», чтобы сделать определённую работу в&nbsp;своей жиз"
+                  },
+                  {
+                    "target": "a[data-primary-cta=\"\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"../marketing/issledovanie-klientov.html\" data-primary-cta=\"\">Провести JTBD-интервью с&nbsp;вашими покупателями</a>"
+                  }
+                ],
+                "count": 52
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 47,
+          "unique": 28,
+          "missing": []
+        }
+      }
+    },
+    "blog/sgr-ili-deklaraciya.html": {
+      "page": "blog/sgr-ili-deklaraciya.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 147,
+          "title": "СГР или декларация: какой документ нужен вашему продукту",
+          "titleLen": 56,
+          "description": "Какой документ нужен продукту: СГР для БАД, декларация или СГР для косметики, декларация для пищевой продукции. Как понять по составу.",
+          "descLen": 134,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "СГР или декларация: какой документ нужен вашему продукту"
+          ],
+          "headingJumps": [],
+          "headings": 7,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "BlogPosting"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "index.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/registraciya-bad.html",
+            "../dokumenty/kosmetika.html",
+            "../dokumenty/deklaracii.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Пройти квиз"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href=\"../blog/index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../blog/index.html\">Блог</a>"
+                  },
+                  {
+                    "target": ".main-nav > a[href$=\"ceny.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient",
+                    "html": "<a href=\"../ceny.html\">Цены</a>"
+                  },
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "a[href=\"index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"index.html\">Блог</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">СГР или&nbsp;декларация: какой документ нужен вашему продукту</span>"
+                  },
+                  {
+                    "target": ".eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Блог</p>"
+                  }
+                ],
+                "count": 49
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 127,
+          "title": "СГР или декларация: какой документ нужен вашему продукту",
+          "titleLen": 56,
+          "description": "Какой документ нужен продукту: СГР для БАД, декларация или СГР для косметики, декларация для пищевой продукции. Как понять по составу.",
+          "descLen": 134,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "СГР или декларация: какой документ нужен вашему продукту"
+          ],
+          "headingJumps": [],
+          "headings": 7,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "BlogPosting"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "index.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/registraciya-bad.html",
+            "../dokumenty/kosmetika.html",
+            "../dokumenty/deklaracii.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Пройти квиз"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "a[href=\"index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"index.html\">Блог</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">СГР или&nbsp;декларация: какой документ нужен вашему продукту</span>"
+                  },
+                  {
+                    "target": ".eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Блог</p>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">СГР или&nbsp;декларация: какой документ нужен вашему&nbsp;продукту</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Первый вопрос при запуске продукта&nbsp;— какой документ разрешает его продавать. От&nbsp;ответа зависят испытания, сроки, смета и&nbsp;то, что&nbsp;можно написать на&nbsp;этикетк"
+                  },
+                  {
+                    "target": "a[data-primary-cta=\"\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"../dokumenty/index.html#quiz\" data-primary-cta=\"\">Пройти квиз</a>"
+                  }
+                ],
+                "count": 46
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 46,
+          "unique": 28,
+          "missing": []
+        }
+      }
+    },
+    "dokumenty/kosmetika.html": {
+      "page": "dokumenty/kosmetika.html",
+      "checks": {
+        "d1440": {
+          "status": 200,
+          "loadMs": 126,
+          "title": "Документы на косметику: декларация или СГР — Proba Lab",
+          "titleLen": 54,
+          "description": "Определим, нужна ли косметике декларация по ТР ТС 009/2011 или СГР, организуем испытания, подготовим этикетку и карточку для маркетплейсов.",
+          "descLen": 139,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Документы на косметику: декларация или СГР"
+          ],
+          "headingJumps": [],
+          "headings": 25,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "FAQPage"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "Service"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "index.html",
+            "#form",
+            "#faq",
+            "#normy",
+            "../ceny.html#dokumenty",
+            "../marketing.html#ceny",
+            "../index.html",
+            "markirovka.html",
+            "laboratorii.html",
+            "gmp.html",
+            "tu.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Определить документ",
+            "Какая косметика требует СГР"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "d1440 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "a[href=\"index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"index.html\">Документы</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Документы на&nbsp;косметику</span>"
+                  },
+                  {
+                    "target": ".page-hero-copy > .eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Декларация и&nbsp;СГР по&nbsp;ТР ТС 009/2011</p>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Документы на&nbsp;косметику: декларация или&nbsp;СГР</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Определим, какой документ нужен вашей косметике, и&nbsp;подготовим его. Продукт законно продаётся, а&nbsp;этикетка и&nbsp;карточка совпадают с&nbsp;документами.</p>"
+                  },
+                  {
+                    "target": "a[href$=\"#form\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"#form\" data-primary-cta=\"\">Определить документ</a>"
+                  }
+                ],
+                "count": 78
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m390": {
+          "status": 200,
+          "loadMs": 145,
+          "title": "Документы на косметику: декларация или СГР — Proba Lab",
+          "titleLen": 54,
+          "description": "Определим, нужна ли косметике декларация по ТР ТС 009/2011 или СГР, организуем испытания, подготовим этикетку и карточку для маркетплейсов.",
+          "descLen": 139,
+          "canonical": null,
+          "robots": null,
+          "ogUrl": null,
+          "lang": "ru",
+          "h1": [
+            "Документы на косметику: декларация или СГР"
+          ],
+          "headingJumps": [],
+          "headings": 25,
+          "ld": [
+            {
+              "ok": true,
+              "types": [
+                "BreadcrumbList"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "FAQPage"
+              ]
+            },
+            {
+              "ok": true,
+              "types": [
+                "Service"
+              ]
+            }
+          ],
+          "links": [
+            "#main",
+            "../index.html",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../dokumenty/index.html#quiz",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../analitika.html",
+            "../kejsy.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html",
+            "index.html",
+            "#form",
+            "#faq",
+            "#normy",
+            "../ceny.html#dokumenty",
+            "../marketing.html#ceny",
+            "../index.html",
+            "markirovka.html",
+            "laboratorii.html",
+            "gmp.html",
+            "tu.html",
+            "../soglasie-pd.html",
+            "../index.html",
+            "tel:+79811002848",
+            "mailto:i.koptelin@proba-lab.ru",
+            "../dokumenty/index.html",
+            "../marketing.html",
+            "../prodvizhenie.html",
+            "../analitika.html",
+            "../audit-prodazh.html",
+            "../avtomatizaciya.html",
+            "../kak-my-rabotaem.html",
+            "../dokumenty/index.html#quiz",
+            "../index.html#review",
+            "../analitika/kalkulyator-yunit-ekonomiki.html",
+            "../dokumenty/karta-dokumentov.html",
+            "../o-nas.html",
+            "../kontakty.html",
+            "../partneram.html",
+            "../blagotvoritelnost.html",
+            "../novosti.html",
+            "../blog/index.html",
+            "../ceny.html",
+            "../oplata.html",
+            "../oferta.html",
+            "../politika-pd.html",
+            "../pravovaya-informaciya.html"
+          ],
+          "ctaInFold": [
+            "Проверить состав",
+            "Определить документ",
+            "Какая косметика требует СГР"
+          ],
+          "tel": 1,
+          "mail": 1,
+          "overflowX": 0,
+          "axe": {
+            "state": "m390 initial",
+            "violations": [],
+            "incomplete": [
+              {
+                "id": "color-contrast",
+                "impact": "serious",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "tags": [
+                  "wcag2aa",
+                  "wcag143"
+                ],
+                "nodes": [
+                  {
+                    "target": ".btn-sm",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+                  },
+                  {
+                    "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"../index.html\">Proba Lab</a>"
+                  },
+                  {
+                    "target": "a[href=\"index.html\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a href=\"index.html\">Документы</a>"
+                  },
+                  {
+                    "target": "span[aria-current=\"page\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<span aria-current=\"page\">Документы на&nbsp;косметику</span>"
+                  },
+                  {
+                    "target": ".page-hero-copy > .eyebrow",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"eyebrow\">Декларация и&nbsp;СГР по&nbsp;ТР ТС 009/2011</p>"
+                  },
+                  {
+                    "target": "#page-title",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<h1 id=\"page-title\" class=\"h1-page\">Документы на&nbsp;косметику: декларация или&nbsp;СГР</h1>"
+                  },
+                  {
+                    "target": ".hero-lead",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<p class=\"hero-lead\">Определим, какой документ нужен вашей косметике, и&nbsp;подготовим его. Продукт законно продаётся, а&nbsp;этикетка и&nbsp;карточка совпадают с&nbsp;документами.</p>"
+                  },
+                  {
+                    "target": "a[href$=\"#form\"]",
+                    "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                    "html": "<a class=\"btn btn-primary btn-lg\" href=\"#form\" data-primary-cta=\"\">Определить документ</a>"
+                  }
+                ],
+                "count": 67
+              }
+            ]
+          },
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "m320": {
+          "scrollW": 363,
+          "vw": 320,
+          "wide": [],
+          "log": {
+            "console": [],
+            "pageerror": [],
+            "failed": [],
+            "http4xx": [],
+            "blocked": []
+          }
+        },
+        "internalLinks": {
+          "total": 49,
+          "unique": 32,
+          "missing": []
+        }
+      }
+    }
+  },
+  "scenarios": {
+    "mobileMenu": {
+      "items": [
+        "Документы → dokumenty/index.html",
+        "Маркетинг → marketing.html",
+        "Аналитика → analitika.html",
+        "Кейсы → kejsy.html",
+        "Блог → blog/index.html",
+        "Цены → ceny.html",
+        "Как мы работаем → kak-my-rabotaem.html",
+        "Проверить состав → dokumenty/index.html#quiz"
+      ],
+      "contactsInMenu": false,
+      "focusStaysInHeader": true,
+      "escapeClosed": true,
+      "axe": {
+        "state": "m390 menu open",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": ".btn-primary.btn-lg[href$=\"index.html#quiz\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Запускаем БАД и&nbsp;косметику&nbsp;— <span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span></h1>"
+              },
+              {
+                "target": "#page-title > .grad",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span>"
+              },
+              {
+                "target": ".page-hero-copy > .hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Регистраторы делают документы. Агентства делают маркетинг. Мы ведём продукт целиком&nbsp;— и&nbsp;<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>.</p"
+              },
+              {
+                "target": ".hero-lead > mark",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Проверить состав бесплатно</a>"
+              },
+              {
+                "target": ".btn-ghost",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-ghost btn-lg\" href=\"marketing/pozicionirovanie-brenda.html\">Бесплатный разбор продукта</a>"
+              }
+            ],
+            "count": 109
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      },
+      "footerContactsLinks": 1
+    },
+    "homeServiceProofContact": {
+      "steps": [
+        "главная: ссылок на регистрацию БАД 1",
+        "перешли: dokumenty/registraciya-bad.html",
+        "ссылки на кейсы с услуги: ../kejsy.html «Кейсы»; ../kejsy.html «Кейсы»",
+        "ссылок на конкретные кейсы в main: 0",
+        "кейс: действия Готовить продажи параллельно с регистрацией → ../marketing/upakovka-do-registracii.html; Готовить продажи параллельно с регистрацией → ../marketing/upakovka-do-registracii.html; form#pf-form"
+      ],
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "articleToService": {
+      "blog/jobs-to-be-done.html": [
+        "../marketing/issledovanie-klientov.html",
+        "../marketing/issledovanie-klientov.html",
+        "../marketing/pozicionirovanie-brenda.html",
+        "../marketing/issledovanie-klientov.html"
+      ],
+      "blog/jobs-to-be-done.html heroCta": [
+        "Провести JTBD-интервью с вашими покупателями → ../marketing/issledovanie-klientov.html"
+      ],
+      "blog/sgr-ili-deklaraciya.html": [
+        "../dokumenty/index.html#quiz",
+        "../dokumenty/registraciya-bad.html",
+        "../dokumenty/kosmetika.html",
+        "../dokumenty/deklaracii.html",
+        "../dokumenty/index.html#quiz"
+      ],
+      "blog/sgr-ili-deklaraciya.html heroCta": [
+        "Пройти квиз → ../dokumenty/index.html#quiz"
+      ]
+    },
+    "form": {
+      "fields": [
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Документы и регистрация",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Подготовить продукт к продвижению",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Подготовить материалы для партнёров",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Упростить заявки и работу команды",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Настроить аналитику и учёт заявок",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Аудит продаж",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Пакет «Предложение для одного продукта» — 29 000 ₽",
+          "auto": ""
+        },
+        {
+          "name": "task",
+          "type": "radio",
+          "required": false,
+          "label": "Сопровождение продвижения",
+          "auto": ""
+        },
+        {
+          "name": "needs",
+          "type": "checkbox",
+          "required": false,
+          "label": "Предложение и аргументы",
+          "auto": ""
+        },
+        {
+          "name": "needs",
+          "type": "checkbox",
+          "required": false,
+          "label": "Сайт или лендинг",
+          "auto": ""
+        },
+        {
+          "name": "needs",
+          "type": "checkbox",
+          "required": false,
+          "label": "Карточки товаров",
+          "auto": ""
+        },
+        {
+          "name": "needs",
+          "type": "checkbox",
+          "required": false,
+          "label": "Фото и видео",
+          "auto": ""
+        },
+        {
+          "name": "needs",
+          "type": "checkbox",
+          "required": false,
+          "label": "SEO",
+          "auto": ""
+        },
+        {
+          "name": "needs",
+          "type": "checkbox",
+          "required": false,
+          "label": "Материалы для размещений",
+          "auto": ""
+        },
+        {
+          "name": "hasSite",
+          "type": "radio",
+          "required": false,
+          "label": "Есть",
+          "auto": ""
+        },
+        {
+          "name": "hasSite",
+          "type": "radio",
+          "required": false,
+          "label": "Нет",
+          "auto": ""
+        },
+        {
+          "name": "details",
+          "type": "textarea",
+          "required": false,
+          "label": "Коротко о задаче необязательно",
+          "auto": ""
+        },
+        {
+          "name": "productUrl",
+          "type": "text",
+          "required": false,
+          "label": "Ссылка на продукт или сайт необязательно",
+          "auto": "url"
+        },
+        {
+          "name": "term",
+          "type": "select-one",
+          "required": false,
+          "label": "Желаемый срок",
+          "auto": ""
+        },
+        {
+          "name": "contact",
+          "type": "text",
+          "required": false,
+          "label": "Контакт для ответа",
+          "auto": "off"
+        },
+        {
+          "name": "consent",
+          "type": "checkbox",
+          "required": false,
+          "label": "Согласен на обработку персональных данных",
+          "auto": ""
+        }
+      ],
+      "steps": [
+        {
+          "step": "контакт «abc», без согласия",
+          "status": "Проверьте отмеченные поля.",
+          "errors": [
+            "Выберите задачу",
+            "Укажите email, телефон или Telegram (@ник)",
+            "Нужно согласие на обработку данных"
+          ]
+        },
+        {
+          "step": "валидные данные (example.com), согласие",
+          "status": "Форма заполнена. Отправка пока не подключена.",
+          "errors": [],
+          "url": "kontakty.html",
+          "requestsAfterSubmit": []
+        }
+      ],
+      "endpointMeta": 0,
+      "blocked": []
+    }
+  },
+  "keyboard": {
+    "index.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a.btn «Проверить состав бесплатно» outline=solid/2px vis=true",
+        "a.btn «Бесплатный разбор продукта» outline=solid/2px vis=true",
+        "button.reel-toggle «Пауза» outline=solid/2px vis=false",
+        "a «ДокументыРегистрация, декларац» outline=solid/2px vis=false",
+        "a «УпаковкаПродажи — пока идёт ре» outline=solid/2px vis=false"
+      ],
+      "formEmpty": {
+        "status": "Проверьте отмеченные поля.",
+        "errors": [
+          "Добавьте ссылку на продукт",
+          "Укажите email, телефон или Telegram (@ник)",
+          "Выберите категорию",
+          "Нужно согласие на обработку данных"
+        ],
+        "invalid": [
+          "productUrl",
+          "contact",
+          "FIELDSET",
+          "consent"
+        ],
+        "focused": "productUrl",
+        "unlabeled": []
+      },
+      "axeFormErrors": {
+        "state": "d1440 form errors",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Запускаем БАД и&nbsp;косметику&nbsp;— <span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span></h1>"
+              },
+              {
+                "target": "#page-title > .grad",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span class=\"grad\">от&nbsp;состава до&nbsp;продаж</span>"
+              },
+              {
+                "target": ".page-hero-copy > .hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Регистраторы делают документы. Агентства делают маркетинг. Мы ведём продукт целиком&nbsp;— и&nbsp;<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>.</p"
+              },
+              {
+                "target": ".hero-lead > mark",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<mark class=\"hl\">документы совпадают с&nbsp;этикеткой и&nbsp;карточкой</mark>"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Проверить состав бесплатно</a>"
+              },
+              {
+                "target": ".btn-ghost",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-ghost btn-lg\" href=\"marketing/pozicionirovanie-brenda.html\">Бесплатный разбор продукта</a>"
+              },
+              {
+                "target": "text[x=\"40\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<text x=\"40\" y=\"72\" text-anchor=\"middle\" class=\"pv-label\">Состав</text>"
+              }
+            ],
+            "count": 117
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "dokumenty/registraciya-bad.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a.btn «Проверить состав бесплатно» outline=solid/2px vis=true",
+        "a.btn «Из чего складывается смета» outline=solid/2px vis=true",
+        "a «почему» outline=solid/2px vis=false"
+      ],
+      "axeDetails": {
+        "state": "d1440 details open",
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".main-nav > a[href$=\"marketing.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"analitika.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../analitika.html\">Аналитика</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+              },
+              {
+                "target": ".main-nav > a[href=\"../blog/index.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../blog/index.html\">Блог</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"ceny.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../ceny.html\">Цены</a>"
+              },
+              {
+                "target": ".cards-4 > .reveal:nth-child(2) > .card-d",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.23 (foreground color: #8c8c92, background color: #fbfbfc, font size: 11.8pt (15.68px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<span class=\"card-d\">СГР на&nbsp;БАД выдаёт Роспотребнадзор после рассмотрения протоколов испытаний и&nbsp;экспертного заключения. Сведения вносятся в&nbsp;Единый реестр СГР ЕАЭС.</span>"
+              },
+              {
+                "target": ".cards-4 > .reveal:nth-child(3) > .card-t",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.89 (foreground color: #b6b6b8, background color: #f7f7f8, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<b class=\"card-t\">Закон о&nbsp;торговле</b>"
+              },
+              {
+                "target": ".cards-4 > .reveal:nth-child(3) > .card-d",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.57 (foreground color: #c7c7ca, background color: #f7f7f8, font size: 11.8pt (15.68px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<span class=\"card-d\">С&nbsp;01.10.2026 закон запрещает предлагать к&nbsp;продаже незарегистрированные БАД (ст.&nbsp;11.1 закона о&nbsp;торговле в&nbsp;ред. 290-ФЗ), а&nbsp;площадки обязаны проверять д"
+              }
+            ],
+            "count": 8
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../dokumenty/index.html\">Документы</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— одной работой</span>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— <span class=\"grad\">одной работой</span></h1>"
+              },
+              {
+                "target": ".grad",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span class=\"grad\">одной работой</span>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Проверить состав бесплатно</a>"
+              }
+            ],
+            "count": 60
+          }
+        ]
+      },
+      "formEmpty": {
+        "status": "Проверьте отмеченные поля.",
+        "errors": [
+          "Укажите email, телефон или Telegram (@ник)",
+          "Нужно согласие на обработку данных"
+        ],
+        "invalid": [
+          "contact",
+          "consent"
+        ],
+        "focused": "contact",
+        "unlabeled": []
+      },
+      "axeFormErrors": {
+        "state": "d1440 form errors",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../dokumenty/index.html\">Документы</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— одной работой</span>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Регистрация БАД (СГР): состав, этикетка и&nbsp;маркетплейсы&nbsp;— <span class=\"grad\">одной работой</span></h1>"
+              },
+              {
+                "target": ".grad",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span class=\"grad\">одной работой</span>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Проверить состав бесплатно</a>"
+              }
+            ],
+            "count": 60
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "marketing/3d-vizualizaciya-upakovki.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a.btn «Прислать макет» outline=solid/2px vis=true",
+        "a.btn «Пакет: этикетка + 3D + видео» outline=solid/2px vis=true",
+        "button.reel-toggle «Пауза» outline=solid/2px vis=true"
+      ],
+      "axeDetails": {
+        "state": "d1440 details open",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой партии</span>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой&nbsp;партии</h1>"
+              },
+              {
+                "target": ".page-hero-copy > .hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Фотографировать ещё нечего, а&nbsp;карточку, сайт и&nbsp;презентацию нужно готовить уже сейчас. 3D-визуализация упаковки решает это: по&nbsp;макету этикетки делаем 3D-модель и&nbs"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Прислать макет</a>"
+              },
+              {
+                "target": ".btn-ghost",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-ghost btn-lg\" href=\"../marketing/upakovka-do-registracii.html\">Пакет: этикетка + 3D + видео</a>"
+              }
+            ],
+            "count": 68
+          }
+        ]
+      },
+      "formEmpty": {
+        "status": "Проверьте отмеченные поля.",
+        "errors": [
+          "Укажите email, телефон или Telegram (@ник)",
+          "Нужно согласие на обработку данных"
+        ],
+        "invalid": [
+          "contact",
+          "consent"
+        ],
+        "focused": "contact",
+        "unlabeled": []
+      },
+      "axeFormErrors": {
+        "state": "d1440 form errors",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой партии</span>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">3D-визуализация упаковки: продукт в&nbsp;карточке до&nbsp;первой&nbsp;партии</h1>"
+              },
+              {
+                "target": ".page-hero-copy > .hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Фотографировать ещё нечего, а&nbsp;карточку, сайт и&nbsp;презентацию нужно готовить уже сейчас. 3D-визуализация упаковки решает это: по&nbsp;макету этикетки делаем 3D-модель и&nbs"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Прислать макет</a>"
+              },
+              {
+                "target": ".btn-ghost",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-ghost btn-lg\" href=\"../marketing/upakovka-do-registracii.html\">Пакет: этикетка + 3D + видео</a>"
+              }
+            ],
+            "count": 68
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "kejsy/magnij-do-registracii.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a.btn «Готовить продажи параллельно с» outline=solid/2px vis=true",
+        "a «модель» outline=solid/2px vis=false",
+        "summary «Шаги 1–2: состав и путь к СГР» outline=solid/2px vis=false"
+      ],
+      "axeDetails": {
+        "state": "d1440 details open",
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".main-nav > a[href=\"../dokumenty/index.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.15 (foreground color: #d4d4d8, background color: #626166, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../dokumenty/index.html\">Документы</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"marketing.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.15 (foreground color: #d4d4d8, background color: #626166, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"analitika.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.15 (foreground color: #d4d4d8, background color: #626166, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../analitika.html\">Аналитика</a>"
+              },
+              {
+                "target": ".main-nav > a[href=\"../blog/index.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.15 (foreground color: #d4d4d8, background color: #626166, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../blog/index.html\">Блог</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"ceny.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.15 (foreground color: #d4d4d8, background color: #626166, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../ceny.html\">Цены</a>"
+              },
+              {
+                "target": ".cards-3 > .reveal:nth-child(2) > .card-d",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.49 (foreground color: #75757c, background color: #fdfdfd, font size: 11.8pt (15.68px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<span class=\"card-d\">как&nbsp;не&nbsp;ждать документ, чтобы только потом начинать этикетку и&nbsp;карточку.</span>"
+              },
+              {
+                "target": ".cards-3 > .reveal:nth-child(3) > .card-t",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #78787a, background color: #fafafb, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<b class=\"card-t\">Сообщение</b>"
+              },
+              {
+                "target": ".cards-3 > .reveal:nth-child(3) > .card-d",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.71 (foreground color: #99999f, background color: #fafafb, font size: 11.8pt (15.68px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<span class=\"card-d\">что&nbsp;сказать покупателю, если нельзя говорить как&nbsp;о&nbsp;лекарстве.</span>"
+              }
+            ],
+            "count": 8
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт регистрация</span>"
+              },
+              {
+                "target": ".eyebrow",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"eyebrow\">Демо-проект · бренд вымышленный</p>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт&nbsp;регистрация</h1>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\"><strong>Демо-проект: бренд вымышленный, показываем ход работы и&nbsp;результат на&nbsp;примере.</strong> Бренд «Некрупно» и&nbsp;решения ниже придуманы для&nbsp;этой страницы. Циф"
+              },
+              {
+                "target": "strong",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<strong>Демо-проект: бренд вымышленный, показываем ход работы и&nbsp;результат на&nbsp;примере.</strong>"
+              }
+            ],
+            "count": 55
+          }
+        ]
+      },
+      "formEmpty": {
+        "status": "Проверьте отмеченные поля.",
+        "errors": [
+          "Укажите email, телефон или Telegram (@ник)",
+          "Нужно согласие на обработку данных"
+        ],
+        "invalid": [
+          "contact",
+          "consent"
+        ],
+        "focused": "contact",
+        "unlabeled": []
+      },
+      "axeFormErrors": {
+        "state": "d1440 form errors",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт регистрация</span>"
+              },
+              {
+                "target": ".eyebrow",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"eyebrow\">Демо-проект · бренд вымышленный</p>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Магний в&nbsp;маленьких капсулах: готовим продажи, пока идёт&nbsp;регистрация</h1>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\"><strong>Демо-проект: бренд вымышленный, показываем ход работы и&nbsp;результат на&nbsp;примере.</strong> Бренд «Некрупно» и&nbsp;решения ниже придуманы для&nbsp;этой страницы. Циф"
+              },
+              {
+                "target": "strong",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<strong>Демо-проект: бренд вымышленный, показываем ход работы и&nbsp;результат на&nbsp;примере.</strong>"
+              }
+            ],
+            "count": 55
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "kontakty.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a.btn «Оставить заявку» outline=solid/2px vis=true",
+        "a.btn «+7 981 100-28-48» outline=solid/2px vis=true",
+        "a «+7 981 100-28-48» outline=solid/2px vis=true",
+        "a «i.koptelin@proba-lab.ru» outline=solid/2px vis=true"
+      ],
+      "formEmpty": {
+        "status": "Проверьте отмеченные поля.",
+        "errors": [
+          "Выберите задачу",
+          "Укажите email, телефон или Telegram (@ник)",
+          "Нужно согласие на обработку данных"
+        ],
+        "invalid": [
+          "FIELDSET",
+          "contact",
+          "consent"
+        ],
+        "focused": "task",
+        "unlabeled": []
+      },
+      "axeFormErrors": {
+        "state": "d1440 form errors",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Контакты</span>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Контакты</h1>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Как&nbsp;быстрее: оставьте заявку на&nbsp;сайте&nbsp;— мы ответим на&nbsp;почту или&nbsp;в&nbsp;мессенджер, который вы укажете.</p>"
+              },
+              {
+                "target": "a[href$=\"#project-form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#project-form\" data-primary-cta=\"\">Оставить заявку</a>"
+              },
+              {
+                "target": ".btn-ghost",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-ghost btn-lg\" href=\"tel:+79811002848\">+7 981 100-28-48</a>"
+              },
+              {
+                "target": ".req-list > div:nth-child(2) > dt",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<dt>ИНН</dt>"
+              }
+            ],
+            "count": 51
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "blog/jobs-to-be-done.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a.btn «Провести JTBD-интервью с вашим» outline=solid/2px vis=true",
+        "a «Что такое JTBD простыми словам» outline=solid/2px vis=false",
+        "a «Чем JTBD отличается от портрет» outline=solid/2px vis=false"
+      ],
+      "axeDetails": {
+        "state": "d1440 details open",
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".main-nav > a[href=\"../dokumenty/index.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../dokumenty/index.html\">Документы</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"marketing.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../marketing.html\">Маркетинг</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"analitika.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../analitika.html\">Аналитика</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"kejsy.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../kejsy.html\">Кейсы</a>"
+              },
+              {
+                "target": ".main-nav > a[href$=\"ceny.html\"]",
+                "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.12 (foreground color: #d4d4d8, background color: #626262, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1",
+                "html": "<a href=\"../ceny.html\">Цены</a>"
+              }
+            ],
+            "count": 5
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../blog/index.html\">Блог</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Jobs to be done (JTBD): что&nbsp;это&nbsp;простыми словами и&nbsp;как&nbsp;применить к&nbsp;своему продукту</span>"
+              },
+              {
+                "target": ".eyebrow",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"eyebrow\">Блог</p>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Jobs to be done (JTBD): что&nbsp;это&nbsp;простыми словами и&nbsp;как&nbsp;применить к&nbsp;своему&nbsp;продукту</h1>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Jobs to be done (JTBD)&nbsp;— подход, в&nbsp;котором продукт рассматривают как&nbsp;«работника», которого покупатель «нанимает», чтобы сделать определённую работу в&nbsp;своей жиз"
+              },
+              {
+                "target": "a[data-primary-cta=\"\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"../marketing/issledovanie-klientov.html\" data-primary-cta=\"\">Провести JTBD-интервью с&nbsp;вашими покупателями</a>"
+              }
+            ],
+            "count": 50
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "blog/sgr-ili-deklaraciya.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a.btn «Пройти квиз» outline=solid/2px vis=true",
+        "a.svc-card «Регистрация БАД (СГР)Состав, э» outline=solid/2px vis=false",
+        "a.svc-card «Документы на косметикуДекларац» outline=solid/2px vis=false"
+      ],
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    },
+    "dokumenty/kosmetika.html": {
+      "seq": [
+        "a.skip-link «Перейти к содержанию» outline=solid/2px vis=true",
+        "a.brand «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a «Маркетинг» outline=solid/2px vis=true",
+        "a «Аналитика» outline=solid/2px vis=true",
+        "a «Кейсы» outline=solid/2px vis=true",
+        "a «Блог» outline=solid/2px vis=true",
+        "a «Цены» outline=solid/2px vis=true",
+        "a.btn «Проверить состав» outline=solid/2px vis=true",
+        "a «Proba Lab» outline=solid/2px vis=true",
+        "a «Документы» outline=solid/2px vis=true",
+        "a.btn «Определить документ» outline=solid/2px vis=true",
+        "a.btn «Какая косметика требует СГР» outline=solid/2px vis=true",
+        "a «Нормативная база» outline=solid/2px vis=true"
+      ],
+      "axeDetails": {
+        "state": "d1440 details open",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "a[href=\"index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"index.html\">Документы</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Документы на&nbsp;косметику</span>"
+              },
+              {
+                "target": ".page-hero-copy > .eyebrow",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"eyebrow\">Декларация и&nbsp;СГР по&nbsp;ТР ТС 009/2011</p>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Документы на&nbsp;косметику: декларация или&nbsp;СГР</h1>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Определим, какой документ нужен вашей косметике, и&nbsp;подготовим его. Продукт законно продаётся, а&nbsp;этикетка и&nbsp;карточка совпадают с&nbsp;документами.</p>"
+              },
+              {
+                "target": "a[href$=\"#form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#form\" data-primary-cta=\"\">Определить документ</a>"
+              }
+            ],
+            "count": 78
+          }
+        ]
+      },
+      "formEmpty": {
+        "status": "Проверьте отмеченные поля.",
+        "errors": [
+          "Выберите категорию",
+          "Добавьте состав или ссылку на продукт",
+          "Укажите email, телефон или Telegram (@ник)",
+          "Нужно согласие на обработку данных"
+        ],
+        "invalid": [
+          "FIELDSET",
+          "composition",
+          "contact",
+          "consent"
+        ],
+        "focused": "category",
+        "unlabeled": []
+      },
+      "axeFormErrors": {
+        "state": "d1440 form errors",
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "wcag2aa",
+              "wcag143"
+            ],
+            "nodes": [
+              {
+                "target": ".btn-sm",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-sm header-cta\" href=\"../dokumenty/index.html#quiz\">Проверить состав</a>"
+              },
+              {
+                "target": "li:nth-child(1) > a[href=\"../index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"../index.html\">Proba Lab</a>"
+              },
+              {
+                "target": "a[href=\"index.html\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a href=\"index.html\">Документы</a>"
+              },
+              {
+                "target": "span[aria-current=\"page\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<span aria-current=\"page\">Документы на&nbsp;косметику</span>"
+              },
+              {
+                "target": ".page-hero-copy > .eyebrow",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"eyebrow\">Декларация и&nbsp;СГР по&nbsp;ТР ТС 009/2011</p>"
+              },
+              {
+                "target": "#page-title",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<h1 id=\"page-title\" class=\"h1-page\">Документы на&nbsp;косметику: декларация или&nbsp;СГР</h1>"
+              },
+              {
+                "target": ".hero-lead",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<p class=\"hero-lead\">Определим, какой документ нужен вашей косметике, и&nbsp;подготовим его. Продукт законно продаётся, а&nbsp;этикетка и&nbsp;карточка совпадают с&nbsp;документами.</p>"
+              },
+              {
+                "target": "a[href$=\"#form\"]",
+                "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element",
+                "html": "<a class=\"btn btn-primary btn-lg\" href=\"#form\" data-primary-cta=\"\">Определить документ</a>"
+              }
+            ],
+            "count": 78
+          }
+        ]
+      },
+      "log": {
+        "console": [],
+        "pageerror": [],
+        "failed": [],
+        "http4xx": [],
+        "blocked": []
+      }
+    }
+  }
+}

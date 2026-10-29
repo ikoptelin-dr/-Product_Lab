@@ -1,0 +1,44 @@
+blog_jobs-to-be-done_html-1440-full.png	идентично
+blog_jobs-to-be-done_html-390-full.png	идентично
+blog_kak-poluchit-sgr_html-1440-full.png	идентично
+blog_kak-poluchit-sgr_html-390-full.png	идентично
+blog_pozicionirovanie-brenda-eto_html-1440-full.png	идентично
+blog_pozicionirovanie-brenda-eto_html-390-full.png	идентично
+dokumenty_karta-dokumentov_html-1440-full.png	идентично
+dokumenty_karta-dokumentov_html-390-full.png	отличий 0 px (0.000%), рамка (18, 539, 372, 540)
+dokumenty_kosmetika_html-1440-full.png	отличий 1061 px (0.008%), рамка (870, 2866, 1055, 2879)
+dokumenty_kosmetika_html-390-full.png	отличий 1061 px (0.020%), рамка (46, 4796, 231, 4809)
+dokumenty_registraciya-bad_html-1440-full.png	идентично
+dokumenty_registraciya-bad_html-390-full.png	идентично
+dokumenty_vyvod-na-rynok_html-1440-full.png	отличий 384 px (0.003%), рамка (552, 2651, 612, 2664)
+dokumenty_vyvod-na-rynok_html-390-full.png	отличий 898 px (0.018%), рамка (48, 3893, 206, 3906)
+header-blog_jobs-to-be-done_html-1440.png	идентично
+header-blog_jobs-to-be-done_html-320.png	отличий 5426 px (18.840%), рамка (61, 10, 320, 54)
+header-blog_jobs-to-be-done_html-360.png	отличий 1926 px (5.944%), рамка (143, 10, 360, 54)
+header-blog_jobs-to-be-done_html-390.png	идентично
+header-blog_jobs-to-be-done_html-768.png	идентично
+header-dokumenty_kosmetika_html-1440.png	идентично
+header-dokumenty_kosmetika_html-320.png	отличий 5426 px (18.840%), рамка (61, 10, 320, 54)
+header-dokumenty_kosmetika_html-360.png	отличий 1926 px (5.944%), рамка (143, 10, 360, 54)
+header-dokumenty_kosmetika_html-390.png	идентично
+header-dokumenty_kosmetika_html-768.png	идентично
+header-index_html-1440.png	идентично
+header-index_html-320.png	отличий 5426 px (18.840%), рамка (61, 10, 320, 54)
+header-index_html-360.png	отличий 1926 px (5.944%), рамка (143, 10, 360, 54)
+header-index_html-390.png	идентично
+header-index_html-768.png	идентично
+header-kontakty_html-1440.png	идентично
+header-kontakty_html-320.png	отличий 5426 px (18.840%), рамка (61, 10, 320, 54)
+header-kontakty_html-360.png	отличий 1926 px (5.944%), рамка (143, 10, 360, 54)
+header-kontakty_html-390.png	идентично
+header-kontakty_html-768.png	идентично
+index_html-1440-full.png	идентично
+index_html-390-full.png	отличий 5 px (0.000%), рамка (17, 385, 371, 475)
+kak-my-rabotaem_html-1440-full.png	идентично
+kak-my-rabotaem_html-390-full.png	идентично
+kontakty_html-1440-full.png	идентично
+kontakty_html-390-full.png	идентично
+marketing_pozicionirovanie-brenda_html-1440-full.png	идентично
+marketing_pozicionirovanie-brenda_html-390-full.png	идентично
+o-nas_html-1440-full.png	идентично
+o-nas_html-390-full.png	идентично

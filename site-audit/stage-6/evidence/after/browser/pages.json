@@ -1,0 +1,4824 @@
+[
+ {
+  "page": "404.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": []
+ },
+ {
+  "page": "analitika.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "analitika/kalkulyator-yunit-ekonomiki.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "analitika/skvoznaya-analitika.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 57,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "audit-prodazh.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "avtomatizaciya.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "avtomatizaciya/baza-znanij.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "avtomatizaciya/vnedrenie-crm.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 57,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blagotvoritelnost.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 42,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/analiz-konkurentov.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/chto-takoe-otkaznoe-pismo.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/cjm-karta-puti-klienta.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 66,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/etiketka-bad-do-registracii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 48,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/gmp-na-badah.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/index.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 43,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/jobs-to-be-done.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 54,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kak-poluchit-sgr.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kak-proverit-akkreditaciyu-laboratorii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kak-sozdat-svoj-brend-kosmetiki.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kastdev-i-glubinnye-intervyu.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 68,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/markirovka-bad-chestnyj-znak.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 54,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/markirovka-kosmetiki.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 53,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/perechen-produkcii-deklarirovanie.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/pozicionirovanie-brenda-eto.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/programma-proizvodstvennogo-kontrolya-obrazec.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 54,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/proverki-rospotrebnadzora-2026.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 53,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/reestr-sgr-kak-proverit.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 54,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/sgr-ili-deklaraciya.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 48,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/sistema-haccp.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 62,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/unikalnoe-torgovoe-predlozhenie.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 62,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/yunit-ekonomika-prostymi-slovami.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[aria-current=\"page\"][href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "ceny.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 128,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/audit-assortimenta.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/deklaracii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/dokumenty-dlya-marketplejsov.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/gmp.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 73,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/haccp.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 53,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/index.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 67,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": ".page-hero-copy > .eyebrow",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/kosmetika.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 76,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/laboratorii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/markirovka.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/otkaznoe-pismo-dlya-marketplejsov.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 54,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/otkaznoe-pismo.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 57,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/programma-proizvodstvennogo-kontrolya.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/proverka-kartochek-dlya-agentstv.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/proverki-rospotrebnadzora.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/registraciya-bad.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/registraciya-produkcii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/tu.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 57,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/vyvod-na-rynok.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 87,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "index.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 117,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kak-my-rabotaem.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 62,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/audit-assortimenta-120-sku.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/batonchik-yunit-ekonomika.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/krem-dlya-ruk-jtbd.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/magnij-do-registracii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"][aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kontakty.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 60,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/3d-vizualizaciya-upakovki.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 67,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/dizajn-etiketki-i-upakovki.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 60,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/issledovanie-klientov.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/issledovanie-rynka.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 57,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/kartochki-marketplejsov.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/lending.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/pozicionirovanie-brenda.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/upakovka-do-registracii.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 69,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/video-dlya-kartochek.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 71,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "novosibirsk.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 53,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "novosti.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 41,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "o-nas.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "oferta.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "oplata.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 47,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "partneram.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 43,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "politika-pd.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "pravovaya-informaciya.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "prodvizhenie.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "prodvizhenie/vyhod-na-marketplejsy.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "soglasie-pd.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "spasibo.html",
+  "vp": "d1440",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": ".main-nav > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href=\"blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     },
+     {
+      "t": ".main-nav > a[href$=\"ceny.html\"]",
+      "why": "Element's background color could not be determined due to a background gradient"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "404.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": []
+ },
+ {
+  "page": "analitika.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 42,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "analitika/kalkulyator-yunit-ekonomiki.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"analitika.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "analitika/skvoznaya-analitika.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"analitika.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "audit-prodazh.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 42,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "avtomatizaciya.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": ".page-hero-copy > .eyebrow",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "avtomatizaciya/baza-znanij.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"avtomatizaciya.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "avtomatizaciya/vnedrenie-crm.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"avtomatizaciya.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blagotvoritelnost.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 37,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/analiz-konkurentov.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/chto-takoe-otkaznoe-pismo.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 53,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/cjm-karta-puti-klienta.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 63,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/etiketka-bad-do-registracii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 45,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/gmp-na-badah.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/index.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 38,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/jobs-to-be-done.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kak-poluchit-sgr.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kak-proverit-akkreditaciyu-laboratorii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kak-sozdat-svoj-brend-kosmetiki.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/kastdev-i-glubinnye-intervyu.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 65,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/markirovka-bad-chestnyj-znak.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/markirovka-kosmetiki.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/perechen-produkcii-deklarirovanie.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/pozicionirovanie-brenda-eto.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/programma-proizvodstvennogo-kontrolya-obrazec.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/proverki-rospotrebnadzora-2026.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/reestr-sgr-kak-proverit.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/sgr-ili-deklaraciya.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 45,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/sistema-haccp.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/unikalnoe-torgovoe-predlozhenie.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "blog/yunit-ekonomika-prostymi-slovami.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 56,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../blog/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "ceny.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 76,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/audit-assortimenta.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/deklaracii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 53,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/dokumenty-dlya-marketplejsov.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/gmp.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 62,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/haccp.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 47,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/index.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": ".page-hero-copy > .eyebrow",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 41,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/kosmetika.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 65,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/laboratorii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/markirovka.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/otkaznoe-pismo-dlya-marketplejsov.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 48,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/otkaznoe-pismo.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/programma-proizvodstvennogo-kontrolya.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 43,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/proverka-kartochek-dlya-agentstv.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/proverki-rospotrebnadzora.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/registraciya-bad.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 55,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/registraciya-produkcii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/tu.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href=\"../dokumenty/index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "dokumenty/vyvod-na-rynok.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 62,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "index.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 106,
+    "sample": [
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title > .grad",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": ".page-hero-copy > .hero-lead",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kak-my-rabotaem.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 58,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 43,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/audit-assortimenta-120-sku.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/batonchik-yunit-ekonomika.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 47,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/krem-dlya-ruk-jtbd.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 46,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kejsy/magnij-do-registracii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 48,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"kejsy.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "kontakty.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 40,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/3d-vizualizaciya-upakovki.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 59,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/dizajn-etiketki-i-upakovki.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 52,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/issledovanie-klientov.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/issledovanie-rynka.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 49,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/kartochki-marketplejsov.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/lending.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/pozicionirovanie-brenda.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 51,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/upakovka-do-registracii.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 61,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "marketing/video-dlya-kartochek.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 63,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "ol > li:nth-child(2) > a[href$=\"marketing.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "novosibirsk.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 47,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "novosti.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 38,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "o-nas.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 44,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "oferta.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "oplata.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 38,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "partneram.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 37,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "politika-pd.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "pravovaya-informaciya.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "prodvizhenie.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 42,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "prodvizhenie/vyhod-na-marketplejsy.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 50,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"../index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "li:nth-child(2) > a[href$=\"prodvizhenie.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "soglasie-pd.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 35,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "page": "spasibo.html",
+  "vp": "m390",
+  "status": 200,
+  "errors": [],
+  "failed": [],
+  "http": [],
+  "external": [],
+  "violations": [],
+  "incomplete": [
+   {
+    "id": "color-contrast",
+    "n": 43,
+    "sample": [
+     {
+      "t": "li:nth-child(1) > a[href=\"index.html\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "span[aria-current=\"page\"]",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     },
+     {
+      "t": "#page-title",
+      "why": "Element's background color could not be determined due to a pseudo element"
+     }
+    ]
+   }
+  ]
+ }
+]

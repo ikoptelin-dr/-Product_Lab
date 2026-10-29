@@ -1,0 +1,688 @@
+{
+ "total": 71,
+ "failed": 2,
+ "fails": [
+  {
+   "name": "header 320m ceny.html: нет переполнения",
+   "pass": false,
+   "info": {
+    "cw": 320,
+    "sw": 344,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d ceny.html: нет переполнения",
+   "pass": false,
+   "info": {
+    "cw": 320,
+    "sw": 344,
+    "tR": 304,
+    "shown": true
+   }
+  }
+ ],
+ "res": [
+  {
+   "name": "header 320m index.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m index.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m: меню открывается без горизонтальной прокрутки",
+   "pass": true,
+   "info": {
+    "opened": "true",
+    "scrollX": 0
+   }
+  },
+  {
+   "name": "header 320m kontakty.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m kontakty.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m blog/jobs-to-be-done.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m blog/jobs-to-be-done.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m dokumenty/kosmetika.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m dokumenty/kosmetika.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m ceny.html: нет переполнения",
+   "pass": false,
+   "info": {
+    "cw": 320,
+    "sw": 344,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320m ceny.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 344,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d index.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d index.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d: меню открывается без горизонтальной прокрутки",
+   "pass": true,
+   "info": {
+    "opened": "true",
+    "scrollX": 0
+   }
+  },
+  {
+   "name": "header 320d kontakty.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d kontakty.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d blog/jobs-to-be-done.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d blog/jobs-to-be-done.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d dokumenty/kosmetika.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d dokumenty/kosmetika.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 320,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d ceny.html: нет переполнения",
+   "pass": false,
+   "info": {
+    "cw": 320,
+    "sw": 344,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 320d ceny.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 320,
+    "sw": 344,
+    "tR": 304,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m index.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m index.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m: меню открывается без горизонтальной прокрутки",
+   "pass": true,
+   "info": {
+    "opened": "true",
+    "scrollX": 0
+   }
+  },
+  {
+   "name": "header 360m kontakty.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m kontakty.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m blog/jobs-to-be-done.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m blog/jobs-to-be-done.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m dokumenty/kosmetika.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m dokumenty/kosmetika.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m ceny.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 360m ceny.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 360,
+    "sw": 360,
+    "tR": 353.203125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m index.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m index.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m: меню открывается без горизонтальной прокрутки",
+   "pass": true,
+   "info": {
+    "opened": "true",
+    "scrollX": 0
+   }
+  },
+  {
+   "name": "header 390m kontakty.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m kontakty.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m blog/jobs-to-be-done.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m blog/jobs-to-be-done.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m dokumenty/kosmetika.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m dokumenty/kosmetika.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m ceny.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 390m ceny.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 390,
+    "sw": 390,
+    "tR": 374,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m index.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m index.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m: меню открывается без горизонтальной прокрутки",
+   "pass": true,
+   "info": {
+    "opened": "true",
+    "scrollX": 0
+   }
+  },
+  {
+   "name": "header 768m kontakty.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m kontakty.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m blog/jobs-to-be-done.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m blog/jobs-to-be-done.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m dokumenty/kosmetika.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m dokumenty/kosmetika.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m ceny.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 768m ceny.html: кнопка меню в экране",
+   "pass": true,
+   "info": {
+    "cw": 768,
+    "sw": 768,
+    "tR": 737.28125,
+    "shown": true
+   }
+  },
+  {
+   "name": "header 1440d index.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 1440,
+    "sw": 1440,
+    "tR": 0,
+    "shown": false
+   }
+  },
+  {
+   "name": "header 1440d kontakty.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 1440,
+    "sw": 1440,
+    "tR": 0,
+    "shown": false
+   }
+  },
+  {
+   "name": "header 1440d blog/jobs-to-be-done.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 1440,
+    "sw": 1440,
+    "tR": 0,
+    "shown": false
+   }
+  },
+  {
+   "name": "header 1440d dokumenty/kosmetika.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 1440,
+    "sw": 1440,
+    "tR": 0,
+    "shown": false
+   }
+  },
+  {
+   "name": "header 1440d ceny.html: нет переполнения",
+   "pass": true,
+   "info": {
+    "cw": 1440,
+    "sw": 1440,
+    "tR": 0,
+    "shown": false
+   }
+  },
+  {
+   "name": "index.html: «Проверить состав бесплатно» → квиз",
+   "pass": true,
+   "info": [
+    "dokumenty/index.html#quiz"
+   ]
+  },
+  {
+   "name": "dokumenty/registraciya-bad.html: «Проверить состав бесплатно» → квиз",
+   "pass": true,
+   "info": [
+    "../dokumenty/index.html#quiz"
+   ]
+  },
+  {
+   "name": "o-nas.html: «Проверить состав бесплатно» → квиз",
+   "pass": true,
+   "info": [
+    "dokumenty/index.html#quiz"
+   ]
+  },
+  {
+   "name": "kak-my-rabotaem.html: «Проверить состав бесплатно» → квиз",
+   "pass": true,
+   "info": [
+    "dokumenty/index.html#quiz"
+   ]
+  },
+  {
+   "name": "blog/kak-poluchit-sgr.html: «Проверить состав бесплатно» → квиз",
+   "pass": true,
+   "info": [
+    "../dokumenty/index.html#quiz",
+    "../dokumenty/index.html#quiz"
+   ]
+  },
+  {
+   "name": "index.html: «Бесплатный разбор продукта» → форма разбора",
+   "pass": true,
+   "info": [
+    "#review"
+   ]
+  },
+  {
+   "name": "marketing/pozicionirovanie-brenda.html: «Бесплатный разбор продукта» → форма разбора",
+   "pass": true,
+   "info": [
+    "../index.html#review"
+   ]
+  },
+  {
+   "name": "blog/pozicionirovanie-brenda-eto.html: «Бесплатный разбор продукта» → форма разбора",
+   "pass": true,
+   "info": [
+    "../index.html#review",
+    "../index.html#review"
+   ]
+  },
+  {
+   "name": "index.html: форма разбора #review-form на месте",
+   "pass": true
+  },
+  {
+   "name": "dokumenty/kosmetika.html: нет «Партнёр от имени заявителя» / «Партнёр и лаборатория»",
+   "pass": true
+  },
+  {
+   "name": "dokumenty/vyvod-na-rynok.html: нет «Партнёр от имени заявителя» / «Партнёр и лаборатория»",
+   "pass": true
+  }
+ ]
+}

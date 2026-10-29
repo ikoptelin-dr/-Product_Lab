@@ -1,0 +1,5 @@
+== urlencoded c согласием
+303 http://127.0.0.1:8790/spasibo.html
+== multipart (как karta-dokumentov) c согласием, без файла
+Нужно согласие на обработку данных
+400

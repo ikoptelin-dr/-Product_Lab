@@ -1,0 +1,334 @@
+[
+ {
+  "label": "начальный экран",
+  "page": "index.html",
+  "vp": 320,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "меню открыто",
+  "page": "index.html",
+  "vp": 320,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "kontakty.html",
+  "vp": 320,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "меню открыто",
+  "page": "kontakty.html",
+  "vp": 320,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/kosmetika.html",
+  "vp": 320,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "меню открыто",
+  "page": "dokumenty/kosmetika.html",
+  "vp": 320,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "index.html",
+  "vp": 360,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "меню открыто",
+  "page": "index.html",
+  "vp": 360,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "kontakty.html",
+  "vp": 360,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "меню открыто",
+  "page": "kontakty.html",
+  "vp": 360,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/kosmetika.html",
+  "vp": 360,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "меню открыто",
+  "page": "dokumenty/kosmetika.html",
+  "vp": 360,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "index.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "index.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/registraciya-bad.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/registraciya-bad.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "marketing/pozicionirovanie-brenda.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "marketing/pozicionirovanie-brenda.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "o-nas.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "o-nas.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "kak-my-rabotaem.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "kak-my-rabotaem.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "blog/kak-poluchit-sgr.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "blog/kak-poluchit-sgr.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "blog/pozicionirovanie-brenda-eto.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "blog/pozicionirovanie-brenda-eto.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/kosmetika.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/kosmetika.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/vyvod-na-rynok.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/vyvod-na-rynok.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "начальный экран",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "ошибки формы «Карты»",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "файл > 5 МБ",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "ошибки формы «Карты»",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "файл > 5 МБ",
+  "page": "dokumenty/karta-dokumentov.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "страница ошибки приёмника (копия ответа)",
+  "page": "zz-endpoint-error.html",
+  "vp": 390,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "страница ошибки приёмника (копия ответа)",
+  "page": "zz-endpoint-error.html",
+  "vp": 1440,
+  "violations": [],
+  "jsErrors": [],
+  "overflowX": 0
+ },
+ {
+  "label": "переход «Проверить состав бесплатно»",
+  "page": "index.html",
+  "url": "dokumenty/index.html#quiz",
+  "target": "в экране",
+  "formPresent": 1
+ },
+ {
+  "label": "переход «Бесплатный разбор продукта»",
+  "page": "index.html",
+  "url": "index.html#review",
+  "target": "в экране",
+  "formPresent": 1
+ },
+ {
+  "label": "переход «Бесплатный разбор продукта»",
+  "page": "marketing/pozicionirovanie-brenda.html",
+  "url": "index.html#review",
+  "target": "в экране",
+  "formPresent": 1
+ },
+ {
+  "label": "переход «Проверить состав бесплатно»",
+  "page": "dokumenty/registraciya-bad.html",
+  "url": "dokumenty/index.html#quiz",
+  "target": "в экране",
+  "formPresent": 1
+ }
+]
