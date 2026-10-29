@@ -524,7 +524,14 @@ function reels() {
   for (const fig of $$("[data-reel]")) {
     const btn = $("[data-reel-toggle]", fig);
     const label = $("[data-reel-label]", fig);
+    // «Уменьшить движение» в системе: ролик не стартует сам — финальный кадр и кнопка «Смотреть»
+    if (reduced()) {
+      fig.classList.add("is-paused");
+      btn?.setAttribute("aria-pressed", "true");
+      if (label) label.textContent = "Смотреть";
+    }
     btn?.addEventListener("click", () => {
+      if (reduced() && !fig.classList.contains("is-play")) fig.classList.add("is-play");
       const paused = fig.classList.toggle("is-paused");
       btn.setAttribute("aria-pressed", String(paused));
       if (label) label.textContent = paused ? "Смотреть" : "Пауза";

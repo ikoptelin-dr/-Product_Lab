@@ -846,7 +846,8 @@ fieldset[aria-invalid="true"] .choice span { border-color: rgba(185, 28, 28, .5)
 
 /* ---------------- Движение ---------------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  /* Шоурил, запущенный кнопкой «Смотреть» (.reel.is-play), — исключение: движение включил сам посетитель */
+  *:not(.reel.is-play *), *:not(.reel.is-play *)::before, *:not(.reel.is-play *)::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   a.glass-light:hover { transform: none; }
 }
 
@@ -1176,11 +1177,10 @@ mark.hl { color: inherit; background: linear-gradient(transparent 55%, color-mix
 @keyframes rl-ring { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(3); } }
 @keyframes rl-burst { 0% { opacity: 0; transform: scale(.6); } 1% { opacity: .8; } 8% { opacity: 0; transform: scale(3.4); } 100% { opacity: 0; transform: scale(3.4); } }
 
-/* Без движения: статичный финальный кадр, фон замирает */
+/* Без движения: статичный финальный кадр и кнопка «Смотреть» — ролик запускается только по нажатию; фон замирает */
 @media (prefers-reduced-motion: reduce) {
-  .rl-sc { opacity: 0; } .rl-sc7 { opacity: 1; }
-  .rl-lab { fill: #a1a1aa; }
-  .reel-toggle { display: none; }
+  .reel:not(.is-play) .rl-sc { opacity: 0; } .reel:not(.is-play) .rl-sc7 { opacity: 1; }
+  .reel:not(.is-play) .rl-lab { fill: #a1a1aa; }
   .ambient i, .ambient b, .marquee-track { animation: none !important; }
   .btn-primary::after { display: none; }
 }
