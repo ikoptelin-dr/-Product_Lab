@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: базовый адрес https://proba-lab.ru — заглушка. Пересоберите с SITE_URL=https://домен node scripts/build.mjs -->
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://proba-lab.ru/marketing.html</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://proba-lab.ru/prodvizhenie.html</loc><lastmod>2026-10-29</lastmod></url>

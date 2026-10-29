@@ -299,13 +299,13 @@ for (const ff of readdirSync(join(root, "assets/fonts"))) copyFileSync(join(root
 const today = new Date().toISOString().slice(0, 10);
 const loc = (p) => `${SITEMAP_BASE}/${p.replace(/(^|\/)index\.html$/, "$1")}`;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: базовый адрес ${SITEMAP_BASE} — заглушка. Пересоберите с SITE_URL=https://домен node scripts/build.mjs -->
+${SITE_URL ? "" : `<!-- TODO: базовый адрес ${SITEMAP_BASE} — заглушка. Пересоберите с SITE_URL=https://домен node scripts/build.mjs -->`}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${files.map((f) => `  <url><loc>${loc(f.path)}</loc><lastmod>${today}</lastmod></url>`).join("\n")}
 </urlset>
 `;
 writeFileSync(join(dist, "sitemap.xml"), sitemap);
-writeFileSync(join(dist, "robots.txt"), `User-agent: *\nAllow: /\n\n# TODO: заменить адрес после выбора домена\nSitemap: ${SITEMAP_BASE}/sitemap.xml\n`);
+writeFileSync(join(dist, "robots.txt"), `User-agent: *\nAllow: /\n\n${SITE_URL ? "" : "# TODO: заменить адрес после выбора домена\n"}Sitemap: ${SITEMAP_BASE}/sitemap.xml\n`);
 
 // 6. REGULATORY_VERIFY.md — чек-лист для партнёра (механизм v2: метки f(ключ, фраза))
 const byPage = new Map();

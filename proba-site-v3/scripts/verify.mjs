@@ -239,6 +239,10 @@ log("\n== Квиз");
 /* 5. Формы: прототип, без сети и хранилища */
 log("\n== Формы");
 const STATUS = "Форма заполнена. Отправка пока не подключена.";
+// Боевая сборка (FORM_ENDPOINT): заполненная форма уходит на приёмник, поэтому здесь проверяется только проверка полей;
+// отправку проверяет стенд site-audit/stage-4/scripts/form-test.mjs (приёмник + тестовый получатель вместо Telegram)
+const LIVE = readFileSync(join(SITE, "index.html"), "utf8").includes('name="proba-form-endpoint"');
+if (LIVE) log("  боевая сборка: отправка не проверяется здесь — см. form-test.mjs; проверяется валидация пустой формы");
 async function formRun(page, sel, fill) {
   const { ctx, p, errs, ext } = await open(`${BASE}/${page}`, VPS[2]);
   const reqs = [];
@@ -246,6 +250,13 @@ async function formRun(page, sel, fill) {
   await p.click(`${sel} button[type="submit"]`);
   const e1 = await p.locator(`${sel} .field-error`).count();
   const s1 = await p.textContent(`${sel} .form-status`);
+  if (LIVE) {
+    const good = e1 >= 1 && s1 === "Проверьте отмеченные поля." && reqs.length === 0 && errs.length === 0 && ext.length === 0;
+    ok(good, `${page} ${sel}: пустая форма ${JSON.stringify({ e1, s1, reqs, errs })}`, "forms");
+    log(`  ${good ? "✓" : "✗"} ${page} ${sel}: пустая → ${e1} ошибок, запросов ${reqs.length}`);
+    await ctx.close();
+    return;
+  }
   await fill(p);
   await p.click(`${sel} button[type="submit"]`);
   const status = await p.textContent(`${sel} .form-status`);

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: заменить адрес после выбора домена
 Sitemap: https://proba-lab.ru/sitemap.xml
