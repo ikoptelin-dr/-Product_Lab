@@ -1,5 +1,6 @@
 // Приём заявок с сайта Proba Lab: POST /lead → сообщение в Telegram (и копия в журнал) → переадресация на /spasibo.html.
-// Без зависимостей, Node 18+. Запуск на сервере: TG_TOKEN=… TG_CHAT=… node deploy/form-endpoint.mjs (порт 8787, за nginx).
+// Без зависимостей, Node 18+. Linux: TG_TOKEN=… TG_CHAT=… node deploy/form-endpoint.mjs (порт 8787, за nginx).
+// Windows: подключается в deploy/server.mjs (сайт + заявки в одном процессе), см. deploy/windows/.
 // Сайт собирать с FORM_ENDPOINT=/lead — формы начнут отправляться сюда.
 // Форматы: application/x-www-form-urlencoded (все формы) и multipart/form-data (форма «Карты документов» с полем файла).
 // Файл состава не пишется на диск: уходит в Telegram документом, в журнал — только имя и размер.
@@ -7,6 +8,7 @@
 // TG_API — адрес Telegram Bot API (по умолчанию https://api.telegram.org); для локальной проверки подставляется тестовый получатель.
 import { createServer } from "node:http";
 import { appendFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 
 const PORT = Number(process.env.PORT || 8787);
 const { TG_TOKEN = "", TG_CHAT = "" } = process.env;
@@ -90,7 +92,8 @@ async function telegram(data, files) {
   } catch { return out; }
 }
 
-createServer((req, res) => {
+/** Обработчик POST /lead — его же подключает общий сервер deploy/server.mjs (Windows). */
+export function leadHandler(req, res) {
   if (req.method !== "POST" || !req.url?.startsWith("/lead")) { res.writeHead(404).end(); return; }
   const back = backOf(req);
   const type = req.headers["content-type"] || "";
@@ -137,4 +140,9 @@ createServer((req, res) => {
     }
     res.writeHead(303, { Location: "/spasibo.html" }).end();
   });
-}).listen(PORT, "127.0.0.1", () => console.log(`proba form endpoint on 127.0.0.1:${PORT}`));
+}
+
+// Запуск отдельным приёмником (за nginx): node deploy/form-endpoint.mjs
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  createServer(leadHandler).listen(PORT, "127.0.0.1", () => console.log(`proba form endpoint on 127.0.0.1:${PORT}`));
+}

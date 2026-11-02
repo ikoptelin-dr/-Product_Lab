@@ -1,0 +1,211 @@
+﻿# Управление сервером Proba Lab на Windows. Запускается из .bat-файлов в этой же папке.
+#   ustanovka — разблокировать файлы, открыть порты 80/443, отключить сон, включить автозапуск (2 задачи планировщика), запустить
+#   proverka  — проверить всё по шагам и показать, что не так
+#   start / stop — запустить / остановить сайт
+#   udalit    — остановить и убрать автозапуск и правила брандмауэра
+# Задачи планировщика работают от SYSTEM и стартуют при включении компьютера, даже без входа в Windows.
+param([string]$Action = "proverka")
+
+$ErrorActionPreference = "Stop"
+$Dir = Split-Path -Parent $PSCommandPath
+$Tasks = @(
+  @{ Name = "Proba - sajt";  File = "sluzhba-sajt.bat" },
+  @{ Name = "Proba - caddy"; File = "sluzhba-caddy.bat" }
+)
+$Domain = "proba-lab.ru"
+try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 } catch {}
+
+function Ok($t)   { Write-Host "  [OK] $t" -ForegroundColor Green }
+function Warn($t) { Write-Host "  [!!] $t" -ForegroundColor Yellow }
+function Bad($t)  { Write-Host "  [XX] $t" -ForegroundColor Red }
+function Step($t) { Write-Host ""; Write-Host $t -ForegroundColor Cyan }
+function Finish {
+  Write-Host ""
+  Read-Host "Нажмите Enter, чтобы закрыть окно" | Out-Null
+  exit
+}
+
+# Всё делается с правами администратора: если их нет — перезапускаемся с запросом прав
+$me = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+if (-not $me.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+  try {
+    Start-Process powershell.exe -Verb RunAs -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "`"$PSCommandPath`"", $Action)
+  } catch {
+    Write-Host "Нужны права администратора: запустите файл ещё раз и в окне Windows нажмите «Да»." -ForegroundColor Yellow
+    Read-Host "Нажмите Enter, чтобы закрыть окно" | Out-Null
+  }
+  exit
+}
+
+function Find-Node {
+  $p = Join-Path $env:ProgramFiles "nodejs\node.exe"
+  if (Test-Path $p) { return $p }
+  $c = Get-Command node.exe -ErrorAction SilentlyContinue
+  if ($c) { return $c.Source }
+  return $null
+}
+function Find-Caddy {
+  $c = Get-ChildItem -Path $Dir -Filter "caddy*.exe" -File -ErrorAction SilentlyContinue | Select-Object -First 1
+  if ($c) { return $c.FullName }
+  return $null
+}
+function Read-Settings {
+  $s = @{}
+  $f = Join-Path $Dir "nastrojki.txt"
+  if (Test-Path $f) {
+    foreach ($line in Get-Content -Path $f -Encoding UTF8) {
+      $l = $line.Trim()
+      if ($l -eq "" -or $l.StartsWith("#")) { continue }
+      $i = $l.IndexOf("=")
+      if ($i -gt 0) { $s[$l.Substring(0, $i).Trim()] = $l.Substring($i + 1).Trim().Trim('"').Trim("'") }
+    }
+  }
+  return $s
+}
+
+function Stop-Site {
+  foreach ($t in $Tasks) { Stop-ScheduledTask -TaskName $t.Name -ErrorAction SilentlyContinue }
+  # Задача останавливает только cmd.exe, поэтому закрываем и node.exe / caddy.exe, запущенные из этой папки
+  # (только эти программы: открытый Блокнот с nastrojki.txt не трогаем)
+  $needle = $Dir.ToLower()
+  $procs = Get-CimInstance Win32_Process | Where-Object {
+    $cl = if ($_.CommandLine) { $_.CommandLine.ToLower() } else { "" }
+    $cl.Contains($needle) -and $_.ProcessId -ne $PID -and (
+      $_.Name -eq "node.exe" -or $_.Name -like "caddy*.exe" -or ($_.Name -eq "cmd.exe" -and $cl.Contains("sluzhba-")))
+  }
+  foreach ($p in ($procs | Sort-Object { if ($_.Name -eq "cmd.exe") { 0 } else { 1 } })) {
+    Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue
+  }
+}
+
+function Start-Site {
+  foreach ($t in $Tasks) { Start-ScheduledTask -TaskName $t.Name }
+}
+
+function Install {
+  Step "1. Проверяю, что всё на месте"
+  if ($Dir.Contains(" ") -or ($Dir -match "[^\x00-\x7F]")) { Bad "Папка $Dir — в пути есть пробел или русские буквы. Перенесите папку в C:\proba и запустите снова."; Finish }
+  $node = Find-Node
+  if (-not $node) { Bad "Не найден Node.js. Установите его (шаг 2 инструкции) и запустите снова."; Finish }
+  Ok "Node.js: $node"
+  $caddy = Find-Caddy
+  if (-not $caddy) { Bad "В папке $Dir нет файла caddy...exe. Скачайте Caddy (шаг 3 инструкции) и положите в эту папку."; Finish }
+  Ok "Caddy: $caddy"
+  if (-not (Test-Path (Join-Path $Dir "site\index.html"))) { Bad "Нет папки site с сайтом внутри $Dir."; Finish }
+  Ok "Сайт: $Dir\site"
+
+  Step "2. Снимаю отметку «скачано из интернета» с файлов"
+  Get-ChildItem -Path $Dir -Recurse -File | Unblock-File -ErrorAction SilentlyContinue
+  Ok "Готово"
+
+  Step "3. Открываю порты 80 и 443 в брандмауэре Windows"
+  foreach ($port in 80, 443) {
+    $name = "Proba - port $port"
+    if (-not (Get-NetFirewallRule -DisplayName $name -ErrorAction SilentlyContinue)) {
+      New-NetFirewallRule -DisplayName $name -Direction Inbound -Protocol TCP -LocalPort $port -Action Allow | Out-Null
+    }
+    Ok "Порт $port открыт"
+  }
+
+  Step "4. Запрещаю компьютеру засыпать (при работе от сети)"
+  powercfg /change standby-timeout-ac 0 | Out-Null
+  powercfg /change hibernate-timeout-ac 0 | Out-Null
+  Ok "Сон и гибернация отключены"
+
+  Step "5. Включаю автозапуск сайта при включении компьютера"
+  Stop-Site
+  $settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit ([TimeSpan]::Zero) -RestartCount 999 -RestartInterval (New-TimeSpan -Minutes 1) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
+  $principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+  $trigger = New-ScheduledTaskTrigger -AtStartup
+  foreach ($t in $Tasks) {
+    $bat = Join-Path $Dir $t.File
+    $action = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c `"$bat`"" -WorkingDirectory $Dir
+    Register-ScheduledTask -TaskName $t.Name -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Force | Out-Null
+    Ok "Задача «$($t.Name)» создана"
+  }
+
+  Step "6. Запускаю сайт"
+  Start-Site
+  Start-Sleep -Seconds 5
+  Ok "Запущено. Дальше — проверка."
+  Check
+}
+
+function Check {
+  Step "Проверка сервера Proba Lab (папка $Dir)"
+
+  try {
+    $net = Get-NetIPConfiguration | Where-Object { $_.IPv4DefaultGateway -and $_.NetAdapter.Status -eq "Up" } | Select-Object -First 1
+    if ($net) { Ok "Адрес этого компьютера в домашней сети: $($net.IPv4Address[0].IPAddress)   Адрес роутера: $($net.IPv4DefaultGateway[0].NextHop)" }
+  } catch {}
+
+  $node = Find-Node
+  if ($node) {
+    $v = (& $node --version) 2>$null
+    if ($v -match "^v(\d+)" -and [int]$Matches[1] -ge 18) { Ok "Node.js установлен: $v" } else { Bad "Node.js слишком старый ($v): нужна версия 18 или новее (LTS с nodejs.org)" }
+  } else { Bad "Node.js не установлен — шаг 2 инструкции" }
+
+  $caddy = Find-Caddy
+  if ($caddy) { Ok "Caddy на месте: $(Split-Path -Leaf $caddy)" } else { Bad "В папке нет caddy...exe — шаг 3 инструкции" }
+
+  if (Test-Path (Join-Path $Dir "site\index.html")) { Ok "Папка site с сайтом на месте" } else { Bad "Нет папки site с сайтом" }
+
+  $s = Read-Settings
+  if ($s["TG_TOKEN"] -and $s["TG_CHAT"]) {
+    try {
+      $r = Invoke-RestMethod -Uri ("https://api.telegram.org/bot" + $s["TG_TOKEN"] + "/getMe") -TimeoutSec 15
+      if ($r.ok) { Ok "Telegram-бот работает: @$($r.result.username)" } else { Bad "Telegram не принял токен — проверьте TG_TOKEN в nastrojki.txt" }
+    } catch { Warn "Не удалось проверить Telegram-бота (нет интернета или неверный TG_TOKEN в nastrojki.txt)" }
+  } else { Warn "Telegram не настроен (nastrojki.txt): заявки будут только в папке zayavki" }
+
+  foreach ($t in $Tasks) {
+    $task = Get-ScheduledTask -TaskName $t.Name -ErrorAction SilentlyContinue
+    if (-not $task) { Warn "Автозапуск «$($t.Name)» не включён — запустите 2-VKLYUCHIT-AVTOZAPUSK.bat" }
+    elseif ($task.State -eq "Running") { Ok "«$($t.Name)» работает" }
+    else { Bad "«$($t.Name)» не работает (состояние: $($task.State)) — смотрите файл в папке logs" }
+  }
+
+  try {
+    $r = Invoke-WebRequest -Uri "http://127.0.0.1:8080/" -UseBasicParsing -TimeoutSec 10
+    if ($r.StatusCode -eq 200) { Ok "Сайт открывается на этом компьютере: http://localhost:8080" }
+  } catch { Bad "Сайт не отвечает на http://localhost:8080 — смотрите logs\sajt.log" }
+
+  foreach ($port in 80, 443) {
+    $c = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
+    if (-not $c) { Bad "Порт $port никто не слушает — Caddy не запущен, смотрите logs\caddy.log" ; continue }
+    $p = Get-Process -Id $c.OwningProcess -ErrorAction SilentlyContinue
+    if ($p -and $p.ProcessName -like "caddy*") { Ok "Порт $port слушает Caddy" }
+    else { Bad "Порт $port занят другой программой: $($p.ProcessName). Её нужно отключить (часто это IIS или Skype)" }
+  }
+
+  $ip = $null
+  try { $ip = (Invoke-RestMethod -Uri "https://api.ipify.org" -TimeoutSec 15).ToString().Trim() } catch {}
+  if ($ip) { Ok "Внешний IP этого подключения: $ip  (сравните с IP в настройках роутера — шаг 6 инструкции)" } else { Warn "Не удалось узнать внешний IP (нет интернета?)" }
+
+  try {
+    $dns = @(Resolve-DnsName -Name $Domain -Type A -Server 8.8.8.8 -DnsOnly -ErrorAction Stop | Where-Object { $_.Type -eq "A" } | ForEach-Object { $_.IPAddress })
+    if ($dns.Count -eq 0) { Warn "У $Domain нет A-записи — шаг 7 инструкции" }
+    elseif ($ip -and ($dns -contains $ip) -and $dns.Count -eq 1) { Ok "$Domain указывает на этот сервер ($ip)" }
+    elseif ($ip -and ($dns -contains $ip)) { Warn "$Domain указывает на несколько адресов: $($dns -join ', '). Оставьте у регистратора только $ip" }
+    else { Bad "$Domain указывает на $($dns -join ', '), а не на $ip — исправьте A-запись у регистратора (шаг 7)" }
+  } catch { Warn "Не удалось проверить DNS для $Domain (домен ещё не настроен или нет интернета)" }
+
+  Write-Host ""
+  Write-Host "Главная проверка — с телефона через мобильный интернет (Wi-Fi выключить): откройте https://$Domain" -ForegroundColor Cyan
+  Write-Host "Журналы: $Dir\logs   Заявки: $Dir\zayavki"
+}
+
+switch ($Action) {
+  "ustanovka" { Install }
+  "proverka"  { Check }
+  "start"     { Start-Site; Start-Sleep -Seconds 5; Ok "Сайт запущен"; Check }
+  "stop"      { Stop-Site; Ok "Сайт остановлен" }
+  "udalit"    {
+    Stop-Site
+    foreach ($t in $Tasks) { Unregister-ScheduledTask -TaskName $t.Name -Confirm:$false -ErrorAction SilentlyContinue }
+    foreach ($port in 80, 443) { Remove-NetFirewallRule -DisplayName "Proba - port $port" -ErrorAction SilentlyContinue }
+    Ok "Автозапуск и правила брандмауэра удалены. Файлы в папке не тронуты."
+  }
+  default { Bad "Неизвестная команда: $Action" }
+}
+Finish

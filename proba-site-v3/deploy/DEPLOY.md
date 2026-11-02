@@ -1,5 +1,7 @@
 # Выкладка на тестовый сервер
 
+> **Windows:** сервер `deploy/server.mjs` (сайт + заявки в одном процессе) + Caddy для HTTPS, файлы — `deploy/windows/`. Пакет `PROBA-SERVER.zip` собирает `scripts/windows-package.sh`; инструкция для владельца — `INSTRUKCIYA-WINDOWS-SERVER.md` в корне репозитория. Ниже — вариант для Linux с nginx.
+
 > **Для владельца:** пошаговая инструкция простым языком — `INSTRUKCIYA-DOMASHNIJ-SERVER.md`.
 >
 > **В репозитории лежит боевая сборка `dist`** (с 29.10.2026):
