@@ -31,7 +31,8 @@ function loadMetrika() {
   document.head.append(sc);
   ym(id, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
   // Параметры визита: раздел сайта (документы, маркетинг, блог…) — для сегментов в отчётах
-  ym(id, "params", { section: location.pathname.split("/").filter(Boolean)[0]?.replace(/\.html$/, "") || "home" });
+  const first = location.pathname.split("/").filter(Boolean)[0]?.replace(/\.html$/, "");
+  ym(id, "params", { section: !first || first === "index" ? "home" : first });
 }
 
 /* ---------------- Продуктовая аналитика: события для Метрики ---------------- */
