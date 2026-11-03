@@ -165,7 +165,12 @@ function Check {
     try {
       $r = Invoke-RestMethod -Uri ("https://api.telegram.org/bot" + $s["TG_TOKEN"] + "/getMe") -TimeoutSec 15
       if ($r.ok) { Ok "Telegram-бот работает: @$($r.result.username)" } else { Bad "Telegram не принял токен — проверьте TG_TOKEN в nastrojki.txt" }
-    } catch { Warn "Не удалось проверить Telegram-бота (нет интернета или неверный TG_TOKEN в nastrojki.txt)" }
+    } catch {
+      $code = $null
+      try { $code = [int]$_.Exception.Response.StatusCode } catch {}
+      if ($code -eq 401 -or $code -eq 404) { Bad "Telegram не принял токен — проверьте TG_TOKEN в nastrojki.txt (без пробелов и кавычек)" }
+      else { Bad "api.telegram.org не открывается с этого компьютера — похоже на блокировку Telegram у провайдера. Заявки сохраняются в папке zayavki" }
+    }
   } else { Warn "Telegram не настроен (nastrojki.txt): заявки будут только в папке zayavki" }
 
   foreach ($t in $Tasks) {
@@ -190,14 +195,14 @@ function Check {
 
   $ip = $null
   try { $ip = (Invoke-RestMethod -Uri "https://api.ipify.org" -TimeoutSec 15).ToString().Trim() } catch {}
-  if ($ip) { Ok "Внешний IP этого подключения: $ip  (сравните с IP в настройках роутера — шаг 6 инструкции)" } else { Warn "Не удалось узнать внешний IP (нет интернета?)" }
+  if ($ip) { Ok "Внешний IP этого подключения: $ip  (сравните с IP в настройках роутера — шаг 0 инструкции)" } else { Warn "Не удалось узнать внешний IP (нет интернета?)" }
 
   try {
     $dns = @(Resolve-DnsName -Name $Domain -Type A -Server 8.8.8.8 -DnsOnly -ErrorAction Stop | Where-Object { $_.Type -eq "A" } | ForEach-Object { $_.IPAddress })
-    if ($dns.Count -eq 0) { Warn "У $Domain нет A-записи — шаг 7 инструкции" }
+    if ($dns.Count -eq 0) { Warn "У $Domain нет A-записи — шаг 9 инструкции" }
     elseif ($ip -and ($dns -contains $ip) -and $dns.Count -eq 1) { Ok "$Domain указывает на этот сервер ($ip)" }
     elseif ($ip -and ($dns -contains $ip)) { Warn "$Domain указывает на несколько адресов: $($dns -join ', '). Оставьте у регистратора только $ip" }
-    else { Bad "$Domain указывает на $($dns -join ', '), а не на $ip — исправьте A-запись у регистратора (шаг 7)" }
+    else { Bad "$Domain указывает на $($dns -join ', '), а не на $ip — исправьте A-запись у регистратора (шаг 9)" }
   } catch { Warn "Не удалось проверить DNS для $Domain (домен ещё не настроен или нет интернета)" }
 
   Write-Host ""
