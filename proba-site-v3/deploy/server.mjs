@@ -97,7 +97,8 @@ createServer((req, res) => {
 }).listen(PORT, "127.0.0.1", () => {
   console.log(`[${new Date().toLocaleString("ru-RU")}] Сайт работает: http://localhost:${PORT}  (папка сайта: ${SITE})`);
   const ways = [process.env.TG_TOKEN && process.env.TG_CHAT && "Telegram", process.env.SMTP_USER && process.env.SMTP_PASS && `почта ${process.env.MAIL_TO || process.env.SMTP_USER}`].filter(Boolean);
-  console.log(ways.length ? `Заявки: ${ways.join(" + ")}; копия — ${process.env.LEAD_LOG}` : `Telegram и почта не настроены (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
+  const copy = process.env.LEAD_LOG.toLowerCase() === "off" ? "на сервере не хранятся" : `копия — ${process.env.LEAD_LOG}`;
+  console.log(ways.length ? `Заявки: ${ways.join(" + ")}; ${copy}` : `Telegram и почта не настроены (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
 }).on("error", (e) => {
   console.error(e.code === "EADDRINUSE" ? `Порт ${PORT} занят: сайт уже запущен или порт занят другой программой.` : e.message);
   process.exit(1);

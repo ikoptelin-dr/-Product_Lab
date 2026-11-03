@@ -14,7 +14,9 @@ import { pathToFileURL } from "node:url";
 const PORT = Number(process.env.PORT || 8787);
 const { TG_TOKEN = "", TG_CHAT = "" } = process.env;
 const TG_API = (process.env.TG_API || "https://api.telegram.org").replace(/\/+$/, "");
+// LEAD_LOG=off — заявки не хранятся на сервере, только пересылаются (Telegram / почта)
 const LOG = process.env.LEAD_LOG || "/var/log/proba-leads.jsonl";
+const NO_LOG = LOG.toLowerCase() === "off";
 const MAX = 64 * 1024; // заявка без файла
 const MAX_FILE = 5 * 1024 * 1024; // файл состава (такой же предел проверяет форма в браузере)
 const MAX_MULTIPART = MAX_FILE + MAX;
@@ -190,7 +192,7 @@ export function leadHandler(req, res) {
     const id = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
     const lead = { id, at: new Date().toISOString(), ...data, ...(files.length ? { files: files.map((f) => `${f.filename} (${f.data.length} байт)`) } : {}) };
     let logged = false;
-    try { appendFileSync(LOG, JSON.stringify(lead) + "\n"); logged = true; } catch (e) { console.error("журнал заявок:", e.message); }
+    if (!NO_LOG) try { appendFileSync(LOG, JSON.stringify(lead) + "\n"); logged = true; } catch (e) { console.error("журнал заявок:", e.message); }
     const [tg, mailed] = await Promise.all([telegram(data, files), email(data, files)]);
     // Доставлено, если дошло хотя бы одним способом: Telegram или письмо (файлы в письме — вложением)
     const sent = { text: tg.text || mailed, files: tg.files || mailed };
