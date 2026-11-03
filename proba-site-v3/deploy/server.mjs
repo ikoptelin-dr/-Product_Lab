@@ -24,6 +24,8 @@ const found = process.env.SITE_DIR || [join(HERE, "site"), join(HERE, "..", "dis
 if (!found) { console.error(`Не найдена папка сайта: положите содержимое dist в ${join(HERE, "site")}`); process.exit(1); }
 const SITE = resolve(found);
 const PORT = Number(process.env.SITE_PORT || 8080);
+// SITE_HOST=0.0.0.0 — принимать запросы не только с этого компьютера (нужно, если Caddy работает в Docker)
+const HOST = process.env.SITE_HOST || "127.0.0.1";
 if (!process.env.LEAD_LOG) {
   mkdirSync(join(HERE, "zayavki"), { recursive: true });
   process.env.LEAD_LOG = join(HERE, "zayavki", "zayavki.jsonl");
@@ -94,7 +96,7 @@ createServer((req, res) => {
     return send(req, res, 200, join(base, "index.html"), cache);
   }
   notFound(req, res);
-}).listen(PORT, "127.0.0.1", () => {
+}).listen(PORT, HOST, () => {
   console.log(`[${new Date().toLocaleString("ru-RU")}] Сайт работает: http://localhost:${PORT}  (папка сайта: ${SITE})`);
   const ways = [process.env.TG_TOKEN && process.env.TG_CHAT && "Telegram", process.env.SMTP_USER && process.env.SMTP_PASS && `почта ${process.env.MAIL_TO || process.env.SMTP_USER}`].filter(Boolean);
   const copy = process.env.LEAD_LOG.toLowerCase() === "off" ? "на сервере не хранятся" : `копия — ${process.env.LEAD_LOG}`;
