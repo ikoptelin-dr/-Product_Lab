@@ -89,7 +89,7 @@ function Start-Site {
 
 function Install {
   Step "1. Проверяю, что всё на месте"
-  if ($Dir.Contains(" ") -or ($Dir -match "[^\x00-\x7F]")) { Bad "Папка $Dir — в пути есть пробел или русские буквы. Перенесите папку в C:\proba и запустите снова."; Finish }
+  if ($Dir.Contains(" ") -or ($Dir -match "[^\x00-\x7F]")) { Bad "Папка $Dir — в пути есть пробел или русские буквы. Перенесите папку в D:\proba (или C:\proba) и запустите снова."; Finish }
   $node = Find-Node
   if (-not $node) { Bad "Не найден Node.js. Установите его (шаг 2 инструкции) и запустите снова."; Finish }
   Ok "Node.js: $node"
@@ -101,6 +101,11 @@ function Install {
 
   Step "2. Снимаю отметку «скачано из интернета» с файлов"
   Get-ChildItem -Path $Dir -Recurse -File | Unblock-File -ErrorAction SilentlyContinue
+  # Мусор от копирования через Mac (файлы ._имя) и отметка «скрытый» — убираем
+  Get-ChildItem -Path $Dir -Recurse -Force -Filter "._*" -ErrorAction SilentlyContinue | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
+  foreach ($item in @(Get-Item -Path $Dir -Force) + @(Get-ChildItem -Path $Dir -Recurse -Force -ErrorAction SilentlyContinue)) {
+    if ($item.Attributes -band [IO.FileAttributes]::Hidden) { $item.Attributes = $item.Attributes -bxor [IO.FileAttributes]::Hidden }
+  }
   Ok "Готово"
 
   Step "3. Открываю порты 80 и 443 в брандмауэре Windows"
