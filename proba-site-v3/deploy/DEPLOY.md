@@ -5,7 +5,7 @@
 > **Для владельца:** пошаговая инструкция простым языком — `INSTRUKCIYA-DOMASHNIJ-SERVER.md`.
 >
 > **В репозитории лежит боевая сборка `dist`** (с 29.10.2026):
-> `SITE_URL=https://proba-lab.ru FORM_ENDPOINT=/lead PROD=1 node scripts/build.mjs`.
+> `SITE_URL=https://proba-lab.ru FORM_ENDPOINT=/lead PROD=1 YM_ID=114051584 node scripts/build.mjs` (с ноября 2026 — с Яндекс Метрикой, счётчик 114051584).
 > - `scripts/verify.sh` проверяет формы в режиме прототипа (без приёмника), поэтому на боевой сборке его группа «Формы» не проходит — так и задумано.
 > - Для полного прогона `verify.sh` соберите сайт без переменных, проверьте, затем снова соберите боевую.
 > - Приём заявок боевой сборки проверяется стендом `site-audit/stage-4/scripts/form-test.mjs`: 25 сценариев, приёмник + тестовый получатель вместо Telegram.

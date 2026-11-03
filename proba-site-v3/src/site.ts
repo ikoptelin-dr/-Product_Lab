@@ -27,7 +27,7 @@ function loadMetrika() {
   w.ym = ym;
   const sc = document.createElement("script");
   sc.async = true;
-  sc.src = "https://mc.yandex.ru/metrika/tag.js";
+  sc.src = `https://mc.yandex.ru/metrika/tag.js?id=${id}`;
   document.head.append(sc);
   ym(id, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
   // Параметры визита: раздел сайта (документы, маркетинг, блог…) — для сегментов в отчётах
