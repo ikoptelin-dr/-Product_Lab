@@ -27,8 +27,11 @@ const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
 const { SMTP_USER = "", SMTP_PASS = "" } = process.env;
 const MAIL_TO = (process.env.MAIL_TO || SMTP_USER).split(",").map((a) => a.trim()).filter(Boolean);
 const MAIL_TIMEOUT = 20_000;
+// CRM Битрикс24: адрес входящего вебхука с правом «CRM» (https://ваш-портал.bitrix24.ru/rest/1/ключ/). В нём ключ — не публиковать.
+const B24 = (process.env.B24_WEBHOOK || "").trim().replace(/\/+$/, "");
+const B24_TIMEOUT = 10_000;
 
-const LABELS = { form: "Форма", page: "Страница", task: "Задача", contact: "Контакт", productUrl: "Ссылка", url: "Ссылка", about: "О проекте", process: "Процесс", company: "Компания", product: "Продукт", composition: "Состав", need: "Что нужно", category: "Категория", comment: "Комментарий", deadline: "Срок", term: "Срок", production: "Производство", channels: "Каналы продаж", details: "О задаче", needs: "Что может понадобиться", hasSite: "Сайт есть", what: "Что делает", where: "Где ведут заявки" };
+const LABELS = { form: "Форма", page: "Страница", task: "Задача", contact: "Контакт", productUrl: "Ссылка", url: "Ссылка", about: "О проекте", process: "Процесс", company: "Компания", product: "Продукт", composition: "Состав", need: "Что нужно", category: "Категория", comment: "Комментарий", deadline: "Срок", term: "Срок", production: "Производство", channels: "Каналы продаж", details: "О задаче", needs: "Что может понадобиться", hasSite: "Сайт есть", what: "Что делает", where: "Где ведут заявки", utm_source: "UTM source", utm_medium: "UTM medium", utm_campaign: "UTM campaign", utm_content: "UTM content", utm_term: "UTM term", ref: "Пришёл с сайта", landing: "Страница входа" };
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 /** Страница ответа в стиле сайта (assets/site.css), всегда в UTF-8. */
@@ -138,6 +141,30 @@ async function email(data, files) {
   } catch (e) { console.error("почта:", e.message); return false; }
 }
 
+/** Лид в Битрикс24 (crm.lead.add): true — лид создан. Контакт раскладывается в email, телефон или мессенджер. */
+async function bitrix(data) {
+  if (!/^https:\/\/[^/]+\/rest\/\d+\/[^/]+$/.test(B24)) return false;
+  const c = String(data.contact ?? "").trim();
+  const fields = {
+    TITLE: `Заявка с сайта: ${LABELS[data.form] ?? data.form ?? "форма"} — ${c}`.slice(0, 250),
+    SOURCE_ID: "WEB",
+    SOURCE_DESCRIPTION: `proba-lab.ru${String(data.page ?? "")}`.slice(0, 250),
+    OPENED: "Y",
+    COMMENTS: Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 2000)}`).join("\n"),
+  };
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)) fields.EMAIL = [{ VALUE: c, VALUE_TYPE: "WORK" }];
+  else if (c.replace(/\D/g, "").length >= 10 && !c.startsWith("@")) fields.PHONE = [{ VALUE: c, VALUE_TYPE: "WORK" }];
+  else fields.IM = [{ VALUE: c, VALUE_TYPE: "TELEGRAM" }];
+  if (data.company) fields.COMPANY_TITLE = String(data.company).slice(0, 250);
+  for (const k of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) if (data[k]) fields[k.toUpperCase()] = String(data[k]).slice(0, 250);
+  try {
+    const r = await fetch(`${B24}/crm.lead.add.json`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ fields }), signal: AbortSignal.timeout(B24_TIMEOUT) });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.result) return true;
+    console.error("Битрикс24:", r.status, j.error_description || j.error || "лид не создан");
+    return false;
+  } catch (e) { console.error("Битрикс24:", e.message); return false; }
+}
 /** Отправка в Telegram: { text } — дошёл ли текст заявки, { files } — дошли ли все файлы. */
 async function telegram(data, files) {
   const out = { text: false, files: files.length === 0 };
@@ -193,14 +220,15 @@ export function leadHandler(req, res) {
     const lead = { id, at: new Date().toISOString(), ...data, ...(files.length ? { files: files.map((f) => `${f.filename} (${f.data.length} байт)`) } : {}) };
     let logged = false;
     if (!NO_LOG) try { appendFileSync(LOG, JSON.stringify(lead) + "\n"); logged = true; } catch (e) { console.error("журнал заявок:", e.message); }
-    const [tg, mailed] = await Promise.all([telegram(data, files), email(data, files)]);
-    // Доставлено, если дошло хотя бы одним способом: Telegram или письмо (файлы в письме — вложением)
-    const sent = { text: tg.text || mailed, files: tg.files || mailed };
+    const [tg, mailed, inCrm] = await Promise.all([telegram(data, files), email(data, files), bitrix(data)]);
+    // Доставлено, если дошло хотя бы одним способом: Telegram, письмо (файлы — вложением) или лид в CRM (без файлов)
+    const sent = { text: tg.text || mailed || inCrm, files: tg.files || mailed };
     if (TG_TOKEN && TG_CHAT && !tg.text) console.error("Telegram: заявка не доставлена", logged ? "(сохранена в журнале)" : "");
     if (SMTP_USER && SMTP_PASS && !mailed) console.error("почта: заявка не доставлена", logged ? "(сохранена в журнале)" : "");
+    if (B24 && !inCrm) console.error("Битрикс24: лид не создан", logged ? "(заявка сохранена в журнале)" : "");
     if (files.length && !sent.files) console.error(`заявка ${id}: файл не доставлен (${files.map((f) => f.filename).join(", ")}) — запросить у клиента`);
     // Вторая строка журнала — итог доставки: оператор видит, по каким заявкам Telegram или файл не дошли
-    if (logged) try { appendFileSync(LOG, JSON.stringify({ status: "delivery", ref: id, at: new Date().toISOString(), telegram: tg.text, email: mailed, filesDelivered: files.length ? sent.files : null }) + "\n"); } catch {}
+    if (logged) try { appendFileSync(LOG, JSON.stringify({ status: "delivery", ref: id, at: new Date().toISOString(), telegram: tg.text, email: mailed, crm: inCrm, filesDelivered: files.length ? sent.files : null }) + "\n"); } catch {}
     // Заявка не сохранилась нигде — не выдаём это за успешную отправку (текст в Telegram или запись в журнале — уже сохранена)
     if (!logged && !sent.text) { reply(res, 502, "Заявка не отправлена", "Не получилось сохранить заявку. Попробуйте ещё раз через минуту или свяжитесь с нами по телефону или почте.", back); return; }
     // Заявка сохранена, но файл не доставлен (Telegram недоступен или не настроен; на диск файлы не пишутся):

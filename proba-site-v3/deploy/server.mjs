@@ -98,7 +98,7 @@ createServer((req, res) => {
   notFound(req, res);
 }).listen(PORT, HOST, () => {
   console.log(`[${new Date().toLocaleString("ru-RU")}] Сайт работает: http://localhost:${PORT}  (папка сайта: ${SITE})`);
-  const ways = [process.env.TG_TOKEN && process.env.TG_CHAT && "Telegram", process.env.SMTP_USER && process.env.SMTP_PASS && `почта ${process.env.MAIL_TO || process.env.SMTP_USER}`].filter(Boolean);
+  const ways = [process.env.TG_TOKEN && process.env.TG_CHAT && "Telegram", process.env.SMTP_USER && process.env.SMTP_PASS && `почта ${process.env.MAIL_TO || process.env.SMTP_USER}`, process.env.B24_WEBHOOK && "Битрикс24"].filter(Boolean);
   const copy = process.env.LEAD_LOG.toLowerCase() === "off" ? "на сервере не хранятся" : `копия — ${process.env.LEAD_LOG}`;
   console.log(ways.length ? `Заявки: ${ways.join(" + ")}; ${copy}` : `Telegram и почта не настроены (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
 }).on("error", (e) => {

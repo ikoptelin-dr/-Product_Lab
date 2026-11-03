@@ -30,11 +30,59 @@ function loadMetrika() {
   sc.src = "https://mc.yandex.ru/metrika/tag.js";
   document.head.append(sc);
   ym(id, "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
+  // Параметры визита: раздел сайта (документы, маркетинг, блог…) — для сегментов в отчётах
+  ym(id, "params", { section: location.pathname.split("/").filter(Boolean)[0]?.replace(/\.html$/, "") || "home" });
 }
-function goal(name: string) {
+
+/* ---------------- Продуктовая аналитика: события для Метрики ---------------- */
+// Работают только после согласия на cookie (без счётчика goal() ничего не делает). Персональные данные не передаются:
+// только тип формы, имена полей с ошибками, текст кнопки, адрес ссылки.
+const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
+/** Источник визита для заявки: UTM-метки и сайт-источник текущей страницы. Без хранилища браузера —
+ *  путь посетителя по страницам и источник визита видны в Метрике (отчёты по целям). */
+function visitSource(): Record<string, string> {
+  const src: Record<string, string> = {};
+  const q = new URLSearchParams(location.search);
+  for (const k of UTM_FIELDS) { const v = q.get(k); if (v) src[k] = v.slice(0, 200); }
+  try { const r = new URL(document.referrer); if (r.host && r.host !== location.host) src.ref = r.host; } catch { /* прямой заход или переход внутри сайта */ }
+  return src;
+}
+function analytics() {
+  const once = new Set<string>();
+  const first = (key: string, name: string, params?: Record<string, unknown>) => { if (!once.has(key)) { once.add(key); goal(name, params); } };
+  document.addEventListener("click", (e) => {
+    const el = (e.target as HTMLElement).closest<HTMLElement>("a, button");
+    if (!el) return;
+    const href = el.getAttribute("href") || "";
+    if (href.startsWith("mailto:")) return goal("contact_click", { type: "email" });
+    if (href.startsWith("tel:")) return goal("contact_click", { type: "phone" });
+    if (/^https?:\/\/(t\.me|max\.ru|wa\.me)\//.test(href)) return goal("contact_click", { type: "messenger" });
+    if (el.matches("[data-reel-toggle]")) return first("reel", "reel_play");
+    if (el.matches(".btn, [data-need]")) goal("cta_click", { label: (el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 60), href: href || null, page: location.pathname });
+  });
+  document.addEventListener("focusin", (e) => {
+    const form = (e.target as HTMLElement).closest<HTMLFormElement>("form[data-form], #quiz-form, #sku-calc");
+    if (!form) return;
+    const kind = form.dataset.form || form.id;
+    first(`start-${kind}`, kind === "quiz-form" ? "quiz_start" : kind === "sku-calc" ? "calc_start" : "form_start", { form: kind });
+  });
+  document.addEventListener("change", (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.type === "file" && t.files?.length) goal("file_attach", { form: t.form?.dataset.form });
+  });
+  const depth = () => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    if (h <= 0) return;
+    const pct = (scrollY / h) * 100;
+    if (pct >= 50) first("s50", "scroll_50");
+    if (pct >= 90) first("s90", "scroll_90", { page: location.pathname });
+  };
+  addEventListener("scroll", depth, { passive: true });
+}
+function goal(name: string, params?: Record<string, unknown>) {
   const w = window as unknown as { ym?: Ym };
   const id = Number(ymId());
-  if (id && w.ym) w.ym(id, "reachGoal", name);
+  if (id && w.ym) w.ym(id, "reachGoal", name, params);
 }
 function cookieBar() {
   if (!ymId()) return;
@@ -243,6 +291,7 @@ function quiz() {
     status.className = "form-status";
     const r = quizResult({ type: a.type, cosmGroup: a.cosmGroup, production: a.production, channels: a.channels });
     out.dataset.code = r.code;
+    if (out.dataset.goal !== r.code) { out.dataset.goal = r.code; goal("quiz_result", { code: r.code, type: a.type }); }
     out.classList.add("is-filled");
     out.innerHTML = `<p class="quiz-tag">Предварительно</p>
       <h3>Документы</h3><ul class="quiz-list">${r.documents.map(item).join("")}</ul>
@@ -334,6 +383,7 @@ function forms() {
         input.setAttribute("aria-describedby", p.id);
       }
       if (errors.length) {
+        goal("form_error", { form: kind, fields: errors.map((x) => x.name).join(",") });
         status.className = "form-status is-error";
         status.textContent = "Проверьте отмеченные поля.";
         $<HTMLElement>(`[name="${errors[0]!.name}"]`, form)?.focus();
@@ -348,7 +398,7 @@ function forms() {
         return;
       }
       // Обычная отправка формы (без fetch): сервер приёма заявок отвечает переадресацией на spasibo.html
-      for (const [n, v] of [["page", location.pathname], ["form", kind]] as const) {
+      for (const [n, v] of [["page", location.pathname], ["form", kind], ...Object.entries(visitSource())]) {
         const h = document.createElement("input");
         h.type = "hidden"; h.name = n; h.value = v;
         form.append(h);
@@ -570,6 +620,7 @@ function ambientParallax() {
 function init() {
   startAtTop();
   cookieBar();
+  analytics();
   header();
   smoothDetails();
   projectForm();

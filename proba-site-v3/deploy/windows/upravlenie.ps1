@@ -205,6 +205,10 @@ function Check {
     $to = if ($s["MAIL_TO"]) { $s["MAIL_TO"] } else { $s["SMTP_USER"] }
     Ok "Почта настроена: заявки придут на $to (проверить отправку — 4-PROVERIT-POCHTU.bat)"
   } else { Warn "Почта не настроена (SMTP_USER и SMTP_PASS в nastrojki.txt)" }
+  if ($s["B24_WEBHOOK"]) {
+    if ($s["B24_WEBHOOK"] -match '^https://[^/]+/rest/\d+/[^/]+/?$') { Ok "CRM Битрикс24 подключена: заявки станут лидами" }
+    else { Bad "B24_WEBHOOK в nastrojki.txt похож на неверный адрес (нужен вида https://портал.bitrix24.ru/rest/1/ключ/)" }
+  }
   if ($s["TG_TOKEN"] -and $s["TG_CHAT"]) {
     try {
       $r = Invoke-RestMethod -Uri ("https://api.telegram.org/bot" + $s["TG_TOKEN"] + "/getMe") -TimeoutSec 15
