@@ -209,6 +209,26 @@ function Check {
     else { Bad "$Domain указывает на $($dns -join ', '), а не на $ip — исправьте A-запись у регистратора (шаг 9)" }
   } catch { Warn "Не удалось проверить DNS для $Domain (домен ещё не настроен или нет интернета)" }
 
+  # Сертификат HTTPS: что пишет Caddy в журнале
+  $clog = Join-Path $Dir "logs\caddy.log"
+  if (Test-Path $clog) {
+    $tail = @(Get-Content -Path $clog -Tail 400 -Encoding UTF8 -ErrorAction SilentlyContinue)
+    $okLine = $tail | Where-Object { $_ -match "certificate obtained successfully" -and $_ -match [regex]::Escape($Domain) } | Select-Object -Last 1
+    $errLine = $tail | Where-Object { $_ -match '"level":"error"' -and ($_ -match "obtain|acme|challenge|certificate") } | Select-Object -Last 1
+    $okIdx = if ($okLine) { [array]::LastIndexOf($tail, $okLine) } else { -1 }
+    $errIdx = if ($errLine) { [array]::LastIndexOf($tail, $errLine) } else { -1 }
+    if ($okIdx -ge 0 -and $okIdx -gt $errIdx) { Ok "HTTPS-сертификат для $Domain получен" }
+    elseif ($errIdx -ge 0) {
+      $e = $errLine
+      if ($e -match "Timeout during connect|connection refused|Connection reset|firewall") { Bad "Сертификат не получен: из интернета не достучаться до сервера. Проверьте проброс портов 80 и 443 на роутере (шаг 8). Если всё верно — провайдер закрывает входящие порты, позвоните ему" }
+      elseif ($e -match "NXDOMAIN|DNS problem|no valid A records|SERVFAIL") { Bad "Сертификат не получен: домен ещё не указывает на сервер (DNS не обновился). Подождите 1–2 часа (шаг 9)" }
+      elseif ($e -match "rateLimited|too many") { Bad "Сертификат не получен: слишком много попыток. Подождите час — Caddy попробует сам" }
+      elseif ($e -match "unauthorized|Invalid response|404") { Bad "Сертификат не получен: проверку прошёл другой сервер — вероятно, домен ещё указывает на старый адрес или порт 80 проброшен не на этот компьютер" }
+      else { Bad "Сертификат не получен. Последняя ошибка Caddy — пришлите её:" ; Write-Host ("       " + $e.Substring(0, [Math]::Min(400, $e.Length))) }
+      Write-Host "       После исправления запустите OSTANOVIT-SAJT.bat и ZAPUSTIT-SAJT.bat — Caddy сразу попробует снова."
+    } else { Warn "Caddy ещё не пытался получить сертификат (подождите пару минут и запустите проверку снова)" }
+  }
+
   Write-Host ""
   Write-Host "Главная проверка — с телефона через мобильный интернет (Wi-Fi выключить): откройте https://$Domain" -ForegroundColor Cyan
   Write-Host "Журналы: $Dir\logs   Заявки: $Dir\zayavki"
