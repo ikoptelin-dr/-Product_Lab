@@ -13,6 +13,11 @@ $Tasks = @(
   @{ Name = "Proba - caddy"; File = "sluzhba-caddy.bat" }
 )
 $Domain = "proba-lab.ru"
+# Если на компьютере уже работает другой Caddy (например, сайт друга), наш Caddy не нужен:
+# proba-lab.ru добавляется в настройки того Caddy. Признак режима — файл OBSHCHIJ-CADDY.txt в папке.
+$Shared = Test-Path (Join-Path $Dir "OBSHCHIJ-CADDY.txt")
+if ($Shared) { $Tasks = @($Tasks | Where-Object { $_.File -ne "sluzhba-caddy.bat" }) }
+function Is-Own($path) { return ($path -and $path.ToLower().StartsWith($Dir.ToLower())) }
 try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 } catch {}
 
 function Ok($t)   { Write-Host "  [OK] $t" -ForegroundColor Green }
@@ -81,12 +86,45 @@ function Stop-Site {
   foreach ($p in ($procs | Sort-Object { if ($_.Name -eq "cmd.exe") { 0 } else { 1 } })) {
     Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue
   }
-  # Caddy на этом компьютере только наш: закрываем и копии, запущенные вручную из другой папки или окна
-  Get-Process -Name "caddy*" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+  # Наш Caddy, запущенный вручную (путь к файлу — в нашей папке). Чужой Caddy (сайт друга) не трогаем
+  Get-CimInstance Win32_Process -Filter "Name LIKE 'caddy%'" | Where-Object { Is-Own $_.ExecutablePath } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
 }
 
 function Start-Site {
-  foreach ($t in $Tasks) { Start-ScheduledTask -TaskName $t.Name }
+  foreach ($t in $Tasks) {
+    if (Get-ScheduledTask -TaskName $t.Name -ErrorAction SilentlyContinue) { Start-ScheduledTask -TaskName $t.Name }
+    else { Warn "Автозапуск «$($t.Name)» не включён — запустите 2-VKLYUCHIT-AVTOZAPUSK.bat" }
+  }
+}
+
+function Shared-Mode {
+  Step "Подключаю proba-lab.ru к уже работающему Caddy (одна программа на портах 80 и 443)"
+  $t = Get-ScheduledTask -TaskName "Proba - caddy" -ErrorAction SilentlyContinue
+  if ($t) { Stop-ScheduledTask -TaskName "Proba - caddy" -ErrorAction SilentlyContinue; Unregister-ScheduledTask -TaskName "Proba - caddy" -Confirm:$false }
+  Get-CimInstance Win32_Process | Where-Object { $_.Name -eq "cmd.exe" -and $_.CommandLine -and $_.CommandLine.Contains("sluzhba-caddy") } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+  Get-CimInstance Win32_Process -Filter "Name LIKE 'caddy%'" | Where-Object { Is-Own $_.ExecutablePath } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+  Ok "Свой Caddy отключён (сайт и приём заявок продолжают работать)"
+  $text = @"
+Proba Lab: режим «общий Caddy». Пока этот файл лежит в папке, свой Caddy сайта Proba Lab не запускается.
+Порты 80 и 443 обслуживает другой Caddy на этом компьютере. В его Caddyfile нужно добавить два блока ниже
+и перезагрузить его настройки (caddy reload --config путь_к_его_Caddyfile, или перезапустить его службу).
+
+proba-lab.ru {
+	encode zstd gzip
+	request_body {
+		max_size 6MB
+	}
+	reverse_proxy 127.0.0.1:8080
+}
+
+www.proba-lab.ru {
+	redir https://proba-lab.ru{uri} permanent
+}
+
+Вернуть свой Caddy: удалите этот файл и запустите 2-VKLYUCHIT-AVTOZAPUSK.bat (другой Caddy перед этим должен освободить порты 80 и 443).
+"@
+  Set-Content -Path (Join-Path $Dir "OBSHCHIJ-CADDY.txt") -Value $text -Encoding UTF8
+  Ok "Создан файл OBSHCHIJ-CADDY.txt — в нём блоки для Caddyfile второго сайта. Передайте их тому, кто настраивал второй сайт"
 }
 
 function Install {
@@ -188,15 +226,19 @@ function Check {
 
   try {
     $r = Invoke-WebRequest -Uri "http://127.0.0.1:8080/" -UseBasicParsing -TimeoutSec 10
-    if ($r.StatusCode -eq 200) { Ok "Сайт открывается на этом компьютере: http://localhost:8080" }
+    if ($r.StatusCode -eq 200 -and $r.Content -match "Proba Lab") { Ok "Сайт открывается на этом компьютере: http://localhost:8080" }
+    else { Bad "На http://localhost:8080 отвечает не сайт Proba Lab — порт 8080 занят другой программой. Смотрите logs\sajt.log" }
   } catch { Bad "Сайт не отвечает на http://localhost:8080 — смотрите logs\sajt.log" }
 
   foreach ($port in 80, 443) {
     $c = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
     if (-not $c) { Bad "Порт $port никто не слушает — Caddy не запущен, смотрите logs\caddy.log" ; continue }
-    $p = Get-Process -Id $c.OwningProcess -ErrorAction SilentlyContinue
-    if ($p -and $p.ProcessName -like "caddy*") { Ok "Порт $port слушает Caddy" }
-    else { Bad "Порт $port занят другой программой: $($p.ProcessName). Её нужно отключить (часто это IIS или Skype)" }
+    $p = Get-CimInstance Win32_Process -Filter "ProcessId=$($c.OwningProcess)" -ErrorAction SilentlyContinue
+    $path = if ($p) { $p.ExecutablePath } else { "" }
+    if ($p -and $p.Name -like "caddy*" -and (Is-Own $path)) { Ok "Порт $port слушает Caddy сайта Proba Lab" }
+    elseif ($p -and $p.Name -like "caddy*" -and $Shared) { Ok "Порт $port слушает общий Caddy ($path)" }
+    elseif ($p -and $p.Name -like "caddy*") { Bad "Порт $port занимает ДРУГОЙ Caddy: $path (похоже, второй сайт на этом компьютере). Два Caddy одновременно не работают — запустите OBSHCHIJ-CADDY.bat" }
+    else { Bad "Порт $port занят другой программой: $($p.Name) $path. Два веб-сервера на одних портах не работают — спросите того, кто её ставил" }
   }
 
   $ip = $null
@@ -210,6 +252,14 @@ function Check {
     elseif ($ip -and ($dns -contains $ip)) { Warn "$Domain указывает на несколько адресов: $($dns -join ', '). Оставьте у регистратора только $ip" }
     else { Bad "$Domain указывает на $($dns -join ', '), а не на $ip — исправьте A-запись у регистратора (шаг 9)" }
   } catch { Warn "Не удалось проверить DNS для $Domain (домен ещё не настроен или нет интернета)" }
+
+  # HTTPS для proba-lab.ru прямо через этот компьютер (тем Caddy, который слушает порт 443)
+  $curl = Join-Path $env:SystemRoot "System32\curl.exe"
+  if (Test-Path $curl) {
+    $code = (& $curl -s -o NUL -w "%{http_code}" --ssl-no-revoke --max-time 15 --resolve "$($Domain):443:127.0.0.1" "https://$Domain/" 2>$null)
+    if ($code -eq "200") { Ok "HTTPS для $Domain работает: сертификат действителен, открывается сайт" }
+    else { Bad "HTTPS для $Domain на этом компьютере не работает (ответ: $code)" }
+  }
 
   # Сертификат HTTPS: что пишет Caddy в журнале
   $clog = Join-Path $Dir "logs\caddy.log"
@@ -228,8 +278,12 @@ function Check {
     $errIdx = if ($errLine) { [array]::LastIndexOf($tail, $errLine) } else { -1 }
     $dupLine = $tail | Where-Object { $_ -match "2019: bind|address already in use|Only one usage of each socket" } | Select-Object -Last 1
     $dupIdx = if ($dupLine) { [array]::LastIndexOf($tail, $dupLine) } else { -1 }
-    $caddyCount = @(Get-Process -Name "caddy*" -ErrorAction SilentlyContinue).Count
-    if ($caddyCount -gt 1 -or ($dupIdx -ge 0 -and $dupIdx -gt $okIdx -and $dupIdx -ge ($tail.Count - 20))) { Bad "Запущено несколько копий Caddy ($caddyCount) — они мешают друг другу. Запустите OSTANOVIT-SAJT.bat, затем ZAPUSTIT-SAJT.bat (или перезагрузите компьютер). Caddy вручную не запускайте" }
+    $all = @(Get-CimInstance Win32_Process -Filter "Name LIKE 'caddy%'" -ErrorAction SilentlyContinue)
+    $own = @($all | Where-Object { Is-Own $_.ExecutablePath })
+    $foreign = @($all | Where-Object { -not (Is-Own $_.ExecutablePath) })
+    if ($Shared) { Ok "Режим «общий Caddy»: сертификат для $Domain получает другой Caddy — если HTTPS не работает, проверьте, что в его Caddyfile добавлены блоки из OBSHCHIJ-CADDY.txt" }
+    elseif ($foreign.Count -gt 0) { Bad "На компьютере работает другой Caddy ($($foreign[0].ExecutablePath)), он занимает порты — наш не может запуститься. Запустите OBSHCHIJ-CADDY.bat и добавьте блоки из OBSHCHIJ-CADDY.txt в Caddyfile второго сайта" }
+    elseif ($own.Count -gt 1 -or ($dupIdx -ge 0 -and $dupIdx -gt $okIdx -and $dupIdx -ge ($tail.Count - 20))) { Bad "Запущено несколько копий Caddy — они мешают друг другу. Запустите OSTANOVIT-SAJT.bat, затем ZAPUSTIT-SAJT.bat (или перезагрузите компьютер). Caddy вручную не запускайте" }
     elseif ($okIdx -ge 0 -and $okIdx -gt $errIdx) { Ok "HTTPS-сертификат для $Domain получен" }
     elseif ($errIdx -ge 0) {
       $e = $errLine
@@ -255,6 +309,7 @@ switch ($Action) {
   "proverka"  { Check }
   "start"     { Start-Site; Start-Sleep -Seconds 5; Ok "Сайт запущен"; Check }
   "stop"      { Stop-Site; Ok "Сайт остановлен" }
+  "obshchij"  { Shared-Mode; Check }
   "udalit"    {
     Stop-Site
     foreach ($t in $Tasks) { Unregister-ScheduledTask -TaskName $t.Name -Confirm:$false -ErrorAction SilentlyContinue }
