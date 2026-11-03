@@ -9,6 +9,8 @@ set "XDG_CONFIG_HOME=%~dp0dannye"
 set "CADDY="
 for %%f in ("%~dp0caddy*.exe") do set "CADDY=%%~ff"
 if not defined CADDY echo [%date% %time%] caddy.exe not found >> "%~dp0logs\caddy.log"
+rem Another Caddy copy (started by hand or left over) would hold the ports: close it first
+if defined CADDY powershell.exe -NoProfile -Command "Get-Process -Name caddy* -ErrorAction SilentlyContinue | Stop-Process -Force" >nul 2>&1
 if defined CADDY echo [%date% %time%] start >> "%~dp0logs\caddy.log"
 if defined CADDY "%CADDY%" run --config "%~dp0Caddyfile" --adapter caddyfile >> "%~dp0logs\caddy.log" 2>&1
 ping -n 31 127.0.0.1 >nul

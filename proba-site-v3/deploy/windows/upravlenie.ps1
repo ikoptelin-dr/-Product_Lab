@@ -81,6 +81,8 @@ function Stop-Site {
   foreach ($p in ($procs | Sort-Object { if ($_.Name -eq "cmd.exe") { 0 } else { 1 } })) {
     Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue
   }
+  # Caddy на этом компьютере только наш: закрываем и копии, запущенные вручную из другой папки или окна
+  Get-Process -Name "caddy*" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
 }
 
 function Start-Site {
@@ -224,7 +226,11 @@ function Check {
     $errLine = $tail | Where-Object { $_ -match '"level":"error"' -and ($_ -match "obtain|acme|challenge|certificate") } | Select-Object -Last 1
     $okIdx = if ($okLine) { [array]::LastIndexOf($tail, $okLine) } else { -1 }
     $errIdx = if ($errLine) { [array]::LastIndexOf($tail, $errLine) } else { -1 }
-    if ($okIdx -ge 0 -and $okIdx -gt $errIdx) { Ok "HTTPS-сертификат для $Domain получен" }
+    $dupLine = $tail | Where-Object { $_ -match "2019: bind|address already in use|Only one usage of each socket" } | Select-Object -Last 1
+    $dupIdx = if ($dupLine) { [array]::LastIndexOf($tail, $dupLine) } else { -1 }
+    $caddyCount = @(Get-Process -Name "caddy*" -ErrorAction SilentlyContinue).Count
+    if ($caddyCount -gt 1 -or ($dupIdx -ge 0 -and $dupIdx -gt $okIdx -and $dupIdx -ge ($tail.Count - 20))) { Bad "Запущено несколько копий Caddy ($caddyCount) — они мешают друг другу. Запустите OSTANOVIT-SAJT.bat, затем ZAPUSTIT-SAJT.bat (или перезагрузите компьютер). Caddy вручную не запускайте" }
+    elseif ($okIdx -ge 0 -and $okIdx -gt $errIdx) { Ok "HTTPS-сертификат для $Domain получен" }
     elseif ($errIdx -ge 0) {
       $e = $errLine
       if ($e -match "Timeout during connect|connection refused|Connection reset|firewall") { Bad "Сертификат не получен: из интернета не достучаться до сервера. Проверьте проброс портов 80 и 443 на роутере (шаг 8). Если всё верно — провайдер закрывает входящие порты, позвоните ему" }
