@@ -1,4 +1,4 @@
-// Приём заявок с сайта Proba Lab: POST /lead → сообщение в Telegram (и копия в журнал) → переадресация на /spasibo.html.
+// Приём заявок с сайта Proba Lab: POST /lead → сообщение в Telegram и/или письмо на почту (и копия в журнал) → переадресация на /spasibo.html.
 // Без зависимостей, Node 18+. Linux: TG_TOKEN=… TG_CHAT=… node deploy/form-endpoint.mjs (порт 8787, за nginx).
 // Windows: подключается в deploy/server.mjs (сайт + заявки в одном процессе), см. deploy/windows/.
 // Сайт собирать с FORM_ENDPOINT=/lead — формы начнут отправляться сюда.
@@ -8,6 +8,7 @@
 // TG_API — адрес Telegram Bot API (по умолчанию https://api.telegram.org); для локальной проверки подставляется тестовый получатель.
 import { createServer } from "node:http";
 import { appendFileSync } from "node:fs";
+import { connect } from "node:tls";
 import { pathToFileURL } from "node:url";
 
 const PORT = Number(process.env.PORT || 8787);
@@ -18,6 +19,12 @@ const MAX = 64 * 1024; // заявка без файла
 const MAX_FILE = 5 * 1024 * 1024; // файл состава (такой же предел проверяет форма в браузере)
 const MAX_MULTIPART = MAX_FILE + MAX;
 const TG_TIMEOUT = 10_000; // не держим посетителя дольше: заявка к этому моменту уже в журнале
+// Почта: SMTP через TLS (порт 465). По умолчанию Яндекс: SMTP_USER — ящик, SMTP_PASS — пароль приложения.
+const SMTP_HOST = process.env.SMTP_HOST || "smtp.yandex.ru";
+const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
+const { SMTP_USER = "", SMTP_PASS = "" } = process.env;
+const MAIL_TO = (process.env.MAIL_TO || SMTP_USER).split(",").map((a) => a.trim()).filter(Boolean);
+const MAIL_TIMEOUT = 20_000;
 
 const LABELS = { form: "Форма", page: "Страница", task: "Задача", contact: "Контакт", productUrl: "Ссылка", url: "Ссылка", about: "О проекте", process: "Процесс", company: "Компания", product: "Продукт", composition: "Состав", need: "Что нужно", category: "Категория", comment: "Комментарий", deadline: "Срок", term: "Срок", production: "Производство", channels: "Каналы продаж", details: "О задаче", needs: "Что может понадобиться", hasSite: "Сайт есть", what: "Что делает", where: "Где ведут заявки" };
 
@@ -68,6 +75,66 @@ const urlencoded = (s) => {
 };
 // Та же проверка контакта, что в форме (src/site.ts): email, телефон от 10 цифр или Telegram
 const okContact = (c) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c) || c.replace(/\D/g, "").length >= 10 || /^(@|https?:\/\/t\.me\/|t\.me\/)[a-z0-9_]{4,}$/i.test(c);
+
+/** Письмо через SMTP (TLS, AUTH LOGIN). Без зависимостей. Ошибка — исключение с ответом сервера (пароль в него не попадает). */
+export function sendMail({ subject, text, files = [], replyTo = "" }) {
+  const oneLine = (v) => String(v).replace(/[\r\n]+/g, " ").trim();
+  const enc = (v) => `=?UTF-8?B?${Buffer.from(oneLine(v)).toString("base64")}?=`;
+  const b64 = (buf) => buf.toString("base64").replace(/.{1,76}/g, "$&\r\n");
+  const head = [`From: ${enc("Сайт Proba Lab")} <${SMTP_USER}>`, `To: ${MAIL_TO.join(", ")}`, `Subject: ${enc(subject)}`, `Date: ${new Date().toUTCString()}`, `Message-ID: <${Date.now().toString(36)}.${Math.random().toString(36).slice(2)}@proba-lab.ru>`, "MIME-Version: 1.0"];
+  if (/^[^\s@<>,]+@[^\s@<>,]+\.[^\s@<>,]{2,}$/.test(replyTo)) head.push(`Reply-To: ${replyTo}`);
+  const textPart = ["Content-Type: text/plain; charset=utf-8", "Content-Transfer-Encoding: base64", "", b64(Buffer.from(text))].join("\r\n");
+  let body;
+  if (!files.length) body = [...head, textPart].join("\r\n");
+  else {
+    const bnd = `proba-${Math.random().toString(36).slice(2)}`;
+    const parts = files.map((f) => [`Content-Type: ${oneLine(f.type).replace(/[^\w.+\/-]/g, "") || "application/octet-stream"}`, "Content-Transfer-Encoding: base64", `Content-Disposition: attachment; filename*=UTF-8''${encodeURIComponent(oneLine(f.filename))}`, "", b64(f.data)].join("\r\n"));
+    body = [...head, `Content-Type: multipart/mixed; boundary="${bnd}"`, "", `--${bnd}`, textPart, ...parts.map((x) => `--${bnd}\r\n${x}`), `--${bnd}--`, ""].join("\r\n");
+  }
+  return new Promise((resolve, reject) => {
+    const sock = connect({ host: SMTP_HOST, port: SMTP_PORT, servername: SMTP_HOST });
+    const timer = setTimeout(() => fail(new Error(`нет ответа от ${SMTP_HOST}:${SMTP_PORT}`)), MAIL_TIMEOUT);
+    let buf = "", waiter = null, done = false;
+    function fail(e) { if (done) return; done = true; clearTimeout(timer); sock.destroy(); reject(e); }
+    function check() {
+      if (!waiter) return;
+      const lines = buf.split("\r\n");
+      for (let i = 0; i < lines.length - 1; i++) {
+        if (/^\d{3}( |$)/.test(lines[i])) { const w = waiter; waiter = null; buf = lines.slice(i + 1).join("\r\n"); w(lines.slice(0, i + 1).join(" | ")); return; }
+      }
+    }
+    sock.on("error", (e) => fail(new Error(`${SMTP_HOST}:${SMTP_PORT}: ${e.message}`)));
+    sock.on("data", (c) => { buf += c.toString("utf8"); check(); });
+    const step = async (line, ok, what) => {
+      if (line !== null) sock.write(line + "\r\n");
+      const resp = await new Promise((r) => { waiter = r; check(); });
+      if (!ok.test(resp)) throw new Error(`${what}: ${resp.slice(0, 300)}`);
+    };
+    (async () => {
+      await step(null, /^220/, "приветствие сервера");
+      await step("EHLO proba-lab.ru", /^250/, "EHLO");
+      await step("AUTH LOGIN", /^334/, "вход");
+      await step(Buffer.from(SMTP_USER).toString("base64"), /^334/, "вход (логин)");
+      await step(Buffer.from(SMTP_PASS).toString("base64"), /^235/, "вход (логин или пароль приложения не подошли)");
+      await step(`MAIL FROM:<${SMTP_USER}>`, /^250/, "отправитель");
+      for (const to of MAIL_TO) await step(`RCPT TO:<${to}>`, /^25[01]/, `получатель ${to}`);
+      await step("DATA", /^354/, "DATA");
+      sock.write(body + "\r\n.\r\n");
+      await step(null, /^250/, "письмо не принято");
+      sock.write("QUIT\r\n");
+      done = true; clearTimeout(timer); sock.end(); resolve();
+    })().catch(fail);
+  });
+}
+/** Заявка на почту: true — письмо (с файлами) принято почтовым сервером. */
+async function email(data, files) {
+  if (!SMTP_USER || !SMTP_PASS || !MAIL_TO.length) return false;
+  const text = ["Заявка с сайта Proba Lab", "", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 2000)}`), ...(files.length ? ["", `Файлы во вложении: ${files.map((f) => f.filename).join(", ")}`] : [])].join("\n");
+  try {
+    await sendMail({ subject: `Заявка с сайта: ${String(data.contact ?? "").slice(0, 80)}`, text, files, replyTo: String(data.contact ?? "").trim() });
+    return true;
+  } catch (e) { console.error("почта:", e.message); return false; }
+}
 
 /** Отправка в Telegram: { text } — дошёл ли текст заявки, { files } — дошли ли все файлы. */
 async function telegram(data, files) {
@@ -124,11 +191,14 @@ export function leadHandler(req, res) {
     const lead = { id, at: new Date().toISOString(), ...data, ...(files.length ? { files: files.map((f) => `${f.filename} (${f.data.length} байт)`) } : {}) };
     let logged = false;
     try { appendFileSync(LOG, JSON.stringify(lead) + "\n"); logged = true; } catch (e) { console.error("журнал заявок:", e.message); }
-    const sent = await telegram(data, files);
-    if (TG_TOKEN && TG_CHAT && !sent.text) console.error("Telegram: заявка не доставлена", logged ? "(сохранена в журнале)" : "");
+    const [tg, mailed] = await Promise.all([telegram(data, files), email(data, files)]);
+    // Доставлено, если дошло хотя бы одним способом: Telegram или письмо (файлы в письме — вложением)
+    const sent = { text: tg.text || mailed, files: tg.files || mailed };
+    if (TG_TOKEN && TG_CHAT && !tg.text) console.error("Telegram: заявка не доставлена", logged ? "(сохранена в журнале)" : "");
+    if (SMTP_USER && SMTP_PASS && !mailed) console.error("почта: заявка не доставлена", logged ? "(сохранена в журнале)" : "");
     if (files.length && !sent.files) console.error(`заявка ${id}: файл не доставлен (${files.map((f) => f.filename).join(", ")}) — запросить у клиента`);
     // Вторая строка журнала — итог доставки: оператор видит, по каким заявкам Telegram или файл не дошли
-    if (logged) try { appendFileSync(LOG, JSON.stringify({ status: "delivery", ref: id, at: new Date().toISOString(), telegram: sent.text, filesDelivered: files.length ? sent.files : null }) + "\n"); } catch {}
+    if (logged) try { appendFileSync(LOG, JSON.stringify({ status: "delivery", ref: id, at: new Date().toISOString(), telegram: tg.text, email: mailed, filesDelivered: files.length ? sent.files : null }) + "\n"); } catch {}
     // Заявка не сохранилась нигде — не выдаём это за успешную отправку (текст в Telegram или запись в журнале — уже сохранена)
     if (!logged && !sent.text) { reply(res, 502, "Заявка не отправлена", "Не получилось сохранить заявку. Попробуйте ещё раз через минуту или свяжитесь с нами по телефону или почте.", back); return; }
     // Заявка сохранена, но файл не доставлен (Telegram недоступен или не настроен; на диск файлы не пишутся):

@@ -161,6 +161,10 @@ function Check {
   if (Test-Path (Join-Path $Dir "site\index.html")) { Ok "Папка site с сайтом на месте" } else { Bad "Нет папки site с сайтом" }
 
   $s = Read-Settings
+  if ($s["SMTP_USER"] -and $s["SMTP_PASS"]) {
+    $to = if ($s["MAIL_TO"]) { $s["MAIL_TO"] } else { $s["SMTP_USER"] }
+    Ok "Почта настроена: заявки придут на $to (проверить отправку — 4-PROVERIT-POCHTU.bat)"
+  } else { Warn "Почта не настроена (SMTP_USER и SMTP_PASS в nastrojki.txt)" }
   if ($s["TG_TOKEN"] -and $s["TG_CHAT"]) {
     try {
       $r = Invoke-RestMethod -Uri ("https://api.telegram.org/bot" + $s["TG_TOKEN"] + "/getMe") -TimeoutSec 15
@@ -171,7 +175,7 @@ function Check {
       if ($code -eq 401 -or $code -eq 404) { Bad "Telegram не принял токен — проверьте TG_TOKEN в nastrojki.txt (без пробелов и кавычек)" }
       else { Bad "api.telegram.org не открывается с этого компьютера — похоже на блокировку Telegram у провайдера. Заявки сохраняются в папке zayavki" }
     }
-  } else { Warn "Telegram не настроен (nastrojki.txt): заявки будут только в папке zayavki" }
+  } else { Warn "Telegram не настроен (nastrojki.txt)" }
 
   foreach ($t in $Tasks) {
     $task = Get-ScheduledTask -TaskName $t.Name -ErrorAction SilentlyContinue

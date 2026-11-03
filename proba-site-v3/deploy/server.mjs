@@ -1,7 +1,8 @@
 // Сервер сайта Proba Lab для Windows (работает и на Linux): отдаёт статику и принимает заявки POST /lead — в одном процессе.
 // Без зависимостей, Node 18+. Снаружи стоит Caddy (deploy/windows/Caddyfile): HTTPS-сертификат и переадресация сюда.
 // Запуск: node server.mjs → http://127.0.0.1:8080
-// Рядом с файлом: site/ — содержимое dist/, nastrojki.txt — TG_TOKEN и TG_CHAT для Telegram (в репозиторий не коммитить).
+// Рядом с файлом: site/ — содержимое dist/, nastrojki.txt — TG_TOKEN/TG_CHAT (Telegram) и SMTP_USER/SMTP_PASS/MAIL_TO (почта); в репозиторий не коммитить.
+// node server.mjs --test-mail — отправить тестовое письмо по настройкам и выйти.
 // Правила адресов те же, что в deploy/nginx.conf: переехавшие страницы, разделы со слэшем, $uri и $uri.html, 404.html.
 import { createServer } from "node:http";
 import { createReadStream, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
@@ -27,8 +28,18 @@ if (!process.env.LEAD_LOG) {
   mkdirSync(join(HERE, "zayavki"), { recursive: true });
   process.env.LEAD_LOG = join(HERE, "zayavki", "zayavki.jsonl");
 }
-// Приёмник читает TG_TOKEN, TG_CHAT и LEAD_LOG при загрузке — импортируем после настроек
-const { leadHandler } = await import("./form-endpoint.mjs");
+// Приёмник читает TG_TOKEN, TG_CHAT, SMTP_* и LEAD_LOG при загрузке — импортируем после настроек
+const { leadHandler, sendMail } = await import("./form-endpoint.mjs");
+
+if (process.argv.includes("--test-mail")) {
+  const { SMTP_USER, SMTP_PASS, MAIL_TO } = process.env;
+  if (!SMTP_USER || !SMTP_PASS) { console.error("Почта не настроена: впишите SMTP_USER и SMTP_PASS в nastrojki.txt"); process.exit(1); }
+  try {
+    await sendMail({ subject: "Проверка почты сайта Proba Lab", text: "Это тестовое письмо с сервера сайта. Если вы его видите — заявки будут приходить на эту почту." });
+    console.log(`Готово: тестовое письмо отправлено на ${MAIL_TO || SMTP_USER}. Проверьте почту (и папку «Спам»).`);
+    process.exit(0);
+  } catch (e) { console.error(`Письмо не отправлено: ${e.message}`); process.exit(1); }
+}
 
 const TYPES = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".json": "application/json", ".xml": "application/xml; charset=utf-8", ".txt": "text/plain; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".avif": "image/avif", ".gif": "image/gif", ".ico": "image/x-icon", ".woff2": "font/woff2", ".woff": "font/woff", ".mp4": "video/mp4", ".webm": "video/webm", ".pdf": "application/pdf", ".webmanifest": "application/manifest+json" };
 // mc.yandex.ru — Яндекс Метрика (загружается только после согласия на cookie, если сайт собран с YM_ID)
@@ -85,7 +96,8 @@ createServer((req, res) => {
   notFound(req, res);
 }).listen(PORT, "127.0.0.1", () => {
   console.log(`[${new Date().toLocaleString("ru-RU")}] Сайт работает: http://localhost:${PORT}  (папка сайта: ${SITE})`);
-  console.log(process.env.TG_TOKEN && process.env.TG_CHAT ? "Telegram настроен: заявки придут в бот." : `Telegram не настроен (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
+  const ways = [process.env.TG_TOKEN && process.env.TG_CHAT && "Telegram", process.env.SMTP_USER && process.env.SMTP_PASS && `почта ${process.env.MAIL_TO || process.env.SMTP_USER}`].filter(Boolean);
+  console.log(ways.length ? `Заявки: ${ways.join(" + ")}; копия — ${process.env.LEAD_LOG}` : `Telegram и почта не настроены (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
 }).on("error", (e) => {
   console.error(e.code === "EADDRINUSE" ? `Порт ${PORT} занят: сайт уже запущен или порт занят другой программой.` : e.message);
   process.exit(1);
