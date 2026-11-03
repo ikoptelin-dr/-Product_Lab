@@ -212,7 +212,14 @@ function Check {
   # Сертификат HTTPS: что пишет Caddy в журнале
   $clog = Join-Path $Dir "logs\caddy.log"
   if (Test-Path $clog) {
-    $tail = @(Get-Content -Path $clog -Tail 400 -Encoding UTF8 -ErrorAction SilentlyContinue)
+    # Журнал открыт Caddy на запись — читаем с общим доступом, иначе Windows не даст его прочитать
+    $tail = @()
+    try {
+      $fs = [IO.File]::Open($clog, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::ReadWrite)
+      $sr = New-Object IO.StreamReader($fs, [Text.Encoding]::UTF8)
+      $tail = @(($sr.ReadToEnd() -split "`r?`n") | Where-Object { $_ -ne "" } | Select-Object -Last 400)
+      $sr.Close()
+    } catch { Warn "Не удалось прочитать $clog : $($_.Exception.Message)" }
     $okLine = $tail | Where-Object { $_ -match "certificate obtained successfully" -and $_ -match [regex]::Escape($Domain) } | Select-Object -Last 1
     $errLine = $tail | Where-Object { $_ -match '"level":"error"' -and ($_ -match "obtain|acme|challenge|certificate") } | Select-Object -Last 1
     $okIdx = if ($okLine) { [array]::LastIndexOf($tail, $okLine) } else { -1 }
@@ -226,7 +233,10 @@ function Check {
       elseif ($e -match "unauthorized|Invalid response|404") { Bad "Сертификат не получен: проверку прошёл другой сервер — вероятно, домен ещё указывает на старый адрес или порт 80 проброшен не на этот компьютер" }
       else { Bad "Сертификат не получен. Последняя ошибка Caddy — пришлите её:" ; Write-Host ("       " + $e.Substring(0, [Math]::Min(400, $e.Length))) }
       Write-Host "       После исправления запустите OSTANOVIT-SAJT.bat и ZAPUSTIT-SAJT.bat — Caddy сразу попробует снова."
-    } else { Warn "Caddy ещё не пытался получить сертификат (подождите пару минут и запустите проверку снова)" }
+    } else {
+      Warn "В журнале Caddy нет записей о сертификате. Последние строки журнала — пришлите их, если сайт не открывается:"
+      foreach ($l in ($tail | Select-Object -Last 8)) { Write-Host ("       " + $l.Substring(0, [Math]::Min(300, $l.Length))) }
+    }
   }
 
   Write-Host ""
