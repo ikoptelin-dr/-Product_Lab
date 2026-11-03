@@ -38,6 +38,11 @@ if (-not $me.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
 }
 
 function Find-Node {
+  # Сначала node.exe рядом с файлами (из zip-архива Node.js) или в распакованной папке node-v...
+  $p = Join-Path $Dir "node.exe"
+  if (Test-Path $p) { return $p }
+  $d = Get-ChildItem -Path $Dir -Directory -Filter "node-*" -ErrorAction SilentlyContinue | Where-Object { Test-Path (Join-Path $_.FullName "node.exe") } | Select-Object -First 1
+  if ($d) { return (Join-Path $d.FullName "node.exe") }
   $p = Join-Path $env:ProgramFiles "nodejs\node.exe"
   if (Test-Path $p) { return $p }
   $c = Get-Command node.exe -ErrorAction SilentlyContinue
