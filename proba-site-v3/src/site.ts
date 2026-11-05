@@ -57,7 +57,7 @@ function analytics() {
     const href = el.getAttribute("href") || "";
     if (href.startsWith("mailto:")) return goal("contact_click", { type: "email" });
     if (href.startsWith("tel:")) return goal("contact_click", { type: "phone" });
-    if (/^https?:\/\/(t\.me|max\.ru|wa\.me)\//.test(href)) return goal("contact_click", { type: "messenger" });
+    if (/^https?:\/\/(t\.me|(web\.)?max\.ru|wa\.me)\//.test(href)) return goal("contact_click", { type: "messenger" });
     if (el.matches("[data-reel-toggle]")) return first("reel", "reel_play");
     if (el.matches(".btn, [data-need]")) goal("cta_click", { label: (el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 60), href: href || null, page: location.pathname });
   });
@@ -104,6 +104,17 @@ function cookieBar() {
     if (c === "yes") loadMetrika();
   });
   document.body.append(bar);
+}
+
+/* ---------------- Плавающая кнопка «Связаться»: телефон, MAX, почта ---------------- */
+function contactFab() {
+  const fab = $("[data-fab]");
+  if (!fab) return;
+  const btn = $<HTMLButtonElement>("[data-fab-toggle]", fab)!, menu = $("[data-fab-menu]", fab)!;
+  const set = (open: boolean) => { menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); fab.classList.toggle("is-open", open); };
+  btn.addEventListener("click", () => { const open = menu.hidden; set(open); if (open) goal("fab_open"); });
+  document.addEventListener("click", (e) => { if (!menu.hidden && !fab.contains(e.target as Node)) set(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { set(false); btn.focus(); } });
 }
 
 /* ---------------- Новая страница открывается сверху ---------------- */
@@ -209,6 +220,9 @@ function projectForm() {
     lead.textContent = pkg ? "Расскажите о продукте. Материалы и срок согласуем до начала работы." : texts.lead;
     submit.textContent = pkg ? "Оставить заявку на пакет" : texts.submit;
     term.hidden = pkg;
+    // Для автоматизации и пакета описание важно — подробности раскрываем сразу
+    const more = $<HTMLDetailsElement>("[data-pf-more]", form);
+    if (more && (task === "automation" || pkg)) more.open = true;
     if (task === "automation") {
       detailsLabel.innerHTML = 'Какой процесс мешает <span class="opt">необязательно</span>';
       details.placeholder = "Например: заказы аптек приходят в мессенджер, менеджер переносит их вручную";
@@ -353,7 +367,7 @@ function forms() {
         if (!fd.get("need")) errors.push({ name: "need", msg: "Выберите, что нужно" });
       }
       if (kind === "review" && !fd.get("category")) errors.push({ name: "category", msg: "Выберите категорию" });
-      if (kind === "project" && !fd.get("task")) errors.push({ name: "task", msg: "Выберите задачу" });
+      // «Обсудить задачу»: выбор задачи необязателен — достаточно контакта
       if (kind === "automation" && String(fd.get("process") || "").trim().length < 10) errors.push({ name: "process", msg: "Опишите процесс в паре предложений" });
       if (kind === "partner" && String(fd.get("company") || "").trim().length < 2) errors.push({ name: "company", msg: "Укажите компанию или имя" });
       if (kind === "probono" && String(fd.get("about") || "").trim().length < 10) errors.push({ name: "about", msg: "Расскажите о проекте в паре предложений" });
@@ -385,6 +399,7 @@ function forms() {
       }
       if (errors.length) {
         goal("form_error", { form: kind, fields: errors.map((x) => x.name).join(",") });
+        for (const x of errors) { const d = $<HTMLElement>(`[name="${x.name}"]`, form)?.closest("details"); if (d) (d as HTMLDetailsElement).open = true; }
         status.className = "form-status is-error";
         status.textContent = "Проверьте отмеченные поля.";
         $<HTMLElement>(`[name="${errors[0]!.name}"]`, form)?.focus();
@@ -622,6 +637,7 @@ function init() {
   startAtTop();
   cookieBar();
   analytics();
+  contactFab();
   header();
   smoothDetails();
   projectForm();

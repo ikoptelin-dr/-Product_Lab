@@ -9,8 +9,11 @@ const ASSET_V = typeof __ASSET_V__ === "string" ? __ASSET_V__ : "dev";
 /** Приём заявок и Яндекс Метрика — задаются при сборке (FORM_ENDPOINT, YM_ID). Пусто — формы в режиме прототипа, счётчика нет. */
 declare const __FORM_ENDPOINT__: string;
 declare const __YM_ID__: string;
+declare const __MAX_URL__: string;
 const FORM_ENDPOINT = typeof __FORM_ENDPOINT__ === "string" ? __FORM_ENDPOINT__ : "";
 const YM_ID = typeof __YM_ID__ === "string" ? __YM_ID__ : "";
+/** Ссылка на профиль или чат в MAX (MAX_URL при сборке). Пусто — кнопки MAX нет. */
+const MAX_URL = typeof __MAX_URL__ === "string" ? __MAX_URL__ : "";
 
 /* ---------------- Текст ---------------- */
 export const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -171,6 +174,19 @@ function footer(base: string) {
 </footer>`;
 }
 
+/** Плавающая кнопка «Связаться» на всех страницах: позвонить, MAX (если задан), почта. */
+function contactFab() {
+  const phone = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>`;
+  return `<div class="contact-fab" data-fab>
+  <div class="fab-menu glass-light" id="fab-menu" data-fab-menu hidden>
+    <a class="fab-item" href="${COMPANY.phoneHref}"><b>Позвонить</b><span>${COMPANY.phone}</span></a>${MAX_URL ? `
+    <a class="fab-item" href="${esc(MAX_URL)}" target="_blank" rel="noopener"><b>Написать в MAX</b><span>Ответим в мессенджере</span></a>` : ""}
+    <a class="fab-item" href="mailto:${COMPANY.email}"><b>Написать на почту</b><span>${COMPANY.email}</span></a>
+  </div>
+  <button class="fab-btn" type="button" data-fab-toggle aria-expanded="false" aria-controls="fab-menu">${phone}<span>Связаться</span></button>
+</div>`;
+}
+
 /* ---------------- Хлебные крошки ---------------- */
 export type Crumb = { name: string; href?: string };
 
@@ -273,6 +289,7 @@ ${header(base, p.nav)}
 ${unglueHeadings(typo(p.body))}
 </main>
 ${footer(base)}
+${contactFab()}
 <script src="${base}assets/site.js?v=${ASSET_V}" defer></script>
 </body>
 </html>

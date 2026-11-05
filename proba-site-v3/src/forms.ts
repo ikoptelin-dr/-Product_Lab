@@ -68,8 +68,8 @@ export function projectSection(preselect = "", o: { title?: string; lead?: strin
       <p class="lead" data-pf-lead>${o.lead ?? "Расскажите, что нужно сделать. Уточним объём и предложим состав работ."}</p>
     </div>
     <form id="pf-form" class="form-card glass-light" novalidate data-form="project" aria-labelledby="pf-title">
-      <fieldset class="field" data-required-group="task">
-        <legend>Задача</legend>
+      <fieldset class="field">
+        <legend>Задача <span class="opt">необязательно</span></legend>
         <div class="choice-col">${options}</div>
       </fieldset>
       <fieldset class="field" data-show-for="promo" hidden>
@@ -92,23 +92,28 @@ export function projectSection(preselect = "", o: { title?: string; lead?: strin
       </fieldset>
       <p class="pf-package-note" data-show-for="package" hidden>Материалы и срок согласуем до начала работы. Оплата — после согласования.</p>
       <div class="field">
-        <label for="pf-details" data-details-label>Коротко о задаче <span class="opt">необязательно</span></label>
-        <textarea id="pf-details" name="details" rows="3" data-details placeholder="Например: обновить карточки к запуску новой линейки"></textarea>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="pf-url">Ссылка на продукт или сайт <span class="opt">необязательно</span></label>
-          <input id="pf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.com">
-        </div>
-        <div class="field" data-term>
-          <label for="pf-term">Желаемый срок</label>
-          <select id="pf-term" name="term"><option value="">Не важно</option><option value="month">В течение месяца</option><option value="1-3">1–3 месяца</option><option value="later">Позже</option></select>
-        </div>
-      </div>
-      <div class="field">
         <label for="pf-contact">Контакт для ответа</label>
         <input id="pf-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
       </div>
+      <details class="pf-more" data-pf-more>
+        <summary>Добавить подробности <span class="opt">необязательно</span></summary>
+        <div class="pf-more-body">
+          <div class="field">
+            <label for="pf-details" data-details-label>Коротко о задаче <span class="opt">необязательно</span></label>
+            <textarea id="pf-details" name="details" rows="3" data-details placeholder="Например: обновить карточки к запуску новой линейки"></textarea>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="pf-url">Ссылка на продукт или сайт <span class="opt">необязательно</span></label>
+              <input id="pf-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="example.com">
+            </div>
+            <div class="field" data-term>
+              <label for="pf-term">Желаемый срок</label>
+              <select id="pf-term" name="term"><option value="">Не важно</option><option value="month">В течение месяца</option><option value="1-3">1–3 месяца</option><option value="later">Позже</option></select>
+            </div>
+          </div>
+        </div>
+      </details>
       ${consent(o.base)}
       <button class="btn btn-primary btn-lg btn-block" type="submit" data-pf-submit>Отправить</button>
       ${STATUS}

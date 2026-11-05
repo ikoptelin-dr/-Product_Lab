@@ -166,7 +166,7 @@ const IMAGES = imgFiles.filter((n) => /\.(webp|avif|png|jpe?g)$/i.test(n));
 const VIDEOS = imgFiles.filter((n) => /\.(mp4|webm)$/i.test(n));
 
 // 1. Страницы: TypeScript-шаблоны → модуль в памяти
-const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent", define: { __ASSET_V__: JSON.stringify(ASSET_V), __SITE_URL__: JSON.stringify(SITE_URL), __FORM_ENDPOINT__: JSON.stringify(process.env.FORM_ENDPOINT || ""), __YM_ID__: JSON.stringify((process.env.YM_ID || "").replace(/\D/g, "")), __IMAGES__: JSON.stringify([...IMAGES, ...VIDEOS]) } });
+const pagesJs = await build({ entryPoints: [join(root, "src/site-pages.ts")], bundle: true, format: "esm", platform: "neutral", write: false, logLevel: "silent", define: { __ASSET_V__: JSON.stringify(ASSET_V), __SITE_URL__: JSON.stringify(SITE_URL), __FORM_ENDPOINT__: JSON.stringify(process.env.FORM_ENDPOINT || ""), __YM_ID__: JSON.stringify((process.env.YM_ID || "").replace(/\D/g, "")), __MAX_URL__: JSON.stringify(/^https:\/\/(web\.)?max\.ru\/[^\s"'<>]+$/.test(process.env.MAX_URL || "") ? process.env.MAX_URL : ""), __IMAGES__: JSON.stringify([...IMAGES, ...VIDEOS]) } });
 const mod = await import(`data:text/javascript;base64,${Buffer.from(pagesJs.outputFiles[0].text).toString("base64")}`);
 const { files, facts, warnings, sources, moved } = mod.renderSite(legal, content);
 
