@@ -186,6 +186,7 @@ export const kontakty: PageDoc = {
     <dl class="contact-list">
       <div><dt>Телефон</dt><dd><a href="${COMPANY.phoneHref}">${COMPANY.phone}</a></dd></div>
       <div><dt>Почта</dt><dd><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></dd></div>
+      <div><dt>MAX</dt><dd><a href="${COMPANY.max}" target="_blank" rel="noopener">Написать в MAX</a></dd></div>
       <div><dt>Адрес</dt><dd>${COMPANY.address.full}</dd></div>
       <div><dt>География</dt><dd>Вся Россия — онлайн, документы через ЭДО. В Новосибирской области — выезд на производство.</dd></div>
     </dl>

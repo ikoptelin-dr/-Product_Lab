@@ -12,8 +12,8 @@ declare const __YM_ID__: string;
 declare const __MAX_URL__: string;
 const FORM_ENDPOINT = typeof __FORM_ENDPOINT__ === "string" ? __FORM_ENDPOINT__ : "";
 const YM_ID = typeof __YM_ID__ === "string" ? __YM_ID__ : "";
-/** Ссылка на профиль или чат в MAX (MAX_URL при сборке). Пусто — кнопки MAX нет. */
-const MAX_URL = typeof __MAX_URL__ === "string" ? __MAX_URL__ : "";
+/** Ссылка на MAX: из данных компании (COMPANY.max), при сборке можно заменить через MAX_URL. */
+const MAX_URL = (typeof __MAX_URL__ === "string" && __MAX_URL__) || COMPANY.max;
 
 /* ---------------- Текст ---------------- */
 export const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -141,7 +141,7 @@ function footer(base: string) {
       <div class="footer-brand">
         <a class="brand" href="${base}index.html"><img class="brand-mark" src="${base}assets/emblem-ink.png" alt="" width="34" height="34"><span class="brand-name">Proba Lab</span></a>
         <p>Для производителей и брендов БАД и косметики</p>
-        <p class="footer-contacts"><a href="${COMPANY.phoneHref}">${COMPANY.phone}</a><br><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
+        <p class="footer-contacts"><a href="${COMPANY.phoneHref}">${COMPANY.phone}</a><br><a href="mailto:${COMPANY.email}">${COMPANY.email}</a><br><a href="${esc(MAX_URL)}" target="_blank" rel="noopener">Написать в MAX</a></p>
       </div>
       <nav class="footer-nav" aria-label="Направления">
         <p class="footer-label">Направления</p>

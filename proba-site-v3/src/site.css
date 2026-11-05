@@ -1209,12 +1209,12 @@ mark.hl { color: inherit; background: linear-gradient(transparent 55%, color-mix
 
 /* ---------------- Плавающая кнопка «Связаться» ---------------- */
 .contact-fab { position: fixed; right: 16px; bottom: 16px; z-index: 55; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
-body:has(.cookie-bar) .contact-fab { bottom: 128px; }
+body:has(.cookie-bar) .contact-fab { bottom: calc(var(--cookie-h, 112px) + 28px); }
 .fab-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px 0 14px; border: 0; border-radius: 999px; background: var(--z900, #18181b); color: #fff; font: inherit; font-weight: 600; font-size: .9375rem; cursor: pointer; box-shadow: 0 10px 28px rgba(0,0,0,.22); }
 .fab-btn svg { width: 20px; height: 20px; fill: var(--emerald, #34d399); }
 .fab-btn:hover { background: #27272a; }
 .fab-btn:focus-visible, .fab-item:focus-visible { outline: 3px solid var(--emerald-ink, #047857); outline-offset: 3px; }
-.fab-menu { display: flex; flex-direction: column; min-width: 240px; padding: 6px; border-radius: var(--radius-sm, 12px); box-shadow: 0 14px 34px rgba(0,0,0,.2); }
+.fab-menu { background: #fff; display: flex; flex-direction: column; min-width: 240px; padding: 6px; border-radius: var(--radius-sm, 12px); box-shadow: 0 14px 34px rgba(0,0,0,.2); }
 .fab-menu[hidden] { display: none; }
 .fab-item { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 8px; color: var(--z900, #18181b); text-decoration: none; }
 .fab-item b { font-size: .9375rem; }

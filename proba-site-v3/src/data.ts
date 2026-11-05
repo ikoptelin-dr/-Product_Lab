@@ -71,6 +71,7 @@ export const COMPANY = {
   phone: "+7 981 100-28-48",
   phoneHref: "tel:+79811002848",
   email: "i.koptelin@proba-lab.ru",
+  max: "https://max.ru/u/f9LHodD0cOIeM79EVYl6Pi4XmzuL4t8RClSkfTBtqoclnW-wP-SszJwp6u4",
   bank: {
     account: "40802810523550007066",
     name: "ФИЛИАЛ «НОВОСИБИРСКИЙ» АО «АЛЬФА-БАНК»",

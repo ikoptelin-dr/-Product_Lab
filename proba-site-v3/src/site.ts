@@ -96,14 +96,19 @@ function cookieBar() {
   bar.setAttribute("role", "region");
   bar.setAttribute("aria-label", "Cookie");
   bar.innerHTML = `<p>Мы используем cookie и Яндекс Метрику, чтобы понимать, какие страницы полезны. Подробнее — в <a href="${base}politika-pd.html">политике обработки данных</a>.</p><div class="cookie-actions"><button type="button" class="btn btn-primary btn-sm" data-c="yes">Принять</button><button type="button" class="btn btn-outline btn-sm" data-c="no">Отказаться</button></div>`;
+  // Кнопка «Связаться» поднимается над плашкой на её реальную высоту (на телефоне плашка в несколько строк)
+  const lift = () => document.documentElement.style.setProperty("--cookie-h", `${bar.offsetHeight}px`);
+  addEventListener("resize", lift);
   bar.addEventListener("click", (e) => {
     const c = (e.target as HTMLElement).closest<HTMLElement>("[data-c]")?.dataset.c;
     if (!c) return;
+    removeEventListener("resize", lift);
     document.cookie = `${CONSENT_COOKIE}=${c}; max-age=${60 * 60 * 24 * 365}; path=/; SameSite=Lax`;
     bar.remove();
     if (c === "yes") loadMetrika();
   });
   document.body.append(bar);
+  lift();
 }
 
 /* ---------------- Плавающая кнопка «Связаться»: телефон, MAX, почта ---------------- */
