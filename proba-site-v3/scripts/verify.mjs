@@ -164,6 +164,7 @@ log("\n== Ссылки");
     await p.goto(`${BASE}/${f}`);
     for (const h of await p.$$eval("a[href]", (as) => as.map((a) => a.getAttribute("href")))) {
       if (h === COMPANY.tel || h === COMPANY.mail) continue; // телефон и почта компании — единственные допустимые не-HTTP ссылки
+      if (process.env.MAX_URL && h === process.env.MAX_URL) continue; // ссылка на MAX компании (кнопка «Связаться»), задаётся при сборке — только она
       if (/^(https?:|mailto:|tel:)/.test(h)) { ok(false, `${f}: внешняя ссылка ${h}`, "links"); continue; }
       ok(!h.startsWith("/"), `${f}: абсолютный путь ${h}`, "links");
       links.set(new URL(h, `${BASE}/${f}`).href, f);
