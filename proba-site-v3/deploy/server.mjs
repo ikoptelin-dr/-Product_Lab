@@ -83,8 +83,8 @@ createServer((req, res) => {
   try { path = decodeURIComponent(rawPath); } catch { res.writeHead(400).end(); return; }
   if (path.includes("\0") || path.includes("\\") || path.split("/").some((s) => s.startsWith("."))) return notFound(req, res);
   if (MOVED[path]) return redirect(req, res, MOVED[path]);
-  const section = path.match(/^\/(dokumenty|blog)\/?$/);
-  if (section) return redirect(req, res, `/${section[1]}/index.html${qs}`);
+  // Разделы /dokumenty/ и /blog/ отдаются по адресу со слэшем — он же canonical и адрес в sitemap.
+  // Без слэша — 301 на адрес со слэшем (ниже, общее правило для папок с index.html).
 
   const base = normalize(join(SITE, path));
   if (base !== SITE && !base.startsWith(SITE + sep)) return notFound(req, res);
