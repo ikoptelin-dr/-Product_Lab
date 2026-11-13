@@ -51,6 +51,8 @@ const fileOf = (url) => {
 };
 const relHref = (href, from) => {
   if (/^(https?:|mailto:|tel:)/.test(href)) return href;
+  // Файлы для скачивания (assets/files/*.pdf) — как есть, относительно страницы
+  if (/^\/assets\//.test(href)) return (from.includes("/") ? "../" : "") + href.slice(1);
   const [path, hash] = href.split("#");
   const h = hash ? `#${hash === "forma" ? "project-form" : hash}` : "";
   if (!path) return h;
@@ -293,6 +295,8 @@ for (const img of ["emblem-ink.png"]) copyFileSync(join(root, "assets", img), jo
 if (IMAGES.length || VIDEOS.length) mkdirSync(join(dist, "assets/images"), { recursive: true });
 for (const im of IMAGES) copyFileSync(join(root, "assets/images", im), join(dist, "assets/images", im));
 for (const v of VIDEOS) copyFileSync(join(root, "assets/images", v), join(dist, "assets/images", v));
+// Файлы для скачивания (лид-магнит)
+try { const fl = readdirSync(join(root, "assets/files")); mkdirSync(join(dist, "assets/files"), { recursive: true }); for (const x of fl) copyFileSync(join(root, "assets/files", x), join(dist, "assets/files", x)); } catch {}
 mkdirSync(join(dist, "assets/fonts"), { recursive: true });
 for (const ff of readdirSync(join(root, "assets/fonts"))) copyFileSync(join(root, "assets/fonts", ff), join(dist, "assets/fonts", ff));
 

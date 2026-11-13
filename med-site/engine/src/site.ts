@@ -415,6 +415,19 @@ function forms() {
       if (!endpoint) {
         // Прототип: адрес приёма заявок не задан при сборке — данные никуда не отправляются.
         status.className = "form-status is-filled";
+        if (kind === "review") {
+          // Лид-магнит: после заполнения формы показываем кнопку скачивания чек-листа
+          status.textContent = "Готово. Чек-лист можно скачать: ";
+          const a = document.createElement("a");
+          a.className = "btn btn-primary btn-lg btn-block";
+          a.href = (document.querySelector<HTMLLinkElement>('link[rel="stylesheet"]')?.getAttribute("href") ?? "assets/site.css").replace(/site\.css.*$/, "files/chek-list-12-tochek.pdf");
+          a.setAttribute("download", "");
+          a.textContent = "Скачать чек-лист (PDF)";
+          a.style.marginTop = "12px";
+          status.append(a);
+          form.querySelector<HTMLButtonElement>('button[type="submit"]')!.hidden = true;
+          return;
+        }
         status.textContent = "Форма заполнена. Отправка пока не подключена.";
         return;
       }

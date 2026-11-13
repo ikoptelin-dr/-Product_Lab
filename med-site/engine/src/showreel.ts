@@ -102,11 +102,11 @@ export function showreel() {
   const svg = `<svg class="reel-svg" viewBox="0 0 960 540" role="img" aria-labelledby="reel-t">
   <title id="reel-t">Путь продукта за 15 секунд: состав, документы, этикетка, 3D-визуализация, карточка маркетплейса, продажи</title>
   <defs>
-    <linearGradient id="rlGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34d399"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-    <linearGradient id="rlGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#38bdf8"/></linearGradient>
-    <linearGradient id="rlShade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
-    <linearGradient id="rlShadeR" x1="1" x2="0"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
-    <radialGradient id="rlGlow" cx=".72" cy=".42" r=".5"><stop offset="0" stop-color="#34d399" stop-opacity=".22"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rlGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F59ACC"/><stop offset="1" stop-color="#FFD0E9"/></linearGradient>
+    <linearGradient id="rlGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F59ACC"/><stop offset="1" stop-color="#A9C1FF"/></linearGradient>
+    <linearGradient id="rlShade" x1="0" x2="1"><stop offset="0" stop-color="#09318D" stop-opacity=".55"/><stop offset="1" stop-color="#09318D" stop-opacity="0"/></linearGradient>
+    <linearGradient id="rlShadeR" x1="1" x2="0"><stop offset="0" stop-color="#09318D" stop-opacity=".55"/><stop offset="1" stop-color="#09318D" stop-opacity="0"/></linearGradient>
+    <radialGradient id="rlGlow" cx=".72" cy=".42" r=".5"><stop offset="0" stop-color="#F59ACC" stop-opacity=".22"/><stop offset="1" stop-color="#F59ACC" stop-opacity="0"/></radialGradient>
     <pattern id="rlGrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,.05)"/></pattern>
     <clipPath id="rlJarClip"><rect x="618" y="138" width="164" height="232" rx="28"/></clipPath>
   </defs>

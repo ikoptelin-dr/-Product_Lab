@@ -260,7 +260,7 @@ export function renderDoc(p: PageDoc): string {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#09318D">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
 <meta property="og:type" content="website">
