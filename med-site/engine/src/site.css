@@ -1256,13 +1256,15 @@ body:has(.cookie-bar) .contact-fab { bottom: calc(var(--cookie-h, 112px) + 28px)
 
 /* ===== Proba-Product: клиническая тема — синий #09318D, белый, розовый #F59ACC ===== */
 body { background: #09318D; }
-/* Первый экран: синий градиент с точечной сеткой, светлеет книзу */
+/* Первый экран: сверху синий, в середине мягкий голубой, внизу уходит в белый */
 .hero, .page-hero {
   background:
-    radial-gradient(rgba(255, 255, 255, .16) 1px, transparent 1.4px) 0 0 / 14px 14px,
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 255, 255, .10), transparent 70%),
-    linear-gradient(180deg, #09318D 0%, #0E3FAE 55%, #2F62D8 100%);
+    radial-gradient(rgba(255, 255, 255, .22) 1px, transparent 1.4px) 0 0 / 14px 14px,
+    linear-gradient(180deg, #09318D 0%, #1F4FC4 34%, #4F7BE0 62%, #A9C1F7 86%, #FFFFFF 100%);
 }
+.hero { padding-bottom: clamp(120px, 13vw, 200px); }
+.page-hero { padding-bottom: clamp(110px, 11vw, 170px); }
+body { background: #fff !important; }
 .hero-bg::before { background-image: none; }
 .hero-bg::after { background: radial-gradient(closest-side, rgba(245, 154, 204, .22), transparent); }
 .hero-lead, .page-hero .hero-lead { color: rgba(255, 255, 255, .86); }
@@ -1279,14 +1281,14 @@ body { background: #09318D; }
 }
 /* Кнопки-пилюли */
 .btn { border-radius: 999px; }
-.btn-primary { background: #F59ACC; color: #09318D; font-weight: 600; }
+.btn-primary { background: #F59ACC; color: #fff; font-weight: 700; }
 .btn-primary:hover { background: #F9BBDD; }
 .header-cta { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .6); }
 .header-cta:hover { background: rgba(255, 255, 255, .12); }
 .btn-ghost { border-color: rgba(255, 255, 255, .6); background: transparent; }
 .light .btn-primary { background: #09318D; color: #fff; }
 .light .btn-primary:hover { background: #0E3FAE; }
-.light .dark-card .btn-primary { background: #F59ACC; color: #09318D; }
+.light .dark-card .btn-primary { background: #F59ACC; color: #fff; }
 /* Светлая часть: чистый белый с холодным оттенком, карточки с мягкой синей тенью */
 .light { background: #fff; }
 .blk-tint { background: #F3F6FD; }
@@ -1295,9 +1297,37 @@ body { background: #09318D; }
 .light .grad { background-image: linear-gradient(100deg, #09318D 0%, #2F62D8 100%); }
 .hero .grad, .page-hero .grad, .reel .grad { background-image: linear-gradient(100deg, #F59ACC 0%, #FFD0E9 100%); }
 .stats li.is-fact { border-color: rgba(9, 49, 141, .22); box-shadow: inset 0 3px 0 #F59ACC; }
-.stats li.is-fact .stat-src { color: #09318D; background: rgba(245, 154, 204, .28); }
+.stats li.is-fact .stat-src { color: #fff; background: #F59ACC; font-weight: 600; }
 .timeline::before { background: linear-gradient(#09318D, rgba(9, 49, 141, .12)); }
 .timeline li::before { border-color: #09318D; box-shadow: 0 0 0 4px rgba(245, 154, 204, .35); }
 .tl-year, .pair-arrow { color: #09318D; }
-.marquee { background: #072873; }
+.marquee { background: #fff; color: #09318D; border-block-color: rgba(9, 49, 141, .12); }
+.marquee-track span::after { background: #F59ACC; }
+/* Ролик: светлая полоса, сам экран ролика — синий */
+.reel-band { background: #fff; color: #0A1F52; }
+.reel-band .h2 { color: #0A1F52; }
+.reel-band .hero-lead { color: #3f4a6b; }
+.reel-band .eyebrow { color: #09318D; }
+.reel-band .grad { background-image: linear-gradient(100deg, #09318D 0%, #2F62D8 100%); }
+.reel-band .ambient { display: none; }
+.reel { background: #09318D; box-shadow: 0 30px 80px -40px rgba(9, 49, 141, .55); }
+.rl-bg { fill: #09318D; }
+/* Кружки пути пациента — белые внутри */
+.pv-dot { fill: #fff; }
+/* Скриншоты в кейсах */
+.prose img { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(9, 49, 141, .14); box-shadow: var(--shadow); }
+.prose p:has(> img) { max-width: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.prose p:has(> img:only-child) { grid-template-columns: minmax(0, 1fr); max-width: 860px; }
+@media (max-width: 640px) { .prose p:has(> img) { grid-template-columns: 1fr; } }
 .site-footer { background: #072873; }
+/* Ролик: читаемые подписи на синем */
+.rl-sub { fill: rgba(255, 255, 255, .86); }
+.rl-lab { fill: rgba(255, 255, 255, .6); }
+.rl-ring { fill: rgba(255, 255, 255, .08); stroke: #fff; }
+.rl-sheet { fill: #fff; stroke: none; }
+.rl-sheet ~ .rl-line, .rl-line { fill: rgba(255, 255, 255, .5); }
+.rl-phone { fill: #0E3FAE; stroke: rgba(255, 255, 255, .6); }
+.rl-float { fill: rgba(255, 255, 255, .14); stroke: rgba(255, 255, 255, .35); }
+.rl-chip { fill: rgba(245, 154, 204, .35); stroke: #F59ACC; }
+.rl-guide { stroke: #fff; }
+.prose p:has(> img) { align-items: start; }
