@@ -68,7 +68,7 @@ export const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: "method", href: "metodologiya.html", label: "Методология" },
   { key: "prices", href: "uslugi.html", label: "Услуги и пакеты" },
   { key: "cases", href: "kejsy.html", label: "Кейсы" },
-  { key: "marketing", href: "marketing.html", label: "Маркетинг" },
+  { key: "marketing", href: "marketing.html", label: "Производителям: упаковка продукта" },
 ];
 
 /** Шапка: направления + «Цены» (в подвале «Цены» — в группе «Клиентам», не среди направлений). */
@@ -79,8 +79,6 @@ export const HEADER_NAV: { key: NavKey; href: string; label: string }[] = [
   { key: "method", href: "metodologiya.html", label: "Методология" },
   { key: "cases", href: "kejsy.html", label: "Кейсы" },
   { key: "prices", href: "uslugi.html", label: "Услуги" },
-  { key: "marketing", href: "marketing.html", label: "Маркетинг" },
-  { key: "blog", href: "blog/index.html", label: "Блог" },
 ];
 
 export const QUIZ_HREF = "index.html#review";

@@ -90,6 +90,16 @@ function priceCards(tableWrap: string) {
 /** Нумерованный список → шаги. Короткие пункты — сетка, длинные — вертикальная шкала. */
 function stepper(ol: string) {
   const items = [...ol.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => m[1]!.replace(/^<p>|<\/p>$/g, ""));
+  // Хронология: каждый пункт начинается с года — «**2020–2022** — Заголовок. Пояснение»
+  if (items.length >= 2 && items.every((x) => /^<strong>\d{4}/.test(x))) {
+    return `<ol class="timeline">${items
+      .map((x, i) => {
+        const m = x.match(/^<strong>([\s\S]*?)<\/strong>\s*(?:[—–:-]\s*)?([\s\S]*)$/)!;
+        const [t, ...d] = m[2]!.split(/(?<=[^\s.]{3})\. /);
+        return `<li class="reveal" style="--i:${i}"><span class="tl-year">${m[1]}</span><div class="tl-body"><b class="card-t">${t!.replace(/\.$/, "")}</b>${d.length ? `<span class="card-d">${d.join(". ")}</span>` : ""}</div></li>`;
+      })
+      .join("")}</ol>`;
+  }
   const long = items.some((x) => plain(x).length > 170) || items.length > 6;
   return `<ol class="steps ${long ? "steps-v" : "steps-h"}">${items
     .map((x, i) => {
@@ -124,6 +134,12 @@ function enhanceSection(body: string, title: string) {
   b = b.replace(/<ul>[\s\S]*?<\/ul>/g, (ul) => {
     const items = [...ul.matchAll(/<li>([\s\S]*?)<\/li>/g)].map((m) => m[1]!.replace(/^<p>/, ""));
     const allStrong = items.length >= 2 && items.every((x) => x.startsWith("<strong>"));
+    // Пары «**было** → стало» — две колонки со стрелкой
+    if (items.length >= 2 && items.every((x) => /^<strong>[\s\S]*?<\/strong>\s*→/.test(x)))
+      return `<ul class="pairs">${items.map((x, i) => { const m = x.replace(/<\/p>$/, "").match(/^<strong>([\s\S]*?)<\/strong>\s*→\s*([\s\S]*)$/)!; return `<li class="reveal" style="--i:${i}"><b class="pair-a">${m[1]}</b><span class="pair-arrow" aria-hidden="true">→</span><span class="pair-b">${m[2]}</span></li>`; }).join("")}</ul>`;
+    // Цифры: «**30** — интервью *факт проекта*» — крупное число, подпись и пометка источника
+    if (items.length >= 2 && items.every((x) => /^<strong>[\s\S]*?<\/strong>[\s\S]*<em>[\s\S]*?<\/em>\s*(<\/p>)?$/.test(x)))
+      return `<ul class="stats">${items.map((x, i) => { const m = x.replace(/<\/p>$/, "").match(/^<strong>([\s\S]*?)<\/strong>\s*(?:[—–:-]\s*)?([\s\S]*?)\s*<em>([\s\S]*?)<\/em>$/)!; const fact = /факт/i.test(m[3]!); return `<li class="reveal${fact ? " is-fact" : ""}" style="--i:${i}"><b class="stat-n">${m[1]}</b><span class="stat-l">${m[2]}</span><span class="stat-src">${m[3]}</span></li>`; }).join("")}</ul>`;
     const allLinks = items.length >= 2 && items.every((x) => /^<a [^>]*>[\s\S]*?<\/a>\s*(?:[—–.:-][\s\S]*)?$/.test(x.replace(/<\/p>$/, "")) || /^<strong><a /.test(x));
     if (kind === "warn") return cardItems(allStrong ? ul : ul.replace(/<li>(?:<p>)?/g, "<li><strong>").replace(/<\/li>/g, "</strong></li>"), "cards cards-warn", "warn");
     if (kind === "no") return ul.replace(/^<ul>/, '<ul class="checks checks-no">');
