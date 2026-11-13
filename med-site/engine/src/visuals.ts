@@ -1,7 +1,7 @@
 // Иллюстрации-схемы для первого экрана (SVG + CSS-анимация, без растровых картинок и без JS).
 // Анимация отключается при prefers-reduced-motion (site.css). Подписи — текстом в SVG, читаются скринридером через <title>.
 
-const STEPS = ["Данные", "Боли", "Позиция", "Воронка", "Продажи"];
+const STEPS = ["Поиск", "Запись", "Визит", "Дом", "Возврат"];
 
 /** Главная: путь продукта от состава до продаж — линия прорисовывается, узлы загораются по очереди. */
 export function pathVisual() {
@@ -13,13 +13,13 @@ export function pathVisual() {
       <text x="${x(i)}" y="${i % 2 ? 160 : 72}" text-anchor="middle" class="pv-label">${s}</text>
     </g>`,
   ).join("");
-  return `<figure class="hero-visual pv" aria-label="Путь: данные, боли, позиция, воронка, продажи">
+  return `<figure class="hero-visual pv" aria-label="Путь пациента: поиск, запись, визит, дом, возврат">
   <svg viewBox="0 0 400 220" role="img" aria-hidden="true" focusable="false">
     <path d="M40 110 H360" class="pv-track"/>
     <path d="M40 110 H360" class="pv-line" pathLength="1"/>
     ${nodes}
   </svg>
-  <figcaption class="pv-caption">От данных до продаж — один человек отвечает за путь</figcaption>
+  <figcaption class="pv-caption">Путь пациента не заканчивается на визите</figcaption>
 </figure>`;
 }
 

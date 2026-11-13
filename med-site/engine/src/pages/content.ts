@@ -56,7 +56,7 @@ const DIR: Record<string, string> = { marketing: "mkt", kejsy: "mkt", blog: "mkt
 
 /** Шоурил (src/showreel.ts) — на главной и на страницах 3D и видео. */
 const REEL: Record<string, { title: string; lead: string }> = {
-  "": { title: "От данных до продаж — <span class=\"grad\">за 15 секунд</span>", lead: "Так выглядит наш моушн-дизайн, собранный кодом. Тот же подход — для роликов клиники и продукта." },
+  "": { title: "Путь пациента — <span class=\"grad\">за 15 секунд</span>", lead: "Моушн-дизайн, собранный кодом. Так же оживляем материалы врачей для пациентов клиники." },
   "marketing/3d-vizualizaciya-upakovki/": { title: "Моушн и 3D — <span class=\"grad\">в деле</span>", lead: "Ролик собран кодом: так же оживляем вашу упаковку для карточки, сайта и соцсетей." },
   "marketing/video-dlya-kartochek/": { title: "Как это может <span class=\"grad\">двигаться</span>", lead: "15 секунд — от состава до продаж. Видео для карточки строим так же: коротко, по сценам, без съёмочного дня." },
 };

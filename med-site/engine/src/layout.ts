@@ -134,7 +134,7 @@ function footer(base: string) {
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="${base}index.html"><img class="brand-mark" src="${base}assets/emblem-ink.png" alt="" width="34" height="34"><span class="brand-name">Proba-Product Laboratory</span></a>
-        <p>Медицинский маркетинг на данных: клиники, производители, научные разработки</p>
+        <p>Маркетинг, который не заканчивается на визите</p>
         <p class="footer-contacts"><a href="${COMPANY.phoneHref}">${COMPANY.phone}</a><br><a href="mailto:${COMPANY.email}">${COMPANY.email}</a><br><a href="${esc(MAX_URL)}" target="_blank" rel="noopener">Написать в MAX</a></p>
       </div>
       <nav class="footer-nav" aria-label="Направления">
