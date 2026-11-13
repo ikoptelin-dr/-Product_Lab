@@ -15,40 +15,40 @@ export function reviewSection() {
   return `<section id="review" class="section review" aria-labelledby="review-title">
   <div class="container two-col">
     <div class="review-copy">
-      <p class="eyebrow">Бесплатно</p>
-      <h2 id="review-title" class="h2">Ваша клиника или продукт глазами клиента</h2>
+      <p class="eyebrow">Бесплатно · чек-лист</p>
+      <h2 id="review-title" class="h2">12 точек, где клиника теряет пациента после визита</h2>
       <ol class="steps-list">
-        <li><b>Спрос и конкуренты</b> по открытым данным: Вордстат, карты, отзывы</li>
-        <li><b>Путь до записи или заказа:</b> где человек теряется</li>
-        <li><b>Три наблюдения и три гипотезы</b> — на двух листах</li>
+        <li><b>15 минут</b> — пройдите сами и отметьте «да» или «нет»</li>
+        <li><b>День визита, первая неделя, месяц</b> — где пациент уходит</li>
+        <li><b>Что делать с результатом</b> — по числу отмеченных пунктов</li>
       </ol>
       <div class="review-notes">
-        <p class="muted">Если существенной проблемы не увидим — так и скажем.</p>
-        <p class="muted">Три рабочих дня после подтверждения заявки. Результат пришлём без обязательного созвона.</p>
+        <p class="muted">Пришлём чек-лист на указанный контакт в течение рабочего дня.</p>
+        <p class="muted">Захотите разобрать результат — 20 минут: покажу 3 наблюдения о вашей клинике по открытым данным.</p>
       </div>
     </div>
 
     <form id="review-form" class="form-card glass-light" novalidate data-form="review" aria-labelledby="review-form-title">
-      <p class="form-title" id="review-form-title">Заявка на разбор</p>
+      <p class="form-title" id="review-form-title">Получить чек-лист</p>
       <div class="field">
-        <label for="rv-url">Ссылка на продукт</label>
-        <input id="rv-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="Сайт клиники, продукта или карточка" aria-describedby="rv-url-hint">
-        <p class="hint" id="rv-url-hint">Данные пациентов не нужны: работаем только с открытыми источниками</p>
+        <label for="rv-url">Сайт клиники</label>
+        <input id="rv-url" name="productUrl" inputmode="url" autocomplete="url" placeholder="clinic.ru" aria-describedby="rv-url-hint">
+        <p class="hint" id="rv-url-hint">Нужен, чтобы подготовить наблюдения именно о вашей клинике</p>
       </div>
       <div class="field">
         <label for="rv-contact">Контакт для ответа</label>
         <input id="rv-contact" name="contact" autocomplete="off" placeholder="Email, телефон или Telegram">
       </div>
       <fieldset class="field" data-required-group="category">
-        <legend>Категория</legend>
+        <legend>Кто вы</legend>
         <div class="choice-row">
-          <label class="choice"><input type="radio" name="category" value="Клиника"><span>Клиника</span></label>
-          <label class="choice"><input type="radio" name="category" value="Производитель"><span>Производитель</span></label>
-          <label class="choice"><input type="radio" name="category" value="Другое"><span>Другое</span></label>
+          <label class="choice"><input type="radio" name="category" value="Руководитель"><span>Руководитель</span></label>
+          <label class="choice"><input type="radio" name="category" value="Маркетолог"><span>Маркетолог</span></label>
+          <label class="choice"><input type="radio" name="category" value="Врач"><span>Врач</span></label>
         </div>
       </fieldset>
       ${CONSENT}
-      <button class="btn btn-primary btn-lg btn-block" type="submit">Получить бесплатный разбор</button>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Получить чек-лист</button>
       ${STATUS}
     </form>
   </div>

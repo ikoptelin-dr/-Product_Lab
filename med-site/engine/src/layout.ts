@@ -97,7 +97,7 @@ function header(base: string, active: NavKey) {
       ${HEADER_NAV.map(link).join("\n      ")}
     </nav>
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm header-cta" href="${base}${QUIZ_HREF}">Бесплатный разбор</a>
+      <a class="btn btn-primary btn-sm header-cta" href="${base}${QUIZ_HREF}">Чек-лист для клиники</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button>
     </div>
   </div>
@@ -105,7 +105,7 @@ function header(base: string, active: NavKey) {
     <nav aria-label="Мобильная навигация" class="container">
       ${HEADER_NAV.map(link).join("\n      ")}
       <a href="${base}kontakty.html">Контакты</a>
-      <a class="btn btn-primary btn-lg" href="${base}${QUIZ_HREF}">Бесплатный разбор</a>
+      <a class="btn btn-primary btn-lg" href="${base}${QUIZ_HREF}">Чек-лист для клиники</a>
     </nav>
   </div>
 </header>`;
@@ -143,7 +143,7 @@ function footer(base: string) {
         <p class="footer-label">О работе</p>
         <ul>
           <li><a href="${base}metodologiya.html">Методология</a></li>
-          <li><a href="${base}index.html#review">Бесплатный разбор</a></li>
+          <li><a href="${base}index.html#review">Чек-лист для клиники</a></li>
           <li><a href="${base}kejsy.html">Кейсы</a></li>
         </ul>
       </nav>

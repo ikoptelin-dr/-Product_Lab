@@ -358,12 +358,12 @@ function forms() {
       const kind = form.dataset.form!;
       const errors: { name: string; msg: string }[] = [];
 
-      if (kind === "reg" && !fd.get("category")) errors.push({ name: "category", msg: "Выберите категорию" });
+      if (kind === "reg" && !fd.get("category")) errors.push({ name: "category", msg: "Выберите вариант" });
       const urlInput = $<HTMLInputElement>('[name="productUrl"]', form);
       let norm: string | null = "";
       if (urlInput) {
         norm = normalizeUrl(urlInput.value);
-        if (kind === "review" && !urlInput.value.trim()) errors.push({ name: "productUrl", msg: "Добавьте ссылку на продукт" });
+        if (kind === "review" && !urlInput.value.trim()) errors.push({ name: "productUrl", msg: "Добавьте сайт клиники" });
         else if (norm === null) errors.push({ name: "productUrl", msg: "Проверьте адрес — например, ozon.ru/product/…" });
         else urlInput.value = norm;
       }
@@ -371,7 +371,7 @@ function forms() {
         if (String(fd.get("composition") || "").trim().length < 3 && !norm) errors.push({ name: "composition", msg: "Добавьте состав или ссылку на продукт" });
         if (!fd.get("need")) errors.push({ name: "need", msg: "Выберите, что нужно" });
       }
-      if (kind === "review" && !fd.get("category")) errors.push({ name: "category", msg: "Выберите категорию" });
+      if (kind === "review" && !fd.get("category")) errors.push({ name: "category", msg: "Выберите вариант" });
       // «Обсудить задачу»: выбор задачи необязателен — достаточно контакта
       if (kind === "automation" && String(fd.get("process") || "").trim().length < 10) errors.push({ name: "process", msg: "Опишите процесс в паре предложений" });
       if (kind === "partner" && String(fd.get("company") || "").trim().length < 2) errors.push({ name: "company", msg: "Укажите компанию или имя" });
