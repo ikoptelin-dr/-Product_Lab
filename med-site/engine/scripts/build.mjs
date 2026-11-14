@@ -232,6 +232,7 @@ for (const f of files) {
   const rules = [...FORBIDDEN, ...(f.path.startsWith("dokumenty/") ? REG_FORBIDDEN : [])];
   // «под ключ» допустим в title/description как название поискового запроса (vision §3), в тексте страницы — только в кавычках
   for (const re of rules) if (re.test(re === QUERY_RULE ? visible(f.html) : text)) throw new Error(`${f.path}: запрещённое слово ${re} — «${text.match(re)?.[0]}»`);
+  if (/href=""/.test(f.html)) throw new Error(`${f.path}: пустая ссылка href=""`);
   if ((f.html.match(/<h1[\s>]/g) || []).length !== 1) throw new Error(`${f.path}: должен быть ровно один h1`);
   if (titles.has(f.title)) throw new Error(`${f.path}: повтор title «${f.title}»`);
   titles.add(f.title);
