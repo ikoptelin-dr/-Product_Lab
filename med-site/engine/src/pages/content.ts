@@ -64,12 +64,13 @@ const REEL: Record<string, { title: string; lead: string }> = {
 /** Задача формы из текста («Документы и регистрация», «Маркетинг»…) → id из TASKS. */
 function taskId(label: string): string {
   const l = label.toLowerCase();
-  const id = /диагност/.test(l) ? "diag" : /исследован|jtbd|cjm|нетнограф/.test(l) ? "research" : /b2b|сырь|лпр/.test(l) ? "b2b" : /запуск|сайт|бот|позиционир|маркетинг/.test(l) ? "launch" : /аналитик|воронк/.test(l) ? "analytics" : /сопровожд/.test(l) ? "support" : "";
+  const id = /замер/.test(l) ? "zamer" : /диагност/.test(l) ? "diag" : /исследован|jtbd|cjm|нетнограф/.test(l) ? "research" : /b2b|сырь|лпр/.test(l) ? "b2b" : /запуск|сайт|бот|позиционир|маркетинг/.test(l) ? "launch" : /аналитик|воронк/.test(l) ? "analytics" : /сопровожд/.test(l) ? "support" : "";
   if (id && !TASKS.some((t) => t.id === id)) throw new Error(`Нет задачи ${id}`);
   return id;
 }
 
 const FORM_TITLES: Record<string, string> = {
+  zamer: "Заказать замер возврата",
   diag: "Записаться на диагностику",
   research: "Обсудить исследование",
   b2b: "Обсудить выход на рынок",

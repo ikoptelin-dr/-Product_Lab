@@ -11,6 +11,7 @@ export const PRICES = {
 
 /** Задачи в форме «Обсудить задачу». id используется в data-task у кнопок. */
 export const TASKS = [
+  { id: "zamer", label: "Замер возврата — 30 000 ₽" },
   { id: "diag", label: "Диагностика: где теряются клиенты" },
   { id: "research", label: "Исследование аудитории: JTBD, CJM, нетнография" },
   { id: "b2b", label: "Выход на B2B-рынок и ЛПР" },

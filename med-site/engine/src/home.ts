@@ -20,7 +20,7 @@ export function marquee() {
 
 interface Tile { cls: string; href: string; tag: string; title: string; text: string; price: string; img: string; ic: string }
 const TILES: Tile[] = [
-  { cls: "b-lg b-docs", href: "uslugi.html#diagnostika", tag: "Первый шаг", title: "Диагностика пути пациента", text: "Где клиника теряет пациента до записи и после визита. Открытые данные, без доступа к картам пациентов.", price: "<b>от 60 000 ₽</b> · 2 недели", img: "bento-docs", ic: "doc" },
+  { cls: "b-lg b-docs", href: "uslugi.html#zamer", tag: "Первый шаг", title: "Замер возврата", text: "Одно число, три места потери и один следующий шаг. За пять рабочих дней, без передачи данных пациентов.", price: "<b>30 000 ₽</b> · 5 дней", img: "bento-docs", ic: "doc" },
   { cls: "b-md b-pack", href: "uslugi.html#zapusk", tag: "После визита", title: "QR, бот и возврат", text: "Материалы врача по теме визита, напоминание о контроле, запись в одно касание.", price: "<b>от 250 000 ₽</b>", img: "bento-marketing", ic: "jar" },
   { cls: "b-third b-3d", href: "metodologiya.html", tag: "Метод", title: "Доказательный маркетинг", text: "Протокол, контрольная группа, катамнез.", price: "Методология — <b>открыто</b>", img: "bento-3d", ic: "cube" },
   { cls: "b-third b-research", href: "uslugi.html#issledovanie", tag: "Исследование", title: "Голос пациента", text: "Нетнография, интервью, JTBD.", price: "<b>от 90 000 ₽</b>", img: "bento-research", ic: "target" },
