@@ -1,5 +1,5 @@
 @echo off
-rem Proba Lab service loop: site + forms (node server.mjs). Started by Task Scheduler task "Proba - sajt". Do not run by hand.
+rem Proba-Product Laboratory service loop: site + forms (node server.mjs). Started by Task Scheduler task "med - sajt". Do not run by hand.
 cd /d "%~dp0"
 if not exist "%~dp0logs" mkdir "%~dp0logs"
 set "NODE=node"

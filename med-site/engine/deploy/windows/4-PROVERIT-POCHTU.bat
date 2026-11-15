@@ -1,5 +1,5 @@
 @echo off
-rem Proba Lab: send a test e-mail using the settings in nastrojki.txt
+rem Proba-Product Laboratory: send a test e-mail using the settings in nastrojki.txt
 chcp 65001 >nul
 cd /d "%~dp0"
 set "NODE=node"

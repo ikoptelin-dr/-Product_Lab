@@ -79,6 +79,9 @@ const urlencoded = (s) => {
   return out;
 };
 // Та же проверка контакта, что в форме (src/site.ts): email, телефон от 10 цифр или Telegram
+// Понятные названия в письме и CRM вместо служебных кодов формы и задачи
+const NAMES = { review: "Чек-лист «12 точек»", project: "Обсудить задачу", zamer: "Замер возврата — 30 000 ₽", diag: "Диагностика", research: "Исследование пациентов", b2b: "Выход на B2B-рынок", launch: "Запуск: путь после визита", analytics: "Аналитика и воронка", support: "Сопровождение" };
+const readable = (data) => { for (const k of ["form", "task"]) if (data[k] && NAMES[data[k]]) data[k] = NAMES[data[k]]; return data; };
 const okContact = (c) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c) || c.replace(/\D/g, "").length >= 10 || /^(@|https?:\/\/t\.me\/|t\.me\/)[a-z0-9_]{4,}$/i.test(c);
 
 /** Письмо через SMTP (TLS, AUTH LOGIN). Без зависимостей. Ошибка — исключение с ответом сервера (пароль в него не попадает). */
@@ -86,7 +89,7 @@ export function sendMail({ subject, text, files = [], replyTo = "" }) {
   const oneLine = (v) => String(v).replace(/[\r\n]+/g, " ").trim();
   const enc = (v) => `=?UTF-8?B?${Buffer.from(oneLine(v)).toString("base64")}?=`;
   const b64 = (buf) => buf.toString("base64").replace(/.{1,76}/g, "$&\r\n");
-  const head = [`From: ${enc("Сайт Proba Lab")} <${SMTP_USER}>`, `To: ${MAIL_TO.join(", ")}`, `Subject: ${enc(subject)}`, `Date: ${new Date().toUTCString()}`, `Message-ID: <${Date.now().toString(36)}.${Math.random().toString(36).slice(2)}@proba-lab.ru>`, "MIME-Version: 1.0"];
+  const head = [`From: ${enc("Сайт Proba-Product Laboratory")} <${SMTP_USER}>`, `To: ${MAIL_TO.join(", ")}`, `Subject: ${enc(subject)}`, `Date: ${new Date().toUTCString()}`, `Message-ID: <${Date.now().toString(36)}.${Math.random().toString(36).slice(2)}@proba-lab.ru>`, "MIME-Version: 1.0"];
   if (/^[^\s@<>,]+@[^\s@<>,]+\.[^\s@<>,]{2,}$/.test(replyTo)) head.push(`Reply-To: ${replyTo}`);
   const textPart = ["Content-Type: text/plain; charset=utf-8", "Content-Transfer-Encoding: base64", "", b64(Buffer.from(text))].join("\r\n");
   let body;
@@ -117,7 +120,7 @@ export function sendMail({ subject, text, files = [], replyTo = "" }) {
     };
     (async () => {
       await step(null, /^220/, "приветствие сервера");
-      await step("EHLO proba-lab.ru", /^250/, "EHLO");
+      await step("EHLO product-laboratory.ru", /^250/, "EHLO");
       await step("AUTH LOGIN", /^334/, "вход");
       await step(Buffer.from(SMTP_USER).toString("base64"), /^334/, "вход (логин)");
       await step(Buffer.from(SMTP_PASS).toString("base64"), /^235/, "вход (логин или пароль приложения не подошли)");
@@ -133,8 +136,9 @@ export function sendMail({ subject, text, files = [], replyTo = "" }) {
 }
 /** Заявка на почту: true — письмо (с файлами) принято почтовым сервером. */
 async function email(data, files) {
+  readable(data);
   if (!SMTP_USER || !SMTP_PASS || !MAIL_TO.length) return false;
-  const text = ["Заявка с сайта Proba Lab", "", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 2000)}`), ...(files.length ? ["", `Файлы во вложении: ${files.map((f) => f.filename).join(", ")}`] : [])].join("\n");
+  const text = ["Заявка с сайта Proba-Product Laboratory", "", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 2000)}`), ...(files.length ? ["", `Файлы во вложении: ${files.map((f) => f.filename).join(", ")}`] : [])].join("\n");
   try {
     await sendMail({ subject: `Заявка с сайта: ${String(data.contact ?? "").slice(0, 80)}`, text, files, replyTo: String(data.contact ?? "").trim() });
     return true;
@@ -143,12 +147,13 @@ async function email(data, files) {
 
 /** Лид в Битрикс24 (crm.lead.add): true — лид создан. Контакт раскладывается в email, телефон или мессенджер. */
 async function bitrix(data) {
+  readable(data);
   if (!/^https:\/\/[^/]+\/rest\/\d+\/[^/]+$/.test(B24)) return false;
   const c = String(data.contact ?? "").trim();
   const fields = {
     TITLE: `Заявка с сайта: ${LABELS[data.form] ?? data.form ?? "форма"} — ${c}`.slice(0, 250),
     SOURCE_ID: "WEB",
-    SOURCE_DESCRIPTION: `proba-lab.ru${String(data.page ?? "")}`.slice(0, 250),
+    SOURCE_DESCRIPTION: `product-laboratory.ru${String(data.page ?? "")}`.slice(0, 250),
     OPENED: "Y",
     COMMENTS: Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 2000)}`).join("\n"),
   };
@@ -167,9 +172,10 @@ async function bitrix(data) {
 }
 /** Отправка в Telegram: { text } — дошёл ли текст заявки, { files } — дошли ли все файлы. */
 async function telegram(data, files) {
+  readable(data);
   const out = { text: false, files: files.length === 0 };
   if (!TG_TOKEN || !TG_CHAT) return out;
-  const text = ["Заявка с сайта Proba Lab", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 500)}`)].join("\n");
+  const text = ["Заявка с сайта Proba-Product Laboratory", ...Object.entries(data).filter(([k]) => k !== "consent").map(([k, v]) => `${LABELS[k] ?? k}: ${String(v).slice(0, 500)}`)].join("\n");
   try {
     const r = await fetch(`${TG_API}/bot${TG_TOKEN}/sendMessage`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ chat_id: TG_CHAT, text }), signal: AbortSignal.timeout(TG_TIMEOUT) });
     if (!r.ok) return out;

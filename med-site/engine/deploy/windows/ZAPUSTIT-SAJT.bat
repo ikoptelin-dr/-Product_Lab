@@ -1,3 +1,3 @@
 @echo off
-rem Proba Lab: start
+rem Proba-Product Laboratory: start
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0upravlenie.ps1" start

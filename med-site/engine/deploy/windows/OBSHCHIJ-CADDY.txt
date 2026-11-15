@@ -1,0 +1,15 @@
+﻿Proba-Product Laboratory: режим «общий Caddy». Пока этот файл лежит в папке, свой Caddy этого сайта не запускается.
+Порты 80 и 443 обслуживает Caddy вашего друга. В его Caddyfile нужно добавить в самый конец два блока ниже
+(после последней закрывающей скобки). Блоки proba-lab.ru и сайта друга не трогать.
+
+product-laboratory.ru {
+	encode zstd gzip
+	request_body {
+		max_size 6MB
+	}
+	reverse_proxy 127.0.0.1:8081
+}
+
+www.product-laboratory.ru {
+	redir https://product-laboratory.ru{uri} permanent
+}

@@ -1,20 +1,20 @@
-# Caddy: HTTPS для proba-lab.ru. Сертификат Let's Encrypt Caddy получает и продлевает сам.
+﻿# Caddy: HTTPS для product-laboratory.ru. Сертификат Let's Encrypt Caddy получает и продлевает сам.
 # Работает, когда домен указывает на ваш внешний IP, а на роутере порты 80 и 443 проброшены на этот компьютер.
-# Сам сайт и заявки отдаёт server.mjs на 127.0.0.1:8080 — Caddy только передаёт ему запросы.
+# Сам сайт и заявки отдаёт server.mjs на 127.0.0.1:8081 — Caddy только передаёт ему запросы.
 {
-	email i.koptelin@proba-lab.ru
+	email i.koptelin@yandex.ru
 	# Порт администрирования (2019) не нужен: настройки берутся только из этого файла
 	admin off
 }
 
-www.proba-lab.ru {
-	redir https://proba-lab.ru{uri} permanent
+www.product-laboratory.ru {
+	redir https://product-laboratory.ru{uri} permanent
 }
 
-proba-lab.ru {
+product-laboratory.ru {
 	encode zstd gzip
 	request_body {
 		max_size 6MB
 	}
-	reverse_proxy 127.0.0.1:8080
+	reverse_proxy 127.0.0.1:8081
 }

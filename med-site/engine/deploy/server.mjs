@@ -1,6 +1,6 @@
 // Сервер сайта Proba Lab для Windows (работает и на Linux): отдаёт статику и принимает заявки POST /lead — в одном процессе.
 // Без зависимостей, Node 18+. Снаружи стоит Caddy (deploy/windows/Caddyfile): HTTPS-сертификат и переадресация сюда.
-// Запуск: node server.mjs → http://127.0.0.1:8080
+// Запуск: node server.mjs → http://127.0.0.1:8081
 // Рядом с файлом: site/ — содержимое dist/, nastrojki.txt — TG_TOKEN/TG_CHAT (Telegram) и SMTP_USER/SMTP_PASS/MAIL_TO (почта); в репозиторий не коммитить.
 // node server.mjs --test-mail — отправить тестовое письмо по настройкам и выйти.
 // Правила адресов те же, что в deploy/nginx.conf: переехавшие страницы, разделы со слэшем, $uri и $uri.html, 404.html.
@@ -23,7 +23,7 @@ if (existsSync(SETTINGS)) {
 const found = process.env.SITE_DIR || [join(HERE, "site"), join(HERE, "..", "dist")].find((d) => existsSync(join(d, "index.html")));
 if (!found) { console.error(`Не найдена папка сайта: положите содержимое dist в ${join(HERE, "site")}`); process.exit(1); }
 const SITE = resolve(found);
-const PORT = Number(process.env.SITE_PORT || 8080);
+const PORT = Number(process.env.SITE_PORT || 8081); // у proba-lab.ru 8080, у этого сайта 8081
 // SITE_HOST=0.0.0.0 — принимать запросы не только с этого компьютера (нужно, если Caddy работает в Docker)
 const HOST = process.env.SITE_HOST || "127.0.0.1";
 if (!process.env.LEAD_LOG) {
@@ -37,7 +37,7 @@ if (process.argv.includes("--test-mail")) {
   const { SMTP_USER, SMTP_PASS, MAIL_TO } = process.env;
   if (!SMTP_USER || !SMTP_PASS) { console.error("Почта не настроена: впишите SMTP_USER и SMTP_PASS в nastrojki.txt"); process.exit(1); }
   try {
-    await sendMail({ subject: "Проверка почты сайта Proba Lab", text: "Это тестовое письмо с сервера сайта. Если вы его видите — заявки будут приходить на эту почту." });
+    await sendMail({ subject: "Проверка почты сайта Proba-Product Laboratory", text: "Это тестовое письмо с сервера сайта. Если вы его видите — заявки будут приходить на эту почту." });
     console.log(`Готово: тестовое письмо отправлено на ${MAIL_TO || SMTP_USER}. Проверьте почту (и папку «Спам»).`);
     process.exit(0);
   } catch (e) { console.error(`Письмо не отправлено: ${e.message}`); process.exit(1); }

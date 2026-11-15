@@ -1,4 +1,4 @@
-﻿# Управление сервером Proba Lab на Windows. Запускается из .bat-файлов в этой же папке.
+﻿# Управление сервером Proba-Product Laboratory на Windows. Запускается из .bat-файлов в этой же папке.
 #   ustanovka — разблокировать файлы, открыть порты 80/443, отключить сон, включить автозапуск (2 задачи планировщика), запустить
 #   proverka  — проверить всё по шагам и показать, что не так
 #   start / stop — запустить / остановить сайт
@@ -9,12 +9,12 @@ param([string]$Action = "proverka")
 $ErrorActionPreference = "Stop"
 $Dir = Split-Path -Parent $PSCommandPath
 $Tasks = @(
-  @{ Name = "Proba - sajt";  File = "sluzhba-sajt.bat" },
-  @{ Name = "Proba - caddy"; File = "sluzhba-caddy.bat" }
+  @{ Name = "med - sajt";  File = "sluzhba-sajt.bat" },
+  @{ Name = "med - caddy"; File = "sluzhba-caddy.bat" }
 )
-$Domain = "proba-lab.ru"
+$Domain = "product-laboratory.ru"
 # Если на компьютере уже работает другой Caddy (например, сайт друга), наш Caddy не нужен:
-# proba-lab.ru добавляется в настройки того Caddy. Признак режима — файл OBSHCHIJ-CADDY.txt в папке.
+# product-laboratory.ru добавляется в настройки того Caddy. Признак режима — файл OBSHCHIJ-CADDY.txt в папке.
 $Shared = Test-Path (Join-Path $Dir "OBSHCHIJ-CADDY.txt")
 if ($Shared) { $Tasks = @($Tasks | Where-Object { $_.File -ne "sluzhba-caddy.bat" }) }
 function Is-Own($path) { return ($path -and $path.ToLower().StartsWith($Dir.ToLower())) }
@@ -98,27 +98,27 @@ function Start-Site {
 }
 
 function Shared-Mode {
-  Step "Подключаю proba-lab.ru к уже работающему Caddy (одна программа на портах 80 и 443)"
-  $t = Get-ScheduledTask -TaskName "Proba - caddy" -ErrorAction SilentlyContinue
-  if ($t) { Stop-ScheduledTask -TaskName "Proba - caddy" -ErrorAction SilentlyContinue; Unregister-ScheduledTask -TaskName "Proba - caddy" -Confirm:$false }
+  Step "Подключаю product-laboratory.ru к уже работающему Caddy (одна программа на портах 80 и 443)"
+  $t = Get-ScheduledTask -TaskName "med - caddy" -ErrorAction SilentlyContinue
+  if ($t) { Stop-ScheduledTask -TaskName "med - caddy" -ErrorAction SilentlyContinue; Unregister-ScheduledTask -TaskName "med - caddy" -Confirm:$false }
   Get-CimInstance Win32_Process | Where-Object { $_.Name -eq "cmd.exe" -and $_.CommandLine -and $_.CommandLine.Contains("sluzhba-caddy") } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
   Get-CimInstance Win32_Process -Filter "Name LIKE 'caddy%'" | Where-Object { Is-Own $_.ExecutablePath } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
   Ok "Свой Caddy отключён (сайт и приём заявок продолжают работать)"
   $text = @"
-Proba Lab: режим «общий Caddy». Пока этот файл лежит в папке, свой Caddy сайта Proba Lab не запускается.
+Proba-Product Laboratory: режим «общий Caddy». Пока этот файл лежит в папке, свой Caddy сайта Proba-Product Laboratory не запускается.
 Порты 80 и 443 обслуживает другой Caddy на этом компьютере. В его Caddyfile нужно добавить два блока ниже
 и перезагрузить его настройки (caddy reload --config путь_к_его_Caddyfile, или перезапустить его службу).
 
-proba-lab.ru {
+product-laboratory.ru {
 	encode zstd gzip
 	request_body {
 		max_size 6MB
 	}
-	reverse_proxy 127.0.0.1:8080
+	reverse_proxy 127.0.0.1:8081
 }
 
-www.proba-lab.ru {
-	redir https://proba-lab.ru{uri} permanent
+www.product-laboratory.ru {
+	redir https://product-laboratory.ru{uri} permanent
 }
 
 Вернуть свой Caddy: удалите этот файл и запустите 2-VKLYUCHIT-AVTOZAPUSK.bat (другой Caddy перед этим должен освободить порты 80 и 443).
@@ -150,7 +150,7 @@ function Install {
 
   Step "3. Открываю порты 80 и 443 в брандмауэре Windows"
   foreach ($port in 80, 443) {
-    $name = "Proba - port $port"
+    $name = "med - port $port"
     if (-not (Get-NetFirewallRule -DisplayName $name -ErrorAction SilentlyContinue)) {
       New-NetFirewallRule -DisplayName $name -Direction Inbound -Protocol TCP -LocalPort $port -Action Allow | Out-Null
     }
@@ -182,7 +182,7 @@ function Install {
 }
 
 function Check {
-  Step "Проверка сервера Proba Lab (папка $Dir)"
+  Step "Проверка сервера Proba-Product Laboratory (папка $Dir)"
 
   try {
     $net = Get-NetIPConfiguration | Where-Object { $_.IPv4DefaultGateway -and $_.NetAdapter.Status -eq "Up" } | Select-Object -First 1
@@ -229,17 +229,17 @@ function Check {
   }
 
   try {
-    $r = Invoke-WebRequest -Uri "http://127.0.0.1:8080/" -UseBasicParsing -TimeoutSec 10
-    if ($r.StatusCode -eq 200 -and $r.Content -match "Proba Lab") { Ok "Сайт открывается на этом компьютере: http://localhost:8080" }
-    else { Bad "На http://localhost:8080 отвечает не сайт Proba Lab — порт 8080 занят другой программой. Смотрите logs\sajt.log" }
-  } catch { Bad "Сайт не отвечает на http://localhost:8080 — смотрите logs\sajt.log" }
+    $r = Invoke-WebRequest -Uri "http://127.0.0.1:8081/" -UseBasicParsing -TimeoutSec 10
+    if ($r.StatusCode -eq 200 -and $r.Content -match "Proba-Product") { Ok "Сайт открывается на этом компьютере: http://localhost:8081" }
+    else { Bad "На http://localhost:8081 отвечает не сайт Proba-Product Laboratory — порт 8081 занят другой программой. Смотрите logs\sajt.log" }
+  } catch { Bad "Сайт не отвечает на http://localhost:8081 — смотрите logs\sajt.log" }
 
   foreach ($port in 80, 443) {
     $c = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
     if (-not $c) { Bad "Порт $port никто не слушает — Caddy не запущен, смотрите logs\caddy.log" ; continue }
     $p = Get-CimInstance Win32_Process -Filter "ProcessId=$($c.OwningProcess)" -ErrorAction SilentlyContinue
     $path = if ($p) { $p.ExecutablePath } else { "" }
-    if ($p -and $p.Name -like "caddy*" -and (Is-Own $path)) { Ok "Порт $port слушает Caddy сайта Proba Lab" }
+    if ($p -and $p.Name -like "caddy*" -and (Is-Own $path)) { Ok "Порт $port слушает Caddy сайта Proba-Product Laboratory" }
     elseif ($p -and $p.Name -like "caddy*" -and $Shared) { Ok "Порт $port слушает общий Caddy ($path)" }
     elseif ($p -and $p.Name -like "caddy*") { Bad "Порт $port занимает ДРУГОЙ Caddy: $path (похоже, второй сайт на этом компьютере). Два Caddy одновременно не работают — запустите OBSHCHIJ-CADDY.bat" }
     else { Bad "Порт $port занят другой программой: $($p.Name) $path. Два веб-сервера на одних портах не работают — спросите того, кто её ставил" }
@@ -257,7 +257,7 @@ function Check {
     else { Bad "$Domain указывает на $($dns -join ', '), а не на $ip — исправьте A-запись у регистратора (шаг 9)" }
   } catch { Warn "Не удалось проверить DNS для $Domain (домен ещё не настроен или нет интернета)" }
 
-  # HTTPS для proba-lab.ru прямо через этот компьютер (тем Caddy, который слушает порт 443)
+  # HTTPS для product-laboratory.ru прямо через этот компьютер (тем Caddy, который слушает порт 443)
   $curl = Join-Path $env:SystemRoot "System32\curl.exe"
   if (Test-Path $curl) {
     $code = (& $curl -s -o NUL -w "%{http_code}" --ssl-no-revoke --max-time 15 --resolve "$($Domain):443:127.0.0.1" "https://$Domain/" 2>$null)
@@ -317,7 +317,7 @@ switch ($Action) {
   "udalit"    {
     Stop-Site
     foreach ($t in $Tasks) { Unregister-ScheduledTask -TaskName $t.Name -Confirm:$false -ErrorAction SilentlyContinue }
-    foreach ($port in 80, 443) { Remove-NetFirewallRule -DisplayName "Proba - port $port" -ErrorAction SilentlyContinue }
+    foreach ($port in 80, 443) { Remove-NetFirewallRule -DisplayName "med - port $port" -ErrorAction SilentlyContinue }
     Ok "Автозапуск и правила брандмауэра удалены. Файлы в папке не тронуты."
   }
   default { Bad "Неизвестная команда: $Action" }

@@ -1,5 +1,5 @@
 @echo off
-rem Proba Lab service loop: Caddy (HTTPS for proba-lab.ru). Started by Task Scheduler task "Proba - caddy". Do not run by hand.
+rem Proba-Product Laboratory service loop: Caddy (HTTPS for product-laboratory.ru). Started by Task Scheduler task "med - caddy". Do not run by hand.
 cd /d "%~dp0"
 if not exist "%~dp0logs" mkdir "%~dp0logs"
 rem Certificates are kept here, in the "dannye" folder
