@@ -100,7 +100,7 @@ createServer((req, res) => {
   console.log(`[${new Date().toLocaleString("ru-RU")}] Сайт работает: http://localhost:${PORT}  (папка сайта: ${SITE})`);
   const ways = [process.env.TG_TOKEN && process.env.TG_CHAT && "Telegram", process.env.SMTP_USER && process.env.SMTP_PASS && `почта ${process.env.MAIL_TO || process.env.SMTP_USER}`, process.env.B24_WEBHOOK && "Битрикс24"].filter(Boolean);
   const copy = process.env.LEAD_LOG.toLowerCase() === "off" ? "на сервере не хранятся" : `копия — ${process.env.LEAD_LOG}`;
-  console.log(ways.length ? `Заявки: ${ways.join(" + ")}; ${copy}` : `Telegram и почта не настроены (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
+  console.log(ways.length ? `Заявки: ${ways.join(" + ")}; ${copy}` : copy === "на сервере не хранятся" ? "ВНИМАНИЕ: почта, Битрикс24 и Telegram не настроены, а хранение выключено (LEAD_LOG=off) — заявки никуда не попадут. Настройте почту в nastrojki.txt" : `Почта, Битрикс24 и Telegram не настроены (nastrojki.txt): заявки сохраняются только в ${process.env.LEAD_LOG}`);
 }).on("error", (e) => {
   console.error(e.code === "EADDRINUSE" ? `Порт ${PORT} занят: сайт уже запущен или порт занят другой программой.` : e.message);
   process.exit(1);

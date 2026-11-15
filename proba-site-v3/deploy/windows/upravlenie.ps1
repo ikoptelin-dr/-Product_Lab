@@ -8,11 +8,28 @@ param([string]$Action = "proverka")
 
 $ErrorActionPreference = "Stop"
 $Dir = Split-Path -Parent $PSCommandPath
+# Настройки сайта из nastrojki.txt: на одном компьютере может работать несколько сайтов (D:\proba, D:\med…)
+$Leaf = Split-Path -Leaf $Dir
+$Cfg = @{}
+$cfgFile = Join-Path $Dir "nastrojki.txt"
+if (Test-Path $cfgFile) {
+  foreach ($line in Get-Content -Path $cfgFile -Encoding UTF8) {
+    $l = $line.Trim()
+    if ($l -eq "" -or $l.StartsWith("#")) { continue }
+    $i = $l.IndexOf("=")
+    if ($i -gt 0) { $Cfg[$l.Substring(0, $i).Trim()] = $l.Substring($i + 1).Trim().Trim('"').Trim("'") }
+  }
+}
+$Port = if ($Cfg["SITE_PORT"]) { $Cfg["SITE_PORT"] } else { "8080" }
+$Domain = if ($Cfg["SITE_DOMAIN"]) { $Cfg["SITE_DOMAIN"] } else { "proba-lab.ru" }
+$Mark = if ($Cfg["SITE_MARK"]) { $Cfg["SITE_MARK"] } elseif ($Leaf -eq "proba") { "Proba Lab" } else { "" }
+# Имена задач — по имени папки: D:\proba -> «proba - sajt» (совпадает с прежним «Proba - sajt»: регистр в планировщике не важен)
+$TaskSite = "$Leaf - sajt"
+$TaskCaddy = "$Leaf - caddy"
 $Tasks = @(
-  @{ Name = "Proba - sajt";  File = "sluzhba-sajt.bat" },
-  @{ Name = "Proba - caddy"; File = "sluzhba-caddy.bat" }
+  @{ Name = $TaskSite;  File = "sluzhba-sajt.bat" },
+  @{ Name = $TaskCaddy; File = "sluzhba-caddy.bat" }
 )
-$Domain = "proba-lab.ru"
 # Если на компьютере уже работает другой Caddy (например, сайт друга), наш Caddy не нужен:
 # proba-lab.ru добавляется в настройки того Caddy. Признак режима — файл OBSHCHIJ-CADDY.txt в папке.
 $Shared = Test-Path (Join-Path $Dir "OBSHCHIJ-CADDY.txt")
@@ -98,9 +115,9 @@ function Start-Site {
 }
 
 function Shared-Mode {
-  Step "Подключаю proba-lab.ru к уже работающему Caddy (одна программа на портах 80 и 443)"
-  $t = Get-ScheduledTask -TaskName "Proba - caddy" -ErrorAction SilentlyContinue
-  if ($t) { Stop-ScheduledTask -TaskName "Proba - caddy" -ErrorAction SilentlyContinue; Unregister-ScheduledTask -TaskName "Proba - caddy" -Confirm:$false }
+  Step "Подключаю $Domain к уже работающему Caddy (одна программа на портах 80 и 443)"
+  $t = Get-ScheduledTask -TaskName $TaskCaddy -ErrorAction SilentlyContinue
+  if ($t) { Stop-ScheduledTask -TaskName $TaskCaddy -ErrorAction SilentlyContinue; Unregister-ScheduledTask -TaskName $TaskCaddy -Confirm:$false }
   Get-CimInstance Win32_Process | Where-Object { $_.Name -eq "cmd.exe" -and $_.CommandLine -and $_.CommandLine.Contains("sluzhba-caddy") } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
   Get-CimInstance Win32_Process -Filter "Name LIKE 'caddy%'" | Where-Object { Is-Own $_.ExecutablePath } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
   Ok "Свой Caddy отключён (сайт и приём заявок продолжают работать)"
@@ -109,16 +126,16 @@ Proba Lab: режим «общий Caddy». Пока этот файл лежи�
 Порты 80 и 443 обслуживает другой Caddy на этом компьютере. В его Caddyfile нужно добавить два блока ниже
 и перезагрузить его настройки (caddy reload --config путь_к_его_Caddyfile, или перезапустить его службу).
 
-proba-lab.ru {
+$Domain {
 	encode zstd gzip
 	request_body {
 		max_size 6MB
 	}
-	reverse_proxy 127.0.0.1:8080
+	reverse_proxy 127.0.0.1:$Port
 }
 
-www.proba-lab.ru {
-	redir https://proba-lab.ru{uri} permanent
+www.$Domain {
+	redir https://$Domain{uri} permanent
 }
 
 Вернуть свой Caddy: удалите этот файл и запустите 2-VKLYUCHIT-AVTOZAPUSK.bat (другой Caddy перед этим должен освободить порты 80 и 443).
@@ -133,9 +150,12 @@ function Install {
   $node = Find-Node
   if (-not $node) { Bad "Не найден Node.js. Установите его (шаг 2 инструкции) и запустите снова."; Finish }
   Ok "Node.js: $node"
-  $caddy = Find-Caddy
-  if (-not $caddy) { Bad "В папке $Dir нет файла caddy...exe. Скачайте Caddy (шаг 3 инструкции) и положите в эту папку."; Finish }
-  Ok "Caddy: $caddy"
+  if ($Shared) { Ok "Режим «общий Caddy»: свой Caddy не нужен (файл OBSHCHIJ-CADDY.txt)" }
+  else {
+    $caddy = Find-Caddy
+    if (-not $caddy) { Bad "В папке $Dir нет файла caddy...exe. Скачайте Caddy (шаг 4 инструкции) и положите в эту папку."; Finish }
+    Ok "Caddy: $caddy"
+  }
   if (-not (Test-Path (Join-Path $Dir "site\index.html"))) { Bad "Нет папки site с сайтом внутри $Dir."; Finish }
   Ok "Сайт: $Dir\site"
 
@@ -195,8 +215,10 @@ function Check {
     if ($v -match "^v(\d+)" -and [int]$Matches[1] -ge 18) { Ok "Node.js установлен: $v" } else { Bad "Node.js слишком старый ($v): нужна версия 18 или новее (LTS с nodejs.org)" }
   } else { Bad "Node.js не установлен — шаг 2 инструкции" }
 
-  $caddy = Find-Caddy
-  if ($caddy) { Ok "Caddy на месте: $(Split-Path -Leaf $caddy)" } else { Bad "В папке нет caddy...exe — шаг 3 инструкции" }
+  if (-not $Shared) {
+    $caddy = Find-Caddy
+    if ($caddy) { Ok "Caddy на месте: $(Split-Path -Leaf $caddy)" } else { Bad "В папке нет caddy...exe — шаг 4 инструкции" }
+  }
 
   if (Test-Path (Join-Path $Dir "site\index.html")) { Ok "Папка site с сайтом на месте" } else { Bad "Нет папки site с сайтом" }
 
@@ -229,10 +251,10 @@ function Check {
   }
 
   try {
-    $r = Invoke-WebRequest -Uri "http://127.0.0.1:8080/" -UseBasicParsing -TimeoutSec 10
-    if ($r.StatusCode -eq 200 -and $r.Content -match "Proba Lab") { Ok "Сайт открывается на этом компьютере: http://localhost:8080" }
-    else { Bad "На http://localhost:8080 отвечает не сайт Proba Lab — порт 8080 занят другой программой. Смотрите logs\sajt.log" }
-  } catch { Bad "Сайт не отвечает на http://localhost:8080 — смотрите logs\sajt.log" }
+    $r = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/" -UseBasicParsing -TimeoutSec 10
+    if ($r.StatusCode -eq 200 -and (-not $Mark -or $r.Content.Contains($Mark))) { Ok "Сайт открывается на этом компьютере: http://localhost:$Port" }
+    else { Bad "На http://localhost:$Port отвечает не этот сайт — порт $Port занят другой программой. Смотрите logs\sajt.log" }
+  } catch { Bad "Сайт не отвечает на http://localhost:$Port — смотрите logs\sajt.log" }
 
   foreach ($port in 80, 443) {
     $c = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
