@@ -1,0 +1,14 @@
+{
+ "request": {
+  "phrase": "пасман запись",
+  "numPhrases": 1000,
+  "regions": [
+   "11316"
+  ]
+ },
+ "method": "topRequests",
+ "at": "2026-11-16T06:16:32+00:00",
+ "response": {
+  "totalCount": "24"
+ }
+}
