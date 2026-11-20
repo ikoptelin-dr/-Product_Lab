@@ -2,10 +2,10 @@
 // Без зависимостей, Node 18+. Снаружи стоит Caddy (deploy/windows/Caddyfile): HTTPS-сертификат и переадресация сюда.
 // Запуск: node server.mjs → http://127.0.0.1:8080
 // Рядом с файлом: site/ — содержимое dist/, nastrojki.txt — TG_TOKEN/TG_CHAT (Telegram) и SMTP_USER/SMTP_PASS/MAIL_TO (почта); в репозиторий не коммитить.
-// node server.mjs --test-mail — отправить тестовое письмо по настройкам и выйти.
+// node server.mjs --test-mail — отправить тестовое письмо по настройкам и выйти; --indexnow — сообщить поисковикам адреса сайта.
 // Правила адресов те же, что в deploy/nginx.conf: переехавшие страницы, разделы со слэшем, $uri и $uri.html, 404.html.
 import { createServer } from "node:http";
-import { createReadStream, existsSync, mkdirSync, readFileSync, statSync } from "node:fs";
+import { createReadStream, existsSync, mkdirSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, extname, join, normalize, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -32,6 +32,31 @@ if (!process.env.LEAD_LOG) {
 }
 // Приёмник читает TG_TOKEN, TG_CHAT, SMTP_* и LEAD_LOG при загрузке — импортируем после настроек
 const { leadHandler, sendMail } = await import("./form-endpoint.mjs");
+
+// node server.mjs --indexnow — сообщить Яндексу и Bing все адреса из site/sitemap.xml (протокол IndexNow).
+// Ключ — файл <32 hex>.txt в корне сайта (кладёт сборка). Запускать после каждого обновления сайта.
+if (process.argv.includes("--indexnow")) {
+  const map = join(SITE, "sitemap.xml");
+  if (!existsSync(map)) { console.error("Нет site/sitemap.xml — положите собранный сайт в папку site"); process.exit(1); }
+  const urls = [...readFileSync(map, "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+  const keyFile = readdirSync(SITE).find((n) => /^[0-9a-f]{32}\.txt$/.test(n));
+  if (!urls.length || !keyFile) { console.error(!urls.length ? "В sitemap.xml нет адресов" : "Нет файла-ключа IndexNow в папке site — обновите сайт"); process.exit(1); }
+  const key = keyFile.slice(0, -4);
+  const host = new URL(urls[0]).host;
+  const body = JSON.stringify({ host, key, keyLocation: `https://${host}/${keyFile}`, urlList: urls.filter((u) => new URL(u).host === host).slice(0, 10000) });
+  const endpoints = (process.env.INDEXNOW_ENDPOINTS || "https://yandex.com/indexnow,https://www.bing.com/indexnow").split(",");
+  let ok = 0;
+  for (const ep of endpoints) {
+    const name = /yandex/.test(ep) ? "Яндекс" : /bing/.test(ep) ? "Bing" : ep;
+    try {
+      const r = await fetch(ep, { method: "POST", headers: { "content-type": "application/json; charset=utf-8" }, body, signal: AbortSignal.timeout(20_000) });
+      const why = { 400: "неверный запрос", 403: "ключ не найден на сайте — сначала обновите папку site и подождите минуту", 422: "адреса не совпадают с доменом или ключом", 429: "слишком часто — попробуйте завтра" }[r.status];
+      if (r.ok) { ok++; console.log(`${name}: принято ${urls.length} адресов (ответ ${r.status})`); }
+      else console.error(`${name}: ошибка ${r.status}${why ? ` — ${why}` : ""}`);
+    } catch (e) { console.error(`${name}: нет связи (${e.message})`); }
+  }
+  process.exit(ok ? 0 : 1);
+}
 
 if (process.argv.includes("--test-mail")) {
   const { SMTP_USER, SMTP_PASS, MAIL_TO } = process.env;

@@ -288,6 +288,9 @@ const jsText = js.outputFiles[0].text;
 if (/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage|indexedDB/.test(jsText)) throw new Error("site.js: сетевые запросы или хранилище браузера запрещены");
 writeFileSync(join(dist, "assets/site.js"), jsText);
 for (const img of ["emblem-ink.png"]) copyFileSync(join(root, "assets", img), join(dist, "assets", img));
+// IndexNow (Яндекс, Bing): файл-ключ в корне сайта — им поисковик проверяет, что адреса присылает владелец. Ключ не секретный.
+const INDEXNOW_KEY = "83594ec6bba86f806045a917d225607e";
+writeFileSync(join(dist, `${INDEXNOW_KEY}.txt`), INDEXNOW_KEY);
 // Изображения (Ideogram и др.) — если владелец их положил; страницы показывают их вместо градиентных заглушек
 if (IMAGES.length || VIDEOS.length) mkdirSync(join(dist, "assets/images"), { recursive: true });
 for (const im of IMAGES) copyFileSync(join(root, "assets/images", im), join(dist, "assets/images", im));
